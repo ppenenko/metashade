@@ -1,6 +1,6 @@
 import base
 
-class Profile(base.Profile):
+class Target(base.Target):
     pass
 
 class Float(base.BaseType):

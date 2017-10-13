@@ -1,18 +1,20 @@
-import profiles.base
-
-class Target(object):
-    def __init__(self, file, profile):
-        self.file = file
-        
+import profiles.base        
+            
 class BaseContext(object):
     def __init__(self, parent):
         self._parent = parent
+        self._target = parent.get_target()
         
+    def get_target(self):
+        return self._target
+        
+class ScopedContext(BaseContext):
     def __enter__(self):
+        self._target.open_scope()
         return self
         
     def __exit__(self, exc_type, exc_value, traceback):
-        pass
+        self._target.close_scope()
     
     def __setattr__(self, name, value):        
         if isinstance(self.__dict__.get(name), profiles.base.BaseType):
@@ -25,14 +27,7 @@ class BaseContext(object):
     
     def return_(self, value):
         pass
-    
-class FunctionBody(BaseContext):
-    def __init__(self, function):
-        BaseContext.__init__(self, function._parent)
-    
-class Function(object):
-    def __init__(self, parent):
-        self._parent = parent
         
+class Function(BaseContext):        
     def body(self):
-        return FunctionBody(self)
+        return ScopedContext(self)

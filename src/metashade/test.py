@@ -4,7 +4,7 @@ import context
 import profiles.hlsl as hlsl
 
 def test_simple():
-    target = context.Target(sys.stdout, hlsl.Profile)
+    target = hlsl.Target(sys.stderr)
     func = context.Function(target)
     
     with func.body() as sh:
@@ -18,7 +18,7 @@ def test_simple():
         #sh.return_(sh.a + sh.b)
     
 def test_double_definition():
-    target = context.Target(sys.stdout, hlsl.Profile)
+    target = hlsl.Target(sys.stderr)
     func = context.Function(target)
     
     with func.body() as sh:
