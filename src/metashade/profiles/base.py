@@ -36,9 +36,16 @@ class Float(BaseType):
         self._initializer = initializer
     
     def define(self, sh, identifier):
-        self._sh = sh
+        self._identifier = identifier
+        self._sh = sh        
         self._target = sh.get_target()
         self._target.write('{type_name} {identifier}{initializer};\n'.format(
             type_name = self.__class__._target_name,
-            identifier = identifier,
+            identifier = self._identifier,
             initializer = '' if self._initializer is None else ' = {}'.format(self._initializer) ))
+        
+    def __add__(self, rhs):
+        # TODO: handle implicit type conversions
+        return self.__class__('{this} + {rhs}'.format(
+            this = self._identifier, rhs = rhs._identifier )) 
+        
