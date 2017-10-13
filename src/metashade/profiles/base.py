@@ -18,12 +18,27 @@ class Target(object):
         return self._indent_char * (self._indent * self._indent_delta)
     
     def open_scope(self):
-        self._file.write(self.get_indent() + '{\n')
+        self.write('{\n')
         self.push_indent()
         
     def close_scope(self):
         self.pop_indent()
-        self._file.write(self.get_indent() + '}\n')
+        self.write('}\n')
+        
+    def write(self, line):
+        self._file.write(self.get_indent() + line)        
 
 class BaseType(object):
     pass
+
+class Float(BaseType):
+    def __init__(self, initializer=None):
+        self._initializer = initializer
+    
+    def define(self, sh, identifier):
+        self._sh = sh
+        self._target = sh.get_target()
+        self._target.write('{type_name} {identifier}{initializer};\n'.format(
+            type_name = self.__class__._target_name,
+            identifier = identifier,
+            initializer = '' if self._initializer is None else ' = {}'.format(self._initializer) ))

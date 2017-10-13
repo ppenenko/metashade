@@ -1,30 +1,30 @@
 import sys
 
 import context
-import profiles.hlsl as hlsl
+import profiles.hlsl as profile
 
 def test_simple():
-    target = hlsl.Target(sys.stderr)
+    target = profile.Target(sys.stderr)
     func = context.Function(target)
     
     with func.body() as sh:
-        sh.a = hlsl.Float(1)
+        sh.a = profile.Float(1)
         #sh.Float(1).a
         #sh.Float('a', 1)
         #sh.c = sh.a + sh.b
         #sh.Float('c', sh.a + sh.b)
         
-        sh.b = hlsl.Float(2)
+        sh.b = profile.Float(2)
         #sh.return_(sh.a + sh.b)
     
 def test_double_definition():
-    target = hlsl.Target(sys.stderr)
+    target = profile.Target(sys.stderr)
     func = context.Function(target)
     
     with func.body() as sh:
-        sh.a = hlsl.Float(1)        
+        sh.a = profile.Float(1)        
         try:
-            sh.a = hlsl.Float(2)
+            sh.a = profile.Float(2)
         except AttributeError:
             pass
         else:
