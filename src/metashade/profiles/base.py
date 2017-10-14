@@ -17,6 +17,9 @@ class Target(object):
     def get_indent(self):
         return self._indent_char * (self._indent * self._indent_delta)
     
+    def write(self, line):
+        self._file.write(self.get_indent() + line)
+    
     def open_scope(self):
         self.write('{\n')
         self.push_indent()
@@ -25,27 +28,37 @@ class Target(object):
         self.pop_indent()
         self.write('}\n')
         
-    def write(self, line):
-        self._file.write(self.get_indent() + line)        
+    def return_(self, value):
+        self.write('return {};\n'.format(value.get_ref()))
 
 class BaseType(object):
-    pass
-
-class Float(BaseType):
-    def __init__(self, initializer=None):
-        self._initializer = initializer
-    
+    def __init__(self, initializer = None):
+        self._identifier = None
+        self._value = initializer
+        
     def define(self, sh, identifier):
         self._identifier = identifier
-        self._sh = sh        
         self._target = sh.get_target()
         self._target.write('{type_name} {identifier}{initializer};\n'.format(
             type_name = self.__class__._target_name,
             identifier = self._identifier,
-            initializer = '' if self._initializer is None else ' = {}'.format(self._initializer) ))
+            initializer = '' if self._value is None else ' = {}'.format(self._value) ))
         
+    def get_ref(self):
+        if self._identifier is not None:
+            if self._value is None:
+                raise RuntimeError('Variable is used before it has been assigned a value')
+            
+            return self._identifier
+        
+        elif self._value is not None:
+            return self._value
+        else:        
+            raise RuntimeError('Instance is neiher a variable nor expression.')  
+
+class Float(BaseType):            
     def __add__(self, rhs):
         # TODO: handle implicit type conversions
         return self.__class__('{this} + {rhs}'.format(
-            this = self._identifier, rhs = rhs._identifier )) 
+            this = self.get_ref(), rhs = rhs.get_ref() )) 
         

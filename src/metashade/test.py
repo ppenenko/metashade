@@ -8,11 +8,12 @@ def test_simple():
     func = context.Function(target)
     
     with func.body() as sh:
-        sh.a = profile.Float(1)        
+        sh.a = profile.Float(1)  
         sh.b = profile.Float(2)
-        sh.c = sh.a + sh.b
-        
-        #sh.return_(sh.a + sh.b)
+        sh.c = sh.a + sh.b        
+        sh.return_(sh.c)
+        sh.return_(sh.a + sh.b)
+        sh.return_(sh.a + profile.Float(3.0))
     
 def test_double_definition():
     target = profile.Target(sys.stderr)

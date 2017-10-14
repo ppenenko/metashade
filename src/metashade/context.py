@@ -25,8 +25,8 @@ class ScopedContext(BaseContext):
             
         object.__setattr__(self, name, value)
     
-    def return_(self, value):
-        pass
+    def return_(self, value=None):
+        self._target.return_(value)
         
 class Function(BaseContext):        
     def body(self):
