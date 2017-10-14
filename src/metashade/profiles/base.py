@@ -54,7 +54,16 @@ class BaseType(object):
         elif self._value is not None:
             return self._value
         else:        
-            raise RuntimeError('Instance is neiher a variable nor expression.')  
+            raise RuntimeError('Instance is neiher a variable nor expression.')
+        
+    def __setattr__(self, name, value):
+        if name == '_':
+            self._value = value
+            self._target.write('{identifier} = {value};\n'.format(
+                identifier = self._identifier,
+                value = value.get_ref() if hasattr(value, 'get_ref') else value ))
+        else:
+            object.__setattr__(self, name, value)  
 
 class Float(BaseType):            
     def __add__(self, rhs):

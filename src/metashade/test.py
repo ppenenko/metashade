@@ -10,7 +10,13 @@ def test_simple():
     with func.body() as sh:
         sh.a = profile.Float(1)  
         sh.b = profile.Float(2)
-        sh.c = sh.a + sh.b        
+        sh.c = sh.a + sh.b
+        
+        sh.d = profile.Float()
+        sh.d._ = sh.b + sh.a
+        sh.d._ = profile.Float(4)
+        sh.d._ = 5
+        
         sh.return_(sh.c)
         sh.return_(sh.a + sh.b)
         sh.return_(sh.a + profile.Float(3.0))
