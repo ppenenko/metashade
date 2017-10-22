@@ -22,28 +22,28 @@ def test_simple():
     func = context.Function(target)
     
     with func.body() as sh:
-        sh.a = profile.Float(1)  
-        sh.b = profile.Float(2)
+        sh.a = sh.Float(1)
+        sh.b = sh.Float(2)
         sh.c = sh.a + sh.b
         
-        sh.d = profile.Float()
+        sh.d = sh.Float()
         sh.d._ = sh.b + sh.a
-        sh.d._ = profile.Float(4)
+        sh.d._ = sh.Float(4)
         sh.d._ = 5
         
         sh.return_()
         sh.return_(sh.c)
         sh.return_(sh.a + sh.b)
-        sh.return_(sh.a + profile.Float(3.0))
+        sh.return_(sh.a + sh.Float(3.0))
     
 def test_double_definition():
     target = profile.Target(sys.stderr)
     func = context.Function(target)
     
     with func.body() as sh:
-        sh.a = profile.Float(1)        
+        sh.a = sh.Float(1)        
         try:
-            sh.a = profile.Float(2)
+            sh.a = sh.Float(2)
         except AttributeError:
             pass
         else:

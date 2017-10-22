@@ -21,6 +21,9 @@ class BaseContext(object):
         
     def get_target(self):
         return self._target
+    
+    def __getattr__(self, name):
+        return getattr(self._parent, name)
         
 class ScopedContext(BaseContext):
     def __enter__(self):
@@ -31,7 +34,7 @@ class ScopedContext(BaseContext):
         self._target.close_scope()
     
     def __setattr__(self, name, value):        
-        if isinstance(self.__dict__.get(name), profiles.base.BaseType):
+        if isinstance(self.__dict__.get(name), profiles.base.Target.BaseType):
             raise AttributeError('Metashade variable ' + name + ' is already defined.')
         
         if hasattr(value, 'define'):
