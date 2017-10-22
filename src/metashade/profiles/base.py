@@ -43,7 +43,8 @@ class Target(object):
         self.write('}\n')
         
     def return_(self, value):
-        self.write('return {};\n'.format(value.get_ref()))
+        self.write('return{};\n'.format(
+            ' ' + value.get_ref() if value is not None else ''))
 
 class BaseType(object):
     def __init__(self, initializer = None):

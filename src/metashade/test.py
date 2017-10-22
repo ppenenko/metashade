@@ -31,6 +31,7 @@ def test_simple():
         sh.d._ = profile.Float(4)
         sh.d._ = 5
         
+        sh.return_()
         sh.return_(sh.c)
         sh.return_(sh.a + sh.b)
         sh.return_(sh.a + profile.Float(3.0))
