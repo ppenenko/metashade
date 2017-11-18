@@ -12,8 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import metashade.clike.profile as clike
-import data_types
+import metashade.base.data_types as base
 
-class Target(clike.Target):
-    Float = data_types.Float
+class Float(base.Float):
+    _target_name = 'float'

@@ -14,14 +14,13 @@
 
 import sys
 
-import metashade.base.context as context
 import metashade.hlsl.profile as profile
 
 def test_simple():
-    target = profile.Target(sys.stderr)
-    func = context.Function(target)
+    sh = profile.Target(sys.stderr)
+    sh.test_func = sh.Function()
     
-    with func.body() as sh:
+    with sh.test_func.body() as sh:
         sh.a = sh.Float(1)
         sh.b = sh.Float(2)
         sh.c = sh.a + sh.b
@@ -36,17 +35,17 @@ def test_simple():
         sh.return_(sh.a + sh.b)
         sh.return_(sh.a + sh.Float(3.0))
     
-def test_double_definition():
-    target = profile.Target(sys.stderr)
-    func = context.Function(target)
-    
-    with func.body() as sh:
-        sh.a = sh.Float(1)        
-        try:
-            sh.a = sh.Float(2)
-        except AttributeError:
-            pass
-        else:
-            assert False
+# def test_double_definition():
+#     sh = profile.Target(sys.stderr)
+#     sh.test_func = sh.Function()
+#      
+#     with sh.test_func.body() as sh:
+#         sh.a = sh.Float(1)        
+#         try:
+#             sh.a = sh.Float(2)
+#         except AttributeError:
+#             pass
+#         else:
+#             assert False
                         
                 
