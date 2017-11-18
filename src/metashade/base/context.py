@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import profiles.base        
+import profile        
             
 class BaseContext(object):
     def __init__(self, parent):
@@ -34,7 +34,7 @@ class ScopedContext(BaseContext):
         self._target.close_scope()
     
     def __setattr__(self, name, value):        
-        if isinstance(self.__dict__.get(name), profiles.base.Target.BaseType):
+        if isinstance(self.__dict__.get(name), profile.Target.BaseType):
             raise AttributeError('Metashade variable ' + name + ' is already defined.')
         
         if hasattr(value, 'define'):

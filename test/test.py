@@ -14,8 +14,8 @@
 
 import sys
 
-import context
-import profiles.hlsl as profile
+import metashade.base.context as context
+import metashade.hlsl.profile as profile
 
 def test_simple():
     target = profile.Target(sys.stderr)

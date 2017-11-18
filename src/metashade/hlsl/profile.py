@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import base
+import metashade.base.profile as base
 
 class Target(base.Target):
     class Float(base.Target.Float):
