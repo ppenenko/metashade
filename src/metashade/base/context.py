@@ -17,19 +17,22 @@ import data_types
 class BaseContext(object):
     def __init__(self, parent):
         self._parent = parent
-        self._target = parent.get_target()
+        self._target = None if parent is None else parent.get_target()
         
     def get_target(self):
         return self._target
     
     def __getattr__(self, name):
         return getattr(self._parent, name)
-    
-    def __setattr__(self, name, value):        
-        if isinstance(self.__dict__.get(name), data_types.BaseType):
-            raise AttributeError('Metashade variable ' + name + ' is already defined.')
-        
-        if hasattr(value, 'define'):
-            value.define(self, name)
+
+class ScopedContext(BaseContext):    
+    def __setattr__(self, name, value):
+        if not name.startswith('_'): #private variables are never meta
+            if isinstance(self.__dict__.get(name), data_types.BaseType):
+                raise AttributeError(
+                    'Metashade variable ' + name + ' is already defined.')
+            
+            if hasattr(value, 'define'):
+                value.define(self, name)
             
         object.__setattr__(self, name, value)

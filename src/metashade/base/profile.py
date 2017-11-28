@@ -15,7 +15,7 @@
 import data_types
 import context
 
-class Target(context.BaseContext):
+class Target(context.ScopedContext):
     def __init__(self, file):
         self._file = file
         self._indent = 0

@@ -14,7 +14,7 @@
 
 import metashade.base.context as base
 
-class ScopedContext(base.BaseContext):
+class ScopedContext(base.ScopedContext):
     def __enter__(self):
         self._target.write('{\n')
         self._target.push_indent()
@@ -28,15 +28,16 @@ class ScopedContext(base.BaseContext):
         self._target.write('return{};\n'.format(
             ' ' + value.get_ref() if value is not None else ''))
         
-class Function(object):
+class Function(base.BaseContext):
+    def __init__(self):
+        super(Function, self).__init__(None)
+        
     def define(self, sh, identifier):
         self._identifier = identifier
+        self._parent = sh
         self._target = sh.get_target()
-        self._target.write('void {identifier}();\n'.format(
+        self._target.write('void {identifier}()\n'.format(
             identifier = self._identifier ))
-        
-    def get_target():
-        return self._target
         
     def body(self):
         return ScopedContext(self)
