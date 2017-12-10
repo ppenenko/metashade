@@ -29,15 +29,31 @@ class ScopedContext(base.ScopedContext):
             ' ' + value.get_ref() if value is not None else ''))
         
 class Function(base.BaseContext):
-    def __init__(self):
-        super(Function, self).__init__(None)
+    def __init__(self, **kwargs):
+        super(Function, self).__init__(parent=None)
+        self._args = kwargs
         
     def define(self, sh, identifier):
         self._identifier = identifier
         self._parent = sh
         self._target = sh.get_target()
-        self._target.write('void {identifier}()\n'.format(
+        self._target.write('void {identifier}('.format(
             identifier = self._identifier ))
+        
+        first = True
+        for name, arg in self._args.iteritems():
+            if first:
+                first = False
+            else:
+                self._target.write(', ')
+            arg.arg_define(self, name)
+                        
+        self._target.write(')\n')
+        
+    def __getattr__(self, name):
+        arg = self._args.get(name)
+        return arg if arg is not None \
+            else super(Function, self).__getattr__(name)
         
     def body(self):
         return ScopedContext(self)

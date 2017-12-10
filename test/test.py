@@ -18,10 +18,9 @@ import metashade.hlsl.profile as profile
 
 def test_simple():
     sh = profile.Target(sys.stderr)
-    sh.test_func = sh.Function()
+    sh.test_func = sh.Function(a = sh.Float(), e = sh.Float())
     
     with sh.test_func.body() as sh:
-        sh.a = sh.Float(1)
         sh.b = sh.Float(2)
         sh.c = sh.a + sh.b
         

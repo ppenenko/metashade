@@ -23,6 +23,9 @@ class BaseContext(object):
         return self._target
     
     def __getattr__(self, name):
+        if self.__dict__.get('_parent') is None:
+            raise RuntimeError('Identifier {name} is not defined.'.format(
+                name=name))
         return getattr(self._parent, name)
 
 class ScopedContext(BaseContext):    

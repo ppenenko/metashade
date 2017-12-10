@@ -17,6 +17,7 @@ class BaseType(object):
         self._identifier = None
         self._value = initializer
         
+    #TODO: this is obviously too C-like to be here, move it elsewhere
     def define(self, sh, identifier):
         self._identifier = identifier
         self._target = sh.get_target()
@@ -25,10 +26,22 @@ class BaseType(object):
             identifier = self._identifier,
             initializer = '' if self._value is None else ' = {}'.format(self._value) ))
         
+    def arg_define(self, sh, identifier):
+        if self._value is not None:
+            raise RuntimeError('Arguments with default values are not supported.')
+            
+        self._identifier = identifier
+        self._target = sh.get_target()
+        self._target.write('{type_name} {identifier}'.format(
+            type_name = self.__class__._target_name,
+            identifier = self._identifier))
+        
     def get_ref(self):
         if self._identifier is not None:
-            if self._value is None:
-                raise RuntimeError('Variable is used before it has been assigned a value')
+            #TODO this check fails for function arguments, revisit
+#             if self._value is None:
+#                 raise RuntimeError(
+#                     'Variable is used before it has been assigned a value')
             
             return self._identifier
         
