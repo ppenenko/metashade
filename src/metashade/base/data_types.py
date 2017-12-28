@@ -17,23 +17,19 @@ class BaseType(object):
         self._identifier = None
         self._value = initializer
         
-    def define(self, sh, identifier):
-        self._identifier = identifier
-        self._target = sh.get_target()
-        
-    def arg_define(self, sh, identifier):
-        if self._value is not None:
+    def _define(self, sh, identifier, is_arg):
+        if is_arg and self._value is not None:
             raise RuntimeError('Arguments with default values are not supported.')
-            
+        
         self._identifier = identifier
         self._target = sh.get_target()
+        self._is_arg = is_arg
         
     def get_ref(self):
-        if self._identifier is not None:
-            #TODO this check fails for function arguments, revisit
-#             if self._value is None:
-#                 raise RuntimeError(
-#                     'Variable is used before it has been assigned a value')
+        if self._identifier is not None:            
+            if not self._is_arg and self._value is None:
+                raise RuntimeError(
+                    'Variable is used before it has been assigned a value')
             
             return self._identifier
         
