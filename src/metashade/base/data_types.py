@@ -17,14 +17,9 @@ class BaseType(object):
         self._identifier = None
         self._value = initializer
         
-    #TODO: this is obviously too C-like to be here, move it elsewhere
     def define(self, sh, identifier):
         self._identifier = identifier
         self._target = sh.get_target()
-        self._target.write('{type_name} {identifier}{initializer};\n'.format(
-            type_name = self.__class__._target_name,
-            identifier = self._identifier,
-            initializer = '' if self._value is None else ' = {}'.format(self._value) ))
         
     def arg_define(self, sh, identifier):
         if self._value is not None:
@@ -32,9 +27,6 @@ class BaseType(object):
             
         self._identifier = identifier
         self._target = sh.get_target()
-        self._target.write('{type_name} {identifier}'.format(
-            type_name = self.__class__._target_name,
-            identifier = self._identifier))
         
     def get_ref(self):
         if self._identifier is not None:
@@ -49,18 +41,3 @@ class BaseType(object):
             return self._value
         else:        
             raise RuntimeError('Instance is neither a variable nor expression.')
-        
-    def __setattr__(self, name, value):
-        if name == '_':
-            self._value = value
-            self._target.write('{identifier} = {value};\n'.format(
-                identifier = self._identifier,
-                value = value.get_ref() if hasattr(value, 'get_ref') else value ))
-        else:
-            object.__setattr__(self, name, value)
-            
-class Float(BaseType):
-    def __add__(self, rhs):
-        # TODO: handle implicit type conversions
-        return self.__class__('{this} + {rhs}'.format(
-            this = self.get_ref(), rhs = rhs.get_ref() ))
