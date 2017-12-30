@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import metashade.base.context as base
+from types import NoneType
 
 class ScopedContext(base.ScopedContext):
     def __enter__(self):
@@ -31,13 +32,26 @@ class ScopedContext(base.ScopedContext):
 class Function(base.BaseContext):
     def __init__(self, **kwargs):
         super(Function, self).__init__(parent=None)
-        self._args = kwargs
+        
+        self._args = dict()
+        self._return_type = NoneType
+        
+        for name, arg in kwargs.iteritems():
+            if name == 'return_type':
+                self._return_type = arg
+            else:
+                self._args[name] = arg
         
     def define(self, sh, identifier):
         self._identifier = identifier
         self._parent = sh
         self._target = sh.get_target()
-        self._target.write('void {identifier}('.format(
+        
+        return_type = self._return_type._target_name \
+            if self._return_type != NoneType else 'void'
+            
+        self._target.write('{return_type} {identifier}('.format(
+            return_type=return_type,            
             identifier = self._identifier ))
         
         first = True
