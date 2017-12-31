@@ -19,9 +19,9 @@ import metashade.hlsl.profile as profile
 def test_simple():
     sh = profile.Target(sys.stderr)
     sh.test_func = sh.Function(
-        return_type = sh.Float(),
-        a = sh.Float(),
-        e = sh.Float())
+        return_type = sh.Float,
+        a = sh.Float,
+        e = sh.Float)
     
     with sh.test_func.body() as sh:
         sh.b = sh.Float(2)
@@ -32,7 +32,7 @@ def test_simple():
         sh.d._ = sh.Float(4)
         sh.d._ = 5
         
-        sh.return_()
+        #sh.return_()
         sh.return_(sh.c)
         sh.return_(sh.a + sh.b)
         sh.return_(sh.a + sh.Float(3.0))

@@ -24,10 +24,6 @@ class ScopedContext(base.ScopedContext):
     def __exit__(self, exc_type, exc_value, traceback):        
         self._target.pop_indent()
         self._target.write('}\n')
-    
-    def return_(self, value=None):
-        self._target.write('return{};\n'.format(
-            ' ' + value.get_ref() if value is not None else ''))
         
 class Function(base.BaseContext):
     def __init__(self, **kwargs):
@@ -36,11 +32,11 @@ class Function(base.BaseContext):
         self._args = dict()
         self._return_type = NoneType
         
-        for name, arg in kwargs.iteritems():
+        for name, arg_type in kwargs.iteritems():
             if name == 'return_type':
-                self._return_type = arg
+                self._return_type = arg_type
             else:
-                self._args[name] = arg
+                self._args[name] = arg_type()
         
     def define(self, sh, identifier):
         self._identifier = identifier
@@ -51,7 +47,7 @@ class Function(base.BaseContext):
             if self._return_type != NoneType else 'void'
             
         self._target.write('{return_type} {identifier}('.format(
-            return_type=return_type,            
+            return_type = return_type,            
             identifier = self._identifier ))
         
         first = True
@@ -71,3 +67,10 @@ class Function(base.BaseContext):
         
     def body(self):
         return ScopedContext(self)
+    
+    def return_(self, value=None):
+        if not isinstance(value, self._return_type):
+            raise RuntimeError('Return value type mismatch')
+            
+        self._target.write('return{};\n'.format(
+            ' ' + value.get_ref() if value is not None else ''))
