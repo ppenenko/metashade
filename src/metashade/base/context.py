@@ -39,7 +39,10 @@ class BaseContext(object):
                 name=name))
         return getattr(self._parent, name)
 
-class ScopedContext(BaseContext):    
+class ScopedContext(BaseContext):
+    """
+    The context class that allows adding new attributes of Metashade types.
+    """    
     def __setattr__(self, name, value):
         if not name.startswith('_'): #private variables are never meta
             if isinstance(self.__dict__.get(name), data_types.BaseType):

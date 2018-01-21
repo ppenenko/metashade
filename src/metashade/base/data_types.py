@@ -13,6 +13,9 @@
 # limitations under the License.
 
 class BaseType(object):
+    """
+    The base class for all Metashade types.
+    """    
     def __init__(self, initializer = None):
         self._identifier = None
         self._value = initializer

@@ -16,6 +16,9 @@ import data_types
 import context
 
 class Target(context.ScopedContext):
+    """
+    The base class for targets. Wraps an output file and handles indentation.
+    """
     def __init__(self, file):
         self._file = file
         self._indent = 0
