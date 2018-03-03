@@ -15,27 +15,29 @@
 import sys
 
 import metashade.hlsl.profile as profile
+import metashade.hlsl.context as context
+from metashade.hlsl.data_types import Float 
 
 def test_simple():
     sh = profile.Target(sys.stderr)
-    sh.test_func = sh.Function(
-        return_type = sh.Float,
-        a = sh.Float,
-        e = sh.Float)
+    sh.test_func = context.Function(
+        return_type = Float,
+        a = Float,
+        e = Float)
     
     with sh.test_func.body() as sh:
-        sh.b = sh.Float(2)
+        sh.b = Float(2)
         sh.c = sh.a + sh.b
         
-        sh.d = sh.Float()
+        sh.d = Float()
         sh.d._ = sh.b + sh.a
-        sh.d._ = sh.Float(4)
+        sh.d._ = Float(4)
         sh.d._ = 5
         
         #sh.return_()
         sh.return_(sh.c)
         sh.return_(sh.a + sh.b)
-        sh.return_(sh.a + sh.Float(3.0))
+        sh.return_(sh.a + Float(3.0))
     
 # def test_double_definition():
 #     sh = profile.Target(sys.stderr)

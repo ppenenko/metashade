@@ -20,27 +20,29 @@ Currently fails.
 import sys
 
 import metashade.hlsl.fx.profile as profile
+import metashade.hlsl.fx.io as io
+import metashade.hlsl.fx.context as context
 
 def test_simple():
     sh = profile.Target(sys.stderr)
     
-    sh.VsIn = sh.VertexShaderIn(position = sh.Point3f)
-    sh.VsOut = sh.VertexShaderOut()
+    sh.VsIn = io.VertexShaderIn(position = Point3f)
+    sh.VsOut = io.VertexShaderOut()
     
-    sh.VsMain = sh.VertexShaderMain(return_value = sh.VsOut, i = sh.VsIn)
+    sh.VsMain = context.VertexShaderMain(return_value = sh.VsOut, i = sh.VsIn)
     with sh.VsMain.body() as sh:
         sh.o = sh.VsOut()
         
         # TODO: multiply by MVP
-        sh.o.position = sh.Vector4f(sh.i.position)
+        sh.o.position = Vector4f(sh.i.position)
         sh.return_(sh.o)
         
-    sh.PsOut = sh.PixelShaderOut(color = sh.Rgba)
+    sh.PsOut = io.PixelShaderOut(color = RGBA)
     
-    sh.PsMain = sh.PixelShaderMain(return_value = sh.PsOut)
+    sh.PsMain = context.PixelShaderMain(return_value = sh.PsOut)
     with sh.PsMain.body() as sh:
         sh.o = sh.PsOut()
-        sh.o.color = sh.Rgba(1, 0, 1, 1)
+        sh.o.color = RGBA(1, 0, 1, 1)
         sh.return_(sh.o)
         
     sh.Technique('technique0',

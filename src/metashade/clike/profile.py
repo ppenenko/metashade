@@ -15,5 +15,4 @@
 import metashade.base.profile as base
 import context
 
-class Target(base.Target):
-    Function = context.Function
+Target = base.Target

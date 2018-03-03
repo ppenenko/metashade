@@ -1,4 +1,4 @@
-# Copyright 2017 Pavlo Penenko
+# Copyright 2018 Pavlo Penenko
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,6 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import metashade.clike.profile as clike
+import metashade.clike.context as clike
 
-Target = clike.Target
+def Technique():
+    pass
+
+class VertexShaderMain(clike.Function):
+    pass

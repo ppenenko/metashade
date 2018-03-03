@@ -14,7 +14,9 @@
 
 import metashade.clike.context as clike
 
-class ShaderMain(clike.Function):
+Function = clike.Function
+
+class ShaderMain(Function):
     """
     Possible base class for main functions for each shading stage.
     
