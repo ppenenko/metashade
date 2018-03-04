@@ -1,4 +1,4 @@
-# Copyright 2017 Pavlo Penenko
+# Copyright 2018 Pavlo Penenko
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,10 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import metashade.slang.data_types as slang
+import metashade.clike.data_types as clike
+from metashade.clike.data_types import Float
 
-class Float(slang.Float):
-    _target_name = 'float'
-    
-class Point3f(slang.Point3f):
-    _target_name = 'float3'
+class Point3f(clike.BaseType, clike.AddMixIn):
+    pass

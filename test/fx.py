@@ -20,13 +20,14 @@ Currently fails.
 import sys
 
 import metashade.hlsl.fx.profile as profile
-import metashade.hlsl.fx.io as io
+import metashade.hlsl.io as io
 import metashade.hlsl.fx.context as context
+import metashade.hlsl.data_types as t
 
 def test_simple():
     sh = profile.Target(sys.stderr)
     
-    sh.VsIn = io.VertexShaderIn(position = Point3f)
+    sh.VsIn = io.VertexShaderIn(position = t.Point3f)
     sh.VsOut = io.VertexShaderOut()
     
     sh.VsMain = context.VertexShaderMain(return_value = sh.VsOut, i = sh.VsIn)

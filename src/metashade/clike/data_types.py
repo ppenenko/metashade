@@ -39,8 +39,10 @@ class BaseType(base.BaseType):
         else:
             object.__setattr__(self, name, value)
             
-class Float(BaseType):
+class AddMixIn(object):
     def __add__(self, rhs):
-        # TODO: handle implicit type conversions
         return self.__class__('{this} + {rhs}'.format(
             this = self.get_ref(), rhs = rhs.get_ref() ))
+        
+class Float(BaseType, AddMixIn):
+    pass
