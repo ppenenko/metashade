@@ -13,17 +13,7 @@
 # limitations under the License.
 
 import metashade.base.context as base
-from types import NoneType
-
-class ScopedContext(base.ScopedContext):
-    def __enter__(self):
-        self._target.write('{\n')
-        self._target.push_indent()
-        return self
-        
-    def __exit__(self, exc_type, exc_value, traceback):        
-        self._target.pop_indent()
-        self._target.write('}\n')
+from types import NoneType  
         
 class Function(base.BaseContext):
     def __init__(self, **kwargs):
@@ -65,8 +55,14 @@ class Function(base.BaseContext):
         return arg if arg is not None \
             else super(Function, self).__getattr__(name)
         
-    def body(self):
-        return ScopedContext(self)
+    def __enter__(self):
+        self._target.write('{\n')
+        self._target.push_indent()
+        return base.ScopedContext(self)
+        
+    def __exit__(self, exc_type, exc_value, traceback):        
+        self._target.pop_indent()
+        self._target.write('}\n')
     
     def return_(self, value=None):
         if not isinstance(value, self._return_type):
