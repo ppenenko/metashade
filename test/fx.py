@@ -30,20 +30,21 @@ def test_simple():
     sh.VsIn = io.VertexShaderIn(position = t.Point3f)
     sh.VsOut = io.VertexShaderOut()
     
-    sh.VsMain = context.VertexShaderMain(return_value = sh.VsOut, i = sh.VsIn)
-    with sh.VsMain.body() as sh:
+    with sh.VertexShaderMain('VsMain',
+                             return_value = sh.VsOut,
+                             i = sh.VsIn) as sh:
         sh.o = sh.VsOut()
         
         # TODO: multiply by MVP
-        sh.o.position = Vector4f(sh.i.position)
+        sh.o.position = t.Vector4f(sh.i.position)
         sh.return_(sh.o)
         
-    sh.PsOut = io.PixelShaderOut(color = RGBA)
+    sh.PsOut = io.PixelShaderOut(color = t.RGBA)    
     
-    sh.PsMain = context.PixelShaderMain(return_value = sh.PsOut)
-    with sh.PsMain.body() as sh:
+    with sh.PixelShaderMain('PsMain',
+                            return_value = sh.PsOut) as sh:
         sh.o = sh.PsOut()
-        sh.o.color = RGBA(1, 0, 1, 1)
+        sh.o.color = t.RGBA(1, 0, 1, 1)
         sh.return_(sh.o)
         
     sh.Technique('technique0',

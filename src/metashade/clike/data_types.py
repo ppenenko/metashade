@@ -15,7 +15,7 @@
 import metashade.base.data_types as base
 
 class BaseType(base.BaseType):
-    def define(self, sh, identifier):                
+    def define(self, sh, identifier):
         super(BaseType, self)._define(sh, identifier, is_arg=False)
         
         self._target.write('{type_name} {identifier}{initializer};\n'.format(

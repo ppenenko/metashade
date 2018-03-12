@@ -12,8 +12,33 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-class VertexShaderIn(object):
+import metashade.base.context
+
+class ShaderInOut(metashade.base.context.BaseContext):
+    def __init__(self, **kwargs):        
+        self._members = {name : data_type() \
+                         for name, data_type in kwargs.iteritems()}
+                
+    def define(self, sh, identifier):
+        self._identifier = identifier
+        self._parent = sh
+        self._target = sh.get_target()
+            
+        self._target.write('struct {identifier}{{\n'.format(
+            identifier = self._identifier ))
+        
+        first = True
+        for name, member in self._members.iteritems():
+            if first:
+                first = False
+            else:
+                self._target.write(', ')
+            member.semantic_define(self, name)
+                        
+        self._target.write('};\n')
+
+class VertexShaderIn(ShaderInOut):
     pass
 
-class VertexShaderOut(object):
+class VertexShaderOut(ShaderInOut):
     pass
