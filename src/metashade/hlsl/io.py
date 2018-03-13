@@ -24,17 +24,19 @@ class ShaderInOut(metashade.base.context.BaseContext):
         self._parent = sh
         self._target = sh.get_target()
             
-        self._target.write('struct {identifier}{{\n'.format(
-            identifier = self._identifier ))
+        self._target.write('struct {identifier}\n{{\n'.format(
+            identifier = self._identifier ))        
+        self._target.push_indent()
         
         first = True
         for name, member in self._members.iteritems():
             if first:
                 first = False
             else:
-                self._target.write(', ')
+                self._target.write(',\n')
             member.semantic_define(self, name)
                         
+        self._target.pop_indent()
         self._target.write('};\n')
 
 class VertexShaderIn(ShaderInOut):
