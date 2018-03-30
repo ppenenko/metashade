@@ -12,21 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import metashade.clike.context as clike
+import metashade.clike.profile as clike
 
-Function = clike.Function
-
-class ShaderMain(Function):
-    """
-    Possible base class for main functions for each shading stage.
-    
-    For HLSL, it would probably need to enforce that all arguments
-    and return values define semantics.
-    """
-    pass
-
-class VertexShaderMain(ShaderMain):
-    pass
-
-class PixelShaderMain(ShaderMain):
-    pass
+class Target(clike.Target):
+    VertexShaderMain = clike.Target.Function
+    PixelShaderMain = clike.Target.Function

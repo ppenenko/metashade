@@ -12,6 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import metashade.clike.profile as clike
+import metashade.slang.profile as slang
 
-Target = clike.Target
+Target = slang.Target

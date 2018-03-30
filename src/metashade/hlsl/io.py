@@ -13,9 +13,19 @@
 # limitations under the License.
 
 import metashade.base.context
+import metashade.clike.data_types
 
-class ShaderInOut(metashade.base.context.BaseContext):
-    def __init__(self, **kwargs):        
+class ShaderInOut(metashade.clike.data_types.BaseType):
+    def __init__(self, type_name):
+        super(ShaderInOut, self).__init__()
+        self._type_name = type_name
+        
+    def _target_name(self):
+        return self._type_name
+
+# TODO: perhaps this could be a metaclass?
+class ShaderInOutDef(metashade.base.context.BaseContext):
+    def __init__(self, **kwargs):
         self._members = {name : data_type() \
                          for name, data_type in kwargs.iteritems()}
                 
@@ -38,9 +48,12 @@ class ShaderInOut(metashade.base.context.BaseContext):
                         
         self._target.pop_indent()
         self._target.write('};\n')
+        
+    def __call__(self):
+        return ShaderInOut(self._identifier)
 
-class VertexShaderIn(ShaderInOut):
+class VertexShaderIn(ShaderInOutDef):
     pass
 
-class VertexShaderOut(ShaderInOut):
+class VertexShaderOut(ShaderInOutDef):
     pass
