@@ -30,3 +30,7 @@ class Float(slang.Float):
 class Point3f(slang.Point3f, SemanticMixin):
     _target_name = 'float3'
     _semantic = 'POSITION'
+    
+class Vector4f(slang.Vector4f, SemanticMixin):
+    _target_name = 'float4'
+    _semantic = 'POSITION'

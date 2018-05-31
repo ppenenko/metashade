@@ -17,3 +17,6 @@ from metashade.clike.data_types import Float
 
 class Point3f(clike.BaseType, clike.AddMixIn):
     pass
+
+class Vector4f(clike.BaseType, clike.AddMixIn):
+    pass

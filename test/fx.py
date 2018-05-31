@@ -21,7 +21,6 @@ import sys
 
 import metashade.hlsl.fx.profile as profile
 import metashade.hlsl.stage_interface as inout
-import metashade.hlsl.fx.context as context
 import metashade.hlsl.data_types as t
 
 def test_simple():

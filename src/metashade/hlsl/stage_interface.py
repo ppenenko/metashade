@@ -14,9 +14,10 @@
 
 import metashade.base.context
 import metashade.clike.data_types
+import metashade.hlsl.data_types
 
 class StageInterface(metashade.clike.data_types.BaseType):
-    def __init__(self, type_name):
+    def __init__(self, type_name, member_defs):
         super(StageInterface, self).__init__()
         self._type_name = type_name
         
@@ -47,13 +48,15 @@ class StageInterfaceDef(metashade.base.context.BaseContext):
             member.semantic_define(self, name)
                         
         self._target.pop_indent()
-        self._target.write('};\n')
+        self._target.write('};\n\n')
         
     def __call__(self):
-        return StageInterface(self._identifier)
+        return StageInterface(self._identifier, self._members)
 
 class VertexShaderIn(StageInterfaceDef):
     pass
 
 class VertexShaderOut(StageInterfaceDef):
-    pass
+    def __init__(self, **kwargs):
+        kwargs['position'] = metashade.hlsl.data_types.Vector4f
+        super(VertexShaderOut, self).__init__(**kwargs)
