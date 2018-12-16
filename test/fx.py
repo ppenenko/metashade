@@ -20,25 +20,27 @@ Currently fails.
 import sys
 
 import metashade.hlsl.fx.profile as profile
-import metashade.hlsl.stage_interface as inout
+import metashade.hlsl.stage_interface as si
 import metashade.hlsl.data_types as t
 
 def test_simple():
     sh = profile.Target(sys.stderr)
     
-    sh.VsIn = inout.VertexShaderIn(position = t.Point3f)
-    sh.VsOut = inout.VertexShaderOut()
+    sh.VsIn = si.VertexShaderIn(position = t.Point3f)
+    sh.VsOut = si.VertexShaderOut()
     
     with sh.VertexShaderMain('VsMain',
-                             return_value = sh.VsOut,
+                             return_type = sh.VsOut,
                              i = sh.VsIn) as sh:
         sh.o = sh.VsOut()
         
         # TODO: multiply by MVP
-        sh.o.position = t.Vector4f(sh.i.position)
+        o = t.Vector4f(sh.i.position)
+        sh.o.position = o   #TODO: doesn't generate code
         sh.return_(sh.o)
-        
-    sh.PsOut = inout.PixelShaderOut(color = t.RGBA)    
+    
+    # Passes until this point
+    sh.PsOut = si.PixelShaderOut(color = t.RGBA)
     
     with sh.PixelShaderMain('PsMain',
                             return_value = sh.PsOut) as sh:

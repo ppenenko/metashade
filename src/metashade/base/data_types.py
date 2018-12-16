@@ -30,9 +30,10 @@ class BaseType(object):
         
     def get_ref(self):
         if self._identifier is not None:            
-            if not self._is_arg and self._value is None:
-                raise RuntimeError(
-                    'Variable is used before it has been assigned a value')
+            #TODO: re-enable when struct members are sorted out
+            #if not self._is_arg and self._value is None:
+            #    raise RuntimeError(
+            #        'Variable is used before it has been assigned a value')
             
             return self._identifier
         
@@ -40,3 +41,7 @@ class BaseType(object):
             return self._value
         else:        
             raise RuntimeError('Instance is neither a variable nor expression.')
+        
+    @classmethod
+    def is_type_of(cls, value):
+        return isinstance(value, cls)

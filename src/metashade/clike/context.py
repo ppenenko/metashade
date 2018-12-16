@@ -33,7 +33,7 @@ class Function(base.BaseContext):
         self._parent = sh
         self._target = sh.get_target()
         
-        return_type = self._return_type._target_name \
+        return_type = self._return_type().get_target_type_name() \
             if self._return_type != NoneType else 'void'
             
         self._target.write('{return_type} {identifier}('.format(
@@ -65,7 +65,8 @@ class Function(base.BaseContext):
         self._target.write('}\n')
     
     def return_(self, value=None):
-        if not isinstance(value, self._return_type):
+        if not ((self._return_type is NoneType and value is None) \
+            or self._return_type.is_type_of(value)):
             raise RuntimeError('Return value type mismatch')
             
         self._target.write('return{};\n'.format(
