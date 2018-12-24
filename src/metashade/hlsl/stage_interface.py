@@ -26,3 +26,9 @@ class VertexShaderOut(StageInterface):
     def __init__(self, **kwargs):
         kwargs['position'] = metashade.hlsl.data_types.Vector4f
         super(VertexShaderOut, self).__init__(**kwargs)
+
+class PixelShaderIn(StageInterface):
+    pass
+
+class PixelShaderOut(StageInterface):
+    pass

@@ -58,11 +58,15 @@ class Function(base.BaseContext):
     def __enter__(self):
         self._target.write('{\n')
         self._target.push_indent()
-        return base.ScopedContext(self)
         
-    def __exit__(self, exc_type, exc_value, traceback):        
+        body = base.ScopedContext(parent=self)
+        self._target.push_context(body)        
+        return body
+        
+    def __exit__(self, exc_type, exc_value, traceback):
+        self._target.pop_context()        
         self._target.pop_indent()
-        self._target.write('}\n')
+        self._target.write('}\n')        
     
     def return_(self, value=None):
         if not ((self._return_type is NoneType and value is None) \

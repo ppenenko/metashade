@@ -20,3 +20,6 @@ class Point3f(clike.BaseType, clike.AddMixIn):
 
 class Vector4f(clike.BaseType, clike.AddMixIn):
     pass
+
+class RGBA(clike.BaseType, clike.AddMixIn):
+    pass

@@ -34,3 +34,7 @@ class Point3f(slang.Point3f, SemanticMixin):
 class Vector4f(slang.Vector4f, SemanticMixin):
     _target_name = 'float4'
     _semantic = 'POSITION'
+    
+class RGBA(slang.RGBA, SemanticMixin):
+    _target_name = 'float4'
+    _semantic = 'COLOR'

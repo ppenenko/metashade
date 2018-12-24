@@ -21,11 +21,12 @@ class Target(context.ScopedContext):
     """
     def __init__(self, file):
         self._file = file
+        
         self._indent = 0
         self._indent_char = '\t'
         self._indent_delta = 1
         
-        #self.Float = data_types.Float
+        self._context_stack = list()
         
     def get_target(self):
         return self
@@ -41,3 +42,21 @@ class Target(context.ScopedContext):
     
     def write(self, line):
         self._file.write(self.get_indent() + line)
+        
+    def push_context(self, context):
+        self._context_stack.append(context)
+        
+    def pop_context(self):
+        self._context_stack.pop()            
+
+    def __getattr__(self, name):        
+        return getattr(self._context_stack[-1], name)
+    
+    def __setattr__(self, name, value):
+        if name.startswith('_'): #private variables are never meta
+            object.__setattr__(self, name, value)
+        else:
+            if self.__dict__.get('_context_stack'):
+                setattr(self._context_stack[-1], name, value)
+            else:
+                super(Target, self).__setattr__(name, value)            

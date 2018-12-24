@@ -31,7 +31,7 @@ def test_simple():
     
     with sh.VertexShaderMain('VsMain',
                              return_type = sh.VsOut,
-                             i = sh.VsIn) as sh:
+                             i = sh.VsIn):
         sh.o = sh.VsOut()
         
         # TODO: multiply by MVP
@@ -39,11 +39,10 @@ def test_simple():
         sh.o.position = o   #TODO: doesn't generate code
         sh.return_(sh.o)
     
-    # Passes until this point
     sh.PsOut = si.PixelShaderOut(color = t.RGBA)
     
     with sh.PixelShaderMain('PsMain',
-                            return_value = sh.PsOut) as sh:
+                            return_value = sh.PsOut):
         sh.o = sh.PsOut()
         sh.o.color = t.RGBA(1, 0, 1, 1)
         sh.return_(sh.o)
