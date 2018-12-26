@@ -23,7 +23,7 @@ def test_simple():
     with sh.Function('test_func',
                      return_type = t.Float,
                      a = t.Float,
-                     e = t.Float) as sh:
+                     e = t.Float):
         sh.b = t.Float(2)
         sh.c = sh.a + sh.b
         
