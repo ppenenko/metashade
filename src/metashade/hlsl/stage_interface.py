@@ -16,15 +16,21 @@ import metashade.hlsl.data_types
 import metashade.clike.struct
 
 class StageInterface(metashade.clike.struct.StructDef):
-    def _define_member(self, member, member_identifier):
-        member.semantic_define(self, member_identifier)
+    pass
 
 class VertexShaderIn(StageInterface):
     pass
 
 class VertexShaderOut(StageInterface):
     def __init__(self, **kwargs):
-        kwargs['position'] = metashade.hlsl.data_types.Vector4f
+        position_name = 'position'
+        position_type = metashade.hlsl.data_types.Vector4f
+        
+        for name, data_type in kwargs.iteritems():
+            if name == position_name or data_type == position_type:
+                raise RuntimeError('Homogenous position output already defined')
+        
+        kwargs[position_name] = position_type 
         super(VertexShaderOut, self).__init__(**kwargs)
 
 class PixelShaderIn(StageInterface):

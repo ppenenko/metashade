@@ -26,7 +26,6 @@ class Struct(metashade.clike.data_types.BaseType):
     def __getattr__(self, name):
         return self._struct_def._members[name]
 
-# TODO: perhaps this could be a metaclass?
 class StructDef(object):
     def __init__(self, **kwargs):
         self._members = {name : data_type() \
@@ -40,7 +39,6 @@ class StructDef(object):
     """
     def define(self, sh, identifier):
         self._identifier = identifier
-        #self._parent = sh
         self._target = sh.get_target()
             
         self._target.write('struct {identifier}\n{{\n'.format(
