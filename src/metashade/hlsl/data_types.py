@@ -36,5 +36,8 @@ class Vector4f(slang.Vector4f, SemanticMixin):
     _semantic = 'POSITION'
     
 class RGBA(slang.RGBA, SemanticMixin):
+    def __init__(self, r = 0, g = 0, b = 0, a = 0):
+        pass
+    
     _target_name = 'float4'
     _semantic = 'COLOR'

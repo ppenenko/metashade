@@ -66,12 +66,16 @@ class Function(base.BaseContext):
     def __exit__(self, exc_type, exc_value, traceback):
         self._target.pop_context()        
         self._target.pop_indent()
-        self._target.write('}\n')        
+        self._target.write('}\n\n')
     
     def return_(self, value=None):
-        if not ((self._return_type is NoneType and value is None) \
-            or self._return_type.is_type_of(value)):
-            raise RuntimeError('Return value type mismatch')
+        mistmatch_error = 'Return value type mismatch'        
+        if self._return_type is NoneType:
+            if value is not None:
+                raise RuntimeError(mistmatch_error)
+        else:                
+            if not self._return_type.is_type_of(value):
+                raise RuntimeError(mistmatch_error)            
             
         self._target.write('return{};\n'.format(
             ' ' + value.get_ref() if value is not None else ''))

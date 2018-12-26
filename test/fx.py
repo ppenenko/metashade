@@ -42,12 +42,12 @@ def test_simple():
     sh.PsOut = si.PixelShaderOut(color = t.RGBA)
     
     with sh.PixelShaderMain('PsMain',
-                            return_value = sh.PsOut):
+                            return_type = sh.PsOut):
         sh.o = sh.PsOut()
         sh.o.color = t.RGBA(1, 0, 1, 1)
         sh.return_(sh.o)
         
-    sh.Technique('technique0',
-        [sh.RenderPass('pass0',
-                       vertex_shader = sh.VsMain,
-                       pixel_shader = sh.PsMain)])
+#     sh.Technique('technique0',
+#         [sh.RenderPass('pass0',
+#                        vertex_shader = sh.VsMain,
+#                        pixel_shader = sh.PsMain)])
