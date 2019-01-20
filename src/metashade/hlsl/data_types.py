@@ -16,13 +16,12 @@ import metashade.base.data_types as base
 import metashade.slang.data_types as slang
 
 class SemanticMixin(base.BaseType):
-    def semantic_define(self, sh, identifier):
-        self._define(sh, identifier, is_arg=False)
-        
-        self._target.write('{type_name} {identifier} : {semantic};\n'.format(
-            type_name = self.__class__._target_name,
-            identifier = self._identifier,
-            semantic = self.__class__._semantic ))
+    @classmethod
+    def define_member(cls, target, identifier):        
+        target.write('{type_name} {identifier} : {semantic};\n'.format(
+            type_name = cls._target_name,
+            identifier = identifier,
+            semantic = cls._semantic ))
 
 class Float(slang.Float):
     _target_name = 'float'
@@ -37,7 +36,7 @@ class Vector4f(slang.Vector4f, SemanticMixin):
     
 class RGBA(slang.RGBA, SemanticMixin):
     def __init__(self, r = 0, g = 0, b = 0, a = 0):
-        pass
+        super(RGBA, self).__init__()
     
     _target_name = 'float4'
     _semantic = 'COLOR'

@@ -16,7 +16,7 @@ import metashade.base.data_types as base
 
 class BaseType(base.BaseType):
     def define(self, sh, identifier):
-        self._define(sh, identifier, is_arg=False)
+        self._bind(sh, identifier, allow_defaults=True)
         
         self._target.write('{type_name} {identifier}{initializer};\n'.format(
             type_name = self.get_target_type_name(),
@@ -24,7 +24,7 @@ class BaseType(base.BaseType):
             initializer = '' if self._value is None else ' = {}'.format(self._value) ))
         
     def arg_define(self, sh, identifier):
-        self._define(sh, identifier, is_arg=True)
+        self._bind(sh, identifier, allow_defaults=False)
         
         self._target.write('{type_name} {identifier}'.format(
             type_name = self.get_target_type_name(),

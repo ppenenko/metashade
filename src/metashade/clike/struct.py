@@ -18,18 +18,28 @@ import metashade.clike.data_types
 class Struct(metashade.clike.data_types.BaseType):
     def __init__(self, struct_def):        
         super(Struct, self).__init__()
+        
         self._struct_def = struct_def
+        self._members = {name : data_type() \
+                 for name, data_type in struct_def._member_defs.iteritems()}        
+        
+    def define(self, sh, identifier):
+        super(Struct, self).define(sh, identifier)
+        
+        for member_name, member in self._members.iteritems():
+            nested_name='{struct_name}.{member_name}'.format(
+                struct_name=identifier, member_name=member_name)
+            member._bind(sh, nested_name, allow_defaults=False)            
         
     def get_target_type_name(self):
         return self._struct_def._identifier
     
     def __getattr__(self, name):
-        return self._struct_def._members[name]
+        return self._members[name]
 
 class StructDef(object):
     def __init__(self, **kwargs):
-        self._members = {name : data_type() \
-                         for name, data_type in kwargs.iteritems()}
+        self._member_defs = kwargs
         
     def get_target(self):
         return self._target
@@ -46,21 +56,15 @@ class StructDef(object):
         self._target.push_indent()
         
         first = True
-        for name, member in self._members.iteritems():
+        for member_name, member_type in self._member_defs.iteritems():
             if first:
                 first = False
             else:
                 self._target.write(',\n')
-            self._define_member(member, name)
+            member_type.define_member(self._target, member_name)
                         
         self._target.pop_indent()
         self._target.write('};\n\n')
-        
-    """
-    Extracted to enable overrides
-    """
-    def _define_member(self, member, member_identifier):
-        member.semantic_define(self, member_identifier)        
         
     def __call__(self):
         return Struct(self)
