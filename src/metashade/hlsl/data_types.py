@@ -31,12 +31,19 @@ class Point3f(slang.Point3f, SemanticMixin):
     _semantic = 'POSITION'
     
 class Vector4f(slang.Vector4f, SemanticMixin):
+    def __init__(self, xyzw = None):
+        initializer=None if xyzw is None else \
+            'float4({0}, {1}, {2}, {3})'.format(*xyzw)                
+        super(Vector4f, self).__init__(initializer)            
+                
     _target_name = 'float4'
     _semantic = 'POSITION'
     
 class RGBA(slang.RGBA, SemanticMixin):
-    def __init__(self, r = 0, g = 0, b = 0, a = 0):
-        super(RGBA, self).__init__()
+    def __init__(self, rgba = None):
+        initializer=None if rgba is None else \
+            'float4({0}, {1}, {2}, {3})'.format(*rgba)                
+        super(RGBA, self).__init__(initializer)
     
     _target_name = 'float4'
     _semantic = 'COLOR'

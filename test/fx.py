@@ -34,9 +34,7 @@ def test_simple():
                              i = sh.VsIn):
         sh.o = sh.VsOut()
         
-        # TODO: multiply by MVP
-        o = t.Vector4f(sh.i.position)
-        sh.o.position = o   #TODO: doesn't generate code
+        sh.o.position._ = t.Vector4f((0, 0, 0, 1))
         sh.return_(sh.o)
     
     sh.PsOut = si.PixelShaderOut(color = t.RGBA)
@@ -44,7 +42,7 @@ def test_simple():
     with sh.PixelShaderMain('PsMain',
                             return_type = sh.PsOut):
         sh.o = sh.PsOut()
-        sh.o.color = t.RGBA(1, 0, 1, 1)
+        sh.o.color._ = t.RGBA((1, 0, 1, 1))
         sh.return_(sh.o)
         
 #     sh.Technique('technique0',
