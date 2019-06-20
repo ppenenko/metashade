@@ -19,9 +19,10 @@ Currently fails.
 
 import sys
 
-import metashade.hlsl.fx.profile as profile
+import metashade.hlsl.profile as profile
 import metashade.hlsl.stage_interface as si
 import metashade.hlsl.data_types as t
+import metashade.hlsl.fx as fx
 
 def test_simple():
     sh = profile.Target(sys.stderr)
@@ -45,7 +46,4 @@ def test_simple():
         sh.o.color._ = t.RGBA((1, 0, 1, 1))
         sh.return_(sh.o)
         
-#     sh.Technique('technique0',
-#         [sh.RenderPass('pass0',
-#                        vertex_shader = sh.VsMain,
-#                        pixel_shader = sh.PsMain)])
+    fx.simple_vs_ps_technique(sh, 'VsMain', 'PsMain')
