@@ -17,8 +17,8 @@ import metashade.slang.data_types as slang
 
 class SemanticMixin(base.BaseType):
     @classmethod
-    def define_member(cls, target, identifier):        
-        target._write('{type_name} {identifier} : {semantic};\n'.format(
+    def define_member(cls, sh, identifier):        
+        sh._write('{type_name} {identifier} : {semantic};\n'.format(
             type_name = cls._target_name,
             identifier = identifier,
             semantic = cls._semantic ))

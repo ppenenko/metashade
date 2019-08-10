@@ -44,7 +44,7 @@ class Function(object):
                 first = False
             else:
                 self._sh._write(', ')
-            arg.arg_define(self, name)
+            arg._arg_define(self._sh, name)
                         
         self._sh._write(')\n')
         self._sh._write('{\n')

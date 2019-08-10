@@ -20,13 +20,12 @@ class BaseType(object):
         self._identifier = None
         self._value = initializer
         
-    def _bind(self, context, identifier, allow_defaults):
+    def _bind(self, sh, identifier, allow_defaults):
         if not allow_defaults and self._value is not None:
             raise RuntimeError('Arguments with default values are not supported.')
         
         self._identifier = identifier
-        self._sh = context._sh
-        #self._is_arg = is_arg
+        self._sh = sh
         
     def get_ref(self):
         if self._identifier is not None:            

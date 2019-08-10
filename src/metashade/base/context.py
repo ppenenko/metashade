@@ -27,7 +27,7 @@ class ScopedContext(object):
                 raise AttributeError(
                     'Metashade variable ' + name + ' is already defined.')
             
-            if hasattr(value, 'define'):
-                value.define(self, name)
+            if hasattr(value, '_define'):
+                value._define(self._sh, name)
             
         object.__setattr__(self, name, value)

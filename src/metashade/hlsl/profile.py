@@ -17,6 +17,16 @@ import metashade.clike.struct as struct
 import data_types
 
 class Generator(slang.Generator):
+    def uniforms(self, **kwargs):
+        for name, dtype in kwargs.iteritems():
+            if name.startswith('_'):
+                raise RuntimeError("Names starting with an underscore"
+                                   "can't be Metashade symbols")
+            value = dtype()
+            object.__setattr__(self, name, value)
+            value._define(self, name)
+        self._write('\n')
+        
     vs_input = slang.Generator.struct
     
     def vs_output(self, identifier):
