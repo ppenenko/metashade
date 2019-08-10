@@ -17,9 +17,9 @@ import metashade.clike.struct as struct
 import data_types
 
 class Generator(slang.Generator):
-    vertex_shader_input = slang.Generator.struct
+    vs_input = slang.Generator.struct
     
-    def vertex_shader_output(self, identifier):
+    def vs_output(self, identifier):
         def impl(**kwargs):
             position_name = 'position'
             position_type = data_types.Vector4f
@@ -38,4 +38,4 @@ class Generator(slang.Generator):
         return impl
     
     pixel_shader_input = slang.Generator.struct
-    pixel_shader_output = slang.Generator.struct
+    ps_output = slang.Generator.struct

@@ -15,5 +15,5 @@
 import metashade.clike.profile as clike
 
 class Generator(clike.Generator):
-    vertex_shader_main = clike.Generator.function
-    pixel_shader_main = clike.Generator.function
+    vs_main = clike.Generator.function
+    ps_main = clike.Generator.function
