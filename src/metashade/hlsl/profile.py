@@ -46,6 +46,5 @@ class Generator(slang.Generator):
             return struct_def
                 
         return impl
-    
-    pixel_shader_input = slang.Generator.struct
+
     ps_output = slang.Generator.struct

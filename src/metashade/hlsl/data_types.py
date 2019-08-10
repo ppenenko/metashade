@@ -14,6 +14,7 @@
 
 import metashade.base.data_types as base
 import metashade.slang.data_types as slang
+import metashade.clike.data_types as clike
 
 class SemanticMixin(base.BaseType):
     @classmethod
@@ -38,6 +39,9 @@ class Vector4f(slang.Vector4f, SemanticMixin):
                 
     _target_name = 'float4'
     _semantic = 'POSITION'
+    
+class Matrix4x4f(clike.BaseType):
+    _target_name = 'float4x4'
     
 class RGBA(slang.RGBA, SemanticMixin):
     def __init__(self, rgba = None):

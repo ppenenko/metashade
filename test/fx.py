@@ -26,7 +26,8 @@ import metashade.hlsl.fx as fx
 def test_simple():
     sh = profile.Generator(sys.stderr)
     
-    sh.uniforms(diffuse_color = t.RGBA)
+    sh.uniforms(diffuse_color = t.RGBA,
+                WvpXf = t.Matrix4x4f)
     
     sh.vs_input('VsIn')(position = t.Point3f)
     sh.vs_output('VsOut')()
