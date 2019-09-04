@@ -17,19 +17,19 @@ import context
 import struct
 
 class Generator(base.Generator):
-    def function(self, identifier, return_type):
-        function = context.Function(self, identifier, return_type)
-        setattr(self, identifier, function)
+    def function(self, name, return_type):
+        function = context.Function(self, name, return_type)
+        self._set_global(name, function)
         self._push_context(function)
         return function
     
-    def struct(self, identifier):
-        def struct_impl(**kwargs):
-            struct_def = struct.StructDef(self, identifier, kwargs)
-            setattr(self, identifier, struct_def)
+    def struct(self, name):
+        def impl(**kwargs):
+            struct_def = struct.StructDef(self, name, kwargs)
+            self._set_global(name, struct_def)
             return struct_def
                 
-        return struct_impl
+        return impl
     
         
         

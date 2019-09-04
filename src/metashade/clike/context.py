@@ -16,9 +16,9 @@ import metashade.base.context as base
 from types import NoneType  
         
 class Function(object):
-    def __init__(self, sh, identifier, return_type=NoneType):
+    def __init__(self, sh, name, return_type = NoneType):
         self._sh = sh
-        self._identifier = identifier
+        self._name = name
         self._return_type = return_type
         self._args = dict()
 
@@ -28,15 +28,18 @@ class Function(object):
         return self
 
     def __getattr__(self, name):
-        return self._args.get(name)
+        try:
+            return self._args[name]
+        except KeyError:
+            raise AttributeError
         
     def __enter__(self):
         return_type = self._return_type().get_target_type_name() \
             if self._return_type != NoneType else 'void'
 
-        self._sh._write('{return_type} {identifier}('.format(
+        self._sh._write('{return_type} {name}('.format(
             return_type = return_type,
-            identifier = self._identifier ))
+            name = self._name ))
         
         first = True
         for name, arg in self._args.iteritems():
@@ -50,7 +53,7 @@ class Function(object):
         self._sh._write('{\n')
         self._sh._push_indent()
         
-        body = base.ScopedContext(self._sh)
+        body = base.Scope()
         self._sh._push_context(body)
         return body
         

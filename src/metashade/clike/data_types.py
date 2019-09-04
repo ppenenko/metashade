@@ -20,7 +20,7 @@ class BaseType(base.BaseType):
         
         self._sh._write('{type_name} {identifier}{initializer};\n'.format(
             type_name = self.get_target_type_name(),
-            identifier = self._identifier,
+            identifier = self._name,
             initializer = '' if self._value is None else ' = {}'.format(self._value) ))
         
     def _arg_define(self, sh, identifier):
@@ -28,13 +28,13 @@ class BaseType(base.BaseType):
         
         self._sh._write('{type_name} {identifier}'.format(
             type_name = self.get_target_type_name(),
-            identifier = self._identifier))
+            identifier = self._name))
         
     def __setattr__(self, name, value):
         if name == '_':
             self._value = value
             self._sh._write('{identifier} = {value};\n'.format(
-                identifier = self._identifier,
+                identifier = self._name,
                 value = value.get_ref() if hasattr(value, 'get_ref') else value ))
         else:
             object.__setattr__(self, name, value)

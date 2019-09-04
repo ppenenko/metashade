@@ -17,24 +17,24 @@ class BaseType(object):
     The base class for all Metashade types.
     """    
     def __init__(self, initializer = None):
-        self._identifier = None
+        self._name = None
         self._value = initializer
         
-    def _bind(self, sh, identifier, allow_defaults):
+    def _bind(self, sh, name, allow_defaults):
         if not allow_defaults and self._value is not None:
             raise RuntimeError('Arguments with default values are not supported.')
         
-        self._identifier = identifier
+        self._name = name
         self._sh = sh
         
     def get_ref(self):
-        if self._identifier is not None:            
+        if self._name is not None:            
             #TODO: re-enable when struct members are sorted out
             #if not self._is_arg and self._value is None:
             #    raise RuntimeError(
             #        'Variable is used before it has been assigned a value')
             
-            return self._identifier
+            return self._name
         
         elif self._value is not None:
             return self._value

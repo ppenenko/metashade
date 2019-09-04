@@ -17,31 +17,47 @@ import metashade.clike.struct as struct
 import data_types
 
 class Generator(slang.Generator):
-    def uniform(self, name, dtype, semantic=None):        
+    def __init__(self, file_):
+        super(Generator, self).__init__(file_)
+        self._uniforms_by_semantic = dict()
+        
+    def uniform(self, name, dtype, semantic = None):
+        # TODO: registers        
         if name.startswith('_'):
-            raise RuntimeError("Names starting with an underscore"
+            raise RuntimeError("'{name}': names starting with an underscore"
                                "can't be Metashade symbols")
             
-        value = dtype()
-        object.__setattr__(self, name, value)
+        if semantic is not None:
+            existing = self._uniforms_by_semantic.get(semantic)
+            if existing is not None:
+                raise RuntimeError(
+                    "Can't define uniform '{name}' with semantic '{semantic}' "
+                    "because uniform '{existing_name} already uses that "
+                    "semantic.".format(name = name,
+                                       semantic = semantic,
+                                       existing_name = existing._name))
+                
+            
+        value = dtype() #TODO: make it unmutable
+        self._set_global(name, value)
         value._define(self, name)
         
     vs_input = slang.Generator.struct
     
-    def vs_output(self, identifier):
+    def vs_output(self, name):
         def impl(**kwargs):
             position_name = 'position'
             position_type = data_types.Vector4f
             
-            for name, data_type in kwargs.iteritems():
-                if name == position_name or data_type == position_type:
+            for member_name, dtype in kwargs.iteritems():
+                if member_name == position_name or dtype == position_type:
                     raise RuntimeError(
                         'Homogenous position output already defined')
             
             kwargs[position_name] = position_type
         
-            struct_def = struct.StructDef(self, identifier, kwargs)
-            setattr(self, identifier, struct_def)
+            struct_def = struct.StructDef(self, name, kwargs)
+            self._set_global(name, struct_def)
             return struct_def
                 
         return impl

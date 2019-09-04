@@ -35,7 +35,7 @@ class Struct(metashade.clike.data_types.BaseType):
                 member._bind(sh, nested_name, allow_defaults=False)           
         
     def get_target_type_name(self):
-        return self._struct_def._identifier
+        return self._struct_def._name
     
     def __setattr__(self, name, value):
         if not name.startswith('_') and hasattr(self, '_constructed'):
@@ -45,13 +45,13 @@ class Struct(metashade.clike.data_types.BaseType):
         super(Struct, self).__setattr__(name, value)
 
 class StructDef(object):
-    def __init__(self, sh, identifier, member_defs):
+    def __init__(self, sh, name, member_defs):
         self._sh = sh
-        self._identifier = identifier
+        self._name = name
         self._member_defs = member_defs
         
-        self._sh._write('struct {identifier}\n{{\n'.format(
-            identifier = self._identifier ))
+        self._sh._write('struct {name}\n{{\n'.format(
+            name = self._name ))
         self._sh._push_indent()
         
         first = True

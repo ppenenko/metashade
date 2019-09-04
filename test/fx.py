@@ -27,7 +27,7 @@ def test_simple():
     sh = profile.Generator(sys.stderr)
     
     sh.uniform('diffuse_color', t.RGBA)
-    sh.uniform('WvpXf', t.Matrix4x4f)
+    sh.uniform('WvpXf', t.Matrix4x4f, semantic = 'WorldViewProjection')
     
     sh.vs_input('VsIn')(position = t.Point3f)
     sh.vs_output('VsOut')()

@@ -26,6 +26,7 @@ class Generator(object):
         self._indent_char = '\t'
         self._indent_delta = 1
         
+        self._globals = dict()
         self._context_stack = list()
         
     def _push_indent(self):
@@ -44,18 +45,40 @@ class Generator(object):
         self._context_stack.append(context)
         
     def _pop_context(self):
-        self._context_stack.pop()            
+        self._context_stack.pop()
+
+    def _check_unique_attr(self, name):
+        exists = False
+        try:
+            getattr(self, name)
+            exists = True
+        except AttributeError:
+            pass
+        
+        if exists:
+            raise AttributeError(
+                "'{name}': can't redefine Metashade symbol already "
+                "defined in the context stack".format(name=name))
+
+    def _set_global(self, name, value):
+        self._check_unique_attr(name)
+        self._globals[name] = value
 
     def __getattr__(self, name):
         for context in reversed(self._context_stack):
             try:
                 return getattr(context, name)
             except AttributeError:
-                pass
-        raise AttributeError 
+                pass        
+        try:
+            return self._globals[name]
+        except KeyError:
+            raise AttributeError
 
     def __setattr__(self, name, value):
-        if not name.startswith('_') and self.__dict__.get('_context_stack'):
-            setattr(self._context_stack[-1], name, value)
-        else:
+        if name.startswith('_'):                
             object.__setattr__(self, name, value)
+        else:
+            self._check_unique_attr(name)
+            self._context_stack[-1]._locals[name] = value
+            value._define(self, name)
