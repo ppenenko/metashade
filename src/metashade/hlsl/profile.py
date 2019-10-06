@@ -32,13 +32,13 @@ class Generator(slang.Generator):
             if existing is not None:
                 raise RuntimeError(
                     "Can't define uniform '{name}' with semantic '{semantic}' "
-                    "because uniform '{existing_name} already uses that "
+                    "because uniform '{existing_name}' already uses that "
                     "semantic.".format(name = name,
                                        semantic = semantic,
                                        existing_name = existing._name))
                 
             
-        value = dtype() #TODO: make it unmutable
+        value = dtype() #TODO: make it immutable
         self._set_global(name, value)
         value._define(self, name)
         

@@ -14,9 +14,15 @@
 
 class BaseType(object):
     """
-    The base class for all Metashade types.
+    The base class for all Metashade data types. Can represent either an
+    lvalue or an rvalue.
     """    
     def __init__(self, initializer = None):
+        """
+        Constructor. _name is always None at this point because it
+        can only be assigned by the generator later by calling _bind()
+        The value can be optionally initialized.
+        """
         self._name = None
         self._value = initializer
         

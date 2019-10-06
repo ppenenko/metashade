@@ -12,7 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-class Scope(object):    
+class Scope(object):
+    """
+    Represents a scope in a C-like language storing a dictionary of its local
+    symbols.
+    """
     def __init__(self):
         self._locals = dict()
         
