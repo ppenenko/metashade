@@ -24,13 +24,4 @@ class Generator(base.Generator):
         return function
     
     def struct(self, name):
-        def impl(**kwargs):
-            struct_def = struct.StructDef(self, name, kwargs)
-            self._set_global(name, struct_def)
-            return struct_def
-                
-        return impl
-    
-        
-        
-    
+        return struct.StructDef(self, name)

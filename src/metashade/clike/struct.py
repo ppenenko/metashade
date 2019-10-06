@@ -16,14 +16,13 @@ import metashade.base.context
 import metashade.clike.data_types
 
 class Struct(metashade.clike.data_types.BaseType):
-    def __init__(self, struct_def):        
+    def __init__(self):
         super(Struct, self).__init__()
         
-        self._struct_def = struct_def        
-        for name, data_type in struct_def._member_defs.iteritems():
-            setattr(self, name, data_type())
+        for name, dtype in self.__class__._member_defs.iteritems():
+            setattr(self, name, dtype())
         
-        self._constructed = True        
+        self._constructed = True
         
     def _define(self, sh, identifier):
         super(Struct, self)._define(sh, identifier)
@@ -32,10 +31,8 @@ class Struct(metashade.clike.data_types.BaseType):
             if not member_name.startswith('_'):
                 nested_name='{struct_name}.{member_name}'.format(
                     struct_name=identifier, member_name=member_name)
-                member._bind(sh, nested_name, allow_defaults=False)           
-        
-    def get_target_type_name(self):
-        return self._struct_def._name
+
+                member._bind(sh, nested_name, allow_defaults=False)
     
     def __setattr__(self, name, value):
         if not name.startswith('_') and hasattr(self, '_constructed'):
@@ -45,28 +42,26 @@ class Struct(metashade.clike.data_types.BaseType):
         super(Struct, self).__setattr__(name, value)
 
 class StructDef(object):
-    def __init__(self, sh, name, member_defs):
+    def __init__(self, sh, name):
         self._sh = sh
         self._name = name
-        self._member_defs = member_defs
-        
-        self._sh._write('struct {name}\n{{\n'.format(
-            name = self._name ))
+
+    def __call__(self, **kwargs):
+        struct_type = type( self._name,
+                            (Struct,),
+                            {'_member_defs' : kwargs})
+        self._sh._set_global(self._name, struct_type)
+
+        self._sh._write('struct {name}\n{{\n'.format(name = self._name))
         self._sh._push_indent()
-        
+
         first = True
-        for member_name, member_type in self._member_defs.iteritems():
+        for member_name, dtype in kwargs.iteritems():
             if first:
                 first = False
             else:
                 self._sh._write(',\n')
-            member_type.define_member(self._sh, member_name)
-                        
-        self._sh._pop_indent()
-        self._sh._write('};\n\n')    
-        
-    def __call__(self):
-        return Struct(self)
+            dtype.define_member(self._sh, member_name)
 
-    def is_type_of(self, value):
-        return value._struct_def == self
+        self._sh._pop_indent()
+        self._sh._write('};\n\n')

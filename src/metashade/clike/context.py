@@ -34,7 +34,7 @@ class Function(object):
             raise AttributeError
         
     def __enter__(self):
-        return_type = self._return_type().get_target_type_name() \
+        return_type = self._return_type.get_target_type_name() \
             if self._return_type != NoneType else 'void'
 
         self._sh._write('{return_type} {name}('.format(
@@ -69,7 +69,7 @@ class Function(object):
             if value is not None:
                 raise RuntimeError(mismatch_error)
         else:                
-            if not self._return_type.is_type_of(value):
+            if not isinstance(value, self._return_type):
                 raise RuntimeError(mismatch_error)
             
         self._sh._write('return{};\n'.format(

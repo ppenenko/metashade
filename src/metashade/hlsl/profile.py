@@ -45,21 +45,19 @@ class Generator(slang.Generator):
     vs_input = slang.Generator.struct
     
     def vs_output(self, name):
-        def impl(**kwargs):
-            position_name = 'position'
-            position_type = data_types.Vector4f
-            
-            for member_name, dtype in kwargs.iteritems():
-                if member_name == position_name or dtype == position_type:
-                    raise RuntimeError(
-                        'Homogenous position output already defined')
-            
-            kwargs[position_name] = position_type
-        
-            struct_def = struct.StructDef(self, name, kwargs)
-            self._set_global(name, struct_def)
-            return struct_def
+        class VSOutputDef(struct.StructDef):
+            def __call__(self, **kwargs):
+                position_name = 'position'
+                position_type = data_types.Vector4f
                 
-        return impl
+                for member_name, dtype in kwargs.iteritems():
+                    if member_name == position_name or dtype == position_type:
+                        raise RuntimeError(
+                            'Homogenous position output already defined')
+                
+                kwargs[position_name] = position_type
+                struct.StructDef.__call__(self, **kwargs)
+                
+        return VSOutputDef(self, name)
 
     ps_output = slang.Generator.struct

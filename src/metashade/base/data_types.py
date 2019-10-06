@@ -46,7 +46,3 @@ class BaseType(object):
             return self._value
         else:        
             raise RuntimeError('Instance is neither a variable nor expression.')
-        
-    @classmethod
-    def is_type_of(cls, value):
-        return isinstance(value, cls)

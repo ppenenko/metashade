@@ -19,7 +19,7 @@ class BaseType(base.BaseType):
         self._bind(sh, identifier, allow_defaults=True)
         
         self._sh._write('{type_name} {identifier}{initializer};\n'.format(
-            type_name = self.get_target_type_name(),
+            type_name = self.__class__.get_target_type_name(),
             identifier = self._name,
             initializer = '' if self._value is None else ' = {}'.format(self._value) ))
         
@@ -27,7 +27,7 @@ class BaseType(base.BaseType):
         self._bind(sh, identifier, allow_defaults=False)
         
         self._sh._write('{type_name} {identifier}'.format(
-            type_name = self.get_target_type_name(),
+            type_name = self.__class__.get_target_type_name(),
             identifier = self._name))
         
     def __setattr__(self, name, value):
@@ -38,10 +38,12 @@ class BaseType(base.BaseType):
                 value = value.get_ref() if hasattr(value, 'get_ref') else value ))
         else:
             object.__setattr__(self, name, value)
-            
-    def get_target_type_name(self):
-        return self.__class__._target_name
-            
+
+    @classmethod
+    def get_target_type_name(cls):
+        return cls._target_name if hasattr(cls, '_target_name') \
+            else cls.__name__
+
 class AddMixIn(object):
     def __add__(self, rhs):
         return self.__class__('{this} + {rhs}'.format(
