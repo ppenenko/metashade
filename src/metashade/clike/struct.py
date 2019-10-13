@@ -19,7 +19,7 @@ class Struct(metashade.clike.data_types.BaseType):
     def __init__(self):
         super(Struct, self).__init__()
         
-        for name, dtype in self.__class__._member_defs.iteritems():
+        for name, dtype in self.__class__._member_defs.items():
             setattr(self, name, dtype())
         
         self._constructed = True
@@ -27,7 +27,7 @@ class Struct(metashade.clike.data_types.BaseType):
     def _define(self, sh, identifier):
         super(Struct, self)._define(sh, identifier)
         
-        for member_name, member in vars(self).iteritems():
+        for member_name, member in vars(self).items():
             if not member_name.startswith('_'):
                 nested_name='{struct_name}.{member_name}'.format(
                     struct_name=identifier, member_name=member_name)
@@ -56,7 +56,7 @@ class StructDef(object):
         self._sh._push_indent()
 
         first = True
-        for member_name, dtype in kwargs.iteritems():
+        for member_name, dtype in kwargs.items():
             if first:
                 first = False
             else:

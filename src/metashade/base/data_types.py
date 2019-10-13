@@ -24,10 +24,10 @@ class BaseType(object):
         The value can be optionally initialized.
         """
         self._name = None
-        self._value = initializer
+        self._expression = initializer
         
     def _bind(self, sh, name, allow_defaults):
-        if not allow_defaults and self._value is not None:
+        if not allow_defaults and self._expression is not None:
             raise RuntimeError('Arguments with default values are not supported.')
         
         self._name = name
@@ -36,13 +36,13 @@ class BaseType(object):
     def get_ref(self):
         if self._name is not None:            
             #TODO: re-enable when struct members are sorted out
-            #if not self._is_arg and self._value is None:
+            #if not self._is_arg and self._expression is None:
             #    raise RuntimeError(
             #        'Variable is used before it has been assigned a value')
             
             return self._name
         
-        elif self._value is not None:
-            return self._value
+        elif self._expression is not None:
+            return self._expression
         else:        
             raise RuntimeError('Instance is neither a variable nor expression.')

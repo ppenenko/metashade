@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import data_types
-import context
+from . import data_types
+from . import context
 
 class Generator(object):
     """

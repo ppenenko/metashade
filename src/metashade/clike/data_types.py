@@ -21,7 +21,8 @@ class BaseType(base.BaseType):
         self._sh._write('{type_name} {identifier}{initializer};\n'.format(
             type_name = self.__class__.get_target_type_name(),
             identifier = self._name,
-            initializer = '' if self._value is None else ' = {}'.format(self._value) ))
+            initializer = '' if self._expression is None \
+                else ' = {}'.format(self._expression) ))
         
     def _arg_define(self, sh, identifier):
         self._bind(sh, identifier, allow_defaults=False)
@@ -32,7 +33,7 @@ class BaseType(base.BaseType):
         
     def __setattr__(self, name, value):
         if name == '_':
-            self._value = value
+            self._expression = value
             self._sh._write('{identifier} = {value};\n'.format(
                 identifier = self._name,
                 value = value.get_ref() if hasattr(value, 'get_ref') else value ))

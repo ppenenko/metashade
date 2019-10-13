@@ -13,10 +13,9 @@
 # limitations under the License.
 
 import metashade.base.context as base
-from types import NoneType  
         
 class Function(object):
-    def __init__(self, sh, name, return_type = NoneType):
+    def __init__(self, sh, name, return_type = type(None)):
         self._sh = sh
         self._name = name
         self._return_type = return_type
@@ -24,7 +23,7 @@ class Function(object):
 
     def __call__(self, **kwargs):
         self._args = {name : arg_type() \
-                      for name, arg_type in kwargs.iteritems()}
+                      for name, arg_type in kwargs.items()}
         return self
 
     def __getattr__(self, name):
@@ -35,14 +34,14 @@ class Function(object):
         
     def __enter__(self):
         return_type = self._return_type.get_target_type_name() \
-            if self._return_type != NoneType else 'void'
+            if self._return_type != type(None) else 'void'
 
         self._sh._write('{return_type} {name}('.format(
             return_type = return_type,
             name = self._name ))
         
         first = True
-        for name, arg in self._args.iteritems():
+        for name, arg in self._args.items():
             if first:
                 first = False
             else:
@@ -65,7 +64,7 @@ class Function(object):
     
     def return_(self, value=None):
         mismatch_error = 'Return value type mismatch'
-        if self._return_type is NoneType:
+        if self._return_type is type(None):
             if value is not None:
                 raise RuntimeError(mismatch_error)
         else:                

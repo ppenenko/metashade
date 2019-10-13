@@ -14,7 +14,7 @@
 
 import metashade.slang.profile as slang
 import metashade.clike.struct as struct
-import data_types
+from . import data_types
 
 class Generator(slang.Generator):
     def __init__(self, file_):
@@ -50,7 +50,7 @@ class Generator(slang.Generator):
                 position_name = 'position'
                 position_type = data_types.Vector4f
                 
-                for member_name, dtype in kwargs.iteritems():
+                for member_name, dtype in kwargs.items():
                     if member_name == position_name or dtype == position_type:
                         raise RuntimeError(
                             'Homogenous position output already defined')

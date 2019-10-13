@@ -24,24 +24,25 @@ import metashade.hlsl.data_types as t
 import metashade.hlsl.fx as fx
 
 def test_simple():
-    sh = profile.Generator(sys.stderr)
-    
-    sh.uniform('diffuse_color', t.RGBA)
-    sh.uniform('WvpXf', t.Matrix4x4f, semantic = 'WorldViewProjection')
-    
-    sh.vs_input('VsIn')(position = t.Point3f)
-    sh.vs_output('VsOut')()
-    
-    with sh.vs_main('VsMain', sh.VsOut)(i = sh.VsIn):
-        sh.o = sh.VsOut()        
-        sh.o.position._ = t.Vector4f((0, 0, 0, 1))
-        sh.return_(sh.o)
-    
-    sh.ps_output('PsOut')(color = t.RGBA)
-    
-    with sh.ps_main('PsMain', sh.PsOut)():
-        sh.o = sh.PsOut()
-        sh.o.color._ = sh.diffuse_color
-        sh.return_(sh.o)
+    with open("test_simple.fx", "w+") as f:
+        sh = profile.Generator(f)
         
-    fx.simple_vs_ps_technique(sh, 'VsMain', 'PsMain')
+        sh.uniform('diffuse_color', t.RGBA)
+        sh.uniform('WvpXf', t.Matrix4x4f, semantic = 'WorldViewProjection')
+        
+        sh.vs_input('VsIn')(position = t.Point3f)
+        sh.vs_output('VsOut')()
+        
+        with sh.vs_main('VsMain', sh.VsOut)(i = sh.VsIn):
+            sh.o = sh.VsOut()        
+            sh.o.position._ = t.Vector4f((0, 0, 0, 1))
+            sh.return_(sh.o)
+        
+        sh.ps_output('PsOut')(color = t.RGBA)
+        
+        with sh.ps_main('PsMain', sh.PsOut)():
+            sh.o = sh.PsOut()
+            sh.o.color._ = sh.diffuse_color
+            sh.return_(sh.o)
+            
+        fx.simple_vs_ps_technique(sh, 'VsMain', 'PsMain')
