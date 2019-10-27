@@ -42,8 +42,10 @@ class BaseType(base.BaseType):
 
     @classmethod
     def get_target_type_name(cls):
-        return cls._target_name if hasattr(cls, '_target_name') \
-            else cls.__name__
+        try:
+            return cls._target_name
+        except AttributeError:
+            return cls.__name__
 
 class AddMixIn(object):
     def __add__(self, rhs):
