@@ -36,7 +36,8 @@ class Function(object):
         return_type = self._return_type.get_target_type_name() \
             if self._return_type != type(None) else 'void'
 
-        self._sh._write('{return_type} {name}('.format(
+        self._sh._emit_indent()
+        self._sh._emit('{return_type} {name}('.format(
             return_type = return_type,
             name = self._name ))
         
@@ -45,10 +46,10 @@ class Function(object):
             if first:
                 first = False
             else:
-                self._sh._write(', ')
+                self._sh._emit(', ')
             arg._define(self._sh, name, allow_init=False)
                         
-        self._sh._write(')\n{\n')
+        self._sh._emit(')\n{\n')
         self._sh._push_indent()
         
         body = base.Scope()
@@ -59,7 +60,7 @@ class Function(object):
         self._sh._pop_context() # pop the function body
         self._sh._pop_context() # pop the function definition
         self._sh._pop_indent()
-        self._sh._write('}\n\n')
+        self._sh._emit('}\n\n')
     
     def return_(self, value=None):
         mismatch_error = 'Return value type mismatch'
@@ -69,6 +70,7 @@ class Function(object):
         else:                
             if not isinstance(value, self._return_type):
                 raise RuntimeError(mismatch_error)
-            
-        self._sh._write('return{};\n'.format(
+
+        self._sh._emit_indent()
+        self._sh._emit('return{};\n'.format(
             ' ' + value.get_ref() if value is not None else ''))

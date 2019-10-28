@@ -17,7 +17,7 @@ import metashade.base.data_types as base
 class BaseType(base.BaseType):
     @classmethod
     def _define_static(cls, sh, identifier, semantic=None, initializer=None):
-        sh._write('{type_name} {identifier}{semantic}{initializer}'.format(
+        sh._emit('{type_name} {identifier}{semantic}{initializer}'.format(
             type_name = cls.get_target_type_name(),
             identifier = identifier,
             semantic = '' if semantic is None \
@@ -33,7 +33,8 @@ class BaseType(base.BaseType):
     def __setattr__(self, name, value):
         if name == '_':
             self._expression = value
-            self._sh._write('{identifier} = {value};\n'.format(
+            self._sh._emit_indent()
+            self._sh._emit('{identifier} = {value};\n'.format(
                 identifier = self._name,
                 value = value.get_ref() if hasattr(value, 'get_ref') else value ))
         else:

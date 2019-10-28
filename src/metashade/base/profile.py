@@ -35,11 +35,12 @@ class Generator(object):
     def _pop_indent(self):
         self._indent -= self._indent_delta
         
-    def _get_indent(self):
-        return self._indent_char * (self._indent * self._indent_delta)
+    def _emit_indent(self):
+        return self._file.write(
+            self._indent_char * (self._indent * self._indent_delta))
     
-    def _write(self, line):
-        self._file.write(self._get_indent() + line)
+    def _emit(self, line):
+        self._file.write(line)
         
     def _push_context(self, context):
         self._context_stack.append(context)
@@ -81,5 +82,6 @@ class Generator(object):
         else:
             self._check_unique_attr(name)
             self._context_stack[-1]._locals[name] = value
+            self._emit_indent()
             value._define(self, name)
-            self._write(';\n')
+            self._emit(';\n')

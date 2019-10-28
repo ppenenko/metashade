@@ -52,12 +52,13 @@ class StructDef(object):
                             {'_member_defs' : kwargs})
         self._sh._set_global(self._name, struct_type)
 
-        self._sh._write('struct {name}\n{{\n'.format(name = self._name))
+        self._sh._emit('struct {name}\n{{\n'.format(name = self._name))
         self._sh._push_indent()
 
         for member_name, dtype in kwargs.items():
+            self._sh._emit_indent()
             dtype._define_static(self._sh, member_name)
-            self._sh._write(";\n")
+            self._sh._emit(";\n")
 
         self._sh._pop_indent()
-        self._sh._write('};\n\n')
+        self._sh._emit('};\n\n')

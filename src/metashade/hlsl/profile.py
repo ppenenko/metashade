@@ -40,8 +40,9 @@ class Generator(slang.Generator):
             
         value = dtype() #TODO: make it immutable
         self._set_global(name, value)
+        self._emit_indent()
         value._define(self, name, semantic)
-        self._write(';\n')
+        self._emit(';\n')
         
     vs_input = slang.Generator.struct
     
