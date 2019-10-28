@@ -46,10 +46,9 @@ class Function(object):
                 first = False
             else:
                 self._sh._write(', ')
-            arg._arg_define(self._sh, name)
+            arg._define(self._sh, name, allow_init=False)
                         
-        self._sh._write(')\n')
-        self._sh._write('{\n')
+        self._sh._write(')\n{\n')
         self._sh._push_indent()
         
         body = base.Scope()

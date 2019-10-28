@@ -82,3 +82,4 @@ class Generator(object):
             self._check_unique_attr(name)
             self._context_stack[-1]._locals[name] = value
             value._define(self, name)
+            self._write(';\n')

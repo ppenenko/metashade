@@ -16,38 +16,27 @@ import metashade.base.data_types as base
 import metashade.slang.data_types as slang
 import metashade.clike.data_types as clike
 
-class SemanticMixin(base.BaseType):
-    @classmethod
-    def define_member(cls, sh, identifier):        
-        sh._write('{type_name} {identifier} : {semantic};\n'.format(
-            type_name = cls._target_name,
-            identifier = identifier,
-            semantic = cls._semantic ))
-
 class Float(slang.Float):
     _target_name = 'float'
     
-class Point3f(slang.Point3f, SemanticMixin):
+class Point3f(slang.Point3f):
     _target_name = 'float3'
-    _semantic = 'POSITION'
     
-class Vector4f(slang.Vector4f, SemanticMixin):
+class Vector4f(slang.Vector4f):
     def __init__(self, xyzw = None):
         initializer=None if xyzw is None else \
             'float4({0}, {1}, {2}, {3})'.format(*xyzw)                
         super(Vector4f, self).__init__(initializer)            
                 
     _target_name = 'float4'
-    _semantic = 'POSITION'
     
 class Matrix4x4f(clike.BaseType):
     _target_name = 'float4x4'
     
-class RGBA(slang.RGBA, SemanticMixin):
+class RGBA(slang.RGBA):
     def __init__(self, rgba = None):
         initializer=None if rgba is None else \
             'float4({0}, {1}, {2}, {3})'.format(*rgba)                
         super(RGBA, self).__init__(initializer)
     
     _target_name = 'float4'
-    _semantic = 'COLOR'

@@ -26,9 +26,9 @@ class BaseType(object):
         self._name = None
         self._expression = initializer
         
-    def _bind(self, sh, name, allow_defaults):
-        if not allow_defaults and self._expression is not None:
-            raise RuntimeError('Arguments with default values are not supported.')
+    def _bind(self, sh, name, allow_init):
+        if not allow_init and self._expression is not None:
+            raise RuntimeError('Initializer are not supported.')
         
         self._name = name
         self._sh = sh

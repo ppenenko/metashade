@@ -15,21 +15,20 @@
 import metashade.base.data_types as base
 
 class BaseType(base.BaseType):
-    def _define(self, sh, identifier):
-        self._bind(sh, identifier, allow_defaults=True)
-        
-        self._sh._write('{type_name} {identifier}{initializer};\n'.format(
-            type_name = self.__class__.get_target_type_name(),
-            identifier = self._name,
-            initializer = '' if self._expression is None \
-                else ' = {}'.format(self._expression) ))
-        
-    def _arg_define(self, sh, identifier):
-        self._bind(sh, identifier, allow_defaults=False)
-        
-        self._sh._write('{type_name} {identifier}'.format(
-            type_name = self.__class__.get_target_type_name(),
-            identifier = self._name))
+    @classmethod
+    def _define_static(cls, sh, identifier, semantic=None, initializer=None):
+        sh._write('{type_name} {identifier}{semantic}{initializer}'.format(
+            type_name = cls.get_target_type_name(),
+            identifier = identifier,
+            semantic = '' if semantic is None \
+                else ' : {}'.format(semantic),
+            initializer = '' if initializer is None \
+                else ' = {}'.format(initializer) ))
+
+    def _define(self, sh, identifier, semantic=None, allow_init=True):
+        self._bind(sh, identifier, allow_init)
+        self.__class__._define_static(
+            sh, self._name, self._expression, semantic)
         
     def __setattr__(self, name, value):
         if name == '_':

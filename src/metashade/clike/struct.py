@@ -24,15 +24,15 @@ class Struct(metashade.clike.data_types.BaseType):
         
         self._constructed = True
         
-    def _define(self, sh, identifier):
-        super(Struct, self)._define(sh, identifier)
+    def _define(self, sh, identifier, semantic=None, allow_init=True):
+        super(Struct, self)._define(sh, identifier, semantic, allow_init)
         
         for member_name, member in vars(self).items():
             if not member_name.startswith('_'):
                 nested_name='{struct_name}.{member_name}'.format(
                     struct_name=identifier, member_name=member_name)
 
-                member._bind(sh, nested_name, allow_defaults=False)
+                member._bind(sh, nested_name, allow_init=False)
     
     def __setattr__(self, name, value):
         if not name.startswith('_') and hasattr(self, '_constructed'):
@@ -55,13 +55,9 @@ class StructDef(object):
         self._sh._write('struct {name}\n{{\n'.format(name = self._name))
         self._sh._push_indent()
 
-        first = True
         for member_name, dtype in kwargs.items():
-            if first:
-                first = False
-            else:
-                self._sh._write(',\n')
-            dtype.define_member(self._sh, member_name)
+            dtype._define_static(self._sh, member_name)
+            self._sh._write(";\n")
 
         self._sh._pop_indent()
         self._sh._write('};\n\n')
