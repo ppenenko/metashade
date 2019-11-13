@@ -15,6 +15,7 @@
 import metashade.slang.profile as slang
 import metashade.clike.struct as struct
 from . import data_types
+from . import stage_interface
 
 class Generator(slang.Generator):
     def __init__(self, file_):
@@ -44,7 +45,8 @@ class Generator(slang.Generator):
         value._define(self, name, semantic)
         self._emit(';\n')
         
-    vs_input = slang.Generator.struct
+    def vs_input(self, name):
+        return stage_interface.VsInputDef(self, name)
     
     def vs_output(self, name):
         class VSOutputDef(struct.StructDef):

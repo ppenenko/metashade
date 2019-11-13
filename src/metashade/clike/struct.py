@@ -29,8 +29,9 @@ class Struct(metashade.clike.data_types.BaseType):
         
         for member_name, member in vars(self).items():
             if not member_name.startswith('_'):
-                nested_name='{struct_name}.{member_name}'.format(
-                    struct_name=identifier, member_name=member_name)
+                nested_name = '{struct_name}.{member_name}'.format(
+                    struct_name=identifier, member_name=member_name
+                )
 
                 member._bind(sh, nested_name, allow_init=False)
     
@@ -41,24 +42,39 @@ class Struct(metashade.clike.data_types.BaseType):
             
         super(Struct, self).__setattr__(name, value)
 
+class StructMemberDef:
+    def __init__(self, dtype, semantic = None):
+        self.dtype = dtype
+        self.semantic = semantic
+
+def define_struct(sh, name, member_defs):
+    struct_type = type(
+        name,
+        (Struct,),
+        {'_member_defs' : member_defs}
+    )
+    sh._set_global(name, struct_type)
+
+    sh._emit('struct {name}\n{{\n'.format(name = name))
+    sh._push_indent()
+
+    for member_name, member_def in member_defs.items():
+        sh._emit_indent()
+        member_def.dtype._define_static(sh, member_name, member_def.semantic)
+        sh._emit(";\n")
+
+    sh._pop_indent()
+    sh._emit('};\n\n')
+
 class StructDef(object):
     def __init__(self, sh, name):
         self._sh = sh
         self._name = name
 
     def __call__(self, **kwargs):
-        struct_type = type( self._name,
-                            (Struct,),
-                            {'_member_defs' : kwargs})
-        self._sh._set_global(self._name, struct_type)
-
-        self._sh._emit('struct {name}\n{{\n'.format(name = self._name))
-        self._sh._push_indent()
-
-        for member_name, dtype in kwargs.items():
-            self._sh._emit_indent()
-            dtype._define_static(self._sh, member_name)
-            self._sh._emit(";\n")
-
-        self._sh._pop_indent()
-        self._sh._emit('};\n\n')
+        define_struct(
+            self._sh,
+            self._name,
+            { name : StructMemberDef(dtype) for name, dtype in kwargs.items() }
+        )
+        

@@ -29,12 +29,15 @@ def test_simple():
         
         sh.uniform('diffuse_color', t.RGBA)
         sh.uniform('WvpXf', t.Matrix4x4f, semantic = 'WorldViewProjection')
-        
-        sh.vs_input('VsIn')(position = t.Point3f)
-        sh.vs_output('VsOut')()
-        
+
+        with sh.vs_input('VsIn') as vs_in:
+            vs_in.position('Po', t.Point3f)
+
+        with sh.vs_output('VsOut'):
+            pass
+
         with sh.vs_main('VsMain', sh.VsOut)(i = sh.VsIn):
-            sh.o = sh.VsOut()        
+            sh.o = sh.VsOut()
             sh.o.position._ = t.Vector4f((0, 0, 0, 1))
             sh.return_(sh.o)
         
