@@ -47,7 +47,7 @@ class BaseType(base.BaseType):
         except AttributeError:
             return cls.__name__
 
-class AddMixIn(object):
+class AddMixIn:
     def __add__(self, rhs):
         return self.__class__('{this} + {rhs}'.format(
             this = self.get_ref(), rhs = rhs.get_ref() ))

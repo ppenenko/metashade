@@ -66,7 +66,7 @@ def define_struct(sh, name, member_defs):
     sh._pop_indent()
     sh._emit('};\n\n')
 
-class StructDef(object):
+class StructDef:
     def __init__(self, sh, name):
         self._sh = sh
         self._name = name

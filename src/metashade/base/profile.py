@@ -15,7 +15,7 @@
 from . import data_types
 from . import context
 
-class Generator(object):
+class Generator:
     """
     The base class for generators. Wraps an output file.
     """

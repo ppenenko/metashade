@@ -14,7 +14,7 @@
 
 import metashade.base.context as base
         
-class Function(object):
+class Function:
     def __init__(self, sh, name, return_type = type(None)):
         self._sh = sh
         self._name = name
