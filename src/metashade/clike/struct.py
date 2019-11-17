@@ -19,8 +19,8 @@ class Struct(metashade.clike.data_types.BaseType):
     def __init__(self):
         super(Struct, self).__init__()
         
-        for name, dtype in self.__class__._member_defs.items():
-            setattr(self, name, dtype())
+        for name, member_def in self.__class__._member_defs.items():
+            setattr(self, name, member_def.dtype())
         
         self._constructed = True
         

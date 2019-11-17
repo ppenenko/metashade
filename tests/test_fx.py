@@ -13,8 +13,7 @@
 # limitations under the License.
 
 """
-Just a sketch of generating an HLSL effect with a trivial VS/PS pair.
-Currently fails.
+An example of generating an HLSL effect with a trivial VS/PS pair.
 """
 
 import sys
@@ -33,12 +32,12 @@ def test_simple():
         with sh.vs_input('VsIn') as vs_in:
             vs_in.position('Po', t.Point3f)
 
-        with sh.vs_output('VsOut'):
-            pass
+        with sh.vs_output('VsOut') as vs_out:
+            vs_out.position('Pclip', t.Vector4f)
 
         with sh.vs_main('VsMain', sh.VsOut)(i = sh.VsIn):
             sh.o = sh.VsOut()
-            sh.o.position._ = t.Vector4f((0, 0, 0, 1))
+            sh.o.Pclip._ = t.Vector4f((0, 0, 0, 1))
             sh.return_(sh.o)
         
         sh.ps_output('PsOut')(color = t.RGBA)

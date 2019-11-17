@@ -14,6 +14,10 @@
 
 import metashade.clike.struct as struct
 
+'''
+    See https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-semantics
+'''
+
 class SemanticDef:
     def __init__(self, allow_multi):
         self.allow_multi = allow_multi
@@ -80,9 +84,6 @@ class StageInterfaceDef:
         struct.define_struct(self._sh, self._name, member_defs)
 
 class VsInputDef(StageInterfaceDef, metaclass = StageInterfaceDefMeta):
-    '''
-    See https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-semantics
-    '''
     _semantic_defs = {
         'binormal'      : SemanticDef(True),    # Binormal, float4
         'blendIndices'  : SemanticDef(True),    # Blend indices, uint
@@ -94,4 +95,14 @@ class VsInputDef(StageInterfaceDef, metaclass = StageInterfaceDefMeta):
         'pSize'         : SemanticDef(True),    # Point size,	float
         'tangent'       : SemanticDef(True),    #Tangent,	float4
         'texCoord'      : SemanticDef(True)     # Texture coordinates,	float4
+    }
+
+class VsOutputDef(StageInterfaceDef, metaclass = StageInterfaceDefMeta):
+    _semantic_defs = {
+        'color'     : SemanticDef(True),    # Diffuse or specular color,	float4
+        'fog'       : SemanticDef(False),    # Vertex fog,   float
+        'position'  : SemanticDef(True),    # Position of a vertex in homogenous space, float4
+        'pSize'     : SemanticDef(False),   # Point size,	float
+        'tessFactor': SemanticDef(True),    # Tessellation factor,	float
+        'texCoord'  : SemanticDef(True),    # Texture coordinates,	float4
     }

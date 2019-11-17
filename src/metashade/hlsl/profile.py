@@ -49,19 +49,6 @@ class Generator(slang.Generator):
         return stage_interface.VsInputDef(self, name)
     
     def vs_output(self, name):
-        class VSOutputDef(struct.StructDef):
-            def __call__(self, **kwargs):
-                position_name = 'position'
-                position_type = data_types.Vector4f
-                
-                for member_name, dtype in kwargs.items():
-                    if member_name == position_name or dtype == position_type:
-                        raise RuntimeError(
-                            'Homogenous position output already defined')
-                
-                kwargs[position_name] = position_type
-                struct.StructDef.__call__(self, **kwargs)
-                
-        return VSOutputDef(self, name)
+        return stage_interface.VsOutputDef(self, name)
 
     ps_output = slang.Generator.struct
