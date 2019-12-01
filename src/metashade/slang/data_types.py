@@ -15,11 +15,11 @@
 import metashade.clike.data_types as clike
 from metashade.clike.data_types import Float
 
-class Point3f(clike.BaseType, clike.AddMixIn):
+class Point3f(clike.BaseType, clike.ArithmeticType):
     pass
 
-class Vector4f(clike.BaseType, clike.AddMixIn):
+class Vector4f(clike.BaseType, clike.ArithmeticType):
     pass
 
-class RGBA(clike.BaseType, clike.AddMixIn):
+class RGBA(clike.BaseType, clike.ArithmeticType):
     pass

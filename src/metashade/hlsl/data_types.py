@@ -24,19 +24,22 @@ class Point3f(slang.Point3f):
     
 class Vector4f(slang.Vector4f):
     def __init__(self, xyzw = None):
-        initializer=None if xyzw is None else \
-            'float4({0}, {1}, {2}, {3})'.format(*xyzw)                
-        super(Vector4f, self).__init__(initializer)            
+        initializer = None if xyzw is None \
+            else 'float4({0}, {1}, {2}, {3})'.format(*xyzw)
+        super(Vector4f, self).__init__(initializer)
                 
     _target_name = 'float4'
-    
+
 class Matrix4x4f(clike.BaseType):
     _target_name = 'float4x4'
-    
+
+    def xform(self, v):
+        pass
+
 class RGBA(slang.RGBA):
     def __init__(self, rgba = None):
-        initializer=None if rgba is None else \
-            'float4({0}, {1}, {2}, {3})'.format(*rgba)                
+        initializer = None if rgba is None \
+            else 'float4({0}, {1}, {2}, {3})'.format(*rgba)
         super(RGBA, self).__init__(initializer)
     
     _target_name = 'float4'

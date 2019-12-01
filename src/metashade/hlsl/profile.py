@@ -23,10 +23,12 @@ class Generator(slang.Generator):
         self._uniforms_by_semantic = dict()
         
     def uniform(self, name, dtype, semantic = None):
-        # TODO: registers        
+        # TODO: registers
         if name.startswith('_'):
-            raise RuntimeError("'{name}': names starting with an underscore"
-                               "can't be Metashade symbols")
+            raise RuntimeError(
+                "'{name}': names starting with an underscore"
+                "can't be Metashade symbols"
+            )
             
         if semantic is not None:
             existing = self._uniforms_by_semantic.get(semantic)
@@ -34,11 +36,13 @@ class Generator(slang.Generator):
                 raise RuntimeError(
                     "Can't define uniform '{name}' with semantic '{semantic}' "
                     "because uniform '{existing_name}' already uses that "
-                    "semantic.".format(name = name,
-                                       semantic = semantic,
-                                       existing_name = existing._name))
-                
-            
+                    "semantic.".format(
+                        name = name,
+                        semantic = semantic,
+                        existing_name = existing._name
+                    )
+                )
+
         value = dtype() #TODO: make it immutable
         self._set_global(name, value)
         self._emit_indent()

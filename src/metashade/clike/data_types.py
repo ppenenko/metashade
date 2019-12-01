@@ -16,27 +16,37 @@ import metashade.base.data_types as base
 
 class BaseType(base.BaseType):
     @classmethod
-    def _define_static(cls, sh, identifier, semantic=None, initializer=None):
-        sh._emit('{type_name} {identifier}{semantic}{initializer}'.format(
-            type_name = cls.get_target_type_name(),
-            identifier = identifier,
-            semantic = '' if semantic is None \
-                else ' : {}'.format(semantic),
-            initializer = '' if initializer is None \
-                else ' = {}'.format(initializer) ))
+    def _define_static(
+        cls, sh, identifier, semantic = None, initializer = None
+    ):
+        sh._emit(
+            '{type_name} {identifier}{semantic}{initializer}'.format(
+                type_name = cls.get_target_type_name(),
+                identifier = identifier,
+                semantic = '' if semantic is None \
+                    else ' : {}'.format(semantic),
+                initializer = '' if initializer is None \
+                    else ' = {}'.format(initializer)
+            )
+        )
 
-    def _define(self, sh, identifier, semantic=None, allow_init=True):
+    def _define(self, sh, identifier, semantic = None, allow_init = True):
         self._bind(sh, identifier, allow_init)
         self.__class__._define_static(
-            sh, self._name, self._expression, semantic)
+            sh, self._name, initializer = self._expression, semantic = semantic
+        )
         
     def __setattr__(self, name, value):
         if name == '_':
             self._expression = value
             self._sh._emit_indent()
-            self._sh._emit('{identifier} = {value};\n'.format(
-                identifier = self._name,
-                value = value.get_ref() if hasattr(value, 'get_ref') else value ))
+            self._sh._emit(
+                '{identifier} = {value};\n'.format(
+                    identifier = self._name,
+                    value = value.get_ref() if hasattr(value, 'get_ref') \
+                        else value
+                )
+            )
         else:
             object.__setattr__(self, name, value)
 
@@ -47,10 +57,25 @@ class BaseType(base.BaseType):
         except AttributeError:
             return cls.__name__
 
-class AddMixIn:
+class ArithmeticType:
+    def _binary_operator(self, rhs, op):
+        return self.__class__(
+            '({this} {op} {rhs})'.format(
+                this = self.get_ref(), rhs = rhs.get_ref(), op = op
+            )
+        )
+
     def __add__(self, rhs):
-        return self.__class__('{this} + {rhs}'.format(
-            this = self.get_ref(), rhs = rhs.get_ref() ))
-        
-class Float(BaseType, AddMixIn):
+        return self._binary_operator(rhs, '+')
+
+    def __sub__(self, rhs):
+        return self._binary_operator(rhs, '-')
+
+    def __mul__(self, rhs):
+        return self._binary_operator(rhs, '*')
+
+    def __div__(self, rhs):
+        return self._binary_operator(rhs, '/')
+
+class Float(BaseType, ArithmeticType):
     pass

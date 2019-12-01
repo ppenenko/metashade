@@ -18,25 +18,23 @@ import metashade.hlsl.profile as profile
 import metashade.hlsl.data_types as t 
 
 def test_simple():
-    sh = profile.Target(sys.stderr)
+    with open("test_simple.hlsl", "w+") as f:
+        sh = profile.Generator(f)
     
-    with sh.Function('test_func',
-                     return_type = t.Float,
-                     a = t.Float,
-                     e = t.Float):
-        sh.b = t.Float(2)
-        sh.c = sh.a + sh.b
-        
-        sh.d = t.Float()
-        sh.d._ = sh.b + sh.a
-        sh.d._ = t.Float(4)
-        sh.d._ = 5
-        
-        #sh.return_()
-        sh.return_(sh.c)
-        sh.return_(sh.a + sh.b)
-        sh.return_(sh.a + t.Float(3.0))
-    
+        with sh.function('test_func', t.Float)(a = t.Float, e = t.Float):
+            sh.b = t.Float(2)
+            sh.c = sh.a + sh.b
+            
+            sh.d = t.Float()
+            sh.d._ = sh.b + sh.a
+            sh.d._ = t.Float(4)
+            sh.d._ = 5
+            
+            #sh.return_()
+            sh.return_(sh.c)
+            sh.return_(sh.a + sh.b)
+            sh.return_(sh.a + t.Float(3.0))
+
 # def test_double_definition():
 #     sh = profile.Target(sys.stderr)
 #     sh.test_func = sh.Function()
