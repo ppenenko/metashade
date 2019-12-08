@@ -28,13 +28,13 @@ class BaseType:
         
     def _bind(self, sh, name, allow_init):
         if not allow_init and self._expression is not None:
-            raise RuntimeError('Initializer are not supported.')
+            raise RuntimeError('Initializers are not supported.')
         
         self._name = name
         self._sh = sh
         
     def get_ref(self):
-        if self._name is not None:            
+        if self._name is not None:
             #TODO: re-enable when struct members are sorted out
             #if not self._is_arg and self._expression is None:
             #    raise RuntimeError(
@@ -44,5 +44,7 @@ class BaseType:
         
         elif self._expression is not None:
             return self._expression
-        else:        
-            raise RuntimeError('Instance is neither a variable nor expression.')
+        else:
+            raise RuntimeError(
+                'Instance is neither a variable nor an expression.'
+            )

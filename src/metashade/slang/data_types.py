@@ -15,11 +15,66 @@
 import metashade.clike.data_types as clike
 from metashade.clike.data_types import Float
 
-class Point3f(clike.BaseType, clike.ArithmeticType):
+class RawVector(clike.ArithmeticType):
+    def dot(self, rhs):
+        if rhs.__class__._dim != self.__class__._dim:
+            raise ArithmeticError(
+                'Dot product operands must have the same dimensions.'
+            )
+
+        return self.__class__._element_type(
+            'dot({this}, {rhs})'.format(
+                this = self.get_ref(), rhs = rhs.get_ref()
+            )
+        )
+
+class Float1(RawVector):
+    _dim = 1
+    _element_type = clike.Float
+
+class Float2(RawVector):
+    _dim = 2
+    _element_type = clike.Float
+
+class Float3(RawVector):
+    _dim = 3
+    _element_type = clike.Float
+
+    def cross(self, rhs):
+        if rhs.__class__ != self.__class__:
+            raise ArithmeticError(
+                'Cross product operands must have the same type (3D vector)'
+            )
+
+        return self.__class__(
+            'cross({this}, {rhs})'.format(
+                this = self.get_ref(), rhs = rhs.get_ref()
+            )
+        )
+
+class Float4(RawVector):
+    _dim = 4
+    _element_type = clike.Float
+
+class RawMatrix(clike.ArithmeticType):
     pass
 
-class Vector4f(clike.BaseType, clike.ArithmeticType):
-    pass
+for rows in range(5):
+    for cols in range(5):
+        type(
+            'Float{rows}x{cols}'.format(rows = rows, cols = cols),
+            (RawMatrix,),
+            {'_dims' : (rows, cols), '_element_type' : clike.Float}
+        )
 
-class RGBA(clike.BaseType, clike.ArithmeticType):
-    pass
+class Point3f(Float3):
+    def asVector4(self):
+        return Float4(
+            '{dtype}({this}, 1.0f)'.format(
+                dtype = Float4.get_target_type_name(),
+                this = self.get_ref
+            )
+        )
+
+Vector4f = Float4
+RgbaF = Float4

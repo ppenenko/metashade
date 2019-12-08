@@ -36,10 +36,10 @@ class Matrix4x4f(clike.BaseType):
     def xform(self, v):
         pass
 
-class RGBA(slang.RGBA):
+class RgbaF(slang.RgbaF):
     def __init__(self, rgba = None):
         initializer = None if rgba is None \
             else 'float4({0}, {1}, {2}, {3})'.format(*rgba)
-        super(RGBA, self).__init__(initializer)
+        super(RgbaF, self).__init__(initializer)
     
     _target_name = 'float4'

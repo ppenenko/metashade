@@ -57,7 +57,7 @@ class BaseType(base.BaseType):
         except AttributeError:
             return cls.__name__
 
-class ArithmeticType:
+class ArithmeticType(BaseType):
     def _binary_operator(self, rhs, op):
         return self.__class__(
             '({this} {op} {rhs})'.format(
@@ -77,5 +77,5 @@ class ArithmeticType:
     def __div__(self, rhs):
         return self._binary_operator(rhs, '/')
 
-class Float(BaseType, ArithmeticType):
+class Float(ArithmeticType):
     pass

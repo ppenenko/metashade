@@ -26,7 +26,7 @@ def test_simple():
     with open("test_simple.fx", "w+") as f:
         sh = profile.Generator(f)
         
-        sh.uniform('diffuse_color', t.RGBA)
+        sh.uniform('diffuse_color', t.RgbaF)
         sh.uniform('WvpXf', t.Matrix4x4f, semantic = 'WorldViewProjection')
 
         with sh.vs_input('VsIn') as vs_in:
@@ -40,7 +40,7 @@ def test_simple():
             sh.o.Pclip._ = t.Vector4f((0, 0, 0, 1))
             sh.return_(sh.o)
         
-        sh.ps_output('PsOut')(color = t.RGBA)
+        sh.ps_output('PsOut')(color = t.RgbaF)
         
         with sh.ps_main('PsMain', sh.PsOut)():
             sh.o = sh.PsOut()
