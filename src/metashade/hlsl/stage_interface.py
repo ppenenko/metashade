@@ -24,7 +24,7 @@ class SemanticDef:
 
 class StageInterfaceDefMeta(type):
     def __init__(cls, name, bases, member_dict):
-        super(StageInterfaceDefMeta, cls).__init__(name, bases, member_dict)
+        super().__init__(name, bases, member_dict)
 
         def create_semantic_func(semantic_name, semantic_def):
             def semantic_func(self, attribute_name, dtype):
@@ -73,7 +73,7 @@ class StageInterfaceDef:
             semantic_index = semantic_indices[attribute_def.semantic]
 
             semantic_name = attribute_def.semantic.upper()
-            if  semantic_index > 0 \
+            if semantic_index > 0 \
                 or self._semantic_counts[attribute_def.semantic] > 1:
                 semantic_name += str(semantic_index)
 

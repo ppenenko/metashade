@@ -17,7 +17,7 @@ import metashade.clike.data_types
 
 class Struct(metashade.clike.data_types.BaseType):
     def __init__(self):
-        super(Struct, self).__init__()
+        super().__init__()
         
         for name, member_def in self.__class__._member_defs.items():
             setattr(self, name, member_def.dtype())
@@ -25,7 +25,7 @@ class Struct(metashade.clike.data_types.BaseType):
         self._constructed = True
         
     def _define(self, sh, identifier, semantic=None, allow_init=True):
-        super(Struct, self)._define(sh, identifier, semantic, allow_init)
+        super()._define(sh, identifier, semantic, allow_init)
         
         for member_name, member in vars(self).items():
             if not member_name.startswith('_'):
@@ -40,7 +40,7 @@ class Struct(metashade.clike.data_types.BaseType):
             raise RuntimeError(
                 "Metashade struct member can't be bound after construction")
             
-        super(Struct, self).__setattr__(name, value)
+        super().__setattr__(name, value)
 
 class StructMemberDef:
     def __init__(self, dtype, semantic = None):
@@ -77,4 +77,4 @@ class StructDef:
             self._name,
             { name : StructMemberDef(dtype) for name, dtype in kwargs.items() }
         )
-        
+
