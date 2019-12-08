@@ -18,16 +18,28 @@ import metashade.clike.data_types as clike
 
 class Float(rtsl.Float):
     _target_name = 'float'
-    
-class Point3f(rtsl.Point3f):
+
+class Float1(rtsl.Float1):
+    _target_name = 'float1'
+
+class Float2(rtsl.Float2):
+    _target_name = 'float2'
+
+class Float3(rtsl.Float3):
     _target_name = 'float3'
+
+class Float4(rtsl.Float4):
+    _target_name = 'float4'
+
+class Point3f(rtsl.Point3f, Float3):
+    _raw_vector4_type = Float4
     
 class Vector4f(rtsl.Vector4f):
     def __init__(self, xyzw = None):
         initializer = None if xyzw is None \
             else 'float4({0}, {1}, {2}, {3})'.format(*xyzw)
-        super(Vector4f, self).__init__(initializer)
-                
+        super().__init__(initializer)
+
     _target_name = 'float4'
 
 class Matrix4x4f(clike.BaseType):
@@ -40,6 +52,6 @@ class RgbaF(rtsl.RgbaF):
     def __init__(self, rgba = None):
         initializer = None if rgba is None \
             else 'float4({0}, {1}, {2}, {3})'.format(*rgba)
-        super(RgbaF, self).__init__(initializer)
+        super().__init__(initializer)
     
     _target_name = 'float4'

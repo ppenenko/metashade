@@ -16,17 +16,31 @@ import metashade.clike.data_types as clike
 from metashade.clike.data_types import Float
 
 class RawVector(clike.ArithmeticType):
-    def dot(self, rhs):
+    def _check_dims(self, rhs):
         if rhs.__class__._dim != self.__class__._dim:
             raise ArithmeticError(
-                'Dot product operands must have the same dimensions.'
+                'Operands must have the same dimensions.'
             )
 
+    def _binary_operator(self, rhs, op):
+        self._check_dims(rhs)
+        super()._binary_operator(self, rhs, op)
+
+    def dot(self, rhs):
+        self._check_dims(rhs)
         return self.__class__._element_type(
             'dot({this}, {rhs})'.format(
                 this = self.get_ref(), rhs = rhs.get_ref()
             )
         )
+
+    def mul(self, matrix):
+        if matrix.__class__._dims[0] != self.__class__._dim:
+            raise ArithmeticError(
+                'The number of rows in the matrix must be equal to the size of'
+                ' the vector'
+            )
+        # Derived classes must implement code generation.
 
 class Float1(RawVector):
     _dim = 1
@@ -45,7 +59,6 @@ class Float3(RawVector):
             raise ArithmeticError(
                 'Cross product operands must have the same type (3D vector)'
             )
-
         return self.__class__(
             'cross({this}, {rhs})'.format(
                 this = self.get_ref(), rhs = rhs.get_ref()
@@ -67,11 +80,12 @@ for rows in range(5):
             {'_dims' : (rows, cols), '_element_type' : clike.Float}
         )
 
-class Point3f(Float3):
+class Point3f:
     def asVector4(self):
-        return Float4(
+        raw_vector4_type = self.__class__._raw_vector4_type
+        return raw_vector4_type(
             '{dtype}({this}, 1.0f)'.format(
-                dtype = Float4.get_target_type_name(),
+                dtype = raw_vector4_type.get_target_type_name(),
                 this = self.get_ref
             )
         )
