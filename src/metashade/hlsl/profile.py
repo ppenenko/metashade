@@ -12,12 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import metashade.slang.profile as slang
+import metashade.rtsl.profile as rtsl
 import metashade.clike.struct as struct
 from . import data_types
 from . import stage_interface
 
-class Generator(slang.Generator):
+class Generator(rtsl.Generator):
     def __init__(self, file_):
         super(Generator, self).__init__(file_)
         self._uniforms_by_semantic = dict()
@@ -55,4 +55,4 @@ class Generator(slang.Generator):
     def vs_output(self, name):
         return stage_interface.VsOutputDef(self, name)
 
-    ps_output = slang.Generator.struct
+    ps_output = rtsl.Generator.struct

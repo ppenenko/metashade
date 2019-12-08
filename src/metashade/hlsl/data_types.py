@@ -13,16 +13,16 @@
 # limitations under the License.
 
 import metashade.base.data_types as base
-import metashade.slang.data_types as slang
+import metashade.rtsl.data_types as rtsl
 import metashade.clike.data_types as clike
 
-class Float(slang.Float):
+class Float(rtsl.Float):
     _target_name = 'float'
     
-class Point3f(slang.Point3f):
+class Point3f(rtsl.Point3f):
     _target_name = 'float3'
     
-class Vector4f(slang.Vector4f):
+class Vector4f(rtsl.Vector4f):
     def __init__(self, xyzw = None):
         initializer = None if xyzw is None \
             else 'float4({0}, {1}, {2}, {3})'.format(*xyzw)
@@ -36,7 +36,7 @@ class Matrix4x4f(clike.BaseType):
     def xform(self, v):
         pass
 
-class RgbaF(slang.RgbaF):
+class RgbaF(rtsl.RgbaF):
     def __init__(self, rgba = None):
         initializer = None if rgba is None \
             else 'float4({0}, {1}, {2}, {3})'.format(*rgba)
