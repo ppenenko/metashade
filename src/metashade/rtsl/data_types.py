@@ -22,6 +22,13 @@ class RawVector(clike.ArithmeticType):
                 'Operands must have the same dimensions.'
             )
 
+    def _check_mul(self, matrix):
+        if matrix.__class__._dims[0] != self.__class__._dim:
+            raise ArithmeticError(
+                'The number of rows in the matrix must be equal to the size of'
+                ' the vector'
+            )
+
     def _binary_operator(self, rhs, op):
         self._check_dims(rhs)
         super()._binary_operator(self, rhs, op)
@@ -33,14 +40,6 @@ class RawVector(clike.ArithmeticType):
                 this = self.get_ref(), rhs = rhs.get_ref()
             )
         )
-
-    def mul(self, matrix):
-        if matrix.__class__._dims[0] != self.__class__._dim:
-            raise ArithmeticError(
-                'The number of rows in the matrix must be equal to the size of'
-                ' the vector'
-            )
-        # Derived classes must implement code generation.
 
 class Float1(RawVector):
     _dim = 1
@@ -81,15 +80,18 @@ for rows in range(1, 5):
             {'_dims' : (rows, cols), '_element_type' : clike.Float}
         )
 
+class Vector4f:
+    pass
+
 class Point3f:
     def as_vector4(self):
-        raw_vector4_type = self.__class__._raw_vector4_type
-        return raw_vector4_type(
+        vector4_type = self.__class__._vector4_type
+        return vector4_type(
             '{dtype}({this}, 1.0f)'.format(
-                dtype = raw_vector4_type.get_target_type_name(),
+                dtype = vector4_type.get_target_type_name(),
                 this = self.get_ref()
             )
         )
 
-Vector4f = Float4
-RgbaF = Float4
+class RgbaF:
+    pass

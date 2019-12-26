@@ -37,7 +37,7 @@ def test_simple():
 
         with sh.vs_main('VsMain', sh.VsOut)(i = sh.VsIn):
             sh.o = sh.VsOut()
-            sh.o.Pclip._ = t.Vector4f((0, 0, 0, 1))
+            sh.o.Pclip._ = sh.WvpXf.xform(sh.i.Po)
             sh.return_(sh.o)
         
         sh.ps_output('PsOut')(color = t.RgbaF)

@@ -16,23 +16,34 @@ import metashade.base.data_types as base
 import metashade.rtsl.data_types as rtsl
 import metashade.clike.data_types as clike
 
+class RawVector:
+    def mul(self, matrix):
+        self._check_mul(matrix)
+        return self.__class__(
+            'mul({this}, {matrix})'.format(
+                this = self.get_ref(), matrix = matrix.get_ref()
+            )
+        )
+
 class Float(rtsl.Float):
     _target_name = 'float'
 
-class Float1(rtsl.Float1):
+class Float1(rtsl.Float1, RawVector):
     _target_name = 'float1'
 
-class Float2(rtsl.Float2):
+class Float2(rtsl.Float2, RawVector):
     _target_name = 'float2'
 
-class Float3(rtsl.Float3):
+class Float3(rtsl.Float3, RawVector):
     _target_name = 'float3'
 
-class Float4(rtsl.Float4):
+class Float4(rtsl.Float4, RawVector):
     _target_name = 'float4'
 
-class Point3f(rtsl.Point3f, Float3):
-    _raw_vector4_type = Float4
+    def __init__(self, initializer = None):
+        if isinstance(initializer, tuple):
+            initializer = 'float4({0}, {1}, {2}, {3})'.format(*xyzw)
+        super().__init__(initializer)
 
 for rows in range(1, 5):
     for cols in range(1, 5):
@@ -45,21 +56,14 @@ for rows in range(1, 5):
         )
 
 class Matrix4x4f(Float4x4):
-    def xform(self, v):
-        return v.as_vector4().mul(self)
+    def xform(self, rhs):
+        return rhs.as_vector4().mul(self)
 
-class Vector4f(rtsl.Vector4f):
-    def __init__(self, xyzw = None):
-        initializer = None if xyzw is None \
-            else 'float4({0}, {1}, {2}, {3})'.format(*xyzw)
-        super().__init__(initializer)
+class Vector4f(rtsl.Vector4f, Float4):
+    pass
 
-    _target_name = 'float4'
+class Point3f(rtsl.Point3f, Float3):
+    _vector4_type = Vector4f
 
-class RgbaF(rtsl.RgbaF):
-    def __init__(self, rgba = None):
-        initializer = None if rgba is None \
-            else 'float4({0}, {1}, {2}, {3})'.format(*rgba)
-        super().__init__(initializer)
-    
-    _target_name = 'float4'
+class RgbaF(rtsl.RgbaF, Float4):
+    pass
