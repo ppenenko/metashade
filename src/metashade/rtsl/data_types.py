@@ -72,21 +72,22 @@ class Float4(RawVector):
 class RawMatrix(clike.ArithmeticType):
     pass
 
-for rows in range(5):
-    for cols in range(5):
-        type(
-            'Float{rows}x{cols}'.format(rows = rows, cols = cols),
+for rows in range(1, 5):
+    for cols in range(1, 5):
+        name = 'Float{rows}x{cols}'.format(rows = rows, cols = cols)
+        globals()[name] = type(
+            name,
             (RawMatrix,),
             {'_dims' : (rows, cols), '_element_type' : clike.Float}
         )
 
 class Point3f:
-    def asVector4(self):
+    def as_vector4(self):
         raw_vector4_type = self.__class__._raw_vector4_type
         return raw_vector4_type(
             '{dtype}({this}, 1.0f)'.format(
                 dtype = raw_vector4_type.get_target_type_name(),
-                this = self.get_ref
+                this = self.get_ref()
             )
         )
 

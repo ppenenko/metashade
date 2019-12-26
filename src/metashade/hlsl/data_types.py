@@ -33,7 +33,21 @@ class Float4(rtsl.Float4):
 
 class Point3f(rtsl.Point3f, Float3):
     _raw_vector4_type = Float4
-    
+
+for rows in range(1, 5):
+    for cols in range(1, 5):
+        name = 'Float{rows}x{cols}'.format(rows = rows, cols = cols)
+        target_name = 'float{rows}x{cols}'.format(rows = rows, cols = cols)
+        globals()[name] = type(
+            name,
+            (getattr(rtsl, name),),
+            {'_target_name' : target_name}
+        )
+
+class Matrix4x4f(Float4x4):
+    def xform(self, v):
+        return v.as_vector4().mul(self)
+
 class Vector4f(rtsl.Vector4f):
     def __init__(self, xyzw = None):
         initializer = None if xyzw is None \
@@ -41,12 +55,6 @@ class Vector4f(rtsl.Vector4f):
         super().__init__(initializer)
 
     _target_name = 'float4'
-
-class Matrix4x4f(clike.BaseType):
-    _target_name = 'float4x4'
-
-    def xform(self, v):
-        pass
 
 class RgbaF(rtsl.RgbaF):
     def __init__(self, rgba = None):
