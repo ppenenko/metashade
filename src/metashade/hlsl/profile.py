@@ -55,4 +55,5 @@ class Generator(rtsl.Generator):
     def vs_output(self, name):
         return stage_interface.VsOutputDef(self, name)
 
-    ps_output = rtsl.Generator.struct
+    def ps_output(self, name):
+        return stage_interface.PsOutputDef(self, name)

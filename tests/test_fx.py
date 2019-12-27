@@ -40,7 +40,8 @@ def test_simple():
             sh.o.Pclip._ = sh.WvpXf.xform(sh.i.Po)
             sh.return_(sh.o)
         
-        sh.ps_output('PsOut')(color = t.RgbaF)
+        with sh.ps_output('PsOut') as ps_out:
+            ps_out.color('color', t.RgbaF)
         
         with sh.ps_main('PsMain', sh.PsOut)():
             sh.o = sh.PsOut()

@@ -100,9 +100,17 @@ class VsInputDef(StageInterfaceDef, metaclass = StageInterfaceDefMeta):
 class VsOutputDef(StageInterfaceDef, metaclass = StageInterfaceDefMeta):
     _semantic_defs = {
         'color'     : SemanticDef(True),    # Diffuse or specular color,	float4
-        'fog'       : SemanticDef(False),    # Vertex fog,   float
+        'fog'       : SemanticDef(False),   # Vertex fog,   float
         'position'  : SemanticDef(True),    # Position of a vertex in homogenous space, float4
         'pSize'     : SemanticDef(False),   # Point size,	float
         'tessFactor': SemanticDef(True),    # Tessellation factor,	float
         'texCoord'  : SemanticDef(True),    # Texture coordinates,	float4
+    }
+
+# TODO: PS inputs distinct from VS outputs
+
+class PsOutputDef(StageInterfaceDef, metaclass = StageInterfaceDefMeta):
+    _semantic_defs = {
+        'color'     : SemanticDef(True),    # Output color,	float4
+        'depth'     : SemanticDef(True),    # Output depth,	float
     }
