@@ -29,6 +29,17 @@ def test_simple():
         sh.uniform('diffuse_color', t.RgbaF)
         sh.uniform('WvpXf', t.Matrix4x4f, semantic = 'WorldViewProjection')
 
+        sh.uniform(
+            'Lamp0Pos',
+            t.Float3,
+            semantic = 'Position',
+            annotations = [
+                'string Object = "PointLight0"',
+                'string UIName =  "Lamp 0 Position"',
+                'string Space = "World"'
+            ]
+        )
+
         with sh.vs_input('VsIn') as vs_in:
             vs_in.position('Po', t.Point3f)
 

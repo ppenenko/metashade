@@ -77,7 +77,7 @@ class Generator:
             raise AttributeError
 
     def __setattr__(self, name, value):
-        if name.startswith('_'):                
+        if name.startswith('_'):
             object.__setattr__(self, name, value)
         else:
             self._check_unique_attr(name)

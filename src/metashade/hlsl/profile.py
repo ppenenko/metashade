@@ -22,7 +22,7 @@ class Generator(rtsl.Generator):
         super(Generator, self).__init__(file_)
         self._uniforms_by_semantic = dict()
         
-    def uniform(self, name, dtype, semantic = None):
+    def uniform(self, name, dtype, semantic = None, annotations = None):
         # TODO: registers
         if name.startswith('_'):
             raise RuntimeError(
@@ -46,7 +46,7 @@ class Generator(rtsl.Generator):
         value = dtype() #TODO: make it immutable
         self._set_global(name, value)
         self._emit_indent()
-        value._define(self, name, semantic)
+        value._define(self, name, semantic, annotations = annotations)
         self._emit(';\n')
         
     def vs_input(self, name):

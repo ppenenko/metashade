@@ -17,23 +17,39 @@ import metashade.base.data_types as base
 class BaseType(base.BaseType):
     @classmethod
     def _define_static(
-        cls, sh, identifier, semantic = None, initializer = None
+        cls, sh, identifier,
+        semantic = None, initializer = None, annotations = None
     ):
         sh._emit(
-            '{type_name} {identifier}{semantic}{initializer}'.format(
+            '{type_name} {identifier}{semantic}'.format(
                 type_name = cls.get_target_type_name(),
                 identifier = identifier,
                 semantic = '' if semantic is None \
                     else ' : {}'.format(semantic),
-                initializer = '' if initializer is None \
-                    else ' = {}'.format(initializer)
             )
         )
 
-    def _define(self, sh, identifier, semantic = None, allow_init = True):
+        if annotations is not None and annotations:
+            sh._emit(' <\n')
+            sh._push_indent()
+            for annotation in annotations:
+                sh._emit_indent()
+                sh._emit('{};\n'.format(annotation))
+            sh._pop_indent()
+            sh._emit_indent()
+            sh._emit('>')
+
+        if initializer is not None:
+            sh._emit(' = {}'.format(initializer))
+
+    def _define(
+        self, sh, identifier,
+        semantic = None, allow_init = True, annotations = None
+    ):
         self._bind(sh, identifier, allow_init)
         self.__class__._define_static(
-            sh, self._name, initializer = self._expression, semantic = semantic
+            sh, self._name, initializer = self._expression,
+            semantic = semantic, annotations = annotations
         )
         
     def __setattr__(self, name, value):
