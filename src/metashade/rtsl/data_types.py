@@ -80,6 +80,19 @@ for rows in range(1, 5):
             {'_dims' : (rows, cols), '_element_type' : clike.Float}
         )
 
+class Vector2f:
+    pass
+
+class Vector3f:
+    def as_vector4(self):
+        vector4_type = self.__class__._vector4_type
+        return vector4_type(
+            '{dtype}({this}, 0.0f)'.format(
+                dtype = vector4_type.get_target_type_name(),
+                this = self.get_ref()
+            )
+        )
+
 class Vector4f:
     pass
 

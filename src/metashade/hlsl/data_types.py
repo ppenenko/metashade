@@ -62,6 +62,12 @@ class Matrix4x4f(Float4x4):
 class Vector4f(rtsl.Vector4f, Float4):
     pass
 
+class Vector2f(rtsl.Vector2f, Float2):
+    pass
+
+class Vector3f(rtsl.Vector3f, Float3):
+    _vector4_type = Vector4f
+
 class Point3f(rtsl.Point3f, Float3):
     _vector4_type = Vector4f
 

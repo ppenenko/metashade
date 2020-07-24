@@ -28,10 +28,11 @@ def test_simple():
         
         sh.uniform('diffuse_color', t.RgbaF)
         sh.uniform('WvpXf', t.Matrix4x4f, semantic = 'WorldViewProjection')
+        sh.uniform('WorldITXf', t.Matrix4x4f, semantic = 'WorldInverseTranspose')
 
         sh.uniform(
             'Lamp0Pos',
-            t.Float3,
+            t.Point3f,
             semantic = 'Position',
             annotations = [
                 'string Object = "PointLight0"',
@@ -40,15 +41,29 @@ def test_simple():
             ]
         )
 
+        sh.uniform(
+            'Lamp0Color',
+            t.Float3,
+            semantic = 'Specular',
+            annotations = [
+                'string UIName =  "Lamp 0"',
+                'string Object = "Pointlight0"',
+                'string UIWidget = "Color"'
+            ]
+        )
+
         with sh.vs_input('VsIn') as vs_in:
             vs_in.position('Po', t.Point3f)
+            vs_in.normal('No', t.Vector3f)
 
         with sh.vs_output('VsOut') as vs_out:
             vs_out.position('Pclip', t.Vector4f)
+            vs_out.texCoord('Nw', t.Vector3f)
 
         with sh.vs_main('VsMain', sh.VsOut)(i = sh.VsIn):
             sh.o = sh.VsOut()
             sh.o.Pclip._ = sh.WvpXf.xform(sh.i.Po)
+            sh.o.Nw._ = sh.WorldITXf.xform(sh.i.No)
             sh.return_(sh.o)
         
         with sh.ps_output('PsOut') as ps_out:
