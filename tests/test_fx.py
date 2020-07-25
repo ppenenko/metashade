@@ -76,8 +76,12 @@ def test_simple():
         with sh.ps_output('PsOut') as ps_out:
             ps_out.color('color', t.RgbaF)
         
-        with sh.ps_main('PsMain', sh.PsOut)():
+        with sh.ps_main('PsMain', sh.PsOut)(i = sh.VsOut):
             sh.o = sh.PsOut()
+
+            sh.Nw = sh.i.Nw.normalize()
+            sh.Lw = sh.i.Lw.normalize()
+
             sh.o.color._ = sh.diffuse_color
             sh.return_(sh.o)
             

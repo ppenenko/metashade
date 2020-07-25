@@ -25,6 +25,11 @@ class RawVector:
             )
         )
 
+    def normalize(self):
+        return self.__class__(
+            'normalize({this})'.format(this = self.get_ref())
+        )
+
 class Float(rtsl.Float):
     _target_name = 'float'
 
