@@ -31,7 +31,7 @@ class RawVector(clike.ArithmeticType):
 
     def _binary_operator(self, rhs, op):
         self._check_dims(rhs)
-        super()._binary_operator(self, rhs, op)
+        return super()._binary_operator(rhs, op)
 
     def dot(self, rhs):
         self._check_dims(rhs)
@@ -105,6 +105,9 @@ class Point3f:
                 this = self.get_ref()
             )
         )
+
+class RgbF:
+    pass
 
 class RgbaF:
     pass

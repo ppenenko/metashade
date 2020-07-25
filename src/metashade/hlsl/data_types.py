@@ -55,6 +55,10 @@ for rows in range(1, 5):
             {'_target_name' : target_name}
         )
 
+class Matrix3x3f(Float3x3):
+    def xform(self, rhs):
+        return rhs.mul(self)
+
 class Matrix4x4f(Float4x4):
     def xform(self, rhs):
         return rhs.as_vector4().mul(self)
@@ -70,6 +74,9 @@ class Vector3f(rtsl.Vector3f, Float3):
 
 class Point3f(rtsl.Point3f, Float3):
     _vector4_type = Vector4f
+
+class RgbF(rtsl.RgbF, Float3):
+    pass
 
 class RgbaF(rtsl.RgbaF, Float4):
     pass
