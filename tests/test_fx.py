@@ -26,7 +26,7 @@ def test_simple():
     with open("test_simple.fx", "w+") as f:
         sh = profile.Generator(f)
         
-        sh.uniform('diffuse_color', t.RgbaF)
+        sh.uniform('diffuse_color', t.RgbF)
 
         # Transforms
         sh.uniform('WorldXf', t.Matrix3x3f, semantic = 'World')
@@ -82,7 +82,7 @@ def test_simple():
             sh.Nw = sh.i.Nw.normalize()
             sh.Lw = sh.i.Lw.normalize()
 
-            sh.o.color._ = sh.diffuse_color
+            sh.o.color._ = t.RgbaF(rgb = sh.diffuse_color, a = 1.0)
             sh.return_(sh.o)
             
         fx.simple_vs_ps_technique(sh, 'VsMain', 'PsMain')

@@ -13,7 +13,7 @@
 # limitations under the License.
 
 import metashade.base.context as base
-        
+
 class Function:
     def __init__(self, sh, name, return_type = type(None)):
         self._sh = sh

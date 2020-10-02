@@ -16,6 +16,8 @@ import metashade.base.data_types as base
 import metashade.rtsl.data_types as rtsl
 import metashade.clike.data_types as clike
 
+import numbers
+
 class RawVector:
     def mul(self, matrix):
         self._check_mul(matrix)
@@ -45,10 +47,32 @@ class Float3(rtsl.Float3, RawVector):
 class Float4(rtsl.Float4, RawVector):
     _target_name = 'float4'
 
-    def __init__(self, initializer = None):
-        if isinstance(initializer, tuple):
-            initializer = 'float4({0}, {1}, {2}, {3})'.format(*xyzw)
-        super().__init__(initializer)
+    def __init__(self, xyzw = None, xyz = None, w = None):
+        if xyz is None:
+            if w is not None:
+                raise RuntimeError('Conflicting arguments')
+
+            rtsl.Float4.__init__(self, initializer = xyzw)
+        else:
+            if xyzw is not None:
+                raise RuntimeError('Conflicting arguments')
+
+            if not isinstance(xyz, Float3):
+                raise RuntimeError('"xyz" must be of type Float3')
+
+            if not isinstance(w, numbers.Number):
+                raise RuntimeError('"w" must be a scalar number')
+
+            def get_ref(value):
+                return value.get_ref() if hasattr(value, 'get_ref') \
+                    else value
+
+            initializer = '{dtype}({xyz}, {w})'.format(
+                dtype = __class__._target_name,
+                xyz = get_ref(xyz),
+                w = get_ref(w)
+            )
+            rtsl.Float4.__init__(self, initializer)
 
 for rows in range(1, 5):
     for cols in range(1, 5):
@@ -84,4 +108,8 @@ class RgbF(rtsl.RgbF, Float3):
     pass
 
 class RgbaF(rtsl.RgbaF, Float4):
-    pass
+    def __init__(self, rgb = None, a = None):
+        if rgb is not None and not isinstance(rgb, RgbF):
+            raise RuntimeError('"rgb" must be of type RgbF')
+
+        Float4.__init__(self, xyz = rgb, w = a)
