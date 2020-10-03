@@ -43,15 +43,12 @@ class RawVector(clike.ArithmeticType):
 
 class Float1(RawVector):
     _dim = 1
-    _element_type = clike.Float
 
 class Float2(RawVector):
     _dim = 2
-    _element_type = clike.Float
 
 class Float3(RawVector):
     _dim = 3
-    _element_type = clike.Float
 
     def cross(self, rhs):
         if rhs.__class__ != self.__class__:
@@ -66,7 +63,6 @@ class Float3(RawVector):
 
 class Float4(RawVector):
     _dim = 4
-    _element_type = clike.Float
 
 class RawMatrix(clike.ArithmeticType):
     pass
@@ -77,7 +73,7 @@ for rows in range(1, 5):
         globals()[name] = type(
             name,
             (RawMatrix,),
-            {'_dims' : (rows, cols), '_element_type' : clike.Float}
+            {'_dims' : (rows, cols)}
         )
 
 class Vector2f:

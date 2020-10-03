@@ -18,7 +18,12 @@ import metashade.clike.data_types as clike
 
 import numbers
 
+class Float(rtsl.Float):
+    pass
+
 class RawVector:
+    _element_type = Float
+
     def mul(self, matrix):
         self._check_mul(matrix)
         return self.__class__(
@@ -32,11 +37,9 @@ class RawVector:
             'normalize({this})'.format(this = self.get_ref())
         )
 
-class Float(rtsl.Float):
-    _target_name = 'float'
-
 class Float1(rtsl.Float1, RawVector):
     _target_name = 'float1'
+    
 
 class Float2(rtsl.Float2, RawVector):
     _target_name = 'float2'
@@ -81,7 +84,7 @@ for rows in range(1, 5):
         globals()[name] = type(
             name,
             (getattr(rtsl, name),),
-            {'_target_name' : target_name}
+            {'_target_name' : target_name, '_element_type' : Float}
         )
 
 class Matrix3x3f(Float3x3):

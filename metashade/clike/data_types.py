@@ -94,4 +94,4 @@ class ArithmeticType(BaseType):
         return self._binary_operator(rhs, '/')
 
 class Float(ArithmeticType):
-    pass
+    _target_name = 'float'
