@@ -82,7 +82,9 @@ def test_simple():
             sh.Nw = sh.i.Nw.normalize()
             sh.Lw = sh.i.Lw.normalize()
 
-            sh.o.color._ = t.RgbaF(rgb = sh.diffuse_color, a = 1.0)
+            sh.lambert = sh.Lw.dot(sh.Nw) * sh.diffuse_color
+
+            sh.o.color._ = t.RgbaF(rgb = sh.lambert, a = 1.0)
             sh.return_(sh.o)
             
         fx.simple_vs_ps_technique(sh, 'VsMain', 'PsMain')

@@ -29,9 +29,37 @@ class RawVector(clike.ArithmeticType):
                 ' the vector'
             )
 
-    def _binary_operator(self, rhs, op):
+    def _rhs_binary_operator(self, rhs, op):
+        if self.__class__ != rhs.__class__:
+            return NotImplemented
+
         self._check_dims(rhs)
-        return super()._binary_operator(rhs, op)
+
+        return self.__class__(
+            self.__class__._emit_binary_operator(
+                self, rhs, op
+            )
+        )
+
+    @classmethod
+    def _scalar_mul(cls, lhs, rhs):
+        return cls(cls._emit_binary_operator(lhs, rhs, '*'))
+
+    def __mul__(self, rhs):
+        per_element_result = self._rhs_binary_operator(self, rhs, '*')
+        if per_element_result != NotImplemented:
+            return per_element_result
+
+        if rhs.__class__ == self._element_type:
+            return self.__class__._scalar_mul(self, rhs)
+        else:
+            return NotImplemented
+
+    def __rmul__(self, lhs):
+        if lhs.__class__ == self._element_type:
+            return self.__class__._scalar_mul(lhs, self)
+        else:
+            return NotImplemented
 
     def dot(self, rhs):
         self._check_dims(rhs)

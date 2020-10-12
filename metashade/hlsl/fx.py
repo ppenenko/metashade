@@ -45,7 +45,7 @@ technique10 Simple
         SetGeometryShader( NULL );
         SetPixelShader( CompileShader( ps_4_0, {ps_main_name}() ) );
         
-        SetRasterizerState(DisableCulling);       
+        SetRasterizerState(DisableCulling);
         SetDepthStencilState(EnableDepth, 0);
         SetBlendState(DisableBlend, float4( 0.0f, 0.0f, 0.0f, 0.0f ), 0xFFFFFFFF);
     }}

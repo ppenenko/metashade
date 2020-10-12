@@ -74,24 +74,33 @@ class BaseType(base.BaseType):
             return cls.__name__
 
 class ArithmeticType(BaseType):
-    def _binary_operator(self, rhs, op):
+    @staticmethod
+    def _emit_binary_operator(lhs, rhs, op) -> str:
+        return '({lhs} {op} {rhs})'.format(
+            lhs = lhs.get_ref(), rhs = rhs.get_ref(), op = op
+        )
+
+    def _rhs_binary_operator(self, rhs, op):
+        if self.__class__ != rhs.__class__:
+            return NotImplemented
+
         return self.__class__(
-            '({this} {op} {rhs})'.format(
-                this = self.get_ref(), rhs = rhs.get_ref(), op = op
+            self.__class__._emit_binary_operator(
+                self, rhs, op
             )
         )
 
     def __add__(self, rhs):
-        return self._binary_operator(rhs, '+')
+        return self._rhs_binary_operator(rhs, '+')
 
     def __sub__(self, rhs):
-        return self._binary_operator(rhs, '-')
+        return self._rhs_binary_operator(rhs, '-')
 
     def __mul__(self, rhs):
-        return self._binary_operator(rhs, '*')
+        return self._rhs_binary_operator(rhs, '*')
 
     def __div__(self, rhs):
-        return self._binary_operator(rhs, '/')
+        return self._rhs_binary_operator(rhs, '/')
 
 class Float(ArithmeticType):
     _target_name = 'float'
