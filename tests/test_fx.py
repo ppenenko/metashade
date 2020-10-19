@@ -24,15 +24,22 @@ import metashade.hlsl.fx as fx
 
 def test_simple():
     with open("test_simple.fx", "w+") as f:
+        # Create an HLSL FX generator writing to file f
         sh = profile.Generator(f)
         
+        # Define an RGB color uniform, in single floating-point precision
         sh.uniform('diffuse_color', t.RgbF)
 
-        # Transforms
+        # Transform uniforms. Semantics are HLSL-specific and can be ignored
+        # when generating GLSL from this meta code. The semantic string
+        # constants are specific to to the app (in this case FX Composer 2.5)
+        # and are for CPU-side bindings only.
         sh.uniform('WorldXf', t.Matrix3x3f, semantic = 'World')
         sh.uniform('WvpXf', t.Matrix4x4f, semantic = 'WorldViewProjection')
         sh.uniform('WorldITXf', t.Matrix3x3f, semantic = 'WorldInverseTranspose')
 
+        # The position of a light source. Similar to semantics, HLSL
+        # annotations are app-specific, so we just pass them through as strings
         sh.uniform(
             'Lamp0Pos',
             t.Point3f,
@@ -44,6 +51,7 @@ def test_simple():
             ]
         )
 
+        # The color of the light source
         sh.uniform(
             'Lamp0Color',
             t.RgbF,
@@ -55,36 +63,56 @@ def test_simple():
             ]
         )
 
-        with sh.vs_input('VsIn') as vs_in:
-            vs_in.position('Po', t.Point3f)
-            vs_in.normal('No', t.Vector3f)
+        # This scope defines an HLSL struct that serves as an input to the
+        # vertex shader. In GLSL, the same meta code could generate in and out
+        # blocks, ignoring HLSL semantics.
+        with sh.vs_input('VsIn') as VsIn:
+            # Each of these calls adds a struct member with the HLSL semantic
+            # based on the function name
+            VsIn.position('Po', t.Point3f)
+            VsIn.normal('No', t.Vector3f)
 
-        with sh.vs_output('VsOut') as vs_out:
-            vs_out.position('Pclip', t.Vector4f)
-            vs_out.texCoord('Nw', t.Vector3f)
-            vs_out.texCoord('Lw', t.Vector3f)
+        # The vertex shader output struct
+        with sh.vs_output('VsOut') as VsOut:
+            VsOut.position('Pclip', t.Vector4f)
+            VsOut.texCoord('Nw', t.Vector3f)
+            VsOut.texCoord('Lw', t.Vector3f)
 
-        with sh.vs_main('VsMain', sh.VsOut)(i = sh.VsIn):
-            sh.o = sh.VsOut()
+        # Definition of the vertex shader entry point (main function). The
+        # first set of parentheses specifies the function name and the return
+        # type and the second set of parentheses lists the function arguments
+        # with their types.
+        with sh.vs_main('VsMain', sh.VsOut)(vsIn = sh.VsIn):
+            # This generates a local variable of the specified type at the
+            # function scope
+            sh.vsOut = sh.VsOut()
 
-            sh.o.Pclip._ = sh.WvpXf.xform(sh.i.Po)
-            sh.o.Nw._ = sh.WorldITXf.xform(sh.i.No)
-            sh.o.Lw._ = sh.Lamp0Pos - sh.WorldITXf.xform(sh.i.Po)
+            # _ is a special member denoting assignment by value
+            sh.vsOut.Pclip._ = sh.WvpXf.xform(sh.vsIn.Po)
+            sh.vsOut.Nw._ = sh.WorldITXf.xform(sh.vsIn.No)
+            sh.vsOut.Lw._ = sh.Lamp0Pos - sh.WorldITXf.xform(sh.vsIn.Po)
 
-            sh.return_(sh.o)
+            # Returning from the generated function
+            sh.return_(sh.vsOut)
         
-        with sh.ps_output('PsOut') as ps_out:
-            ps_out.color('color', t.RgbaF)
+        # The pixel shader output struct
+        with sh.ps_output('PsOut') as PsOut:
+            PsOut.color('color', t.RgbaF)
         
-        with sh.ps_main('PsMain', sh.PsOut)(i = sh.VsOut):
-            sh.o = sh.PsOut()
+        # Definition of the pixel shader entry point (main function).
+        with sh.ps_main('PsMain', sh.PsOut)(psIn = sh.VsOut):
+            sh.Nw = sh.psIn.Nw.normalize()
+            sh.Lw = sh.psIn.Lw.normalize()
 
-            sh.Nw = sh.i.Nw.normalize()
-            sh.Lw = sh.i.Lw.normalize()
-
+            # This generates a local variable of the specified type at the
+            # function scope. Note that its type is deduced from the expression
+            # it's initialized with, similar to the auto keyword in C++
             sh.lambert = sh.Lw.dot(sh.Nw) * sh.diffuse_color
 
-            sh.o.color._ = t.RgbaF(rgb = sh.lambert, a = 1.0)
-            sh.return_(sh.o)
-            
+            sh.psOut = sh.PsOut()
+            sh.psOut.color._ = t.RgbaF(rgb = sh.lambert, a = 1.0)
+            sh.return_(sh.psOut)
+
+        # Generating a trivial HLSL FX technique. It's for testing in FX
+        # Composer only, so it's not worth much investment.
         fx.simple_vs_ps_technique(sh, 'VsMain', 'PsMain')
