@@ -103,3 +103,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+.pytest_cache/v/cache/lastfailed
+.pytest_cache/v/cache/nodeids
+.pytest_cache/v/cache/stepwise
