@@ -13,7 +13,7 @@
 # limitations under the License.
 
 """
-This is as a rudimentary implementation of an HLSL FX file format generator.
+This is a rudimentary implementation of an HLSL FX file format generator.
 It's not expected to be feature-complete.
 While this format looks like a dead end as of 2019, it provides a minimalist
 and self-contained way to test multiple shader stages working together in some
