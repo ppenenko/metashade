@@ -12,7 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import argparse, os
+import argparse, os, pathlib
+from pygltflib import GLTF2
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -23,3 +24,10 @@ if __name__ == "__main__":
     
     if not os.path.isdir(args.gltf_dir):
         raise NotADirectoryError(args.gltf_dir)
+
+    for gltf_file in pathlib.Path(args.gltf_dir).glob('**/*.gltf'):
+        print(gltf_file)
+        gltf = GLTF2().load(gltf_file)
+        print(gltf.scenes)
+        print(gltf.nodes[0])
+        print(gltf.nodes[0].name)
