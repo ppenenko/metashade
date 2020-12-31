@@ -104,6 +104,9 @@ class Vector2f(rtsl.Vector2f, Float2):
 class Vector3f(rtsl.Vector3f, Float3):
     _vector4_type = Vector4f
 
+class Point2f(rtsl.Point2f, Float2):
+    pass
+
 class Point3f(rtsl.Point3f, Float3):
     _vector4_type = Vector4f
 

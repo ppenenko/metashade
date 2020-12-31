@@ -120,6 +120,9 @@ class Vector3f:
 class Vector4f:
     pass
 
+class Point2f:
+    pass
+
 class Point3f:
     def as_vector4(self):
         vector4_type = self.__class__._vector4_type
