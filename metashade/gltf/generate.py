@@ -20,8 +20,15 @@ import metashade.hlsl.data_types as t
 
 def _generate_vs(vs_file, primitive):
     sh = profile.Generator(vs_file)
+
+    with sh.uniform_buffer(register = 0, name = 'cbPerFrame'):
+        sh.uniform('gWvpXf', t.Matrix4x4f)
+        sh.uniform('gCameraPos', t.Vector4f)
+        sh.uniform('gIblFactor', t.Float)
+        sh.uniform('gEmissiveFactor', t.Float)
+
     attributes = primitive.attributes
-    
+
     with sh.vs_input('VsIn') as VsIn:
         if attributes.POSITION is None:
             raise RuntimeError('POSITION attribute is mandatory')

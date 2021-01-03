@@ -17,13 +17,50 @@ import metashade.clike.struct as struct
 from . import data_types
 from . import stage_interface
 
+class UniformBuffer:
+    def __init__(self, sh, register : int, name : str = None):
+        self._sh = sh
+        self._name = name
+        self._register = register
+
+    def __enter__(self):
+        self._sh._emit('cbuffer')
+
+        if self._name is not None:
+            self._sh._emit(' ')
+            self._sh._emit(self._name)
+
+        self._sh._emit(
+            ' : register(b{register})\n{{'.format(register = self._register)
+        )
+        self._sh._push_indent()
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self._sh._pop_indent()
+        self._sh._emit('};\n\n')
+
 class Generator(rtsl.Generator):
     def __init__(self, file_):
         super(Generator, self).__init__(file_)
         self._uniforms_by_semantic = dict()
-        
-    def uniform(self, name, dtype, semantic = None, annotations = None):
-        # TODO: registers
+        self._used_uniform_buffer_registers = set()
+
+    def uniform_buffer(self, register : int, name : str = None):
+        if register < 0:
+            raise RuntimeError('Invalid register value')
+        if register in self._used_uniform_buffer_registers:
+            raise RuntimeError('Uniform buffer register already used')
+        return UniformBuffer(self, register = register, name = name)
+
+    def uniform(
+        self,
+        name : str,
+        dtype,
+        semantic : str = None,
+        annotations = None
+    ):
+        # TODO: registers, packoffset
         if name.startswith('_'):
             raise RuntimeError(
                 "'{name}': names starting with an underscore"
