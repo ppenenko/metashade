@@ -32,7 +32,7 @@ def _generate_vs(vs_file, primitive):
     with sh.vs_input('VsIn') as VsIn:
         if attributes.POSITION is None:
             raise RuntimeError('POSITION attribute is mandatory')
-        VsIn.position('Position', t.Point3f)
+        VsIn.position('Po', t.Point3f)
 
         if attributes.NORMAL is not None:
             VsIn.normal('Normal', t.Vector3f)
@@ -54,6 +54,15 @@ def _generate_vs(vs_file, primitive):
 
         if attributes.WEIGHTS_0 is not None:
             raise RuntimeError('Unsupported attribute WEIGHTS_0')
+
+    with sh.vs_output('VsOut') as VsOut:
+        VsOut.position('Pclip', t.Vector4f)
+
+    with sh.vs_main('VsMain', sh.VsOut)(vsIn = sh.VsIn):
+        sh.vsOut = sh.VsOut()
+        sh.vsOut.Pclip._ = sh.gWvpXf.xform(sh.vsIn.Po)
+        
+        sh.return_(sh.vsOut)
 
 def main(gltf_dir, out_dir):
     os.makedirs(out_dir, exist_ok = True)
