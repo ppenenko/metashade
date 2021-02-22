@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import metashade.clike.data_types as clike
+import numbers
 from metashade.clike.data_types import Float
 
 class RawVector(clike.ArithmeticType):
@@ -28,6 +29,18 @@ class RawVector(clike.ArithmeticType):
                 'The number of rows in the matrix must be equal to the size of'
                 ' the vector'
             )
+
+    @classmethod
+    def _is_compatible_tuple(cls, t):
+        if type(t) is not tuple or len(t) != cls._dim:
+            return False
+
+        for element in t:
+            if not (isinstance(element, numbers.Number) \
+                or isinstance(element, cls._element_type)
+            ):
+                return False
+        return True
 
     def _rhs_binary_operator(self, rhs, op):
         if self.__class__ != rhs.__class__:

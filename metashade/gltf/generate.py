@@ -64,6 +64,14 @@ def _generate_vs(vs_file, primitive):
         
         sh.return_(sh.vsOut)
 
+    with sh.ps_output('PsOut') as PsOut:
+        PsOut.color('color', t.RgbaF)
+    
+    with sh.ps_main('PsMain', sh.PsOut)(psIn = sh.VsOut):
+        sh.psOut = sh.PsOut()
+        sh.psOut.color._ = t.RgbaF(rgb = (1.0, 0.0, 1.0), a = 1.0)
+        sh.return_(sh.psOut)
+
 def main(gltf_dir, out_dir):
     os.makedirs(out_dir, exist_ok = True)
 

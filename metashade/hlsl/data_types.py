@@ -39,7 +39,6 @@ class RawVector:
 
 class Float1(rtsl.Float1, RawVector):
     _target_name = 'float1'
-    
 
 class Float2(rtsl.Float2, RawVector):
     _target_name = 'float2'
@@ -60,15 +59,21 @@ class Float4(rtsl.Float4, RawVector):
             if xyzw is not None:
                 raise RuntimeError('Conflicting arguments')
 
-            if not isinstance(xyz, Float3):
-                raise RuntimeError('"xyz" must be of type Float3')
+            if not (isinstance(xyz, Float3) \
+                or Float3._is_compatible_tuple(xyz)
+            ):
+                raise RuntimeError('"xyz" must be convertible to Float3')
 
             if not isinstance(w, numbers.Number):
                 raise RuntimeError('"w" must be a scalar number')
 
             def get_ref(value):
-                return value.get_ref() if hasattr(value, 'get_ref') \
-                    else value
+                if hasattr(value, 'get_ref'):
+                    return value.get_ref()
+                elif Float3._is_compatible_tuple(value):
+                    return ', '.join(map(str, value))
+                else:
+                    return value
 
             initializer = '{dtype}({xyz}, {w})'.format(
                 dtype = __class__._target_name,
@@ -115,7 +120,10 @@ class RgbF(rtsl.RgbF, Float3):
 
 class RgbaF(rtsl.RgbaF, Float4):
     def __init__(self, rgb = None, a = None):
-        if rgb is not None and not isinstance(rgb, RgbF):
-            raise RuntimeError('"rgb" must be of type RgbF')
+        if rgb is not None \
+            and not (isinstance(rgb, RgbF) \
+                or RgbF._is_compatible_tuple(rgb)
+            ):
+            raise RuntimeError('"rgb" must be convertible to RgbF')
 
         Float4.__init__(self, xyz = rgb, w = a)
