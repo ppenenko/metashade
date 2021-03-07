@@ -18,6 +18,10 @@ from pygltflib import GLTF2
 import metashade.hlsl.profile as profile
 import metashade.hlsl.data_types as t
 
+def _generate_vs_out(sh):
+    with sh.vs_output('VsOut') as VsOut:
+        VsOut.position('Pclip', t.Vector4f)
+
 def _generate_vs(vs_file, primitive):
     sh = profile.Generator(vs_file)
 
@@ -55,19 +59,23 @@ def _generate_vs(vs_file, primitive):
         if attributes.WEIGHTS_0 is not None:
             raise RuntimeError('Unsupported attribute WEIGHTS_0')
 
-    with sh.vs_output('VsOut') as VsOut:
-        VsOut.position('Pclip', t.Vector4f)
+    _generate_vs_out(sh)
 
-    with sh.vs_main('VsMain', sh.VsOut)(vsIn = sh.VsIn):
+    with sh.vs_main('mainVS', sh.VsOut)(vsIn = sh.VsIn):
         sh.vsOut = sh.VsOut()
         sh.vsOut.Pclip._ = sh.gWvpXf.xform(sh.vsIn.Po)
         
         sh.return_(sh.vsOut)
 
+def _generate_ps(vs_file):
+    sh = profile.Generator(vs_file)
+
+    _generate_vs_out(sh)
+
     with sh.ps_output('PsOut') as PsOut:
-        PsOut.color('color', t.RgbaF)
+        PsOut.SV_Target('color', t.RgbaF)
     
-    with sh.ps_main('PsMain', sh.PsOut)(psIn = sh.VsOut):
+    with sh.ps_main('mainPS', sh.PsOut)(psIn = sh.VsOut):
         sh.psOut = sh.PsOut()
         sh.psOut.color._ = t.RgbaF(rgb = (1.0, 0.0, 1.0), a = 1.0)
         sh.return_(sh.psOut)
@@ -81,14 +89,20 @@ def main(gltf_dir, out_dir):
 
         for mesh in gltf.meshes:
             for primitive_idx, primitive in enumerate(mesh.primitives):
-                vs_file_name = os.path.join(
-                    out_dir,
-                    '{mesh}-{i}-VS.hlsl'.format(
-                        mesh = mesh.name, i = primitive_idx
+                def _file_name(stage : str):
+                    return os.path.join(
+                        out_dir,
+                        '{mesh}-{i}-{stage}.hlsl'.format(
+                            mesh = mesh.name,
+                            i = primitive_idx,
+                            stage = stage
+                        )
                     )
-                )
-                with open(vs_file_name, 'w') as vs_file:
+                with open(_file_name("VS"), 'w') as vs_file:
                     _generate_vs(vs_file, primitive)
+
+                with open(_file_name("PS"), 'w') as ps_file:
+                    _generate_ps(ps_file)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(

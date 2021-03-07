@@ -111,6 +111,6 @@ class VsOutputDef(StageInterfaceDef, metaclass = StageInterfaceDefMeta):
 
 class PsOutputDef(StageInterfaceDef, metaclass = StageInterfaceDefMeta):
     _semantic_defs = {
-        'color'     : SemanticDef(True),    # Output color,	float4
-        'depth'     : SemanticDef(True),    # Output depth,	float
+        'SV_Target' : SemanticDef(True),    # Output color,	float4
+        'SV_Depth'  : SemanticDef(True),    # Output depth,	float
     }
