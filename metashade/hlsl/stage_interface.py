@@ -101,7 +101,7 @@ class VsOutputDef(StageInterfaceDef, metaclass = StageInterfaceDefMeta):
     _semantic_defs = {
         'color'     : SemanticDef(True),    # Diffuse or specular color,	float4
         'fog'       : SemanticDef(False),   # Vertex fog,   float
-        'position'  : SemanticDef(True),    # Position of a vertex in homogenous space, float4
+        'SV_Position' : SemanticDef(True),  # Position of a vertex in homogenous space, float4
         'pSize'     : SemanticDef(False),   # Point size,	float
         'tessFactor': SemanticDef(True),    # Tessellation factor,	float
         'texCoord'  : SemanticDef(True),    # Texture coordinates,	float4
