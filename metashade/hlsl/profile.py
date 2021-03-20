@@ -31,7 +31,7 @@ class UniformBuffer:
             self._sh._emit(self._name)
 
         self._sh._emit(
-            ' : register(b{register})\n{{'.format(register = self._register)
+            ' : register(b{register})\n{{\n'.format(register = self._register)
         )
         self._sh._push_indent()
         return self

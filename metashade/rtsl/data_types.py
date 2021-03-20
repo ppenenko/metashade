@@ -131,7 +131,8 @@ class Vector3f:
         )
 
 class Vector4f:
-    pass
+    def as_vector4(self):
+        return self
 
 class Point2f:
     pass

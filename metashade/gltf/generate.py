@@ -26,10 +26,13 @@ def _generate_vs(vs_file, primitive):
     sh = profile.Generator(vs_file)
 
     with sh.uniform_buffer(register = 0, name = 'cbPerFrame'):
-        sh.uniform('gWvpXf', t.Matrix4x4f)
+        sh.uniform('gVpXf', t.Matrix4x4f)
         sh.uniform('gCameraPos', t.Vector4f)
         sh.uniform('gIblFactor', t.Float)
         sh.uniform('gEmissiveFactor', t.Float)
+
+    with sh.uniform_buffer(register = 1, name = 'cbPerObject'):
+        sh.uniform('gWorldXf', t.Matrix4x4f) # should be 3x3
 
     attributes = primitive.attributes
 
@@ -62,9 +65,11 @@ def _generate_vs(vs_file, primitive):
     _generate_vs_out(sh)
 
     with sh.vs_main('mainVS', sh.VsOut)(vsIn = sh.VsIn):
+        sh.Pw = sh.gWorldXf.xform(sh.vsIn.Po)
+
         sh.vsOut = sh.VsOut()
-        sh.vsOut.Pclip._ = sh.gWvpXf.xform(sh.vsIn.Po)
-        
+        sh.vsOut.Pclip._ = sh.gVpXf.xform(sh.Pw)
+
         sh.return_(sh.vsOut)
 
 def _generate_ps(vs_file):
