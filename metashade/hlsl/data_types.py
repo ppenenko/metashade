@@ -18,35 +18,35 @@ import metashade.clike.data_types as clike
 
 import numbers
 
+class _MulBase:
+    def mul(self, rhs, result_type):
+        self._check_mul(rhs)
+        return result_type(
+            'mul({this}, {rhs})'.format(
+                this = self.get_ref(), rhs = rhs.get_ref()
+            )
+        ) 
+
 class Float(rtsl.Float):
     pass
 
-class RawVector:
+class _RawVector(_MulBase):
     _element_type = Float
-
-    def mul(self, matrix):
-        self._check_mul(matrix)
-        return self.__class__(
-            'mul({this}, {matrix})'.format(
-                this = self.get_ref(), matrix = matrix.get_ref()
-            )
-        )
-
     def normalize(self):
         return self.__class__(
             'normalize({this})'.format(this = self.get_ref())
         )
 
-class Float1(rtsl.Float1, RawVector):
+class Float1(rtsl.Float1, _RawVector):
     _target_name = 'float1'
 
-class Float2(rtsl.Float2, RawVector):
+class Float2(rtsl.Float2, _RawVector):
     _target_name = 'float2'
 
-class Float3(rtsl.Float3, RawVector):
+class Float3(rtsl.Float3, _RawVector):
     _target_name = 'float3'
 
-class Float4(rtsl.Float4, RawVector):
+class Float4(rtsl.Float4, _RawVector):
     _target_name = 'float4'
 
     def __init__(self, xyzw = None, xyz = None, w = None):
@@ -82,23 +82,36 @@ class Float4(rtsl.Float4, RawVector):
             )
             rtsl.Float4.__init__(self, initializer)
 
+class _Matrix(_MulBase):
+    # This is the HLSL default but should ideally be configurable
+    _row_major = False
+    _element_type = Float
+
+# Generate all concrete matrix types to avoid copy-and-paste
 for rows in range(1, 5):
     for cols in range(1, 5):
         name = 'Float{rows}x{cols}'.format(rows = rows, cols = cols)
         target_name = 'float{rows}x{cols}'.format(rows = rows, cols = cols)
         globals()[name] = type(
             name,
-            (getattr(rtsl, name),),
-            {'_target_name' : target_name, '_element_type' : Float}
+            (getattr(rtsl, name), _Matrix),
+            {'_target_name' : target_name}
         )
 
 class Matrix3x3f(Float3x3):
-    def xform(self, rhs):
-        return rhs.mul(self)
+    def xform(self, vector):
+        if self.__class__._row_major:
+            return vector.mul(self, result_type = vector.__class__)
+        else:
+            return self.mul(vector, result_type = vector.__class__)
 
 class Matrix4x4f(Float4x4):
-    def xform(self, rhs):
-        return rhs.as_vector4().mul(self)
+    def xform(self, vector):
+        vector = vector.as_vector4()
+        if self.__class__._row_major:
+            return vector.mul(self, result_type = Vector4f)
+        else:
+            return self.mul(vector, result_type = Vector4f)
 
 class Vector4f(rtsl.Vector4f, Float4):
     pass

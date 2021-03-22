@@ -12,11 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import metashade.clike.data_types as clike
 import numbers
+import metashade.clike.data_types as clike
 from metashade.clike.data_types import Float
 
-class RawVector(clike.ArithmeticType):
+class _RawVector(clike.ArithmeticType):
     def _check_dims(self, rhs):
         if rhs.__class__._dim != self.__class__._dim:
             raise ArithmeticError(
@@ -82,13 +82,13 @@ class RawVector(clike.ArithmeticType):
             )
         )
 
-class Float1(RawVector):
+class Float1(_RawVector):
     _dim = 1
 
-class Float2(RawVector):
+class Float2(_RawVector):
     _dim = 2
 
-class Float3(RawVector):
+class Float3(_RawVector):
     _dim = 3
 
     def cross(self, rhs):
@@ -102,18 +102,24 @@ class Float3(RawVector):
             )
         )
 
-class Float4(RawVector):
+class Float4(_RawVector):
     _dim = 4
 
-class RawMatrix(clike.ArithmeticType):
-    pass
+class _RawMatrix(clike.ArithmeticType):
+    def _check_mul(self, vector):
+        if self.__class__._dims[1] != vector.__class__._dim:
+            raise ArithmeticError(
+                'The number of columns in the matrix must be equal to the size'
+                'of the vector'
+            )
 
+# Generate all concrete matrix types to avoid copy-and-paste
 for rows in range(1, 5):
     for cols in range(1, 5):
         name = 'Float{rows}x{cols}'.format(rows = rows, cols = cols)
         globals()[name] = type(
             name,
-            (RawMatrix,),
+            (_RawMatrix,),
             {'_dims' : (rows, cols)}
         )
 
