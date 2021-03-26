@@ -21,6 +21,7 @@ import metashade.hlsl.data_types as t
 def _generate_vs_out(sh):
     with sh.vs_output('VsOut') as VsOut:
         VsOut.SV_Position('Pclip', t.Vector4f)
+        VsOut.texCoord('UV0', t.Point2f)
 
 def _generate_vs(vs_file, primitive):
     sh = profile.Generator(vs_file)
@@ -69,6 +70,7 @@ def _generate_vs(vs_file, primitive):
 
         sh.vsOut = sh.VsOut()
         sh.vsOut.Pclip._ = sh.gVpXf.xform(sh.Pw)
+        sh.vsOut.UV0._ = sh.vsIn.UV0
 
         sh.return_(sh.vsOut)
 
