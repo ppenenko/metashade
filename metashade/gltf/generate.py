@@ -72,14 +72,36 @@ def _generate_vs(vs_file, primitive):
 
         sh.return_(sh.vsOut)
 
-def _generate_ps(vs_file):
-    sh = profile.Generator(vs_file)
+def _generate_ps(ps_file, material):
+    sh = profile.Generator(ps_file)
 
     _generate_vs_out(sh)
 
     with sh.ps_output('PsOut') as PsOut:
         PsOut.SV_Target('color', t.RgbaF)
-    
+
+    texture_set = set()
+
+    def _add_texture(parent, name):
+        if getattr(parent, name) is not None:
+            texture_set.add(name)
+
+    _add_texture(material, 'normalTexture')
+    _add_texture(material, 'occlusionTexture')
+    _add_texture(material, 'emissiveTexture')
+
+    assert(material.pbrMetallicRoughness is not None)
+    _add_texture(material.pbrMetallicRoughness, 'baseColorTexture')
+    _add_texture(material.pbrMetallicRoughness, 'metallicRoughnessTexture')
+
+    print('Material {}:'.format(material.name))
+
+    for texture_idx, texture_name in enumerate(sorted(texture_set)):
+        print('\t{texture_name}: {texture_idx}'.format(
+            texture_name = texture_name,
+            texture_idx = texture_idx
+        ))
+
     with sh.ps_main('mainPS', sh.PsOut)(psIn = sh.VsOut):
         sh.psOut = sh.PsOut()
         sh.psOut.color._ = t.RgbaF(rgb = (1.0, 0.0, 1.0), a = 1.0)
@@ -107,7 +129,7 @@ def main(gltf_dir, out_dir):
                     _generate_vs(vs_file, primitive)
 
                 with open(_file_name("PS"), 'w') as ps_file:
-                    _generate_ps(ps_file)
+                    _generate_ps(ps_file, gltf.materials[primitive.material])
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
