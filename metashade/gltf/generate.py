@@ -90,17 +90,19 @@ def _generate_ps(ps_file, material):
     _add_texture(material, 'occlusionTexture')
     _add_texture(material, 'emissiveTexture')
 
-    assert(material.pbrMetallicRoughness is not None)
-    _add_texture(material.pbrMetallicRoughness, 'baseColorTexture')
-    _add_texture(material.pbrMetallicRoughness, 'metallicRoughnessTexture')
+    if material.pbrMetallicRoughness is not None:
+        _add_texture(material.pbrMetallicRoughness, 'baseColorTexture')
+        _add_texture(material.pbrMetallicRoughness, 'metallicRoughnessTexture')
 
-    print('Material {}:'.format(material.name))
-
+    # We're sorting material textures by name, as Cauldron expects,
+    # but we're not taking IBL etc. into account
     for texture_idx, texture_name in enumerate(sorted(texture_set)):
-        print('\t{texture_name}: {texture_idx}'.format(
+        sh.combined_sampler_2d(
             texture_name = texture_name,
-            texture_idx = texture_idx
-        ))
+            texture_register = texture_idx,
+            sampler_name = texture_name + 'Sampler',
+            sampler_register = texture_idx
+        )
 
     with sh.ps_main('mainPS', sh.PsOut)(psIn = sh.VsOut):
         sh.psOut = sh.PsOut()
