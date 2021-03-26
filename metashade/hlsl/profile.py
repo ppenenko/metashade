@@ -41,16 +41,29 @@ class UniformBuffer:
         self._sh._emit('};\n\n')
 
 class Generator(rtsl.Generator):
+    class _UsedRegisterSet(set):
+        def __init__(self, category : str):
+            self._category = category
+
+        def check_candidate(self, register : int):
+            if register < 0:
+                raise RuntimeError('Invalid register value')
+            if register in self:
+                raise RuntimeError(self._category + ' register already in use')
+
     def __init__(self, file_):
         super(Generator, self).__init__(file_)
         self._uniforms_by_semantic = dict()
-        self._used_uniform_buffer_registers = set()
+
+        self._used_uniform_buffer_registers = \
+            self.__class__._UsedRegisterSet('Uniform buffer')
+        self._used_texture_registers = \
+            self.__class__._UsedRegisterSet('Texture')
+        self._used_sampler_registers = \
+            self.__class__._UsedRegisterSet('Sampler')
 
     def uniform_buffer(self, register : int, name : str = None):
-        if register < 0:
-            raise RuntimeError('Invalid register value')
-        if register in self._used_uniform_buffer_registers:
-            raise RuntimeError('Uniform buffer register already used')
+        self._used_uniform_buffer_registers.check_candidate(register)
         return UniformBuffer(self, register = register, name = name)
 
     def uniform(
@@ -85,7 +98,32 @@ class Generator(rtsl.Generator):
         self._emit_indent()
         value._define(self, name, semantic, annotations = annotations)
         self._emit(';\n')
-        
+
+    def combined_sampler_2d(
+        self,
+        texture_name : str, texture_register : int,
+        sampler_name : str, sampler_register : int
+    ):
+        self._used_texture_registers.check_candidate(texture_register)
+        self._used_sampler_registers.check_candidate(sampler_register)
+
+        self._emit(
+            'Texture2D {name} : register(t{register});\n'.format(
+                name = texture_name,
+                register = texture_register
+            )
+        )
+        self._used_texture_registers.add(texture_register)
+        self._emit(
+            'SamplerState {name} : register(s{register});\n\n'.format(
+                name = sampler_name,
+                register = sampler_register
+            )
+        )
+        self._used_sampler_registers.add(sampler_register)
+        #TODO: create the actual sampler object we can reference from shader
+        # code
+
     def vs_input(self, name):
         return stage_interface.VsInputDef(self, name)
     
