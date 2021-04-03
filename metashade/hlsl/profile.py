@@ -16,6 +16,7 @@ import metashade.rtsl.profile as rtsl
 import metashade.clike.struct as struct
 from . import data_types
 from . import stage_interface
+from . import samplers
 
 class UniformBuffer:
     def __init__(self, sh, register : int, name : str = None):
@@ -107,22 +108,15 @@ class Generator(rtsl.Generator):
         self._used_texture_registers.check_candidate(texture_register)
         self._used_sampler_registers.check_candidate(sampler_register)
 
-        self._emit(
-            'Texture2D {name} : register(t{register});\n'.format(
-                name = texture_name,
-                register = texture_register
-            )
-        )
+        texture = samplers.Texture2d(self, texture_name, texture_register)
+        self._set_global(texture_name, texture)
         self._used_texture_registers.add(texture_register)
-        self._emit(
-            'SamplerState {name} : register(s{register});\n\n'.format(
-                name = sampler_name,
-                register = sampler_register
-            )
+
+        sampler = samplers.Sampler(
+            self, sampler_name, sampler_register, texture
         )
+        self._set_global(sampler_name, sampler)
         self._used_sampler_registers.add(sampler_register)
-        #TODO: create the actual sampler object we can reference from shader
-        # code
 
     def vs_input(self, name):
         return stage_interface.VsInputDef(self, name)
