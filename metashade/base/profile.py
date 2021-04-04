@@ -61,6 +61,17 @@ class Generator:
                 "'{name}': can't redefine Metashade symbol already "
                 "defined in the context stack".format(name=name))
 
+    @staticmethod
+    def _check_public_name(name : str):
+        if name.startswith('_'):
+            raise RuntimeError(
+                "'{name}': symbols starting with an underscore"
+                "are reserved for Metashade implementation"
+            )
+
+    def _check_global_scope(self):
+        return len(self._context_stack) == 0
+
     def _set_global(self, name, value):
         self._check_unique_attr(name)
         self._globals[name] = value

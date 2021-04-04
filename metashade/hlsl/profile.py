@@ -67,6 +67,7 @@ class Generator(rtsl.Generator):
         self._used_uniform_buffer_registers.check_candidate(register)
         return UniformBuffer(self, register = register, name = name)
 
+    # TODO: registers, packoffset
     def uniform(
         self,
         name : str,
@@ -74,13 +75,12 @@ class Generator(rtsl.Generator):
         semantic : str = None,
         annotations = None
     ):
-        # TODO: registers, packoffset
-        if name.startswith('_'):
+        self._check_public_name(name)
+        if not self._check_global_scope():
             raise RuntimeError(
-                "'{name}': names starting with an underscore"
-                "can't be Metashade symbols"
+                "Uniforms can only be defined at the global scope"
             )
-            
+
         if semantic is not None:
             existing = self._uniforms_by_semantic.get(semantic)
             if existing is not None:
@@ -105,6 +105,15 @@ class Generator(rtsl.Generator):
         texture_name : str, texture_register : int,
         sampler_name : str, sampler_register : int
     ):
+        self._check_public_name(texture_name)
+        self._check_public_name(sampler_name)
+
+        if not self._check_global_scope():
+            raise RuntimeError(
+                "Uniform textures and samplers "
+                "can only be defined at the global scope"
+            )
+
         self._used_texture_registers.check_candidate(texture_register)
         self._used_sampler_registers.check_candidate(sampler_register)
 
