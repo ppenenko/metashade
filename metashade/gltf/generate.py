@@ -96,15 +96,19 @@ def _generate_ps(ps_file, material):
         _add_texture(material.pbrMetallicRoughness, 'baseColorTexture')
         _add_texture(material.pbrMetallicRoughness, 'metallicRoughnessTexture')
 
-    # We're sorting material textures by name, as Cauldron expects,
-    # but we're not taking IBL etc. into account
-    for texture_idx, texture_name in enumerate(sorted(texture_set)):
+    # First 3 sampler slots are reserved for the BRDF LUT and IBL textures
+    # in the GLTF demo app (assuming the skydome is on)
+    texture_idx = 3
+
+    # We're sorting material textures by name
+    for texture_name in sorted(texture_set):
         sh.combined_sampler_2d(
             texture_name = texture_name,
             texture_register = texture_idx,
             sampler_name = texture_name + 'Sampler',
             sampler_register = texture_idx
         )
+        texture_idx += 1
 
     with sh.ps_main('mainPS', sh.PsOut)(psIn = sh.VsOut):
         sh.psOut = sh.PsOut()
