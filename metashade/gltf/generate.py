@@ -80,7 +80,7 @@ def _generate_ps(ps_file, material):
     _generate_vs_out(sh)
 
     with sh.ps_output('PsOut') as PsOut:
-        PsOut.SV_Target('color', t.RgbaF)
+        PsOut.SV_Target('color', t.Float4)
 
     texture_set = set()
 
@@ -108,7 +108,7 @@ def _generate_ps(ps_file, material):
 
     with sh.ps_main('mainPS', sh.PsOut)(psIn = sh.VsOut):
         sh.psOut = sh.PsOut()
-        sh.psOut.color._ = t.RgbaF(rgb = (1.0, 0.0, 1.0), a = 1.0)
+        sh.psOut.color._ = sh.baseColorTextureSampler(sh.psIn.UV0)
         sh.return_(sh.psOut)
 
 def main(gltf_dir, out_dir):

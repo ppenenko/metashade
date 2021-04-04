@@ -12,7 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from . import data_types
+
 class Texture2d:
+    _tex_coord_type = data_types.Point2f
+
     def __init__(self, sh, name, register):
         self._name = name
         self._sh = sh
@@ -20,6 +24,20 @@ class Texture2d:
             'Texture2D {name} : register(t{register});\n'.format(
                 name = name,
                 register = register
+            )
+        )
+
+    def sample(self, sampler, tex_coord):
+        if tex_coord.__class__ != self.__class__._tex_coord_type:
+            raise RuntimeError(
+                'Expected texture coordinate type ' \
+                    + str(self.__class__._tex_coord_type)
+            )
+        return data_types.Float4(
+            xyzw = '{name}.Sample({sampler_name}, {tex_coord})'.format(
+                name = self._name,
+                sampler_name = sampler._name,
+                tex_coord = tex_coord.get_ref()
             )
         )
 
@@ -35,6 +53,7 @@ class Sampler:
             )
         )
 
-    def __call__(self, texCoord):
-        pass
-
+    def __call__(self, tex_coord):
+        if self._texture is None:
+            raise RuntimeError("Sampler hasn't been combined with any texture")
+        return self._texture.sample(self, tex_coord)
