@@ -26,11 +26,19 @@ def _generate_vs_out(sh):
 def _generate_vs(vs_file, primitive):
     sh = profile.Generator(vs_file)
 
+    sh.struct('Light')(
+        VpXf = t.Matrix4x4f
+    )
+
     with sh.uniform_buffer(register = 0, name = 'cbPerFrame'):
         sh.uniform('gVpXf', t.Matrix4x4f)
+        sh.uniform('gVpIXf', t.Matrix4x4f)
         sh.uniform('gCameraPos', t.Vector4f)
         sh.uniform('gIblFactor', t.Float)
         sh.uniform('gEmissiveFactor', t.Float)
+        sh.uniform('PADDING', t.Float)
+        sh.uniform('gNumLights', t.Float)   # should be int
+        sh.uniform('gLight', sh.Light)      # should be an array
 
     with sh.uniform_buffer(register = 1, name = 'cbPerObject'):
         sh.uniform('gWorldXf', t.Matrix4x4f) # should be 3x3

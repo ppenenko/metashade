@@ -24,8 +24,15 @@ class Struct(metashade.clike.data_types.BaseType):
         
         self._constructed = True
         
-    def _define(self, sh, identifier, semantic=None, allow_init=True):
-        super()._define(sh, identifier, semantic, allow_init)
+    def _define(
+        self,
+        sh,
+        identifier,
+        semantic = None,
+        allow_init = True,
+        annotations = None
+    ):
+        super()._define(sh, identifier, semantic, allow_init, annotations)
         
         for member_name, member in vars(self).items():
             if not member_name.startswith('_'):
