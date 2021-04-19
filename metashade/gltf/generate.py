@@ -23,11 +23,19 @@ def _generate_vs_out(sh):
         VsOut.SV_Position('Pclip', t.Vector4f)
         VsOut.texCoord('UV0', t.Point2f)
 
-def _generate_vs(vs_file, primitive):
-    sh = profile.Generator(vs_file)
-
+def _generate_per_frame_uniform_buffer(sh):
     sh.struct('Light')(
-        VpXf = t.Matrix4x4f
+        VpXf = t.Matrix4x4f,
+        direction = t.Vector3f,
+        range = t.Float,
+        color = t.RgbF,
+        intensity = t.Float,
+        position = t.Point3f,
+        innerConeCos = t.Float,
+        outerConeCos = t.Float,
+        type_ = t.Float, # should be an int, but we assume a spotlight anyway
+        depthBias = t.Float,
+        shadowMapIndex = t.Float # should be an int, unused for now
     )
 
     with sh.uniform_buffer(register = 0, name = 'cbPerFrame'):
@@ -39,6 +47,11 @@ def _generate_vs(vs_file, primitive):
         sh.uniform('PADDING', t.Float)
         sh.uniform('gNumLights', t.Float)   # should be int
         sh.uniform('gLight', sh.Light)      # should be an array
+
+def _generate_vs(vs_file, primitive):
+    sh = profile.Generator(vs_file)
+
+    _generate_per_frame_uniform_buffer(sh)
 
     with sh.uniform_buffer(register = 1, name = 'cbPerObject'):
         sh.uniform('gWorldXf', t.Matrix4x4f) # should be 3x3
@@ -84,6 +97,8 @@ def _generate_vs(vs_file, primitive):
 
 def _generate_ps(ps_file, material):
     sh = profile.Generator(ps_file)
+
+    _generate_per_frame_uniform_buffer(sh)
 
     _generate_vs_out(sh)
 
