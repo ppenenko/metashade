@@ -21,6 +21,7 @@ import metashade.hlsl.data_types as t
 def _generate_vs_out(sh):
     with sh.vs_output('VsOut') as VsOut:
         VsOut.SV_Position('Pclip', t.Vector4f)
+        VsOut.texCoord('Nw', t.Vector3f)
         VsOut.texCoord('UV0', t.Point2f)
 
 def _generate_per_frame_uniform_buffer(sh):
@@ -61,13 +62,13 @@ def _generate_vs(vs_file, primitive):
     with sh.vs_input('VsIn') as VsIn:
         if attributes.POSITION is None:
             raise RuntimeError('POSITION attribute is mandatory')
-        VsIn.position('Po', t.Point3f)
+        VsIn.position('Pobj', t.Point3f)
 
         if attributes.NORMAL is not None:
-            VsIn.normal('Normal', t.Vector3f)
+            VsIn.normal('Nobj', t.Vector3f)
 
         if attributes.TANGENT is not None:
-            VsIn.tangent('Tangent', t.Vector4f)
+            VsIn.tangent('Tobj', t.Vector4f)
 
         if attributes.TEXCOORD_0 is not None:
             VsIn.texCoord('UV0', t.Point2f)
@@ -87,10 +88,11 @@ def _generate_vs(vs_file, primitive):
     _generate_vs_out(sh)
 
     with sh.vs_main('mainVS', sh.VsOut)(vsIn = sh.VsIn):
-        sh.Pw = sh.gWorldXf.xform(sh.vsIn.Po)
+        sh.Pw = sh.gWorldXf.xform(sh.vsIn.Pobj)
 
         sh.vsOut = sh.VsOut()
         sh.vsOut.Pclip._ = sh.gVpXf.xform(sh.Pw)
+        sh.vsOut.Nw._ = sh.gWorldXf.xform(sh.vsIn.Nobj)
         sh.vsOut.UV0._ = sh.vsIn.UV0
 
         sh.return_(sh.vsOut)
@@ -135,7 +137,9 @@ def _generate_ps(ps_file, material):
 
     with sh.ps_main('mainPS', sh.PsOut)(psIn = sh.VsOut):
         sh.psOut = sh.PsOut()
-        sh.psOut.color._ = sh.baseColorTextureSampler(sh.psIn.UV0)
+        sh.lambert = sh.gLight.direction.dot(sh.psIn.Nw.normalize())
+        sh.baseColor = sh.baseColorTextureSampler(sh.psIn.UV0)
+        sh.psOut.color._ = sh.lambert * sh.baseColor
         sh.return_(sh.psOut)
 
 def main(gltf_dir, out_dir):
