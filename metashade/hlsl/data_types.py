@@ -18,6 +18,12 @@ import metashade.clike.data_types as clike
 
 import numbers
 
+class _Saturate:
+    def saturate(self):
+        return self.__class__(
+            'saturate({this})'.format(this = self.get_ref())
+        )
+
 class _MulBase:
     def mul(self, rhs, result_type):
         self._check_mul(rhs)
@@ -27,10 +33,10 @@ class _MulBase:
             )
         ) 
 
-class Float(rtsl.Float):
+class Float(rtsl.Float, _Saturate):
     pass
 
-class _RawVector(_MulBase):
+class _RawVector(_MulBase, _Saturate):
     _element_type = Float
     def normalize(self):
         return self.__class__(
@@ -82,7 +88,7 @@ class Float4(rtsl.Float4, _RawVector):
             )
             rtsl.Float4.__init__(self, initializer)
 
-class _Matrix(_MulBase):
+class _Matrix(_MulBase, _Saturate):
     # This is the HLSL default but should ideally be configurable
     _row_major = False
     _element_type = Float
