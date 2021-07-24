@@ -15,6 +15,8 @@
 from . import data_types
 from . import context
 
+import copy
+
 class Generator:
     """
     The base class for generators. Wraps an output file.
@@ -92,6 +94,13 @@ class Generator:
             object.__setattr__(self, name, value)
         else:
             self._check_unique_attr(name)
+
+            if (isinstance(value, data_types.BaseType)
+                and value._name is not None
+            ):
+                value = copy.copy(value)
+                value._expression = value._name
+
             self._context_stack[-1]._locals[name] = value
             self._emit_indent()
             value._define(self, name)
