@@ -25,4 +25,4 @@ It uses more straight-forward mechanisms in hopes of making the DSL appear less 
 * C-like assignment by value is represented with assigment to a special data member `_`.
 
 ## Metashade in action
-To see Metashade in action, check out the [glTF demo](metashade\gltf).
+To see Metashade in action, check out the [glTF demo](metashade/gltf).
