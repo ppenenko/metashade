@@ -15,8 +15,8 @@
 import argparse, os, pathlib
 from pygltflib import GLTF2
 
-import metashade.hlsl.profile as profile
-import metashade.hlsl.data_types as t
+import metashade.hlsl.sm5.profile as profile
+import metashade.hlsl.sm5.data_types as t
 
 def _generate_vs_out(sh):
     with sh.vs_output('VsOut') as VsOut:
