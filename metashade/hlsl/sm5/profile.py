@@ -15,7 +15,6 @@
 import metashade.rtsl.profile as rtsl
 import metashade.clike.struct as struct
 from . import data_types
-from . import stage_interface
 from . import samplers
 import sys, inspect
 

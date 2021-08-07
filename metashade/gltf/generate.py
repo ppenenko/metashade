@@ -15,7 +15,7 @@
 import argparse, os, pathlib
 from pygltflib import GLTF2
 
-import metashade.hlsl.sm5.profile as profile
+from metashade.hlsl.sm5 import vs_5_0, ps_5_0
 
 def _generate_vs_out(sh):
     with sh.vs_output('VsOut') as VsOut:
@@ -49,7 +49,7 @@ def _generate_per_frame_uniform_buffer(sh):
         sh.uniform('gLight', sh.Light)      # should be an array
 
 def _generate_vs(vs_file, primitive):
-    sh = profile.Generator(vs_file)
+    sh = vs_5_0.Generator(vs_file)
 
     _generate_per_frame_uniform_buffer(sh)
 
@@ -86,7 +86,7 @@ def _generate_vs(vs_file, primitive):
 
     _generate_vs_out(sh)
 
-    with sh.vs_main('mainVS', sh.VsOut)(vsIn = sh.VsIn):
+    with sh.main('mainVS', sh.VsOut)(vsIn = sh.VsIn):
         sh.Pw = sh.gWorldXf.xform(sh.vsIn.Pobj)
 
         sh.vsOut = sh.VsOut()
@@ -97,7 +97,7 @@ def _generate_vs(vs_file, primitive):
         sh.return_(sh.vsOut)
 
 def _generate_ps(ps_file, material):
-    sh = profile.Generator(ps_file)
+    sh = ps_5_0.Generator(ps_file)
 
     _generate_per_frame_uniform_buffer(sh)
 
@@ -134,7 +134,7 @@ def _generate_ps(ps_file, material):
         )
         texture_idx += 1
 
-    with sh.ps_main('mainPS', sh.PsOut)(psIn = sh.VsOut):
+    with sh.main('mainPS', sh.PsOut)(psIn = sh.VsOut):
         sh.psOut = sh.PsOut()
         sh.lambert = sh.gLight.direction.dot(sh.psIn.Nw.normalize()).saturate()
         sh.baseColor = sh.baseColorTextureSampler(sh.psIn.UV0)

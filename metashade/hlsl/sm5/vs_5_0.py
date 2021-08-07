@@ -1,4 +1,4 @@
-# Copyright 2018 Pavlo Penenko
+# Copyright 2021 Pavlo Penenko
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,7 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import metashade.clike.profile as clike
+from . import profile, stage_interface
 
-class Generator(clike.Generator):
-    main = clike.Generator.function
+class Generator(profile.Generator):
+    def vs_input(self, name):
+        return stage_interface.VsInputDef(self, name)
+    
+    def vs_output(self, name):
+        return stage_interface.VsOutputDef(self, name)
