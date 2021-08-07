@@ -16,37 +16,36 @@ import argparse, os, pathlib
 from pygltflib import GLTF2
 
 import metashade.hlsl.sm5.profile as profile
-import metashade.hlsl.sm5.data_types as t
 
 def _generate_vs_out(sh):
     with sh.vs_output('VsOut') as VsOut:
-        VsOut.SV_Position('Pclip', t.Vector4f)
-        VsOut.texCoord('Nw', t.Vector3f)
-        VsOut.texCoord('UV0', t.Point2f)
+        VsOut.SV_Position('Pclip', sh.Vector4f)
+        VsOut.texCoord('Nw', sh.Vector3f)
+        VsOut.texCoord('UV0', sh.Point2f)
 
 def _generate_per_frame_uniform_buffer(sh):
     sh.struct('Light')(
-        VpXf = t.Matrix4x4f,
-        direction = t.Vector3f,
-        range = t.Float,
-        color = t.RgbF,
-        intensity = t.Float,
-        position = t.Point3f,
-        innerConeCos = t.Float,
-        outerConeCos = t.Float,
-        type_ = t.Float, # should be an int, but we assume a spotlight anyway
-        depthBias = t.Float,
-        shadowMapIndex = t.Float # should be an int, unused for now
+        VpXf = sh.Matrix4x4f,
+        direction = sh.Vector3f,
+        range = sh.Float,
+        color = sh.RgbF,
+        intensity = sh.Float,
+        position = sh.Point3f,
+        innerConeCos = sh.Float,
+        outerConeCos = sh.Float,
+        type_ = sh.Float, # should be an int, but we assume a spotlight anyway
+        depthBias = sh.Float,
+        shadowMapIndex = sh.Float # should be an int, unused for now
     )
 
     with sh.uniform_buffer(register = 0, name = 'cbPerFrame'):
-        sh.uniform('gVpXf', t.Matrix4x4f)
-        sh.uniform('gVpIXf', t.Matrix4x4f)
-        sh.uniform('gCameraPos', t.Vector4f)
-        sh.uniform('gIblFactor', t.Float)
-        sh.uniform('gEmissiveFactor', t.Float)
-        sh.uniform('PADDING', t.Float)
-        sh.uniform('gNumLights', t.Float)   # should be int
+        sh.uniform('gVpXf', sh.Matrix4x4f)
+        sh.uniform('gVpIXf', sh.Matrix4x4f)
+        sh.uniform('gCameraPos', sh.Vector4f)
+        sh.uniform('gIblFactor', sh.Float)
+        sh.uniform('gEmissiveFactor', sh.Float)
+        sh.uniform('PADDING', sh.Float)
+        sh.uniform('gNumLights', sh.Float)   # should be int
         sh.uniform('gLight', sh.Light)      # should be an array
 
 def _generate_vs(vs_file, primitive):
@@ -55,29 +54,29 @@ def _generate_vs(vs_file, primitive):
     _generate_per_frame_uniform_buffer(sh)
 
     with sh.uniform_buffer(register = 1, name = 'cbPerObject'):
-        sh.uniform('gWorldXf', t.Matrix4x4f) # should be 3x3
+        sh.uniform('gWorldXf', sh.Matrix4x4f) # should be 3x3
 
     attributes = primitive.attributes
 
     with sh.vs_input('VsIn') as VsIn:
         if attributes.POSITION is None:
             raise RuntimeError('POSITION attribute is mandatory')
-        VsIn.position('Pobj', t.Point3f)
+        VsIn.position('Pobj', sh.Point3f)
 
         if attributes.NORMAL is not None:
-            VsIn.normal('Nobj', t.Vector3f)
+            VsIn.normal('Nobj', sh.Vector3f)
 
         if attributes.TANGENT is not None:
-            VsIn.tangent('Tobj', t.Vector4f)
+            VsIn.tangent('Tobj', sh.Vector4f)
 
         if attributes.TEXCOORD_0 is not None:
-            VsIn.texCoord('UV0', t.Point2f)
+            VsIn.texCoord('UV0', sh.Point2f)
 
         if attributes.TEXCOORD_1 is not None:
-            VsIn.texCoord('UV1', t.Point2f)
+            VsIn.texCoord('UV1', sh.Point2f)
 
         if attributes.COLOR_0 is not None:
-            VsIn.color('Color0', t.RgbaF)
+            VsIn.color('Color0', sh.RgbaF)
 
         if attributes.JOINTS_0 is not None:
             raise RuntimeError('Unsupported attribute JOINTS_0')
@@ -105,7 +104,7 @@ def _generate_ps(ps_file, material):
     _generate_vs_out(sh)
 
     with sh.ps_output('PsOut') as PsOut:
-        PsOut.SV_Target('color', t.Float4)
+        PsOut.SV_Target('color', sh.Float4)
 
     texture_set = set()
 

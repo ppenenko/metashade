@@ -17,6 +17,7 @@ import metashade.clike.struct as struct
 from . import data_types
 from . import stage_interface
 from . import samplers
+import sys, inspect
 
 class UniformBuffer:
     def __init__(self, sh, register : int, name : str = None):
@@ -135,3 +136,12 @@ class Generator(rtsl.Generator):
 
     def ps_output(self, name):
         return stage_interface.PsOutputDef(self, name)
+
+# Reference all the data types from the generator class
+for name, cls in inspect.getmembers(
+    sys.modules[data_types.__name__],
+    lambda member: (inspect.isclass(member)
+        and member.__module__ == data_types.__name__
+        and not member.__name__.startswith('_')
+    )):
+        setattr(Generator, name, cls)
