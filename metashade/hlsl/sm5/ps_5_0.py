@@ -15,6 +15,8 @@
 from . import profile, stage_interface
 
 class Generator(profile.Generator):
+    _is_pixel_shader = True
+
     def vs_output(self, name):
         return stage_interface.VsOutputDef(self, name)
 

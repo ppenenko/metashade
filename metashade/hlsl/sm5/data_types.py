@@ -18,10 +18,28 @@ import metashade.clike.data_types as clike
 
 import numbers
 
-class _SaturateMixin:
+class _UnaryMixin:
+    def _checkDdxDdy(self, name):
+        if not self._sh.__class__._is_pixel_shader:
+            raise RuntimeError(
+                '"{}" is only supported in pixel shaders'.format(name)
+            )
+
     def saturate(self):
         return self.__class__(
             'saturate({this})'.format(this = self.get_ref())
+        )
+
+    def ddx(self):
+        self._checkDdxDdy('ddx')
+        return self.__class__(
+            'ddx({this})'.format(this = self.get_ref())
+        )
+
+    def ddy(self):
+        self._checkDdxDdy('ddy')
+        return self.__class__(
+            'ddy({this})'.format(this = self.get_ref())
         )
 
 class _MulMixin:
@@ -33,10 +51,10 @@ class _MulMixin:
             )
         ) 
 
-class Float(rtsl.Float, _SaturateMixin):
+class Float(rtsl.Float, _UnaryMixin):
     pass
 
-class _RawVector(_MulMixin, _SaturateMixin):
+class _RawVector(_MulMixin, _UnaryMixin):
     _element_type = Float
     def normalize(self):
         return self.__class__(
@@ -88,7 +106,7 @@ class Float4(rtsl.Float4, _RawVector):
             )
             rtsl.Float4.__init__(self, initializer)
 
-class _Matrix(_MulMixin, _SaturateMixin):
+class _Matrix(_MulMixin, _UnaryMixin):
     # This is the HLSL default but should ideally be configurable
     _row_major = False
     _element_type = Float

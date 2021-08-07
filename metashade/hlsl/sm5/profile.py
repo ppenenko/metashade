@@ -42,6 +42,8 @@ class UniformBuffer:
         self._sh._emit('};\n\n')
 
 class Generator(rtsl.Generator):
+    _is_pixel_shader = False
+
     class _UsedRegisterSet(set):
         def __init__(self, category : str):
             self._category = category
