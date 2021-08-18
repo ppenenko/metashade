@@ -17,10 +17,15 @@ from pygltflib import GLTF2
 
 from metashade.hlsl.sm5 import vs_5_0, ps_5_0
 
-def _generate_vs_out(sh):
+def _generate_vs_out(sh, primitive):
     with sh.vs_output('VsOut') as VsOut:
         VsOut.SV_Position('Pclip', sh.Vector4f)
+        
         VsOut.texCoord('Nw', sh.Vector3f)
+        if primitive.attributes.TANGENT is not None:
+            VsOut.texCoord('Tw', sh.Vector3f)
+            VsOut.texCoord('Bw', sh.Vector3f)
+
         VsOut.texCoord('UV0', sh.Point2f)
 
 def _generate_per_frame_uniform_buffer(sh):
@@ -84,24 +89,30 @@ def _generate_vs(vs_file, primitive):
         if attributes.WEIGHTS_0 is not None:
             raise RuntimeError('Unsupported attribute WEIGHTS_0')
 
-    _generate_vs_out(sh)
+    _generate_vs_out(sh, primitive)
 
     with sh.main('mainVS', sh.VsOut)(vsIn = sh.VsIn):
         sh.Pw = sh.gWorldXf.xform(sh.vsIn.Pobj)
 
         sh.vsOut = sh.VsOut()
         sh.vsOut.Pclip._ = sh.gVpXf.xform(sh.Pw)
-        sh.vsOut.Nw._ = sh.gWorldXf.xform(sh.vsIn.Nobj)
+        sh.vsOut.Nw._ = sh.gWorldXf.xform(sh.vsIn.Nobj).normalize()
+        
+        if attributes.TANGENT is not None:
+            sh.vsOut.Tw._ = \
+                sh.gWorldXf.xform(sh.vsIn.Tobj.xyz.as_vector4()).normalize()
+            sh.vsOut.Bw._ = sh.vsOut.Nw.cross(sh.vsOut.Tw) * sh.vsIn.Tobj.w
+
         sh.vsOut.UV0._ = sh.vsIn.UV0
 
         sh.return_(sh.vsOut)
 
-def _generate_ps(ps_file, material):
+def _generate_ps(ps_file, material, primitive):
     sh = ps_5_0.Generator(ps_file)
 
     _generate_per_frame_uniform_buffer(sh)
 
-    _generate_vs_out(sh)
+    _generate_vs_out(sh, primitive)
 
     with sh.ps_output('PsOut') as PsOut:
         PsOut.SV_Target('color', sh.Float4)
@@ -135,6 +146,9 @@ def _generate_ps(ps_file, material):
         texture_idx += 1
 
     with sh.main('mainPS', sh.PsOut)(psIn = sh.VsOut):
+        if primitive.attributes.TANGENT is not None:
+            pass
+
         sh.psOut = sh.PsOut()
         sh.lambert = sh.gLight.direction.dot(sh.psIn.Nw.normalize()).saturate()
         sh.baseColor = sh.baseColorTextureSampler(sh.psIn.UV0)
@@ -163,7 +177,11 @@ def main(gltf_dir, out_dir):
                     _generate_vs(vs_file, primitive)
 
                 with open(_file_name("PS"), 'w') as ps_file:
-                    _generate_ps(ps_file, gltf.materials[primitive.material])
+                    _generate_ps(
+                        ps_file,
+                        gltf.materials[primitive.material],
+                        primitive
+                    )
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(

@@ -42,7 +42,7 @@ class _RawVector(clike.ArithmeticType):
                 return False
         return True
 
-    def _rhs_binary_operator(self, rhs, op):
+    def _rhs_binary_operator(self, rhs, op : str):
         if self.__class__ != rhs.__class__:
             return NotImplemented
 
@@ -59,7 +59,7 @@ class _RawVector(clike.ArithmeticType):
         return cls(cls._emit_binary_operator(lhs, rhs, '*'))
 
     def __mul__(self, rhs):
-        per_element_result = self._rhs_binary_operator(self, rhs, '*')
+        per_element_result = self._rhs_binary_operator(rhs, '*')
         if per_element_result != NotImplemented:
             return per_element_result
 
