@@ -147,7 +147,16 @@ def _generate_ps(ps_file, material, primitive):
 
     with sh.main('mainPS', sh.PsOut)(psIn = sh.VsOut):
         if primitive.attributes.TANGENT is not None:
+            # See getPixelNormal()
             pass
+
+        if material.normalTexture is not None:
+            normal_uv_idx = material.normalTexture.texCoord
+            if normal_uv_idx is None:
+                normal_uv_idx = 0
+
+            normal_uv = getattr(sh.psIn, "UV{}".format(normal_uv_idx))
+            sh.textureNormal = sh.normalTextureSampler(normal_uv)
 
         sh.psOut = sh.PsOut()
         sh.lambert = sh.gLight.direction.dot(sh.psIn.Nw.normalize()).saturate()
