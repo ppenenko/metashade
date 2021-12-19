@@ -17,9 +17,10 @@ from . import data_types
 class Texture2d:
     _tex_coord_type = data_types.Point2f
 
-    def __init__(self, sh, name, register):
+    def __init__(self, sh, name : str, register : int, texel_type = None):
         self._name = name
         self._sh = sh
+        self._texel_type = texel_type if texel_type is not None else sh.Float4
         sh._emit(
             'Texture2D {name} : register(t{register});\n'.format(
                 name = name,
@@ -33,8 +34,8 @@ class Texture2d:
                 'Expected texture coordinate type ' \
                     + str(self.__class__._tex_coord_type)
             )
-        return data_types.Float4(
-            xyzw = '{name}.Sample({sampler_name}, {tex_coord})'.format(
+        return self._texel_type(
+            _ = '{name}.Sample({sampler_name}, {tex_coord})'.format(
                 name = self._name,
                 sampler_name = sampler._name,
                 tex_coord = tex_coord.get_ref()
@@ -42,7 +43,7 @@ class Texture2d:
         )
 
 class Sampler:
-    def __init__(self, sh, name, register, texture):
+    def __init__(self, sh, name : str, register : int, texture):
         self._name = name
         self._sh = sh
         self._texture = texture

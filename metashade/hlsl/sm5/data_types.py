@@ -73,14 +73,14 @@ class Float3(rtsl.Float3, _RawVector):
 class Float4(rtsl.Float4, _RawVector):
     _target_name = 'float4'
 
-    def __init__(self, xyzw = None, xyz = None, w = None):
+    def __init__(self, _ = None, xyz = None, w = None):
         if xyz is None:
             if w is not None:
                 raise RuntimeError('Conflicting arguments')
 
-            rtsl.Float4.__init__(self, initializer = xyzw)
+            rtsl.Float4.__init__(self, initializer = _)
         else:
-            if xyzw is not None:
+            if _ is not None:
                 raise RuntimeError('Conflicting arguments')
 
             if not (isinstance(xyz, Float3) \
@@ -166,11 +166,11 @@ class RgbF(rtsl.RgbF, Float3):
     pass
 
 class RgbaF(rtsl.RgbaF, Float4):
-    def __init__(self, rgb = None, a = None):
+    def __init__(self, _ = None, rgb = None, a = None):
         if rgb is not None \
             and not (isinstance(rgb, RgbF) \
                 or RgbF._is_compatible_tuple(rgb)
             ):
             raise RuntimeError('"rgb" must be convertible to RgbF')
 
-        Float4.__init__(self, xyz = rgb, w = a)
+        Float4.__init__(self, _ = _, xyz = rgb, w = a)

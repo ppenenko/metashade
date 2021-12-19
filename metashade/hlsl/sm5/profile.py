@@ -105,7 +105,8 @@ class Generator(rtsl.Generator):
     def combined_sampler_2d(
         self,
         texture_name : str, texture_register : int,
-        sampler_name : str, sampler_register : int
+        sampler_name : str, sampler_register : int,
+        texel_type = None
     ):
         self._check_public_name(texture_name)
         self._check_public_name(sampler_name)
@@ -119,7 +120,12 @@ class Generator(rtsl.Generator):
         self._used_texture_registers.check_candidate(texture_register)
         self._used_sampler_registers.check_candidate(sampler_register)
 
-        texture = samplers.Texture2d(self, texture_name, texture_register)
+        texture = samplers.Texture2d(
+            self,
+            texture_name,
+            texture_register,
+            texel_type
+        )
         self._set_global(texture_name, texture)
         self._used_texture_registers.add(texture_register)
 
