@@ -48,7 +48,7 @@ def _generate_per_frame_uniform_buffer(sh):
         sh.uniform('gVpIXf', sh.Matrix4x4f)
         sh.uniform('gCameraPos', sh.Vector4f)
         sh.uniform('gIblFactor', sh.Float)
-        sh.uniform('gEmissiveFactor', sh.Float)
+        sh.uniform('gEmissiveFactor', sh.RgbaF)
         sh.uniform('PADDING', sh.Float)
         sh.uniform('gNumLights', sh.Float)   # should be int
         sh.uniform('gLight', sh.Light)      # should be an array
@@ -115,17 +115,17 @@ def _generate_ps(ps_file, material, primitive):
     _generate_vs_out(sh, primitive)
 
     with sh.ps_output('PsOut') as PsOut:
-        PsOut.SV_Target('color', sh.Float4)
+        PsOut.SV_Target('color', sh.RgbaF)
 
-    texture_set = set()
+    texture_dict = dict()
 
-    def _add_texture(parent, name):
+    def _add_texture(parent, name: str, texel_type = None):
         if getattr(parent, name) is not None:
-            texture_set.add(name)
+            texture_dict[name] = texel_type
 
     _add_texture(material, 'normalTexture')
     _add_texture(material, 'occlusionTexture')
-    _add_texture(material, 'emissiveTexture')
+    _add_texture(material, 'emissiveTexture', sh.RgbaF)
 
     if material.pbrMetallicRoughness is not None:
         _add_texture(material.pbrMetallicRoughness, 'baseColorTexture')
@@ -136,27 +136,31 @@ def _generate_ps(ps_file, material, primitive):
     texture_idx = 3
 
     # We're sorting material textures by name
-    for texture_name in sorted(texture_set):
+    for texture_name in sorted(texture_dict):
         sh.combined_sampler_2d(
             texture_name = texture_name,
             texture_register = texture_idx,
             sampler_name = texture_name + 'Sampler',
-            sampler_register = texture_idx
+            sampler_register = texture_idx,
+            texel_type = texture_dict[texture_name]
         )
         texture_idx += 1
 
     with sh.main('mainPS', sh.PsOut)(psIn = sh.VsOut):
+        def _get_uv_attribute(gltf_texture):
+            uv_set_idx = gltf_texture.texCoord
+            if uv_set_idx is None:
+                uv_set_idx = 0
+            return getattr(sh.psIn, "UV{}".format(uv_set_idx))
+
         if primitive.attributes.TANGENT is not None:
             # See getPixelNormal()
             pass
 
         if material.normalTexture is not None:
-            normal_uv_idx = material.normalTexture.texCoord
-            if normal_uv_idx is None:
-                normal_uv_idx = 0
-
-            normal_uv = getattr(sh.psIn, "UV{}".format(normal_uv_idx))
-            sh.textureNormal = sh.normalTextureSampler(normal_uv)
+            sh.textureNormal = sh.normalTextureSampler(
+                _get_uv_attribute(material.normalTexture)
+            )
 
         sh.psOut = sh.PsOut()
         sh.lambert = sh.gLight.direction.dot(sh.psIn.Nw.normalize()).saturate()
@@ -167,11 +171,11 @@ def _generate_ps(ps_file, material, primitive):
 def main(gltf_dir, out_dir):
     os.makedirs(out_dir, exist_ok = True)
 
-    for gltf_file in pathlib.Path(args.gltf_dir).glob('**/*.gltf'):
-        print(gltf_file)
-        gltf = GLTF2().load(gltf_file)
+    for gltf_file_path in pathlib.Path(args.gltf_dir).glob('**/*.gltf'):
+        print(gltf_file_path)
+        gltf_asset = GLTF2().load(gltf_file_path)
 
-        for mesh in gltf.meshes:
+        for mesh in gltf_asset.meshes:
             for primitive_idx, primitive in enumerate(mesh.primitives):
                 def _file_name(stage : str):
                     return os.path.join(
@@ -188,7 +192,7 @@ def main(gltf_dir, out_dir):
                 with open(_file_name("PS"), 'w') as ps_file:
                     _generate_ps(
                         ps_file,
-                        gltf.materials[primitive.material],
+                        gltf_asset.materials[primitive.material],
                         primitive
                     )
 
