@@ -44,10 +44,16 @@ class Struct(metashade.clike.data_types.BaseType):
     
     def __setattr__(self, name, value):
         if not name.startswith('_') and hasattr(self, '_constructed'):
-            raise RuntimeError(
-                "Metashade struct member can't be bound after construction")
-            
-        super().__setattr__(name, value)
+            member = getattr(self, name)
+            if isinstance(member, metashade.clike.data_types.BaseType):
+                member._assign(value)
+            else:             
+                raise RuntimeError(
+                    "Metashade struct members "
+                    "can't be added after construction"
+                )
+        else:
+            super().__setattr__(name, value)
 
 class StructMemberDef:
     def __init__(self, dtype, semantic = None):

@@ -95,15 +95,15 @@ def _generate_vs(vs_file, primitive):
         sh.Pw = sh.gWorldXf.xform(sh.vsIn.Pobj)
 
         sh.vsOut = sh.VsOut()
-        sh.vsOut.Pclip._ = sh.gVpXf.xform(sh.Pw)
-        sh.vsOut.Nw._ = sh.gWorldXf.xform(sh.vsIn.Nobj).normalize()
+        sh.vsOut.Pclip = sh.gVpXf.xform(sh.Pw)
+        sh.vsOut.Nw = sh.gWorldXf.xform(sh.vsIn.Nobj).normalize()
         
         if attributes.TANGENT is not None:
-            sh.vsOut.Tw._ = \
+            sh.vsOut.Tw = \
                 sh.gWorldXf.xform(sh.vsIn.Tobj.xyz.as_vector4()).normalize()
-            sh.vsOut.Bw._ = sh.vsOut.Nw.cross(sh.vsOut.Tw) * sh.vsIn.Tobj.w
+            sh.vsOut.Bw = sh.vsOut.Nw.cross(sh.vsOut.Tw) * sh.vsIn.Tobj.w
 
-        sh.vsOut.UV0._ = sh.vsIn.UV0
+        sh.vsOut.UV0 = sh.vsIn.UV0
 
         sh.return_(sh.vsOut)
 
@@ -165,7 +165,8 @@ def _generate_ps(ps_file, material, primitive):
         sh.psOut = sh.PsOut()
         sh.lambert = sh.gLight.direction.dot(sh.psIn.Nw.normalize()).saturate()
         sh.baseColor = sh.baseColorTextureSampler(sh.psIn.UV0)
-        sh.psOut.color._ = sh.lambert * sh.baseColor
+        sh.psOut.color = sh.lambert * sh.baseColor
+
         sh.return_(sh.psOut)
 
 def main(gltf_dir, out_dir):

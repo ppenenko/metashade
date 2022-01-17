@@ -51,18 +51,21 @@ class BaseType(base.BaseType):
             sh, self._name, initializer = self._expression,
             semantic = semantic, annotations = annotations
         )
-        
+
+    def _assign(self, value):
+        self._expression = value
+        self._sh._emit_indent()
+        self._sh._emit(
+            '{identifier} = {value};\n'.format(
+                identifier = self._name,
+                value = value.get_ref() if hasattr(value, 'get_ref') \
+                    else value
+            )
+        )
+
     def __setattr__(self, name, value):
         if name == '_':
-            self._expression = value
-            self._sh._emit_indent()
-            self._sh._emit(
-                '{identifier} = {value};\n'.format(
-                    identifier = self._name,
-                    value = value.get_ref() if hasattr(value, 'get_ref') \
-                        else value
-                )
-            )
+            self._assign(value)
         else:
             object.__setattr__(self, name, value)
 
