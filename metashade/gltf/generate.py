@@ -171,6 +171,11 @@ def _generate_ps(ps_file, material, primitive):
         sh.psOut.color.rgb = sh.lambert * sh.baseColor.rgb
         sh.psOut.color.a = sh.baseColor.a
 
+        if material.emissiveTexture is not None:
+            sh.psOut.color.rgb = sh.psOut.color.rgb + sh.emissiveTextureSampler(
+                _get_uv_attribute(material.emissiveTexture)
+            ).rgb # * sh.gEmissiveFactor.rgb * sh.gEmissiveFactor.a
+
         sh.return_(sh.psOut)
 
 def main(gltf_dir, out_dir):
