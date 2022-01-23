@@ -53,6 +53,9 @@ class BaseType(base.BaseType):
         )
 
     def _assign(self, value):
+        if self.__class__ != value.__class__:
+            raise ArithmeticError('Type mismatch')
+
         self._expression = value
         self._sh._emit_indent()
         self._sh._emit(

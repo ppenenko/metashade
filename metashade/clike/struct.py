@@ -50,7 +50,7 @@ class Struct(metashade.clike.data_types.BaseType):
             else:             
                 raise RuntimeError(
                     "Metashade struct members "
-                    "can't be added after construction"
+                    "can't be added or redefined after construction"
                 )
         else:
             super().__setattr__(name, value)

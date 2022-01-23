@@ -96,11 +96,12 @@ def _generate_vs(vs_file, primitive):
 
         sh.vsOut = sh.VsOut()
         sh.vsOut.Pclip = sh.gVpXf.xform(sh.Pw)
-        sh.vsOut.Nw = sh.gWorldXf.xform(sh.vsIn.Nobj).normalize()
+        sh.vsOut.Nw = sh.gWorldXf.xform(sh.vsIn.Nobj).xyz.normalize()
         
         if attributes.TANGENT is not None:
-            sh.vsOut.Tw = \
-                sh.gWorldXf.xform(sh.vsIn.Tobj.xyz.as_vector4()).normalize()
+            sh.vsOut.Tw = sh.gWorldXf.xform(
+                sh.vsIn.Tobj.xyz.as_vector4()
+            ).xyz.normalize()
             sh.vsOut.Bw = sh.vsOut.Nw.cross(sh.vsOut.Tw) * sh.vsIn.Tobj.w
 
         sh.vsOut.UV0 = sh.vsIn.UV0
@@ -128,7 +129,9 @@ def _generate_ps(ps_file, material, primitive):
     _add_texture(material, 'emissiveTexture', sh.RgbaF)
 
     if material.pbrMetallicRoughness is not None:
-        _add_texture(material.pbrMetallicRoughness, 'baseColorTexture')
+        _add_texture(
+            material.pbrMetallicRoughness, 'baseColorTexture', sh.RgbaF
+        )
         _add_texture(material.pbrMetallicRoughness, 'metallicRoughnessTexture')
 
     # First 3 sampler slots are reserved for the BRDF LUT and IBL textures
