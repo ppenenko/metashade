@@ -60,15 +60,15 @@ class Generator:
         
         if exists:
             raise AttributeError(
-                "'{name}': can't redefine Metashade symbol already "
-                "defined in the context stack".format(name=name))
+                "'{}': can't redefine Metashade symbol already "
+                "defined in the context stack".format(name))
 
     @staticmethod
     def _check_public_name(name : str):
         if name.startswith('_'):
             raise RuntimeError(
-                "'{name}': symbols starting with an underscore"
-                "are reserved for Metashade implementation"
+                "'{}': symbols starting with an underscore"
+                "are reserved for Metashade implementation".format(name)
             )
 
     def _check_global_scope(self):
@@ -83,7 +83,7 @@ class Generator:
             try:
                 return getattr(context, name)
             except AttributeError:
-                pass        
+                pass
         try:
             return self._globals[name]
         except KeyError:
@@ -92,16 +92,24 @@ class Generator:
     def __setattr__(self, name, value):
         if name.startswith('_'):
             object.__setattr__(self, name, value)
-        else:
-            self._check_unique_attr(name)
+            return
 
-            if (isinstance(value, data_types.BaseType)
-                and value._name is not None
-            ):
-                value = copy.copy(value)
-                value._expression = value._name
+        lvalue = getattr(self, name, None)
+        if isinstance(lvalue, data_types.BaseType):
+            # An lvalue with the given name exists,
+            # so assign the new value to it
+            lvalue._assign(value)
+            return
 
-            self._context_stack[-1]._locals[name] = value
-            self._emit_indent()
-            value._define(self, name)
-            self._emit(';\n')
+        # If value is an lvalue, we need to clone it
+        if (isinstance(value, data_types.BaseType)
+            and value._name is not None
+        ):
+            value = copy.copy(value)
+            value._expression = value._name
+
+        # Define a new local
+        self._context_stack[-1]._locals[name] = value
+        self._emit_indent()
+        value._define(self, name)
+        self._emit(';\n')

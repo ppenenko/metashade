@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import metashade.base.data_types as base
+import numbers
 
 class BaseType(base.BaseType):
     @classmethod
@@ -52,10 +53,12 @@ class BaseType(base.BaseType):
             semantic = semantic, annotations = annotations
         )
 
-    def _assign(self, value):
+    def _check_assign_type(self, value) -> None:
         if self.__class__ != value.__class__:
             raise ArithmeticError('Type mismatch')
 
+    def _assign(self, value):
+        self._check_assign_type(value)
         self._expression = value
         self._sh._emit_indent()
         self._sh._emit(
@@ -110,3 +113,7 @@ class ArithmeticType(BaseType):
 
 class Float(ArithmeticType):
     _target_name = 'float'
+    
+    def _check_assign_type(self, value) -> None:
+        if not isinstance(value, numbers.Number):
+            super()._check_assign_type(value)
