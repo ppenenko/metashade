@@ -181,7 +181,7 @@ class RgbaF(rtsl.RgbaF, Float4, struct.StructBase):
             raise RuntimeError('"rgb" must be convertible to RgbF')
 
         Float4.__init__(self, _ = _, xyz = rgb, w = a)
-        struct.StructBase.__init__(self)
+        struct.StructBase.__init__(self, self._expression)
 
     def _bind(self, sh, identifier, allow_init):
         super()._bind(sh, identifier, allow_init)

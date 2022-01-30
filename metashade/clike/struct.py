@@ -21,16 +21,19 @@ class StructMemberDef:
         self.semantic = semantic
 
 class StructBase:
-    def __init__(self):
-        for name, member_def in self.__class__._member_defs.items():
-            setattr(self, name, member_def.dtype())
+    def __init__(self, initializer = None):
+        for member_name, member_def in self.__class__._member_defs.items():
+            expression = ( None if initializer is None
+                else '.'.join([initializer, member_name])
+            )
+            setattr(self, member_name, member_def.dtype(expression))
         self._constructed = True
 
     def _bind_members(self, sh, struct_instance_name):
         for member_name, member in vars(self).items():
             if not member_name.startswith('_'):
                 nested_name = '.'.join([struct_instance_name, member_name])
-                member._bind(sh, nested_name, allow_init = False)
+                member._bind(sh, nested_name, allow_init = True)
     
     def _set_member(self, name, value):
         if name.startswith('_') or not hasattr(self, '_constructed'):

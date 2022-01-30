@@ -174,7 +174,7 @@ def _generate_ps(ps_file, material, primitive):
         if material.emissiveTexture is not None:
             sh.psOut.color.rgb = sh.psOut.color.rgb + sh.emissiveTextureSampler(
                 _get_uv_attribute(material.emissiveTexture)
-            ).rgb # * sh.gEmissiveFactor.rgb * sh.gEmissiveFactor.a
+            ).rgb * sh.gEmissiveFactor.rgb * sh.gEmissiveFactor.a
 
         sh.return_(sh.psOut)
 
