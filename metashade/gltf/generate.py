@@ -164,11 +164,12 @@ def _generate_ps(ps_file, material, primitive):
             sh.textureNormal = sh.normalTextureSampler(
                 _get_uv_attribute(material.normalTexture)
             )
-
-        sh.psOut = sh.PsOut()
         sh.lambert = sh.gLight.direction.dot(sh.psIn.Nw.normalize()).saturate()
         sh.baseColor = sh.baseColorTextureSampler(sh.psIn.UV0)
-        sh.psOut.color = sh.lambert * sh.baseColor
+        
+        sh.psOut = sh.PsOut()
+        sh.psOut.color.rgb = sh.lambert * sh.baseColor.rgb
+        sh.psOut.color.a = sh.baseColor.a
 
         sh.return_(sh.psOut)
 

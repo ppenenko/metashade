@@ -13,52 +13,51 @@
 # limitations under the License.
 
 import metashade.base.context
-import metashade.clike.data_types
-
-class Struct(metashade.clike.data_types.BaseType):
-    def __init__(self):
-        super().__init__()
-        
-        for name, member_def in self.__class__._member_defs.items():
-            setattr(self, name, member_def.dtype())
-        
-        self._constructed = True
-        
-    def _define(
-        self,
-        sh,
-        identifier,
-        semantic = None,
-        allow_init = True,
-        annotations = None
-    ):
-        super()._define(sh, identifier, semantic, allow_init, annotations)
-        
-        for member_name, member in vars(self).items():
-            if not member_name.startswith('_'):
-                nested_name = '{struct_name}.{member_name}'.format(
-                    struct_name=identifier, member_name=member_name
-                )
-
-                member._bind(sh, nested_name, allow_init=False)
-    
-    def __setattr__(self, name, value):
-        if not name.startswith('_') and hasattr(self, '_constructed'):
-            member = getattr(self, name)
-            if isinstance(member, metashade.clike.data_types.BaseType):
-                member._assign(value)
-            else:             
-                raise RuntimeError(
-                    "Metashade struct members "
-                    "can't be added or redefined after construction"
-                )
-        else:
-            super().__setattr__(name, value)
+from metashade.clike.data_types import BaseType
 
 class StructMemberDef:
     def __init__(self, dtype, semantic = None):
         self.dtype = dtype
         self.semantic = semantic
+
+class StructBase:
+    def __init__(self):
+        for name, member_def in self.__class__._member_defs.items():
+            setattr(self, name, member_def.dtype())
+        self._constructed = True
+
+    def _bind_members(self, sh, struct_instance_name):
+        for member_name, member in vars(self).items():
+            if not member_name.startswith('_'):
+                nested_name = '.'.join([struct_instance_name, member_name])
+                member._bind(sh, nested_name, allow_init = False)
+    
+    def _set_member(self, name, value):
+        if name.startswith('_') or not hasattr(self, '_constructed'):
+            return False
+
+        member = getattr(self, name)
+        if isinstance(member, BaseType):
+            member._assign(value)
+        else:
+            raise RuntimeError(
+                "Metashade struct members "
+                "can't be added or redefined after construction"
+            )
+        return True
+
+class Struct(BaseType, StructBase):
+    def __init__(self):
+        BaseType.__init__(self)
+        StructBase.__init__(self)
+
+    def _bind(self, sh, identifier, allow_init):
+        super()._bind(sh, identifier, allow_init)
+        self._bind_members(sh, identifier)
+
+    def __setattr__(self, name, value):
+        if not self._set_member(name, value):
+            super().__setattr__(name, value)
 
 def define_struct(sh, name, member_defs):
     struct_type = type(

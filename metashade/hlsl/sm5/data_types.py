@@ -15,6 +15,7 @@
 import metashade.base.data_types as base
 import metashade.rtsl.data_types as rtsl
 import metashade.clike.data_types as clike
+import metashade.clike.struct as struct
 
 import numbers
 
@@ -165,12 +166,28 @@ class Point3f(rtsl.Point3f, Float3):
 class RgbF(rtsl.RgbF, Float3):
     pass
 
-class RgbaF(rtsl.RgbaF, Float4):
+class RgbaF(rtsl.RgbaF, Float4, struct.StructBase):
+    _member_defs = {
+        'rgb' : struct.StructMemberDef(RgbF),
+        'a' : struct.StructMemberDef(Float)
+    }
+
     def __init__(self, _ = None, rgb = None, a = None):
-        if rgb is not None \
-            and not (isinstance(rgb, RgbF) \
+        if ( rgb is not None
+            and not ( isinstance(rgb, RgbF)
                 or RgbF._is_compatible_tuple(rgb)
-            ):
+            )
+        ):
             raise RuntimeError('"rgb" must be convertible to RgbF')
 
         Float4.__init__(self, _ = _, xyz = rgb, w = a)
+        struct.StructBase.__init__(self)
+
+    def _bind(self, sh, identifier, allow_init):
+        super()._bind(sh, identifier, allow_init)
+        self._bind_members(sh, identifier)
+
+    def __setattr__(self, name, value):
+        if not self._set_member(name, value):
+            super().__setattr__(name, value)
+
