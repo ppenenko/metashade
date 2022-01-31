@@ -121,18 +121,19 @@ def _generate_ps(ps_file, material, primitive):
     texture_dict = dict()
 
     def _add_texture(parent, name: str, texel_type = None):
+        name += 'Texture'
         if getattr(parent, name) is not None:
             texture_dict[name] = texel_type
 
-    _add_texture(material, 'normalTexture')
-    _add_texture(material, 'occlusionTexture')
-    _add_texture(material, 'emissiveTexture', sh.RgbaF)
+    _add_texture(material, 'normal')
+    _add_texture(material, 'occlusion')
+    _add_texture(material, 'emissive', sh.RgbaF)
 
     if material.pbrMetallicRoughness is not None:
         _add_texture(
-            material.pbrMetallicRoughness, 'baseColorTexture', sh.RgbaF
+            material.pbrMetallicRoughness, 'baseColor', sh.RgbaF
         )
-        _add_texture(material.pbrMetallicRoughness, 'metallicRoughnessTexture')
+        _add_texture(material.pbrMetallicRoughness, 'metallicRoughness')
 
     # First 3 sampler slots are reserved for the BRDF LUT and IBL textures
     # in the GLTF demo app (assuming the skydome is on)
@@ -150,8 +151,8 @@ def _generate_ps(ps_file, material, primitive):
         texture_idx += 1
 
     with sh.main('mainPS', sh.PsOut)(psIn = sh.VsOut):
-        def _sample_texture(name : str):
-            texture_name = name + 'Texture'
+        def _sample_texture(texture_name : str):
+            texture_name += 'Texture'
             gltf_texture = getattr(material, texture_name)
             if gltf_texture is None:
                 return None
