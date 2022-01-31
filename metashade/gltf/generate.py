@@ -150,20 +150,24 @@ def _generate_ps(ps_file, material, primitive):
         texture_idx += 1
 
     with sh.main('mainPS', sh.PsOut)(psIn = sh.VsOut):
-        def _get_uv_attribute(gltf_texture):
+        def _sample_texture(name : str):
+            texture_name = name + 'Texture'
+            gltf_texture = getattr(material, texture_name)
+            if gltf_texture is None:
+                return None
             uv_set_idx = gltf_texture.texCoord
             if uv_set_idx is None:
                 uv_set_idx = 0
-            return getattr(sh.psIn, "UV{}".format(uv_set_idx))
+            uv = getattr(sh.psIn, "UV{}".format(uv_set_idx))
+            sampler = getattr(sh, texture_name + 'Sampler')
+            return sampler(uv)
 
         if primitive.attributes.TANGENT is not None:
             # See getPixelNormal()
             pass
 
-        if material.normalTexture is not None:
-            sh.textureNormal = sh.normalTextureSampler(
-                _get_uv_attribute(material.normalTexture)
-            )
+        normalSample = _sample_texture('normal')
+
         sh.lambert = sh.gLight.direction.dot(sh.psIn.Nw.normalize()).saturate()
         sh.baseColor = sh.baseColorTextureSampler(sh.psIn.UV0)
         
@@ -171,10 +175,10 @@ def _generate_ps(ps_file, material, primitive):
         sh.psOut.color.rgb = sh.lambert * sh.baseColor.rgb
         sh.psOut.color.a = sh.baseColor.a
 
-        if material.emissiveTexture is not None:
-            sh.psOut.color.rgb = sh.psOut.color.rgb + sh.emissiveTextureSampler(
-                _get_uv_attribute(material.emissiveTexture)
-            ).rgb * sh.gEmissiveFactor.rgb * sh.gEmissiveFactor.a
+        emissiveSample = _sample_texture('emissive')
+        if emissiveSample is not None:
+            sh.psOut.color.rgb = sh.psOut.color.rgb + emissiveSample.rgb \
+                * sh.gEmissiveFactor.rgb * sh.gEmissiveFactor.a
 
         sh.return_(sh.psOut)
 
