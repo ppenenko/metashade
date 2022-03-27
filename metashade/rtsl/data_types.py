@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import numbers
+import sys
 import metashade.clike.data_types as clike
 from metashade.clike.data_types import Float
 
@@ -123,12 +124,38 @@ for rows in range(1, 5):
             {'_dims' : (rows, cols)}
         )
 
-class Vector2f:
+def _get_tuple_type(element_type, dim : int, prefix : str):
+    if dim == 1:
+        return element_type
+
+    if dim not in (2, 3, 4):
+        raise RuntimeError('Unsupported vector width')
+
+    if not issubclass(element_type, Float):
+        raise RuntimeError(
+            'Vectors of types other than 32-bit float are not implemented yet'
+        )
+
+    type_name = '{prefix}{dim}f'.format(prefix = prefix, dim = dim)
+    return getattr(sys.modules[element_type.__module__], type_name)
+
+def get_vector_type(element_type, dim : int):
+    return _get_tuple_type(element_type, dim, 'Vector')
+
+def get_point_type(element_type, dim : int):
+    return _get_tuple_type(element_type, dim, 'Point')
+
+class _VectorBase:
+    @classmethod
+    def _get_related_type(cls, dim):
+        return get_vector_type(cls._element_type, dim)
+
+class Vector2f(_VectorBase):
     pass
 
-class Vector3f:
+class Vector3f(_VectorBase):
     def as_vector4(self):
-        vector4_type = self.__class__._vector4_type
+        vector4_type = self._get_related_type(4)
         return vector4_type(
             '{dtype}({this}, 0.0f)'.format(
                 dtype = vector4_type.get_target_type_name(),
@@ -136,16 +163,21 @@ class Vector3f:
             )
         )
 
-class Vector4f:
+class Vector4f(_VectorBase):
     def as_vector4(self):
         return self
 
-class Point2f:
+class _PointBase:
+    @classmethod
+    def _get_related_type(cls, dim):
+        return get_point_type(cls._element_type, dim)
+
+class Point2f(_PointBase):
     pass
 
-class Point3f:
+class Point3f(_PointBase):
     def as_vector4(self):
-        vector4_type = self.__class__._vector4_type
+        vector4_type = get_vector_type(self.__class__._element_type, 4)
         return vector4_type(
             '{dtype}({this}, 1.0f)'.format(
                 dtype = vector4_type.get_target_type_name(),
