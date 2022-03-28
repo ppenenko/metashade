@@ -139,17 +139,7 @@ class Matrix4x4f(Float4x4):
             return self.mul(vector, result_type = Vector4f)
 
 class Vector4f(rtsl.Vector4f, Float4):
-    @property
-    def xyz(self):
-        return Vector3f(
-            '{this}.xyz'.format(this = self.get_ref())
-        )
-
-    @property
-    def w(self):
-        return self.__class__._element_type(
-            '{this}.w'.format(this = self.get_ref())
-        )
+    pass
 
 class Vector2f(rtsl.Vector2f, Float2):
     pass

@@ -18,6 +18,24 @@ import metashade.clike.data_types as clike
 from metashade.clike.data_types import Float
 
 class _RawVector(clike.ArithmeticType):
+    _swizzle_str = 'xyzw'
+
+    def __getattr__(self, name):
+        is_valid_swizzle = False
+        try:
+            is_valid_swizzle = len(name) <= 4 and all(
+                self.__class__._swizzle_str.index(ch) < self.__class__._dim
+                    for ch in name
+            )
+        except ValueError:
+            pass
+
+        if is_valid_swizzle:
+            dtype = self._get_related_type(len(name))
+            return dtype('.'.join((self.get_ref(), name)))
+        else:
+            raise AttributeError
+
     def _check_dims(self, rhs):
         if rhs.__class__._dim != self.__class__._dim:
             raise ArithmeticError(
