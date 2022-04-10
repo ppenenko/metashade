@@ -176,6 +176,10 @@ def _generate_ps(ps_file, material, primitive):
         sh.psOut.color.rgb = sh.lambert * sh.baseColor.rgb
         sh.psOut.color.a = sh.baseColor.a
 
+        aoSample = _sample_texture('occlusion')
+        if aoSample is not None:
+            sh.psOut.color.rgb = sh.psOut.color.rgb * aoSample.x
+
         emissiveSample = _sample_texture('emissive')
         if emissiveSample is not None:
             sh.psOut.color.rgb = sh.psOut.color.rgb + emissiveSample.rgb \
