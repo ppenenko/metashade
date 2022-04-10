@@ -138,20 +138,20 @@ class Matrix4x4f(Float4x4):
         else:
             return self.mul(vector, result_type = Vector4f)
 
-class Vector4f(rtsl.Vector4f, Float4):
+class Vector4f(rtsl.Vector4, Float4):
     pass
 
-class Vector2f(rtsl.Vector2f, Float2):
+class Vector2f(rtsl.Vector2, Float2):
     pass
 
-class Vector3f(rtsl.Vector3f, Float3):
-    _vector4_type = Vector4f
-
-class Point2f(rtsl.Point2f, Float2):
+class Vector3f(rtsl.Vector3, Float3):
     pass
 
-class Point3f(rtsl.Point3f, Float3):
-    _vector4_type = Vector4f
+class Point2f(rtsl.Point2, Float2):
+    pass
+
+class Point3f(rtsl.Point3, Float3):
+    pass
 
 class RgbF(rtsl.RgbF, Float3):
     pass

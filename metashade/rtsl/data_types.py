@@ -17,8 +17,30 @@ import sys
 import metashade.clike.data_types as clike
 from metashade.clike.data_types import Float
 
+def _check_float_type(dtype):
+    if not issubclass(dtype, Float):
+        raise RuntimeError(
+            'Vectors of types other than 32-bit float are not implemented yet'
+        )
+
 class _RawVector(clike.ArithmeticType):
     _swizzle_str = 'xyzw'
+
+    @classmethod
+    def _get_related_type_name(cls, dim : int):
+        _check_float_type(cls._element_type)
+        return 'Float{}'.format(dim)
+
+    @classmethod
+    def _get_related_type(cls, dim : int):
+        if dim == 1:
+            return cls._element_type
+
+        if dim not in range(2, 5):
+            raise RuntimeError('Unsupported vector width')
+
+        type_name = cls._get_related_type_name(dim)
+        return getattr(sys.modules[cls.__module__], type_name)
 
     def __getattr__(self, name):
         is_valid_swizzle = False
@@ -142,38 +164,23 @@ for rows in range(1, 5):
             {'_dims' : (rows, cols)}
         )
 
-def _get_tuple_type(element_type, dim : int, prefix : str):
-    if dim == 1:
-        return element_type
+def _get_vector_type_name(element_type, dim : int):
+    _check_float_type(element_type)
+    return 'Vector{}f'.format(dim)
 
-    if dim not in (2, 3, 4):
-        raise RuntimeError('Unsupported vector width')
-
-    if not issubclass(element_type, Float):
-        raise RuntimeError(
-            'Vectors of types other than 32-bit float are not implemented yet'
-        )
-
-    type_name = '{prefix}{dim}f'.format(prefix = prefix, dim = dim)
-    return getattr(sys.modules[element_type.__module__], type_name)
-
-def get_vector_type(element_type, dim : int):
-    return _get_tuple_type(element_type, dim, 'Vector')
-
-def get_point_type(element_type, dim : int):
-    return _get_tuple_type(element_type, dim, 'Point')
-
-class _VectorBase:
+class _Vector(_RawVector):
     @classmethod
-    def _get_related_type(cls, dim):
-        return get_vector_type(cls._element_type, dim)
+    def _get_related_type_name(cls, dim : int):
+        return _get_vector_type_name(cls._element_type, dim)
 
-class Vector2f(_VectorBase):
-    pass
+class Vector2(_Vector):
+    _dim = 2
 
-class Vector3f(_VectorBase):
+class Vector3(_Vector):
+    _dim = 3
+
     def as_vector4(self):
-        vector4_type = self._get_related_type(4)
+        vector4_type = self.__class__._get_related_type(4)
         return vector4_type(
             '{dtype}({this}, 0.0f)'.format(
                 dtype = vector4_type.get_target_type_name(),
@@ -181,21 +188,28 @@ class Vector3f(_VectorBase):
             )
         )
 
-class Vector4f(_VectorBase):
+class Vector4(_Vector):
+    _dim = 4
     def as_vector4(self):
         return self
 
-class _PointBase:
+class _Point(_RawVector):
     @classmethod
-    def _get_related_type(cls, dim):
-        return get_point_type(cls._element_type, dim)
+    def _get_related_type_name(cls, dim : int):
+        _check_float_type(cls._element_type)
+        return 'Point{}f'.format(dim)
 
-class Point2f(_PointBase):
-    pass
+class Point2(_Point):
+    _dim = 2
 
-class Point3f(_PointBase):
+class Point3(_Point):
+    _dim = 3
+
     def as_vector4(self):
-        vector4_type = get_vector_type(self.__class__._element_type, 4)
+        vector4_type = getattr(
+            sys.modules[self.__class__.__module__],
+            _get_vector_type_name(self.__class__._element_type, 4)
+        )
         return vector4_type(
             '{dtype}({this}, 1.0f)'.format(
                 dtype = vector4_type.get_target_type_name(),
