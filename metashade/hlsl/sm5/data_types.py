@@ -101,16 +101,43 @@ class Float4(rtsl.Float4, _RawVector):
                     return value
 
             initializer = '{dtype}({xyz}, {w})'.format(
-                dtype = __class__._target_name,
+                dtype = self.__class__._target_name,
                 xyz = get_ref(xyz),
                 w = get_ref(w)
             )
             rtsl.Float4.__init__(self, initializer)
 
-class _Matrix(_MulMixin, _UnaryMixin):
+class _RawMatrixF(_MulMixin, _UnaryMixin, rtsl._RawMatrix):
     # This is the HLSL default but should ideally be configurable
     _row_major = False
     _element_type = Float
+
+    @classmethod
+    def _get_row_type_name(cls):
+        return 'Float{}'.format(cls._dims[1])
+
+    def __init__(self, rows = None):
+        if rows is not None:
+            if len(rows) != self.__class__._dims[0]:
+                raise RuntimeError(
+                    'Unexpected number of rows in matrix constructor'
+                )
+
+            row_type = globals()[self.__class__._get_row_type_name()]
+            if any(row.__class__ !=  row_type for row in rows):
+                raise RuntimeError(
+                    'Unexpected row type in matrix constructor'
+                )
+            
+            rtsl._RawMatrix.__init__(
+                self,
+                initializer = '{dtype}({rows})'.format(
+                    dtype = self.__class__._target_name,
+                    rows = ', '.join([row.get_ref() for row in rows])
+                )
+            )
+        else:
+            rtsl._RawMatrix.__init__(self)
 
 # Generate all concrete matrix types to avoid copy-and-paste
 for rows in range(1, 5):
@@ -119,18 +146,26 @@ for rows in range(1, 5):
         target_name = 'float{rows}x{cols}'.format(rows = rows, cols = cols)
         globals()[name] = type(
             name,
-            (getattr(rtsl, name), _Matrix),
+            (getattr(rtsl, name), _RawMatrixF),
             {'_target_name' : target_name}
         )
 
-class Matrix3x3f(Float3x3):
+class _MatrixF(_RawMatrixF):
+    @classmethod
+    def _get_row_type_name(cls):
+        return 'Vector{}f'.format(cls._dims[1])
+
+class Matrix3x3f(_MatrixF, Float3x3):
+    def __init__(self, rows = None):
+        _MatrixF.__init__(self, rows = rows)
+
     def xform(self, vector):
         if self.__class__._row_major:
             return vector.mul(self, result_type = vector.__class__)
         else:
             return self.mul(vector, result_type = vector.__class__)
 
-class Matrix4x4f(Float4x4):
+class Matrix4x4f(_MatrixF, Float4x4):
     def xform(self, vector):
         vector = vector.as_vector4()
         if self.__class__._row_major:
