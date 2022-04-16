@@ -14,7 +14,6 @@
 
 import metashade.base.data_types as base
 import metashade.rtsl.data_types as rtsl
-import metashade.clike.data_types as clike
 import metashade.clike.struct as struct
 
 import numbers
@@ -28,19 +27,19 @@ class _UnaryMixin:
 
     def saturate(self):
         return self.__class__(
-            'saturate({this})'.format(this = self.get_ref())
+            'saturate({this})'.format(this = self._get_ref())
         )
 
     def ddx(self):
         self._checkDdxDdy('ddx')
         return self.__class__(
-            'ddx({this})'.format(this = self.get_ref())
+            'ddx({this})'.format(this = self._get_ref())
         )
 
     def ddy(self):
         self._checkDdxDdy('ddy')
         return self.__class__(
-            'ddy({this})'.format(this = self.get_ref())
+            'ddy({this})'.format(this = self._get_ref())
         )
 
 class _MulMixin:
@@ -48,7 +47,7 @@ class _MulMixin:
         self._check_mul(rhs)
         return result_type(
             'mul({this}, {rhs})'.format(
-                this = self.get_ref(), rhs = rhs.get_ref()
+                this = self._get_ref(), rhs = rhs._get_ref()
             )
         ) 
 
@@ -59,7 +58,7 @@ class _RawVector(_MulMixin, _UnaryMixin):
     _element_type = Float
     def normalize(self):
         return self.__class__(
-            'normalize({this})'.format(this = self.get_ref())
+            'normalize({this})'.format(this = self._get_ref())
         )
 
 class Float1(rtsl.Float1, _RawVector):
@@ -92,9 +91,9 @@ class Float4(rtsl.Float4, _RawVector):
             if not isinstance(w, numbers.Number):
                 raise RuntimeError('"w" must be a scalar number')
 
-            def get_ref(value):
-                if hasattr(value, 'get_ref'):
-                    return value.get_ref()
+            def _get_ref(value):
+                if hasattr(value, '_get_ref'):
+                    return value._get_ref()
                 elif Float3._is_compatible_tuple(value):
                     return ', '.join(map(str, value))
                 else:
@@ -102,8 +101,8 @@ class Float4(rtsl.Float4, _RawVector):
 
             initializer = '{dtype}({xyz}, {w})'.format(
                 dtype = self.__class__._target_name,
-                xyz = get_ref(xyz),
-                w = get_ref(w)
+                xyz = _get_ref(xyz),
+                w = _get_ref(w)
             )
             rtsl.Float4.__init__(self, initializer)
 
@@ -138,7 +137,7 @@ class _RawMatrixF(_MulMixin, _UnaryMixin, rtsl._RawMatrix):
                 self,
                 initializer = '{dtype}({rows})'.format(
                     dtype = self.__class__._target_name,
-                    rows = ', '.join([row.get_ref() for row in rows])
+                    rows = ', '.join([row._get_ref() for row in rows])
                 )
             )
         else:

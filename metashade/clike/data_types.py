@@ -23,7 +23,7 @@ class BaseType(base.BaseType):
     ):
         sh._emit(
             '{type_name} {identifier}{semantic}'.format(
-                type_name = cls.get_target_type_name(),
+                type_name = cls._get_target_type_name(),
                 identifier = identifier,
                 semantic = '' if semantic is None \
                     else ' : {}'.format(semantic),
@@ -64,7 +64,7 @@ class BaseType(base.BaseType):
         self._sh._emit(
             '{identifier} = {value};\n'.format(
                 identifier = self._name,
-                value = value.get_ref() if hasattr(value, 'get_ref') \
+                value = value._get_ref() if hasattr(value, '_get_ref') \
                     else value
             )
         )
@@ -76,7 +76,7 @@ class BaseType(base.BaseType):
             object.__setattr__(self, name, value)
 
     @classmethod
-    def get_target_type_name(cls):
+    def _get_target_type_name(cls):
         try:
             return cls._target_name
         except AttributeError:
@@ -86,7 +86,7 @@ class ArithmeticType(BaseType):
     @staticmethod
     def _emit_binary_operator(lhs, rhs, op) -> str:
         return '({lhs} {op} {rhs})'.format(
-            lhs = lhs.get_ref(), rhs = rhs.get_ref(), op = op
+            lhs = lhs._get_ref(), rhs = rhs._get_ref(), op = op
         )
 
     def _rhs_binary_operator(self, rhs, op):

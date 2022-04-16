@@ -54,7 +54,7 @@ class _RawVector(clike.ArithmeticType):
 
         if is_valid_swizzle:
             dtype = self._get_related_type(len(name))
-            return dtype('.'.join((self.get_ref(), name)))
+            return dtype('.'.join((self._get_ref(), name)))
         else:
             raise AttributeError
 
@@ -119,7 +119,7 @@ class _RawVector(clike.ArithmeticType):
         self._check_dims(rhs)
         return self.__class__._element_type(
             'dot({this}, {rhs})'.format(
-                this = self.get_ref(), rhs = rhs.get_ref()
+                this = self._get_ref(), rhs = rhs._get_ref()
             )
         )
 
@@ -139,7 +139,7 @@ class Float3(_RawVector):
             )
         return self.__class__(
             'cross({this}, {rhs})'.format(
-                this = self.get_ref(), rhs = rhs.get_ref()
+                this = self._get_ref(), rhs = rhs._get_ref()
             )
         )
 
@@ -174,7 +174,7 @@ class _RawMatrix(clike.ArithmeticType):
         result_type = self._get_related_type(
             (self.__class__._dims[1], self.__class__._dims[0])
         )
-        return result_type('transpose({})'.format(self.get_ref()))
+        return result_type('transpose({})'.format(self._get_ref()))
 
 # Generate all concrete matrix types to avoid copy-and-paste
 for rows in range(1, 5):
@@ -211,8 +211,8 @@ class Vector3(_Vector):
         vector4_type = self.__class__._get_related_type(4)
         return vector4_type(
             '{dtype}({this}, 0.0f)'.format(
-                dtype = vector4_type.get_target_type_name(),
-                this = self.get_ref()
+                dtype = vector4_type._get_target_type_name(),
+                this = self._get_ref()
             )
         )
 
@@ -240,8 +240,8 @@ class Point3(_Point):
         )
         return vector4_type(
             '{dtype}({this}, 1.0f)'.format(
-                dtype = vector4_type.get_target_type_name(),
-                this = self.get_ref()
+                dtype = vector4_type._get_target_type_name(),
+                this = self._get_ref()
             )
         )
 

@@ -33,7 +33,7 @@ class Function:
             raise AttributeError
         
     def __enter__(self):
-        return_type = self._return_type.get_target_type_name() \
+        return_type = self._return_type._get_target_type_name() \
             if self._return_type != type(None) else 'void'
 
         self._sh._emit_indent()
@@ -73,4 +73,4 @@ class Function:
 
         self._sh._emit_indent()
         self._sh._emit('return{};\n'.format(
-            ' ' + value.get_ref() if value is not None else ''))
+            ' ' + value._get_ref() if value is not None else ''))

@@ -33,7 +33,7 @@ class BaseType:
         self._name = name
         self._sh = sh
         
-    def get_ref(self):
+    def _get_ref(self):
         if self._name is not None:
             #TODO: re-enable when struct members are sorted out
             #if not self._is_arg and self._expression is None:
