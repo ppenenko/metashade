@@ -147,12 +147,34 @@ class Float4(_RawVector):
     _dim = 4
 
 class _RawMatrix(clike.ArithmeticType):
+    @classmethod
+    def _get_related_type_name(cls, dims):
+        _check_float_type(cls._element_type)
+        return 'Float{rows}x{cols}'.format(rows = dims[0], cols = dims[1])
+
+    @classmethod
+    def _get_related_type(cls, dims):
+        if dims[0] == 1 and dims[1] == 1:
+            return cls._element_type
+
+        if any(dim not in range(1, 5) for dim in dims):
+            raise RuntimeError('Unsupported matrix width')
+
+        type_name = cls._get_related_type_name(dims)
+        return getattr(sys.modules[cls.__module__], type_name)
+
     def _check_mul(self, vector):
         if self.__class__._dims[1] != vector.__class__._dim:
             raise ArithmeticError(
                 'The number of columns in the matrix must be equal to the size'
                 'of the vector'
             )
+
+    def transpose(self):
+        result_type = self._get_related_type(
+            (self.__class__._dims[1], self.__class__._dims[0])
+        )
+        return result_type('transpose({})'.format(self.get_ref()))
 
 # Generate all concrete matrix types to avoid copy-and-paste
 for rows in range(1, 5):
@@ -163,6 +185,12 @@ for rows in range(1, 5):
             (_RawMatrix,),
             {'_dims' : (rows, cols)}
         )
+
+class _Matrix(_RawMatrix):
+    @classmethod
+    def _get_related_type_name(cls, dims):
+        _check_float_type(cls._element_type)
+        return 'Matrix{rows}x{cols}f'.format(rows = dims[0], cols = dims[1])
 
 def _get_vector_type_name(element_type, dim : int):
     _check_float_type(element_type)

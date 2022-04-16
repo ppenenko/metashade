@@ -116,8 +116,13 @@ class _RawMatrixF(_MulMixin, _UnaryMixin, rtsl._RawMatrix):
     def _get_row_type_name(cls):
         return 'Float{}'.format(cls._dims[1])
 
-    def __init__(self, rows = None):
+    def __init__(self, initializer : str = None, rows = None):
         if rows is not None:
+            if initializer is not None:
+                raise RuntimeError(
+                    'Conflicting constructor arguments'
+                )
+
             if len(rows) != self.__class__._dims[0]:
                 raise RuntimeError(
                     'Unexpected number of rows in matrix constructor'
@@ -137,7 +142,7 @@ class _RawMatrixF(_MulMixin, _UnaryMixin, rtsl._RawMatrix):
                 )
             )
         else:
-            rtsl._RawMatrix.__init__(self)
+            rtsl._RawMatrix.__init__(self, initializer = initializer)
 
 # Generate all concrete matrix types to avoid copy-and-paste
 for rows in range(1, 5):
@@ -150,14 +155,14 @@ for rows in range(1, 5):
             {'_target_name' : target_name}
         )
 
-class _MatrixF(_RawMatrixF):
+class _MatrixF(rtsl._Matrix, _RawMatrixF):
     @classmethod
     def _get_row_type_name(cls):
         return 'Vector{}f'.format(cls._dims[1])
 
 class Matrix3x3f(_MatrixF, Float3x3):
-    def __init__(self, rows = None):
-        _MatrixF.__init__(self, rows = rows)
+    def __init__(self, initializer : str = None, rows = None):
+        _MatrixF.__init__(self, initializer = initializer, rows = rows)
 
     def xform(self, vector):
         if self.__class__._row_major:
