@@ -54,7 +54,10 @@ class BaseType(base.BaseType):
         )
 
     def _assign(self, value):
-        value_ref = self._get_value_ref(value)
+        value_ref = self.__class__._get_value_ref(value)
+        if value_ref is None:
+            raise ArithmeticError('Type mismatch')
+
         self._expression = value
         self._sh._emit_indent()
         self._sh._emit(
@@ -79,18 +82,21 @@ class BaseType(base.BaseType):
 
 class ArithmeticType(BaseType):
     @staticmethod
-    def _emit_binary_operator(lhs, rhs, op) -> str:
+    def _format_binary_operator(lhs : str, rhs : str, op : str) -> str:
         return '({lhs} {op} {rhs})'.format(
-            lhs = lhs._get_ref(), rhs = rhs._get_ref(), op = op
+            lhs = lhs, rhs = rhs, op = op
         )
 
     def _rhs_binary_operator(self, rhs, op):
-        if self.__class__ != rhs.__class__:
+        rhs_ref = self.__class__._get_value_ref(rhs)
+        if rhs_ref is None:
             return NotImplemented
 
         return self.__class__(
-            self.__class__._emit_binary_operator(
-                self, rhs, op
+            self.__class__._format_binary_operator(
+                lhs = self._get_ref(),
+                rhs = rhs_ref,
+                op = op
             )
         )
 
@@ -109,6 +115,8 @@ class ArithmeticType(BaseType):
 class Float(ArithmeticType):
     _target_name = 'float'
 
-    def _get_value_ref(self, value) -> str:
-        return str(value) if isinstance(value, numbers.Number) \
-            else ArithmeticType._get_value_ref(self, value)
+    @staticmethod
+    def _get_value_ref_static(concrete_cls, value) -> str:
+        return (str(value) if isinstance(value, numbers.Number)
+            else super()._get_value_ref_static(concrete_cls, value)
+        )

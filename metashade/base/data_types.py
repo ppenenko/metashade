@@ -43,8 +43,10 @@ class BaseType:
                 'Instance is neither a variable nor an expression.'
             )
 
-    def _get_value_ref(self, value) -> str:
-        if self.__class__ == value.__class__:
-            return value._get_ref()
-        else:
-            raise ArithmeticError('Type mismatch')
+    @classmethod
+    def _get_value_ref(cls, value) -> str:
+        return cls._get_value_ref_static(cls, value)
+
+    @staticmethod
+    def _get_value_ref_static(concrete_cls, value) -> str:
+        return value._get_ref() if concrete_cls == value.__class__ else None
