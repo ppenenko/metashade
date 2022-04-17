@@ -67,10 +67,11 @@ class Function:
         if self._return_type is type(None):
             if value is not None:
                 raise RuntimeError(mismatch_error)
-        else:                
+        else:
             if not isinstance(value, self._return_type):
                 raise RuntimeError(mismatch_error)
 
         self._sh._emit_indent()
         self._sh._emit('return{};\n'.format(
-            ' ' + value._get_ref() if value is not None else ''))
+            ' ' + value._get_ref() if value is not None else ''
+        ))

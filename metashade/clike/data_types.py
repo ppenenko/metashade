@@ -53,19 +53,14 @@ class BaseType(base.BaseType):
             semantic = semantic, annotations = annotations
         )
 
-    def _check_assign_type(self, value) -> None:
-        if self.__class__ != value.__class__:
-            raise ArithmeticError('Type mismatch')
-
     def _assign(self, value):
-        self._check_assign_type(value)
+        value_ref = self._get_value_ref(value)
         self._expression = value
         self._sh._emit_indent()
         self._sh._emit(
             '{identifier} = {value};\n'.format(
                 identifier = self._name,
-                value = value._get_ref() if hasattr(value, '_get_ref') \
-                    else value
+                value = value_ref
             )
         )
 
@@ -113,7 +108,7 @@ class ArithmeticType(BaseType):
 
 class Float(ArithmeticType):
     _target_name = 'float'
-    
-    def _check_assign_type(self, value) -> None:
-        if not isinstance(value, numbers.Number):
-            super()._check_assign_type(value)
+
+    def _get_value_ref(self, value) -> str:
+        return str(value) if isinstance(value, numbers.Number) \
+            else ArithmeticType._get_value_ref(self, value)

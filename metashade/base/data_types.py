@@ -33,18 +33,18 @@ class BaseType:
         self._name = name
         self._sh = sh
         
-    def _get_ref(self):
+    def _get_ref(self) -> str:
         if self._name is not None:
-            #TODO: re-enable when struct members are sorted out
-            #if not self._is_arg and self._expression is None:
-            #    raise RuntimeError(
-            #        'Variable is used before it has been assigned a value')
-            
             return self._name
-        
         elif self._expression is not None:
             return self._expression
         else:
             raise RuntimeError(
                 'Instance is neither a variable nor an expression.'
             )
+
+    def _get_value_ref(self, value) -> str:
+        if self.__class__ == value.__class__:
+            return value._get_ref()
+        else:
+            raise ArithmeticError('Type mismatch')
