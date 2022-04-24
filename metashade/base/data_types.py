@@ -33,7 +33,7 @@ class BaseType:
         self._name = name
         self._sh = sh
         
-    def _get_ref(self) -> str:
+    def __str__(self) -> str:
         if self._name is not None:
             return self._name
         elif self._expression is not None:
@@ -49,4 +49,4 @@ class BaseType:
 
     @staticmethod
     def _get_value_ref_static(concrete_cls, value) -> str:
-        return value._get_ref() if isinstance(value, concrete_cls) else None
+        return value if isinstance(value, concrete_cls) else None

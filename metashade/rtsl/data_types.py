@@ -53,7 +53,7 @@ class _RawVector(clike.ArithmeticType):
 
         if is_valid_swizzle:
             dtype = self._get_related_type(len(name))
-            return dtype('.'.join((self._get_ref(), name)))
+            return dtype('.'.join((str(self), name)))
         else:
             raise AttributeError
 
@@ -96,7 +96,7 @@ class _RawVector(clike.ArithmeticType):
 
         return self.__class__(
             self.__class__._format_binary_operator(
-                self._get_ref(), rhs._get_ref(), op
+                self, rhs, op
             )
         )
 
@@ -110,14 +110,14 @@ class _RawVector(clike.ArithmeticType):
             return per_element_result
 
         if rhs.__class__ == self._element_type:
-            return self.__class__._scalar_mul(self._get_ref(), rhs._get_ref())
+            return self.__class__._scalar_mul(self, rhs)
         else:
             return NotImplemented
 
     def __rmul__(self, lhs):
         lhs_ref = self._element_type._get_value_ref(lhs)
         if lhs_ref is not None:
-            return self.__class__._scalar_mul(lhs_ref, self._get_ref())
+            return self.__class__._scalar_mul(lhs_ref, self)
         else:
             return NotImplemented
 
@@ -125,7 +125,7 @@ class _RawVector(clike.ArithmeticType):
         self._check_dims(rhs)
         return self.__class__._element_type(
             'dot({this}, {rhs})'.format(
-                this = self._get_ref(), rhs = rhs._get_ref()
+                this = self, rhs = rhs
             )
         )
 
@@ -145,7 +145,7 @@ class Float3(_RawVector):
             )
         return self.__class__(
             'cross({this}, {rhs})'.format(
-                this = self._get_ref(), rhs = rhs._get_ref()
+                this = self, rhs = rhs
             )
         )
 
@@ -180,7 +180,7 @@ class _RawMatrix(clike.ArithmeticType):
         result_type = self._get_related_type(
             (self.__class__._dims[1], self.__class__._dims[0])
         )
-        return result_type('transpose({})'.format(self._get_ref()))
+        return result_type('transpose({})'.format(self))
 
 # Generate all concrete matrix types to avoid copy-and-paste
 for rows in range(1, 5):

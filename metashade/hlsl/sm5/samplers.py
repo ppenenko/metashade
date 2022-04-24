@@ -38,7 +38,7 @@ class Texture2d:
             _ = '{name}.Sample({sampler_name}, {tex_coord})'.format(
                 name = self._name,
                 sampler_name = sampler._name,
-                tex_coord = tex_coord._get_ref()
+                tex_coord = tex_coord
             )
         )
 

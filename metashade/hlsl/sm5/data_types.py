@@ -26,28 +26,22 @@ class _UnaryMixin:
             )
 
     def saturate(self):
-        return self.__class__(
-            'saturate({this})'.format(this = self._get_ref())
-        )
+        return self.__class__('saturate({})'.format(self))
 
     def ddx(self):
         self._checkDdxDdy('ddx')
-        return self.__class__(
-            'ddx({this})'.format(this = self._get_ref())
-        )
+        return self.__class__('ddx({})'.format(self))
 
     def ddy(self):
         self._checkDdxDdy('ddy')
-        return self.__class__(
-            'ddy({this})'.format(this = self._get_ref())
-        )
+        return self.__class__('ddy({})'.format(self))
 
 class _MulMixin:
     def mul(self, rhs, result_type):
         self._check_mul(rhs)
         return result_type(
             'mul({this}, {rhs})'.format(
-                this = self._get_ref(), rhs = rhs._get_ref()
+                this = self, rhs = rhs
             )
         ) 
 
@@ -57,9 +51,7 @@ class Float(rtsl.Float, _UnaryMixin):
 class _RawVector(_MulMixin, _UnaryMixin):
     _element_type = Float
     def normalize(self):
-        return self.__class__(
-            'normalize({this})'.format(this = self._get_ref())
-        )
+        return self.__class__('normalize({})'.format(self))
 
 class Float1(rtsl.Float1, _RawVector):
     _target_name = 'float1'
@@ -128,7 +120,7 @@ class _RawMatrixF(_MulMixin, _UnaryMixin, rtsl._RawMatrix):
                 self,
                 initializer = '{dtype}({rows})'.format(
                     dtype = self.__class__._target_name,
-                    rows = ', '.join([row._get_ref() for row in rows])
+                    rows = ', '.join(map(str, rows))
                 )
             )
         else:
