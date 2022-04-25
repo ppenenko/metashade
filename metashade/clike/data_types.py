@@ -94,7 +94,7 @@ class ArithmeticType(BaseType):
 
         return self.__class__(
             self.__class__._format_binary_operator(
-                lhs = self._get_ref(),
+                lhs = self,
                 rhs = rhs_ref,
                 op = op
             )
