@@ -12,8 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import numbers
-import sys
+import collections, numbers, sys
 import metashade.clike.data_types as clike
 from metashade.clike.data_types import Float
 
@@ -71,17 +70,23 @@ class _RawVector(clike.ArithmeticType):
                 ' the vector'
             )
 
-    @classmethod
-    def _is_compatible_tuple(cls, t):
-        if type(t) is not tuple or len(t) != cls._dim:
-            return False
+    @staticmethod
+    def _get_value_ref_static(concrete_cls, value) -> str:
+        parent_result = super()._get_value_ref_static(concrete_cls, value)
+        if parent_result is not None:
+            return parent_result
 
-        for element in t:
-            if not (isinstance(element, numbers.Number) \
-                or isinstance(element, cls._element_type)
-            ):
-                return False
-        return True
+        if (isinstance(value, collections.Sequence)
+            and not isinstance(value, str)
+            and len(value) == concrete_cls._dim
+            and all( isinstance(element, numbers.Number)
+                or isinstance(element, concrete_cls._element_type)
+                for element in value
+            )
+        ):
+            return concrete_cls(', '.join(map(str, value)))
+        else:
+            return None
 
     def _rhs_binary_operator(self, rhs, op : str):
         if self.__class__ != rhs.__class__:

@@ -73,7 +73,7 @@ class Float3(rtsl.Float3, _RawVector):
 class Float4(rtsl.Float4, _RawVector):
     _target_name = 'float4'
 
-    def __init__(self, _ = None, xyz = None, w = None):
+    def __init__(self, _ : str = None, xyz = None, w = None):
         if xyz is None:
             if w is not None:
                 raise RuntimeError('Conflicting arguments')
@@ -83,26 +83,17 @@ class Float4(rtsl.Float4, _RawVector):
             if _ is not None:
                 raise RuntimeError('Conflicting arguments')
 
-            if not (isinstance(xyz, Float3) \
-                or Float3._is_compatible_tuple(xyz)
-            ):
+            xyz = Float3._get_value_ref(xyz)
+            if xyz is None:
                 raise RuntimeError('"xyz" must be convertible to Float3')
 
             if not isinstance(w, numbers.Number):
                 raise RuntimeError('"w" must be a scalar number')
 
-            def _get_ref(value):
-                if hasattr(value, '_get_ref'):
-                    return value._get_ref()
-                elif Float3._is_compatible_tuple(value):
-                    return ', '.join(map(str, value))
-                else:
-                    return value
-
             initializer = '{dtype}({xyz}, {w})'.format(
                 dtype = self.__class__._target_name,
-                xyz = _get_ref(xyz),
-                w = _get_ref(w)
+                xyz = xyz,
+                w = w
             )
             rtsl.Float4.__init__(self, initializer)
 
@@ -202,11 +193,7 @@ class RgbaF(rtsl.RgbaF, Float4, struct.StructBase):
     }
 
     def __init__(self, _ = None, rgb = None, a = None):
-        if ( rgb is not None
-            and not ( isinstance(rgb, RgbF)
-                or RgbF._is_compatible_tuple(rgb)
-            )
-        ):
+        if ( isinstance(rgb, Float3) and not isinstance(rgb, RgbF) ):
             raise RuntimeError('"rgb" must be convertible to RgbF')
 
         Float4.__init__(self, _ = _, xyz = rgb, w = a)
