@@ -73,5 +73,5 @@ class Function:
 
         self._sh._emit_indent()
         self._sh._emit('return{};\n'.format(
-            ' ' + value if value is not None else ''
+            ' ' + str(value) if value is not None else ''
         ))
