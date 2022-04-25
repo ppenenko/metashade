@@ -163,13 +163,21 @@ def _generate_ps(ps_file, material, primitive):
             sampler = getattr(sh, texture_name + 'Sampler')
             return sampler(uv)
 
-        if primitive.attributes.TANGENT is not None:
-            # See getPixelNormal()
-            pass
-
         normalSample = _sample_texture('normal')
+        if (normalSample is not None
+            and primitive.attributes.TANGENT is not None
+        ):
+            sh.tbn = sh.Matrix3x3f(rows = (sh.psIn.Tw, sh.psIn.Bw, sh.psIn.Nw))
+            sh.tbn = sh.tbn.transpose()
+            sh.Nw = sh.tbn.xform(2.0 * normalSample.xyz)
 
-        sh.lambert = sh.gLight.direction.dot(sh.psIn.Nw.normalize()).saturate()
+            # n = normalize(mul(transpose(tbn),((2.0 * n - 1.0) /* * float3(u_NormalScale, u_NormalScale, 1.0) */)));
+            # See getPixelNormal()
+        else:
+            sh.Nw = sh.psIn.Nw
+        sh.Nw = sh.Nw.normalize()
+
+        sh.lambert = sh.gLight.direction.dot(sh.Nw).saturate()
         sh.baseColor = sh.baseColorTextureSampler(sh.psIn.UV0)
         
         sh.psOut = sh.PsOut()
