@@ -210,12 +210,7 @@ class Vector3(_Vector):
 
     def as_vector4(self):
         vector4_type = self.__class__._get_related_type(4)
-        return vector4_type(
-            '{dtype}({this}, 0.0f)'.format(
-                dtype = vector4_type._get_target_type_name(),
-                this = self._get_ref()
-            )
-        )
+        return vector4_type(xyz = self, w = 0.0)
 
 class Vector4(_Vector):
     _dim = 4
@@ -239,12 +234,7 @@ class Point3(_Point):
             sys.modules[self.__class__.__module__],
             _get_vector_type_name(self.__class__._element_type, 4)
         )
-        return vector4_type(
-            '{dtype}({this}, 1.0f)'.format(
-                dtype = vector4_type._get_target_type_name(),
-                this = self._get_ref()
-            )
-        )
+        return vector4_type(xyz = self, w = 1.0)
 
 class RgbF:
     pass
