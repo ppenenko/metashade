@@ -42,29 +42,37 @@ class _MulMixin:
 class Float(rtsl.Float, _UnaryMixin):
     pass
 
-class _RawVector(_MulMixin, _UnaryMixin):
+class _RawVector(rtsl._RawVector, _MulMixin, _UnaryMixin):
     _element_type = Float
+
+    def __init__(self, _ = None):
+        element_ref = self.__class__._element_type._get_value_ref(_)
+        super().__init__(
+            '.'.join((element_ref, 'x' * self.__class__._dim))
+                if element_ref is not None else _
+        )
+
     def normalize(self):
         return self.__class__( f'normalize({self})' )
 
-class Float1(rtsl.Float1, _RawVector):
+class Float1(_RawVector, rtsl.Float1):
     _target_name = 'float1'
 
-class Float2(rtsl.Float2, _RawVector):
+class Float2(_RawVector, rtsl.Float2):
     _target_name = 'float2'
 
-class Float3(rtsl.Float3, _RawVector):
+class Float3(_RawVector, rtsl.Float3):
     _target_name = 'float3'
 
-class Float4(rtsl.Float4, _RawVector):
+class Float4(_RawVector, rtsl.Float4):
     _target_name = 'float4'
 
-    def __init__(self, _ : str = None, xyz = None, w = None):
+    def __init__(self, _ = None, xyz = None, w = None):
         if xyz is None:
             if w is not None:
                 raise RuntimeError('Conflicting arguments')
 
-            rtsl.Float4.__init__(self, initializer = _)
+            super().__init__(_)
         else:
             if _ is not None:
                 raise RuntimeError('Conflicting arguments')
@@ -81,7 +89,7 @@ class Float4(rtsl.Float4, _RawVector):
                 xyz = xyz,
                 w = w
             )
-            rtsl.Float4.__init__(self, initializer)
+            super().__init__(initializer)
 
 class _RawMatrixF(_MulMixin, _UnaryMixin, rtsl._RawMatrix):
     # This is the HLSL default but should ideally be configurable
