@@ -28,7 +28,7 @@ class _RawVector(clike.ArithmeticType):
     @classmethod
     def _get_related_type_name(cls, dim : int):
         _check_float_type(cls._element_type)
-        return 'Float{}'.format(dim)
+        return f'Float{dim}'
 
     @classmethod
     def _get_related_type(cls, dim : int):
@@ -123,11 +123,7 @@ class _RawVector(clike.ArithmeticType):
 
     def dot(self, rhs):
         self._check_dims(rhs)
-        return self.__class__._element_type(
-            'dot({this}, {rhs})'.format(
-                this = self, rhs = rhs
-            )
-        )
+        return self.__class__._element_type( f'dot({self}, {rhs})' )
 
 class Float1(_RawVector):
     _dim = 1
@@ -143,11 +139,7 @@ class Float3(_RawVector):
             raise ArithmeticError(
                 'Cross product operands must have the same type (3D vector)'
             )
-        return self.__class__(
-            'cross({this}, {rhs})'.format(
-                this = self, rhs = rhs
-            )
-        )
+        return self.__class__( f'cross({self}, {rhs})' )
 
 class Float4(_RawVector):
     _dim = 4
@@ -180,12 +172,12 @@ class _RawMatrix(clike.ArithmeticType):
         result_type = self._get_related_type(
             (self.__class__._dims[1], self.__class__._dims[0])
         )
-        return result_type('transpose({})'.format(self))
+        return result_type( f'transpose({self})' )
 
 # Generate all concrete matrix types to avoid copy-and-paste
 for rows in range(1, 5):
     for cols in range(1, 5):
-        name = 'Float{rows}x{cols}'.format(rows = rows, cols = cols)
+        name = f'Float{rows}x{cols}'
         globals()[name] = type(
             name,
             (_RawMatrix,),
@@ -200,7 +192,7 @@ class _Matrix(_RawMatrix):
 
 def _get_vector_type_name(element_type, dim : int):
     _check_float_type(element_type)
-    return 'Vector{}f'.format(dim)
+    return f'Vector{dim}f'
 
 class _Vector(_RawVector):
     @classmethod
@@ -226,7 +218,7 @@ class _Point(_RawVector):
     @classmethod
     def _get_related_type_name(cls, dim : int):
         _check_float_type(cls._element_type)
-        return 'Point{}f'.format(dim)
+        return f'Point{dim}f'
 
 class Point2(_Point):
     _dim = 2

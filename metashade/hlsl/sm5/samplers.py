@@ -21,12 +21,7 @@ class Texture2d:
         self._name = name
         self._sh = sh
         self._texel_type = texel_type if texel_type is not None else sh.Float4
-        sh._emit(
-            'Texture2D {name} : register(t{register});\n'.format(
-                name = name,
-                register = register
-            )
-        )
+        sh._emit( f'Texture2D {name} : register(t{register});\n' )
 
     def sample(self, sampler, tex_coord):
         if tex_coord.__class__ != self.__class__._tex_coord_type:
@@ -47,12 +42,7 @@ class Sampler:
         self._name = name
         self._sh = sh
         self._texture = texture
-        sh._emit(
-            'SamplerState {name} : register(s{register});\n\n'.format(
-                name = name,
-                register = register
-            )
-        )
+        sh._emit( f'SamplerState {name} : register(s{register});\n\n' )
 
     def __call__(self, tex_coord):
         if self._texture is None:

@@ -52,13 +52,12 @@ class StageInterfaceDef:
     def _add_attribute(self, name, semantic_name, semantic_def, dtype):
         self._semantic_counts[semantic_name] += 1
 
-        if self._semantic_counts[semantic_name] > 1 \
-            and not semantic_def.allow_multi:
+        if (self._semantic_counts[semantic_name] > 1
+            and not semantic_def.allow_multi
+        ):
             raise RuntimeError(
-                "Only one instance of semantic {semantic} "
-                "is allowed in an interface block".format(
-                    semantic = semantic_name
-                )
+                f"Only one instance of semantic {semantic_name} "
+                "is allowed in an interface block"
             )
 
         self._attributes[name] = struct.StructMemberDef(dtype, semantic_name)

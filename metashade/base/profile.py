@@ -60,15 +60,16 @@ class Generator:
         
         if exists:
             raise AttributeError(
-                "'{}': can't redefine Metashade symbol already "
-                "defined in the context stack".format(name))
+                f"'{name}': can't redefine Metashade symbol already "
+                "defined in the context stack"
+            )
 
     @staticmethod
     def _check_public_name(name : str):
         if name.startswith('_'):
             raise RuntimeError(
-                "'{}': symbols starting with an underscore"
-                "are reserved for Metashade implementation".format(name)
+                f"'{name}': symbols starting with an underscore"
+                "are reserved for Metashade implementation"
             )
 
     def _check_global_scope(self):

@@ -159,7 +159,7 @@ def _generate_ps(ps_file, material, primitive):
             uv_set_idx = gltf_texture.texCoord
             if uv_set_idx is None:
                 uv_set_idx = 0
-            uv = getattr(sh.psIn, "UV{}".format(uv_set_idx))
+            uv = getattr(sh.psIn, f'UV{uv_set_idx}')
             sampler = getattr(sh, texture_name + 'Sampler')
             return sampler(uv)
 
@@ -199,11 +199,7 @@ def main(gltf_dir, out_dir):
                 def _file_name(stage : str):
                     return os.path.join(
                         out_dir,
-                        '{mesh}-{i}-{stage}.hlsl'.format(
-                            mesh = mesh.name,
-                            i = primitive_idx,
-                            stage = stage
-                        )
+                        f'{mesh.name}-{primitive_idx}-{stage}.hlsl'
                     )
                 with open(_file_name("VS"), 'w') as vs_file:
                     _generate_vs(vs_file, primitive)

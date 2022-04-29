@@ -21,29 +21,23 @@ import numbers
 class _UnaryMixin:
     def _checkDdxDdy(self, name):
         if not self._sh.__class__._is_pixel_shader:
-            raise RuntimeError(
-                '"{}" is only supported in pixel shaders'.format(name)
-            )
+            raise RuntimeError(f'"{name}" is only supported in pixel shaders')
 
     def saturate(self):
-        return self.__class__('saturate({})'.format(self))
+        return self.__class__( f'saturate({self})' )
 
     def ddx(self):
         self._checkDdxDdy('ddx')
-        return self.__class__('ddx({})'.format(self))
+        return self.__class__( f'ddx({self})' )
 
     def ddy(self):
         self._checkDdxDdy('ddy')
-        return self.__class__('ddy({})'.format(self))
+        return self.__class__( 'ddy({self})' )
 
 class _MulMixin:
     def mul(self, rhs, result_type):
         self._check_mul(rhs)
-        return result_type(
-            'mul({this}, {rhs})'.format(
-                this = self, rhs = rhs
-            )
-        ) 
+        return result_type( f'mul({self}, {rhs})' )
 
 class Float(rtsl.Float, _UnaryMixin):
     pass
@@ -51,7 +45,7 @@ class Float(rtsl.Float, _UnaryMixin):
 class _RawVector(_MulMixin, _UnaryMixin):
     _element_type = Float
     def normalize(self):
-        return self.__class__('normalize({})'.format(self))
+        return self.__class__( f'normalize({self})' )
 
 class Float1(rtsl.Float1, _RawVector):
     _target_name = 'float1'

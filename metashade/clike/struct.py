@@ -70,7 +70,7 @@ def define_struct(sh, name, member_defs):
     )
     sh._set_global(name, struct_type)
 
-    sh._emit('struct {name}\n{{\n'.format(name = name))
+    sh._emit(f'struct {name}\n{{\n')
     sh._push_indent()
 
     for member_name, member_def in member_defs.items():

@@ -26,7 +26,7 @@ class BaseType(base.BaseType):
                 type_name = cls._get_target_type_name(),
                 identifier = identifier,
                 semantic = '' if semantic is None \
-                    else ' : {}'.format(semantic),
+                    else f' : {semantic}'
             )
         )
 
@@ -35,7 +35,7 @@ class BaseType(base.BaseType):
             sh._push_indent()
             for annotation in annotations:
                 sh._emit_indent()
-                sh._emit('{};\n'.format(annotation))
+                sh._emit(f'{annotation};\n')
             sh._pop_indent()
             sh._emit_indent()
             sh._emit('>')
@@ -60,12 +60,7 @@ class BaseType(base.BaseType):
 
         self._expression = value
         self._sh._emit_indent()
-        self._sh._emit(
-            '{identifier} = {value};\n'.format(
-                identifier = self._name,
-                value = value_ref
-            )
-        )
+        self._sh._emit( f'{self._name} = {value_ref};\n' )
 
     def __setattr__(self, name, value):
         if name == '_':

@@ -37,9 +37,7 @@ class Function:
             if self._return_type != type(None) else 'void'
 
         self._sh._emit_indent()
-        self._sh._emit('{return_type} {name}('.format(
-            return_type = return_type,
-            name = self._name ))
+        self._sh._emit(f'{return_type} {self._name}(')
         
         first = True
         for name, arg in self._args.items():
@@ -67,8 +65,7 @@ class Function:
         if self._return_type is type(None):
             if value is not None:
                 raise RuntimeError(mismatch_error)
-        else:
-            if not isinstance(value, self._return_type):
+        elif not isinstance(value, self._return_type):
                 raise RuntimeError(mismatch_error)
 
         self._sh._emit_indent()
