@@ -85,13 +85,9 @@ class Generator(rtsl.Generator):
             existing = self._uniforms_by_semantic.get(semantic)
             if existing is not None:
                 raise RuntimeError(
-                    "Can't define uniform '{name}' with semantic '{semantic}' "
-                    "because uniform '{existing_name}' already uses that "
-                    "semantic.".format(
-                        name = name,
-                        semantic = semantic,
-                        existing_name = existing._name
-                    )
+                    f"Can't define uniform '{name}' with semantic '{semantic}' "
+                    f"because uniform '{existing._name}' already uses that "
+                    "semantic."
                 )
 
         value = dtype() #TODO: make it immutable

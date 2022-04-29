@@ -90,7 +90,7 @@ class _RawMatrixF(_MulMixin, _UnaryMixin, rtsl._RawMatrix):
 
     @classmethod
     def _get_row_type_name(cls):
-        return 'Float{}'.format(cls._dims[1])
+        return f'Float{cls._dims[1]}'
 
     def __init__(self, initializer : str = None, rows = None):
         if rows is not None:
@@ -123,8 +123,8 @@ class _RawMatrixF(_MulMixin, _UnaryMixin, rtsl._RawMatrix):
 # Generate all concrete matrix types to avoid copy-and-paste
 for rows in range(1, 5):
     for cols in range(1, 5):
-        name = 'Float{rows}x{cols}'.format(rows = rows, cols = cols)
-        target_name = 'float{rows}x{cols}'.format(rows = rows, cols = cols)
+        name = f'Float{rows}x{cols}'
+        target_name = f'float{rows}x{cols}'
         globals()[name] = type(
             name,
             (getattr(rtsl, name), _RawMatrixF),
@@ -134,7 +134,7 @@ for rows in range(1, 5):
 class _MatrixF(rtsl._Matrix, _RawMatrixF):
     @classmethod
     def _get_row_type_name(cls):
-        return 'Vector{}f'.format(cls._dims[1])
+        return f'Vector{cls._dims[1]}f'
 
 class Matrix3x3f(_MatrixF, Float3x3):
     def __init__(self, initializer : str = None, rows = None):

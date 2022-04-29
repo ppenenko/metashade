@@ -30,11 +30,7 @@ class Texture2d:
                     + str(self.__class__._tex_coord_type)
             )
         return self._texel_type(
-            _ = '{name}.Sample({sampler_name}, {tex_coord})'.format(
-                name = self._name,
-                sampler_name = sampler._name,
-                tex_coord = tex_coord
-            )
+            _ = f'{self._name}.Sample({sampler._name}, {tex_coord})'
         )
 
 class Sampler:

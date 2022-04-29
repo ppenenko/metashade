@@ -41,7 +41,7 @@ class BaseType(base.BaseType):
             sh._emit('>')
 
         if initializer is not None:
-            sh._emit(' = {}'.format(initializer))
+            sh._emit(f' = {initializer}')
 
     def _define(
         self, sh, identifier,
@@ -78,9 +78,7 @@ class BaseType(base.BaseType):
 class ArithmeticType(BaseType):
     @staticmethod
     def _format_binary_operator(lhs : str, rhs : str, op : str) -> str:
-        return '({lhs} {op} {rhs})'.format(
-            lhs = lhs, rhs = rhs, op = op
-        )
+        return f'({lhs} {op} {rhs})'
 
     def _rhs_binary_operator(self, rhs, op):
         rhs_ref = self.__class__._get_value_ref(rhs)
