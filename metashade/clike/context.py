@@ -61,12 +61,10 @@ class Function:
         self._sh._emit('}\n\n')
     
     def return_(self, value=None):
-        mismatch_error = 'Return value type mismatch'
-        if self._return_type is type(None):
-            if value is not None:
-                raise RuntimeError(mismatch_error)
-        elif not isinstance(value, self._return_type):
-                raise RuntimeError(mismatch_error)
+        if ( (self._return_type is type(None) and value is not None)
+            or not isinstance(value, self._return_type)
+        ):
+            raise RuntimeError('Return value type mismatch')
 
         self._sh._emit_indent()
         self._sh._emit('return{};\n'.format(
