@@ -32,7 +32,7 @@ class _UnaryMixin:
 
     def ddy(self):
         self._checkDdxDdy('ddy')
-        return self.__class__( 'ddy({self})' )
+        return self.__class__( f'ddy({self})' )
 
 class _MulMixin:
     def mul(self, rhs, result_type):
