@@ -169,10 +169,7 @@ def _generate_ps(ps_file, material, primitive):
         ):
             sh.tbn = sh.Matrix3x3f(rows = (sh.psIn.Tw, sh.psIn.Bw, sh.psIn.Nw))
             sh.tbn = sh.tbn.transpose()
-            sh.Nw = sh.tbn.xform(2.0 * normalSample.xyz)
-
-            # n = normalize(mul(transpose(tbn),((2.0 * n - 1.0) /* * float3(u_NormalScale, u_NormalScale, 1.0) */)));
-            # See getPixelNormal()
+            sh.Nw = sh.tbn.xform(2.0 * normalSample.xyz - sh.Float3(1.0))
         else:
             sh.Nw = sh.psIn.Nw
         sh.Nw = sh.Nw.normalize()
