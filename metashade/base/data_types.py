@@ -17,14 +17,14 @@ class BaseType:
     The base class for all Metashade data types. Can represent either an
     lvalue or an rvalue.
     """    
-    def __init__(self, initializer = None):
+    def __init__(self, expression : str = None):
         """
         Constructor. _name is always None at this point because it
         can only be assigned by the generator later by calling _bind()
         The value can be optionally initialized.
         """
         self._name = None
-        self._expression = initializer
+        self._expression = expression
         
     def _bind(self, sh, name, allow_init):
         if not allow_init and self._expression is not None:

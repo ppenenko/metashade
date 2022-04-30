@@ -84,12 +84,12 @@ class Float4(_RawVector, rtsl.Float4):
             if not isinstance(w, numbers.Number):
                 raise RuntimeError('"w" must be a scalar number')
 
-            initializer = '{dtype}({xyz}, {w})'.format(
+            expression = '{dtype}({xyz}, {w})'.format(
                 dtype = self.__class__._target_name,
                 xyz = xyz,
                 w = w
             )
-            super().__init__(initializer)
+            super().__init__(expression)
 
 class _RawMatrixF(_MulMixin, _UnaryMixin, rtsl._RawMatrix):
     # This is the HLSL default but should ideally be configurable
@@ -100,9 +100,9 @@ class _RawMatrixF(_MulMixin, _UnaryMixin, rtsl._RawMatrix):
     def _get_row_type_name(cls):
         return f'Float{cls._dims[1]}'
 
-    def __init__(self, initializer : str = None, rows = None):
+    def __init__(self, expression : str = None, rows = None):
         if rows is not None:
-            if initializer is not None:
+            if expression is not None:
                 raise RuntimeError(
                     'Conflicting constructor arguments'
                 )
@@ -120,13 +120,13 @@ class _RawMatrixF(_MulMixin, _UnaryMixin, rtsl._RawMatrix):
             
             rtsl._RawMatrix.__init__(
                 self,
-                initializer = '{dtype}({rows})'.format(
+                expression = '{dtype}({rows})'.format(
                     dtype = self.__class__._target_name,
                     rows = ', '.join(map(str, rows))
                 )
             )
         else:
-            rtsl._RawMatrix.__init__(self, initializer = initializer)
+            rtsl._RawMatrix.__init__(self, expression = expression)
 
 # Generate all concrete matrix types to avoid copy-and-paste
 for rows in range(1, 5):
@@ -145,8 +145,8 @@ class _MatrixF(rtsl._Matrix, _RawMatrixF):
         return f'Vector{cls._dims[1]}f'
 
 class Matrix3x3f(_MatrixF, Float3x3):
-    def __init__(self, initializer : str = None, rows = None):
-        _MatrixF.__init__(self, initializer = initializer, rows = rows)
+    def __init__(self, expression : str = None, rows = None):
+        _MatrixF.__init__(self, expression = expression, rows = rows)
 
     def xform(self, vector):
         if self.__class__._row_major:

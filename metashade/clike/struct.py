@@ -21,12 +21,12 @@ class StructMemberDef:
         self.semantic = semantic
 
 class StructBase:
-    def __init__(self, initializer = None):
+    def __init__(self, expression : str = None):
         for member_name, member_def in self.__class__._member_defs.items():
-            expression = ( None if initializer is None
-                else '.'.join([initializer, member_name])
+            member_expression = ( None if expression is None
+                else '.'.join((expression, member_name))
             )
-            setattr(self, member_name, member_def.dtype(expression))
+            setattr(self, member_name, member_def.dtype(member_expression))
         self._constructed = True
 
     def _bind_members(self, sh, struct_instance_name):
