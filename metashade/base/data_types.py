@@ -44,9 +44,9 @@ class BaseType:
             )
 
     @classmethod
-    def _get_value_ref(cls, value) -> str:
+    def _get_value_ref(cls, value):
         return cls._get_value_ref_static(cls, value)
 
     @staticmethod
-    def _get_value_ref_static(concrete_cls, value) -> str:
+    def _get_value_ref_static(concrete_cls, value):
         return value if isinstance(value, concrete_cls) else None

@@ -109,7 +109,7 @@ class Float(ArithmeticType):
     _target_name = 'float'
 
     @staticmethod
-    def _get_value_ref_static(concrete_cls, value) -> str:
+    def _get_value_ref_static(concrete_cls, value):
         return (str(value) if isinstance(value, numbers.Number)
             else super()._get_value_ref_static(concrete_cls, value)
         )

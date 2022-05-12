@@ -17,11 +17,11 @@ from . import context
 from . import struct
 
 class Generator(base.Generator):
-    def function(self, name, return_type):
-        function = context.Function(self, name, return_type)
-        self._set_global(name, function)
-        self._push_context(function)
-        return function
+    def function(self, name : str, return_type):
+        function_def = context.FunctionDef(self, name, return_type)
+        self._set_global(name, context.Function(function_def))
+        self._push_context(function_def)
+        return function_def
     
     def struct(self, name):
         return struct.StructDef(self, name)

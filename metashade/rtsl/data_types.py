@@ -71,7 +71,7 @@ class _RawVector(clike.ArithmeticType):
             )
 
     @staticmethod
-    def _get_value_ref_static(concrete_cls, value) -> str:
+    def _get_value_ref_static(concrete_cls, value):
         parent_result = super()._get_value_ref_static(concrete_cls, value)
         if parent_result is not None:
             return parent_result
@@ -81,7 +81,7 @@ class _RawVector(clike.ArithmeticType):
             and len(value) == concrete_cls._dim
             and all( isinstance(element, numbers.Number)
                 or isinstance(element, concrete_cls._element_type)
-                for element in value
+                    for element in value
             )
         ):
             return concrete_cls(', '.join(map(str, value)))
