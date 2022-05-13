@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os, pathlib, sys
+import os, pathlib, subprocess, sys
 from metashade.hlsl.sm5 import ps_5_0
 
 class TestFunctions:
@@ -23,10 +23,9 @@ class TestFunctions:
         os.makedirs(cls._out_dir, exist_ok = True)
 
     def test_function_call(self):
-        with open(
-            os.path.join(self._out_dir, 'test_function_call.hlsl'),
-            'w'
-        ) as ps_file:
+        hlsl_path = os.path.join(self._out_dir, 'test_function_call.hlsl')
+        entry_point_name = 'psMain'
+        with open(hlsl_path, 'w') as ps_file:
             sh = ps_5_0.Generator(ps_file)
             with sh.function('add', sh.Float4)(a = sh.Float4, b = sh.Float4):
                 sh.return_(sh.a + sh.b)
@@ -38,7 +37,19 @@ class TestFunctions:
                 sh.uniform('gA', sh.Float4)
                 sh.uniform('gB', sh.Float4)
 
-            with sh.main('psMain', sh.PsOut)():
+            with sh.main(entry_point_name, sh.PsOut)():
                 sh.result = sh.PsOut()
                 sh.result.color = sh.add(a = sh.gA, b = sh.gB)
                 sh.return_(sh.result)
+
+        dxc_result = subprocess.run(
+            [
+                'dxc',
+                '-T', 'ps_6_0', # the lowest supported by DXC
+                '-E', entry_point_name,
+                hlsl_path
+            ],
+            capture_output = True
+        )
+        print(f'DXC stderr: {dxc_result.stderr.decode()}')
+        assert dxc_result.returncode == 0
