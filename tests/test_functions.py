@@ -22,11 +22,23 @@ class TestFunctions:
         cls._out_dir = os.path.join(parent_dir, 'out')
         os.makedirs(cls._out_dir, exist_ok = True)
 
-    def test_define(self):
+    def test_function_call(self):
         with open(
-            os.path.join(self._out_dir, 'test_define_dunction.hlsl'),
+            os.path.join(self._out_dir, 'test_function_call.hlsl'),
             'w'
         ) as ps_file:
             sh = ps_5_0.Generator(ps_file)
             with sh.function('add', sh.Float4)(a = sh.Float4, b = sh.Float4):
                 sh.return_(sh.a + sh.b)
+
+            with sh.ps_output('PsOut') as PsOut:
+                PsOut.SV_Target('color', sh.Float4)
+
+            with sh.uniform_buffer(register = 0, name = 'cb'):
+                sh.uniform('gA', sh.Float4)
+                sh.uniform('gB', sh.Float4)
+
+            with sh.main('psMain', sh.PsOut)():
+                sh.result = sh.PsOut()
+                sh.result.color = sh.add(a = sh.gA, b = sh.gB)
+                sh.return_(sh.result)
