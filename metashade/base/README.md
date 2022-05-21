@@ -1,0 +1,1 @@
+This package implements the most basic building blocks of Metashade codegen.

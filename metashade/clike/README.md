@@ -1,0 +1,1 @@
+This package provides common utilities for C-like programming languages.

@@ -1,0 +1,1 @@
+`rtsl` stands for "Real-Time Shading Language" which is not an actual language, but rather a Python package providing common codegen utilities for multiple real-time shading languages: HLSL, GLSL and likely others.
