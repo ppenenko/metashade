@@ -76,7 +76,6 @@ class TestFunctions:
             with pytest.raises(Exception):
                 sh.result.color = sh.add(a = sh.gA)
             return False
-
         self._test_function_call(func)
 
     def test_extra_arg(self):
@@ -84,5 +83,11 @@ class TestFunctions:
             with pytest.raises(Exception):
                 sh.result.color = sh.add(a = sh.gA, b = sh.gB, c = sh.gC)
             return False
+        self._test_function_call(func)
 
+    def test_arg_type_mismatch(self):
+        def func(sh):
+            with pytest.raises(Exception):
+                sh.result.color = sh.add(a = sh.gA, b = sh.gC)
+            return False
         self._test_function_call(func)
