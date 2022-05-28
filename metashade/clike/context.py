@@ -106,5 +106,5 @@ class Function:
         )
 
         if parameters_to_fill:
-            raise RuntimeError(f'Missing parameters: {parameters_to_fill}')
+            raise RuntimeError(f'Missing arguments: {parameters_to_fill}')
         return self._def._return_type(f'{self._def._name}({args_str})')
