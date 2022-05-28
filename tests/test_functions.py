@@ -22,8 +22,8 @@ class TestFunctions:
         cls._out_dir = os.path.join(parent_dir, 'out')
         os.makedirs(cls._out_dir, exist_ok = True)
 
-    def test_function_call(self):
-        hlsl_path = os.path.join(self._out_dir, 'test_function_call.hlsl')
+    def _test_function_call(self, test_name :  str, func):
+        hlsl_path = os.path.join(self._out_dir, f'{test_name}.hlsl')
         entry_point_name = 'psMain'
         with open(hlsl_path, 'w') as ps_file:
             sh = ps_5_0.Generator(ps_file)
@@ -39,7 +39,8 @@ class TestFunctions:
 
             with sh.main(entry_point_name, sh.PsOut)():
                 sh.result = sh.PsOut()
-                sh.result.color = sh.add(a = sh.gA, b = sh.gB)
+                if not func(sh):
+                    return
                 sh.return_(sh.result)
 
         dxc_result = subprocess.run(
@@ -54,24 +55,16 @@ class TestFunctions:
         print(f'DXC stderr: {dxc_result.stderr.decode()}')
         assert dxc_result.returncode == 0
 
+    def test_function_call(self):
+        def func(sh):
+            sh.result.color = sh.add(a = sh.gA, b = sh.gB)
+            return True
+        self._test_function_call('test_function_call', func)
+
     def test_missing_arg(self):
-        hlsl_path = os.path.join(self._out_dir, 'test_missing_arg.hlsl')
-        entry_point_name = 'psMain'
+        def func(sh):
+            with pytest.raises(Exception):
+                sh.result.color = sh.add(a = sh.gA)
+            return False
 
-        with open(hlsl_path, 'w') as ps_file:
-            sh = ps_5_0.Generator(ps_file)
-            with sh.function('add', sh.Float4)(a = sh.Float4, b = sh.Float4):
-                sh.return_(sh.a + sh.b)
-
-            with sh.ps_output('PsOut') as PsOut:
-                PsOut.SV_Target('color', sh.Float4)
-
-            with sh.uniform_buffer(register = 0, name = 'cb'):
-                sh.uniform('gA', sh.Float4)
-
-            with sh.main(entry_point_name, sh.PsOut)():
-                sh.result = sh.PsOut()
-
-                with pytest.raises(Exception):
-                    sh.result.color = sh.add(a = sh.gA)
-                sh.return_(sh.result)
+        self._test_function_call('test_missing_arg', func)
