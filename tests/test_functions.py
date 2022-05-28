@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os, pathlib, subprocess, pytest, sys
+import io, os, pathlib, subprocess, pytest, sys
 from metashade.hlsl.sm5 import ps_5_0
 
 class TestFunctions:
@@ -22,10 +22,18 @@ class TestFunctions:
         cls._out_dir = os.path.join(parent_dir, 'out')
         os.makedirs(cls._out_dir, exist_ok = True)
 
-    def _test_function_call(self, test_name :  str, func):
-        hlsl_path = os.path.join(self._out_dir, f'{test_name}.hlsl')
+    def _test_function_call(self, func, file_name : str = None):
         entry_point_name = 'psMain'
-        with open(hlsl_path, 'w') as ps_file:
+        hlsl_path = ( os.path.join(self._out_dir, f'{file_name}.hlsl')
+            if file_name is not None else None
+        )
+
+        def open_file():
+            return ( open(hlsl_path, 'w')
+                if hlsl_path is not None else io.StringIO()
+            )
+
+        with open_file() as ps_file:
             sh = ps_5_0.Generator(ps_file)
             with sh.function('add', sh.Float4)(a = sh.Float4, b = sh.Float4):
                 sh.return_(sh.a + sh.b)
@@ -36,6 +44,7 @@ class TestFunctions:
             with sh.uniform_buffer(register = 0, name = 'cb'):
                 sh.uniform('gA', sh.Float4)
                 sh.uniform('gB', sh.Float4)
+                sh.uniform('gC', sh.Float3)
 
             with sh.main(entry_point_name, sh.PsOut)():
                 sh.result = sh.PsOut()
@@ -43,23 +52,24 @@ class TestFunctions:
                     return
                 sh.return_(sh.result)
 
-        dxc_result = subprocess.run(
-            [
-                'dxc',
-                '-T', 'ps_6_0', # the lowest supported by DXC
-                '-E', entry_point_name,
-                hlsl_path
-            ],
-            capture_output = True
-        )
-        print(f'DXC stderr: {dxc_result.stderr.decode()}')
-        assert dxc_result.returncode == 0
+        if hlsl_path is not None:
+            dxc_result = subprocess.run(
+                [
+                    'dxc',
+                    '-T', 'ps_6_0', # the lowest supported by DXC
+                    '-E', entry_point_name,
+                    hlsl_path
+                ],
+                capture_output = True
+            )
+            print(f'DXC stderr: {dxc_result.stderr.decode()}')
+            assert dxc_result.returncode == 0
 
     def test_function_call(self):
         def func(sh):
             sh.result.color = sh.add(a = sh.gA, b = sh.gB)
             return True
-        self._test_function_call('test_function_call', func)
+        self._test_function_call(func, 'test_function_call')
 
     def test_missing_arg(self):
         def func(sh):
@@ -67,4 +77,12 @@ class TestFunctions:
                 sh.result.color = sh.add(a = sh.gA)
             return False
 
-        self._test_function_call('test_missing_arg', func)
+        self._test_function_call(func)
+
+    def test_extra_arg(self):
+        def func(sh):
+            with pytest.raises(Exception):
+                sh.result.color = sh.add(a = sh.gA, b = sh.gB, c = sh.gC)
+            return False
+
+        self._test_function_call(func)

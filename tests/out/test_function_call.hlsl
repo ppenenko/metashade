@@ -12,6 +12,7 @@ cbuffer cb : register(b0)
 {
 	float4 gA;
 	float4 gB;
+	float3 gC;
 };
 
 PsOut psMain()
