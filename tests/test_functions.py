@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os, pathlib, subprocess, sys
+import os, pathlib, subprocess, pytest, sys
 from metashade.hlsl.sm5 import ps_5_0
 
 class TestFunctions:
@@ -53,3 +53,25 @@ class TestFunctions:
         )
         print(f'DXC stderr: {dxc_result.stderr.decode()}')
         assert dxc_result.returncode == 0
+
+    def test_missing_arg(self):
+        hlsl_path = os.path.join(self._out_dir, 'test_missing_arg.hlsl')
+        entry_point_name = 'psMain'
+
+        with open(hlsl_path, 'w') as ps_file:
+            sh = ps_5_0.Generator(ps_file)
+            with sh.function('add', sh.Float4)(a = sh.Float4, b = sh.Float4):
+                sh.return_(sh.a + sh.b)
+
+            with sh.ps_output('PsOut') as PsOut:
+                PsOut.SV_Target('color', sh.Float4)
+
+            with sh.uniform_buffer(register = 0, name = 'cb'):
+                sh.uniform('gA', sh.Float4)
+
+            with sh.main(entry_point_name, sh.PsOut)():
+                sh.result = sh.PsOut()
+
+                with pytest.raises(Exception):
+                    sh.result.color = sh.add(a = sh.gA)
+                sh.return_(sh.result)
