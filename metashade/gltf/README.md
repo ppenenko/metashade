@@ -10,4 +10,4 @@ The goal is to demonstrate that Metashade can generate sufficiently complex rend
 --out-dir OUT_DIR    Path to the output directory
 ```
 
-The script processes all glTF asset files it finds under the directory specified by `GLTF_DIR` and writes the generated shader files in the directory specified by `OUT_DIR`. The names of the shader files are based on the names of glTF meshes and primitives.
+The script processes all glTF asset files it finds under the directory specified by `GLTF_DIR` (e.g. a local clone of the [Cauldron-Media repo](https://github.com/GPUOpen-LibrariesAndSDKs/Cauldron-Media)) and writes the generated shader files in the directory specified by `OUT_DIR`. The names of the shader files are derived from the names of glTF meshes and primitives.
