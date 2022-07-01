@@ -66,6 +66,36 @@ float4 add(float4 a, float4 b)
 
 ### Entry points
 
+Shader entry points are really just a special case of functions in Metashade, for example:
+
+```Python
+with sh.ps_output('PsOut') as PsOut:
+    PsOut.SV_Target('color', sh.RgbaF)
+
+with sh.main('mainPS', sh.PsOut)():
+    sh.psOut = sh.PsOut()
+    sh.psOut.color.rgb = sh.RgbF(1)
+    sh.psOut.color.a = 1
+    sh.return_(sh.psOut)
+```
+
+Which generates in HLSL:
+
+```HLSL
+struct PsOut
+{
+	float4 color : SV_TARGET;
+};
+
+PsOut mainPS()
+{
+	PsOut psOut;
+	psOut.color.rgb = 1.0.xxx;
+	psOut.color.a = 1.0;
+	return psOut;
+}
+```
+
 entry points
 locals
 operator overloading
