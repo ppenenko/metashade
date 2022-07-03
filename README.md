@@ -63,7 +63,6 @@ float4 add(float4 a, float4 b)
 }
 ```
 
-
 ### Entry points
 
 Shader entry points are really just a special case of functions in Metashade, for example:
@@ -96,12 +95,23 @@ PsOut mainPS()
 }
 ```
 
-entry points
-locals
+### Generating C-like scopes and local variables
+
+Metashade uses Python variables to represent variables in target C-like shading languages.
+However there are major differences between ... that require special consideration
+* point to different object
+* lifetimes are not scoped in the same way. The closest analogy
+
+Member variables: setattr/getattr
+* Name is deduced without introspection
+* lifetimes managed with `with` scopes which modify the state of the generator
+* assignment can be managed... first time - definition and initialization, afterwards - assignment with type checks
+
+
 operator overloading
 non-sh variables
-assignments
-C-like scopes
+alternative assignments
+auto
 
 
 * Operator overloading. Basically, `a + b` generates the respective operation in the target language instead of performing the addition in Python.
