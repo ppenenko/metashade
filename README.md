@@ -8,7 +8,7 @@ To see Metashade in action, check out the [glTF demo](gltfdemo).
 
 ## Rationale
 * Programming at a more abstract level than the target language:
-    * Metaprogramming - think C++ templates but more flexible.
+    * Metaprogramming - think C++ templates but with greater flexibility.
     Like any other Python code, Mestashade code is polymorphic at generation time.
     This approach can replace the traditional ubershader practice, effectively replacing the C preprocessor with Python.
     * Stricter typing - e.g. a 3D point and an RGB color can be represented with different Metashade types, backed by the same data type in HLSL.
@@ -38,7 +38,7 @@ with open("ps.hlsl", 'w') as ps_file:
 ```
 
 Note that, by convention, the generator object is always named `sh` (for "shader").
-This way, Metashade code can be polymorphic with regard to different target profiles.
+This helps Metashade code be polymorphic with regard to different target profiles.
 E.g. code with the same logic can be generated for an HLSL pixel shader and a GLSL compute shader.
 
 ### Function definitions
@@ -97,24 +97,23 @@ PsOut mainPS()
 
 ### Generating C-like scopes and local variables
 
-Metashade uses Python variables to represent variables in target C-like shading languages.
-However there are major differences between ... that require special consideration
-* point to different object
-* lifetimes are not scoped in the same way. The closest analogy
+Metashade uses Python variables to represent variables in target C-like shading languages,
+but there obviously major differences in their behavior, namely:
+* Unlike in Python, lifetimes of variables in C-like languages are tied to the scope they're defined in.
+* In Python, variables are always assigned by reference and the same variable can point to different objects of different types in its lifetime. Variables in C-like shading languages, in contrast,
+are typed statically and are assigned by value.
 
-Member variables: setattr/getattr
-* Name is deduced without introspection
-* lifetimes managed with `with` scopes which modify the state of the generator
-* assignment can be managed... first time - definition and initialization, afterwards - assignment with type checks
+Addressing these differences requires explicit emulation in Python code.
+`with` scopes are the closest analogy for C-like scopes in Python,
+however they only apply to the variables referenced in the `with` statement and call the special
+`__enter__` and `__exit__` methods instead of construction and destruction like in C++.
+That's why Metashade uses `with` statements with special objects such as function definitions created with `sh.function`,
+which modify the state of the generator.
+The generator emulates C-like scopes internally, and and the generated variables are modeled with member variables on the generator, which are implemented with the `__getattr__()`/`__setattr__()` Python mechanism.
+With `__setattr__()` for example, we can capture the variable's name without Python introspection.
+We can also easily check in `__setattr__()` if the user is trying to reinitialize the variable with a different type and we can similarly raise an exception in `__getattr__()` if the user tries to access a variable that's gone out of scope.
 
+The `__getattr__()`/`__setattr__()` is also used for other features, such as accessing struct members and vector elements.
 
-operator overloading
-non-sh variables
-alternative assignments
-auto
+Further, Python expressions model expressions in the target language with help of operator overloading. Basically, `a + b` generates the respective operation in the target language instead of performing the addition in Python.
 
-
-* Operator overloading. Basically, `a + b` generates the respective operation in the target language instead of performing the addition in Python.
-* Representing scopes in the target C-like language with `with` scopes in Python.
-* `__getattr__()` and `__setattr__()` are used to initialize, modify and reference target variables in the current scope.
-* C-like assignment by value is represented with assigment to a special data member `_`.
