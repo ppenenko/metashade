@@ -37,10 +37,15 @@ class TestFunctions:
         with open_file() as ps_file:
             sh = ps_5_0.Generator(ps_file)
 
+            func = sh.function('add', sh.Float4)(a = sh.Float4, b = sh.Float4)
+
+            # Test that we don't leak the scope created for the parameters
+            assert getattr(sh, 'a', None) is None
+
             if decl_only:
-                sh.function('add', sh.Float4)(a = sh.Float4, b = sh.Float4).declare()
+                func.declare()
             else:
-                with sh.function('add', sh.Float4)(a = sh.Float4, b = sh.Float4):
+                with func:
                     sh.return_(sh.a + sh.b)
 
             with sh.ps_output('PsOut') as PsOut:
