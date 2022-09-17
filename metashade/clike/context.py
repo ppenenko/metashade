@@ -69,7 +69,7 @@ class FunctionDecl:
 
     def declare(self):
         self._declare_impl()
-        self._sh._emit(';\n')
+        self._sh._emit(';\n\n')
         self._sh._pop_context()
 
     def __enter__(self):

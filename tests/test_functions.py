@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import io, os, pathlib, subprocess, pytest, sys
+from xmlrpc.client import Boolean
 from metashade.hlsl.sm5 import ps_5_0
 
 class TestFunctions:
@@ -22,7 +23,7 @@ class TestFunctions:
         cls._out_dir = os.path.join(parent_dir, 'out')
         os.makedirs(cls._out_dir, exist_ok = True)
 
-    def _test_function_call(self, func, file_name : str = None):
+    def _test_harness(self, test_payload, decl_only : Boolean, file_name : str = None):
         entry_point_name = 'psMain'
         hlsl_path = ( os.path.join(self._out_dir, f'{file_name}.hlsl')
             if file_name is not None else None
@@ -35,8 +36,12 @@ class TestFunctions:
 
         with open_file() as ps_file:
             sh = ps_5_0.Generator(ps_file)
-            with sh.function('add', sh.Float4)(a = sh.Float4, b = sh.Float4):
-                sh.return_(sh.a + sh.b)
+
+            if decl_only:
+                sh.function('add', sh.Float4)(a = sh.Float4, b = sh.Float4).declare()
+            else:
+                with sh.function('add', sh.Float4)(a = sh.Float4, b = sh.Float4):
+                    sh.return_(sh.a + sh.b)
 
             with sh.ps_output('PsOut') as PsOut:
                 PsOut.SV_Target('color', sh.Float4)
@@ -48,15 +53,22 @@ class TestFunctions:
 
             with sh.main(entry_point_name, sh.PsOut)():
                 sh.result = sh.PsOut()
-                if not func(sh):
+                if not test_payload(sh):
                     return
                 sh.return_(sh.result)
 
         if hlsl_path is not None:
+            # LIB profiles support DXIL linking and therefore allow function
+            # declarations without definitions.
+            # Pure declarations may also be useful in other profiles if the
+            # definition is found elsewhere in the compilation unit, e.g. in an
+            # included header.
+            profile = 'lib_6_6' if decl_only else 'ps_6_0'
+
             dxc_result = subprocess.run(
                 [
                     'dxc',
-                    '-T', 'ps_6_0', # the lowest supported by DXC
+                    '-T', profile,
                     '-E', entry_point_name,
                     hlsl_path
                 ],
@@ -66,28 +78,43 @@ class TestFunctions:
             assert dxc_result.returncode == 0
 
     def test_function_call(self):
-        def func(sh):
+        def test_payload(sh):
             sh.result.color = sh.add(a = sh.g_f4A, b = sh.g_f4B)
             return True
-        self._test_function_call(func, 'test_function_call')
+
+        self._test_harness(
+            test_payload,
+            decl_only = True,
+            file_name = 'test_function_decl_call'
+        )
+        self._test_harness(
+            test_payload,
+            decl_only = False,
+            file_name = 'test_function_call'
+        )
 
     def test_missing_arg(self):
-        def func(sh):
+        def test_payload(sh):
             with pytest.raises(Exception):
                 sh.result.color = sh.add(a = sh.g_f4A)
             return False
-        self._test_function_call(func)
+
+        for decl_only in (True, False):
+            self._test_harness(test_payload, decl_only)
 
     def test_extra_arg(self):
-        def func(sh):
+        def test_payload(sh):
             with pytest.raises(Exception):
                 sh.result.color = sh.add(a = sh.g_f4A, b = sh.g_f4B, c = sh.g_f3C)
             return False
-        self._test_function_call(func)
+        for decl_only in (True, False):
+            self._test_harness(test_payload, decl_only)
 
     def test_arg_type_mismatch(self):
-        def func(sh):
+        def test_payload(sh):
             with pytest.raises(Exception):
                 sh.result.color = sh.add(a = sh.g_f4A, b = sh.g_f3C)
             return False
-        self._test_function_call(func)
+
+        for decl_only in (True, False):
+            self._test_harness(test_payload, decl_only)
