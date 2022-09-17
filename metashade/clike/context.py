@@ -15,6 +15,12 @@
 import metashade.base.context as base
 
 class FunctionDecl:
+    '''
+    Represents a function declaration in the target language.
+    Meant to be created with a `sh.function` call. After creation,
+    either call `declare()` to just declare it, without a definition,
+    or use it in a `with` statement to implement the function body.
+    '''
     def __init__(self, sh, name, return_type = type(None)):
         self._sh = sh
         self._name = name
@@ -101,6 +107,10 @@ class FunctionDecl:
         ))
 
 class Function:
+    '''
+    A callable registered in the generator and referencing a function
+    declaration.
+    '''
     def __init__(self, definition : FunctionDecl) -> None:
         self._def = definition
 
