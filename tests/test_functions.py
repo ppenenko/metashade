@@ -42,9 +42,9 @@ class TestFunctions:
                 PsOut.SV_Target('color', sh.Float4)
 
             with sh.uniform_buffer(register = 0, name = 'cb'):
-                sh.uniform('gA', sh.Float4)
-                sh.uniform('gB', sh.Float4)
-                sh.uniform('gC', sh.Float3)
+                sh.uniform('g_f4A', sh.Float4)
+                sh.uniform('g_f4B', sh.Float4)
+                sh.uniform('g_f3C', sh.Float3)
 
             with sh.main(entry_point_name, sh.PsOut)():
                 sh.result = sh.PsOut()
@@ -67,27 +67,27 @@ class TestFunctions:
 
     def test_function_call(self):
         def func(sh):
-            sh.result.color = sh.add(a = sh.gA, b = sh.gB)
+            sh.result.color = sh.add(a = sh.g_f4A, b = sh.g_f4B)
             return True
         self._test_function_call(func, 'test_function_call')
 
     def test_missing_arg(self):
         def func(sh):
             with pytest.raises(Exception):
-                sh.result.color = sh.add(a = sh.gA)
+                sh.result.color = sh.add(a = sh.g_f4A)
             return False
         self._test_function_call(func)
 
     def test_extra_arg(self):
         def func(sh):
             with pytest.raises(Exception):
-                sh.result.color = sh.add(a = sh.gA, b = sh.gB, c = sh.gC)
+                sh.result.color = sh.add(a = sh.g_f4A, b = sh.g_f4B, c = sh.g_f3C)
             return False
         self._test_function_call(func)
 
     def test_arg_type_mismatch(self):
         def func(sh):
             with pytest.raises(Exception):
-                sh.result.color = sh.add(a = sh.gA, b = sh.gC)
+                sh.result.color = sh.add(a = sh.g_f4A, b = sh.g_f3C)
             return False
         self._test_function_call(func)

@@ -10,15 +10,15 @@ struct PsOut
 
 cbuffer cb : register(b0)
 {
-	float4 gA;
-	float4 gB;
-	float3 gC;
+	float4 g_f4A;
+	float4 g_f4B;
+	float3 g_f3C;
 };
 
 PsOut psMain()
 {
 	PsOut result;
-	result.color = add(gA, gB);
+	result.color = add(g_f4A, g_f4B);
 	return result;
 }
 
