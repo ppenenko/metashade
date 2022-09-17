@@ -14,7 +14,7 @@
 
 import metashade.base.context as base
 
-class FunctionDef:
+class FunctionDecl:
     def __init__(self, sh, name, return_type = type(None)):
         self._sh = sh
         self._name = name
@@ -39,17 +39,21 @@ class FunctionDef:
         # Return self, so that it can be entered in a with scope
         return self
 
-    def __enter__(self):
+    def _declare_impl(self):
+        # Context for the function arguments
+        self._sh._push_context(self)
+
         return_type = (
             self._return_type._get_target_type_name()
             if self._return_type != type(None)
             else 'void'
         )
 
+        # Emit the function signature
         self._sh._emit_indent()
         self._sh._emit(f'{return_type} {self._name}(')
         
-        # emit the argument declarations
+        # Emit the argument declarations
         first = True
         for name, arg in self._parameters.items():
             if first:
@@ -57,8 +61,20 @@ class FunctionDef:
             else:
                 self._sh._emit(', ')
             arg._define(self._sh, name, allow_init=False)
-                        
-        self._sh._emit(')\n{\n')
+
+        self._sh._emit(')')
+
+        # Register the callable in the generator
+        self._sh._set_global(self._name, Function(self))
+
+    def declare(self):
+        self._declare_impl()
+        self._sh._emit(';\n')
+        self._sh._pop_context()
+
+    def __enter__(self):
+        self._declare_impl()
+        self._sh._emit('\n{\n')
         self._sh._push_indent()
         
         # push and return the function body - a separate scope that can have
@@ -69,7 +85,7 @@ class FunctionDef:
         
     def __exit__(self, exc_type, exc_value, traceback):
         self._sh._pop_context() # pop the function body
-        self._sh._pop_context() # pop the function definition
+        self._sh._pop_context() # pop the function declaration
         self._sh._pop_indent()
         self._sh._emit('}\n\n')
     
@@ -85,7 +101,7 @@ class FunctionDef:
         ))
 
 class Function:
-    def __init__(self, definition : FunctionDef) -> None:
+    def __init__(self, definition : FunctionDecl) -> None:
         self._def = definition
 
     def __call__(self, **kwargs):
