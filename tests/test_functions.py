@@ -12,9 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import io, os, pathlib, subprocess, pytest, sys
+import io, os, pathlib, pytest, sys
 from xmlrpc.client import Boolean
 from metashade.hlsl.sm5 import ps_5_0
+from metashade.hlsl.common import compile
 
 class TestFunctions:
     @classmethod
@@ -68,19 +69,11 @@ class TestFunctions:
             # Pure declarations may also be useful in other profiles if the
             # definition is found elsewhere in the compilation unit, e.g. in an
             # included header.
-            profile = 'lib_6_6' if decl_only else 'ps_6_0'
-
-            dxc_result = subprocess.run(
-                [
-                    'dxc',
-                    '-T', profile,
-                    '-E', entry_point_name,
-                    hlsl_path
-                ],
-                capture_output = True
+            assert 0 == compile(
+                path = hlsl_path,
+                entry_point_name = entry_point_name,
+                profile = 'lib_6_6' if decl_only else 'ps_6_0'
             )
-            print(f'DXC stderr: {dxc_result.stderr.decode()}')
-            assert dxc_result.returncode == 0
 
     def test_function_call(self):
         def test_payload(sh):
