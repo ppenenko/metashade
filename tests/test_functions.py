@@ -13,7 +13,6 @@
 # limitations under the License.
 
 import io, os, pathlib, pytest, sys
-from xmlrpc.client import Boolean
 from metashade.hlsl.sm5 import ps_5_0
 from metashade.hlsl.common import compile
 
@@ -24,95 +23,95 @@ class TestFunctions:
         cls._out_dir = os.path.join(parent_dir, 'out')
         os.makedirs(cls._out_dir, exist_ok = True)
 
-    def _test_harness(self, test_payload, decl_only : Boolean, file_name : str = None):
-        entry_point_name = 'psMain'
-        hlsl_path = ( os.path.join(self._out_dir, f'{file_name}.hlsl')
+    _entry_point_name = 'psMain'
+
+    def _get_hlsl_path(self, file_name : str) -> str:
+        return ( os.path.join(self._out_dir, f'{file_name}.hlsl')
             if file_name is not None else None
         )
 
-        def open_file():
-            return ( open(hlsl_path, 'w')
-                if hlsl_path is not None else io.StringIO()
-            )
+    def _open_file(self, hlsl_path : str = None):
+        return ( open(hlsl_path, 'w')
+            if hlsl_path is not None else io.StringIO()
+        )
 
-        with open_file() as ps_file:
-            sh = ps_5_0.Generator(ps_file)
+    def _generate_add_func(self, sh, decl_only = False):
+        func = sh.function('add', sh.Float4)(a = sh.Float4, b = sh.Float4)
 
-            func = sh.function('add', sh.Float4)(a = sh.Float4, b = sh.Float4)
+        # Test that we don't leak the scope created for the parameters
+        assert getattr(sh, 'a', None) is None
 
-            # Test that we don't leak the scope created for the parameters
-            assert getattr(sh, 'a', None) is None
+        if decl_only:
+            func.declare()
+        else:
+            with func:
+                sh.return_(sh.a + sh.b)
 
-            if decl_only:
-                func.declare()
-            else:
-                with func:
-                    sh.return_(sh.a + sh.b)
+    def _generate_ps_main(self, sh):
+        with sh.ps_output('PsOut') as PsOut:
+            PsOut.SV_Target('color', sh.Float4)
 
-            with sh.ps_output('PsOut') as PsOut:
-                PsOut.SV_Target('color', sh.Float4)
+        with sh.uniform_buffer(register = 0, name = 'cb'):
+            sh.uniform('g_f4A', sh.Float4)
+            sh.uniform('g_f4B', sh.Float4)
+            sh.uniform('g_f3C', sh.Float3)
 
-            with sh.uniform_buffer(register = 0, name = 'cb'):
-                sh.uniform('g_f4A', sh.Float4)
-                sh.uniform('g_f4B', sh.Float4)
-                sh.uniform('g_f3C', sh.Float3)
+        return sh.main(self._entry_point_name, sh.PsOut)()
 
-            with sh.main(entry_point_name, sh.PsOut)():
-                sh.result = sh.PsOut()
-                if not test_payload(sh):
-                    return
-                sh.return_(sh.result)
+    def _compile(self, hlsl_path, as_lib : bool = False):
+        # LIB profiles support DXIL linking and therefore allow function
+        # declarations without definitions.
+        # Pure declarations may also be useful in other profiles if the
+        # definition is found elsewhere in the compilation unit, e.g. in an
+        # included header.
+        assert 0 == compile(
+            path = hlsl_path,
+            entry_point_name = self._entry_point_name,
+            profile = 'lib_6_6' if as_lib else 'ps_6_0'
+        )
 
-        if hlsl_path is not None:
-            # LIB profiles support DXIL linking and therefore allow function
-            # declarations without definitions.
-            # Pure declarations may also be useful in other profiles if the
-            # definition is found elsewhere in the compilation unit, e.g. in an
-            # included header.
-            assert 0 == compile(
-                path = hlsl_path,
-                entry_point_name = entry_point_name,
-                profile = 'lib_6_6' if decl_only else 'ps_6_0'
-            )
+    def _correct_ps_main(self, sh):
+        with self._generate_ps_main(sh):
+            sh.result = sh.PsOut()
+            sh.result.color = sh.add(a = sh.g_f4A, b = sh.g_f4B)
+            sh.return_(sh.result)
 
     def test_function_call(self):
-        def test_payload(sh):
-            sh.result.color = sh.add(a = sh.g_f4A, b = sh.g_f4B)
-            return True
+        hlsl_path = self._get_hlsl_path('test_function_call')
+        with self._open_file(hlsl_path) as ps_file:
+            sh = ps_5_0.Generator(ps_file)
+            self._generate_add_func(sh)
+            self._correct_ps_main(sh)
+        self._compile(hlsl_path)
 
-        self._test_harness(
-            test_payload,
-            decl_only = True,
-            file_name = 'test_function_decl_call'
-        )
-        self._test_harness(
-            test_payload,
-            decl_only = False,
-            file_name = 'test_function_call'
-        )
+    def test_function_decl_call(self):
+        hlsl_path = self._get_hlsl_path('test_function_decl_call')
+        with self._open_file(hlsl_path) as ps_file:
+            sh = ps_5_0.Generator(ps_file)
+            self._generate_add_func(sh, decl_only = True)
+            self._correct_ps_main(sh)
+        self._compile(hlsl_path, as_lib = True)
 
     def test_missing_arg(self):
-        def test_payload(sh):
+        with self._open_file() as ps_file:
+            sh = ps_5_0.Generator(ps_file)
+            self._generate_add_func(sh)
+
             with pytest.raises(Exception):
                 sh.result.color = sh.add(a = sh.g_f4A)
-            return False
-
-        for decl_only in (True, False):
-            self._test_harness(test_payload, decl_only)
 
     def test_extra_arg(self):
-        def test_payload(sh):
+        with self._open_file() as ps_file:
+            sh = ps_5_0.Generator(ps_file)
+            self._generate_add_func(sh)
+
             with pytest.raises(Exception):
                 sh.result.color = sh.add(a = sh.g_f4A, b = sh.g_f4B, c = sh.g_f3C)
-            return False
-        for decl_only in (True, False):
-            self._test_harness(test_payload, decl_only)
 
     def test_arg_type_mismatch(self):
-        def test_payload(sh):
+        with self._open_file() as ps_file:
+            sh = ps_5_0.Generator(ps_file)
+            self._generate_add_func(sh)
+            
             with pytest.raises(Exception):
                 sh.result.color = sh.add(a = sh.g_f4A, b = sh.g_f3C)
-            return False
-
-        for decl_only in (True, False):
-            self._test_harness(test_payload, decl_only)
