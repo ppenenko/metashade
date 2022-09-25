@@ -14,15 +14,24 @@
 
 import subprocess
 
-def compile(path : str, entry_point_name : str, profile : str) -> int:
-    dxc_result = subprocess.run(
-        [
-            'dxc',
-            '-T', profile,
-            '-E', entry_point_name,
-            path
-        ],
-        capture_output = True
-    )
+def compile(
+    path : str,
+    entry_point_name : str,
+    profile : str,
+    includes = None
+) -> int:
+    args = [
+        'dxc',
+        '-T', profile,
+        '-E', entry_point_name,
+        path
+    ]
+
+    if includes:
+        for include in includes:
+            args.append('-I')
+            args.append(include)
+
+    dxc_result = subprocess.run( args, capture_output = True )
     print(f'DXC stderr: {dxc_result.stderr.decode()}')
     return dxc_result.returncode

@@ -22,3 +22,7 @@ class Generator(base.Generator):
     
     def struct(self, name):
         return struct.StructDef(self, name)
+
+    def include(self, file_path : str):
+        self._emit(f'#include "{file_path}"\n')
+

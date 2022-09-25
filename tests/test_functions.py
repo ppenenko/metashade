@@ -58,7 +58,7 @@ class TestFunctions:
 
         return sh.main(self._entry_point_name, sh.PsOut)()
 
-    def _compile(self, hlsl_path, as_lib : bool = False):
+    def _compile(self, hlsl_path, includes = None, as_lib : bool = False):
         # LIB profiles support DXIL linking and therefore allow function
         # declarations without definitions.
         # Pure declarations may also be useful in other profiles if the
@@ -67,7 +67,8 @@ class TestFunctions:
         assert 0 == compile(
             path = hlsl_path,
             entry_point_name = self._entry_point_name,
-            profile = 'lib_6_6' if as_lib else 'ps_6_0'
+            profile = 'lib_6_6' if as_lib else 'ps_6_0',
+            includes = includes
         )
 
     def _correct_ps_main(self, sh):
@@ -91,6 +92,20 @@ class TestFunctions:
             self._generate_add_func(sh, decl_only = True)
             self._correct_ps_main(sh)
         self._compile(hlsl_path, as_lib = True)
+
+    def test_included_function_call(self):
+        hlsl_path = self._get_hlsl_path('test_included_function_call')
+        with self._open_file(hlsl_path) as ps_file:
+            sh = ps_5_0.Generator(ps_file)
+            sh.include('include/add.hlsl')
+            self._generate_add_func(sh, decl_only = True)
+            self._correct_ps_main(sh)
+        self._compile(
+            hlsl_path,
+            includes = [
+                pathlib.Path(sys.modules[self.__module__].__file__).parent
+            ]
+        )
 
     def test_missing_arg(self):
         with self._open_file() as ps_file:
