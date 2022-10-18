@@ -106,6 +106,5 @@ ENV/
 .pytest_cache/v/cache/lastfailed
 .pytest_cache/v/cache/nodeids
 .pytest_cache/v/cache/stepwise
-.vscode/launch.json
 .vscode/settings.json
 *.code-workspace
