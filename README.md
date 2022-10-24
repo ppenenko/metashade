@@ -31,10 +31,10 @@ Before Metashade can generate anything, a generator object has to be created for
 language profile, with an output file (or a file-like stream object) passed as a constructor argument, e.g.
 
 ```Python
-from metashade.hlsl.sm5 import ps_5_0
+from metashade.hlsl.sm5 import ps_6_0
 
 with open("ps.hlsl", 'w') as ps_file:
-    sh = ps_5_0.Generator(ps_file)
+    sh = ps_6_0.Generator(ps_file)
 ```
 
 Note that, by convention, the generator object is always named `sh` (for "shader").

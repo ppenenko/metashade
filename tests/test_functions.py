@@ -13,7 +13,7 @@
 # limitations under the License.
 
 import io, os, pathlib, pytest, sys
-from metashade.hlsl.sm5 import ps_5_0
+from metashade.hlsl.sm6 import ps_6_0
 from metashade.hlsl.common import compile
 
 class TestFunctions:
@@ -80,7 +80,7 @@ class TestFunctions:
     def test_function_call(self):
         hlsl_path = self._get_hlsl_path('test_function_call')
         with self._open_file(hlsl_path) as ps_file:
-            sh = ps_5_0.Generator(ps_file)
+            sh = ps_6_0.Generator(ps_file)
             self._generate_add_func(sh)
             self._correct_ps_main(sh)
         self._compile(hlsl_path)
@@ -88,7 +88,7 @@ class TestFunctions:
     def test_function_decl_call(self):
         hlsl_path = self._get_hlsl_path('test_function_decl_call')
         with self._open_file(hlsl_path) as ps_file:
-            sh = ps_5_0.Generator(ps_file)
+            sh = ps_6_0.Generator(ps_file)
             self._generate_add_func(sh, decl_only = True)
             self._correct_ps_main(sh)
         self._compile(hlsl_path, as_lib = True)
@@ -96,7 +96,7 @@ class TestFunctions:
     def test_included_function_call(self):
         hlsl_path = self._get_hlsl_path('test_included_function_call')
         with self._open_file(hlsl_path) as ps_file:
-            sh = ps_5_0.Generator(ps_file)
+            sh = ps_6_0.Generator(ps_file)
             sh.include('include/add.hlsl')
             self._generate_add_func(sh, decl_only = True)
             self._correct_ps_main(sh)
@@ -109,7 +109,7 @@ class TestFunctions:
 
     def test_missing_arg(self):
         with self._open_file() as ps_file:
-            sh = ps_5_0.Generator(ps_file)
+            sh = ps_6_0.Generator(ps_file)
             self._generate_add_func(sh)
 
             with pytest.raises(Exception):
@@ -117,7 +117,7 @@ class TestFunctions:
 
     def test_extra_arg(self):
         with self._open_file() as ps_file:
-            sh = ps_5_0.Generator(ps_file)
+            sh = ps_6_0.Generator(ps_file)
             self._generate_add_func(sh)
 
             with pytest.raises(Exception):
@@ -125,7 +125,7 @@ class TestFunctions:
 
     def test_arg_type_mismatch(self):
         with self._open_file() as ps_file:
-            sh = ps_5_0.Generator(ps_file)
+            sh = ps_6_0.Generator(ps_file)
             self._generate_add_func(sh)
             
             with pytest.raises(Exception):
