@@ -11,7 +11,7 @@
             "program": "${workspaceFolder}/gltfdemo/generate.py",
             "console": "integratedTerminal",
             "args": [
-                "--gltf-dir", "${workspaceFolder}/../glTFSample-latest/media/Cauldron-Media",
+                "--gltf-dir", "${workspaceFolder}/../glTFSample/media/Cauldron-Media",
                 "--out-dir", "${workspaceFolder}/../metashade-out"
             ]
         },
@@ -22,7 +22,7 @@
             "program": "${workspaceFolder}/gltfdemo/generate.py",
             "console": "integratedTerminal",
             "args": [
-                "--gltf-dir", "${workspaceFolder}/../glTFSample-latest/media/Cauldron-Media",
+                "--gltf-dir", "${workspaceFolder}/../glTFSample/media/Cauldron-Media",
                 "--out-dir", "${workspaceFolder}/../metashade-out",
                 "--compile"
             ]
