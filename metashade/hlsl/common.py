@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import subprocess
+import metashade.util as util
 
 def compile(
     path : str,
@@ -32,6 +33,11 @@ def compile(
             args.append('-I')
             args.append(include)
 
-    dxc_result = subprocess.run( args, capture_output = True )
-    print(f'DXC stderr: {dxc_result.stderr.decode()}')
+    with util.TimedScope('Compiling'):
+        dxc_result = subprocess.run( args, capture_output = True )
+
+    if dxc_result.returncode != 0:
+        print( f'DXC compilation failed with code {dxc_result.returncode}, '
+            f'stderr:\n{dxc_result.stderr.decode()}'
+        )
     return dxc_result.returncode
