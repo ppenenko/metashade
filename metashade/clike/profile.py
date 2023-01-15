@@ -17,7 +17,7 @@ from . import context
 from . import struct
 
 class Generator(base.Generator):
-    def function(self, name : str, return_type):
+    def function(self, name : str, return_type = None):
         return context.FunctionDecl(self, name, return_type)
     
     def struct(self, name):

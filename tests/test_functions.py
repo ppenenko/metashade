@@ -130,3 +130,12 @@ class TestFunctions:
             
             with pytest.raises(Exception):
                 sh.result.color = sh.add(a = sh.g_f4A, b = sh.g_f3C)
+
+    def test_void_func_decl(self):
+        hlsl_path = self._get_hlsl_path('test_void_func_decl')
+        with self._open_file(hlsl_path) as ps_file:
+            sh = ps_6_0.Generator(ps_file)
+
+            sh.function('voidFuncA')(a = sh.Float4, b = sh.Float4).declare()
+            sh.function('voidFuncB', type(None))(a = sh.Float4, b = sh.Float4).declare()
+            sh.function('voidFuncC', None)(a = sh.Float4, b = sh.Float4).declare()

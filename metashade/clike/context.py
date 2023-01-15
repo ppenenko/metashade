@@ -21,10 +21,10 @@ class FunctionDecl:
     either call `declare()` to just declare it, without a definition,
     or use it in a `with` statement to implement the function body.
     '''
-    def __init__(self, sh, name, return_type = type(None)):
+    def __init__(self, sh, name, return_type):
         self._sh = sh
         self._name = name
-        self._return_type = return_type
+        self._return_type = type(None) if return_type is None else return_type
         self._parameters = dict()
 
     def __getattr__(self, name):
