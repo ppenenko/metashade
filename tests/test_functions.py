@@ -139,3 +139,16 @@ class TestFunctions:
             sh.function('voidFuncA')(a = sh.Float4, b = sh.Float4).declare()
             sh.function('voidFuncB', type(None))(a = sh.Float4, b = sh.Float4).declare()
             sh.function('voidFuncC', None)(a = sh.Float4, b = sh.Float4).declare()
+
+        self._compile(hlsl_path, as_lib = True)
+
+    def test_void_func_def(self):
+        hlsl_path = self._get_hlsl_path('test_void_func_def')
+        with self._open_file(hlsl_path) as ps_file:
+            sh = ps_6_0.Generator(ps_file)
+
+            with sh.function('voidFunc')(a = sh.Float4, b = sh.Float4):
+                sh.c = sh.a + sh.b
+                sh.return_()
+
+        self._compile(hlsl_path, as_lib = True)
