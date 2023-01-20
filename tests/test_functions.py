@@ -47,14 +47,15 @@ class TestFunctions:
             with func:
                 sh.return_(sh.a + sh.b)
 
-    def _generate_ps_main(self, sh):
-        with sh.ps_output('PsOut') as PsOut:
-            PsOut.SV_Target('color', sh.Float4)
-
+    def _generate_test_uniforms(self, sh):
         with sh.uniform_buffer(register = 0, name = 'cb'):
             sh.uniform('g_f4A', sh.Float4)
             sh.uniform('g_f4B', sh.Float4)
             sh.uniform('g_f3C', sh.Float3)
+
+    def _generate_ps_main(self, sh):
+        with sh.ps_output('PsOut') as PsOut:
+            PsOut.SV_Target('color', sh.Float4)
 
         return sh.main(self._entry_point_name, sh.PsOut)()
 
@@ -72,6 +73,7 @@ class TestFunctions:
         )
 
     def _correct_ps_main(self, sh):
+        self._generate_test_uniforms(sh)
         with self._generate_ps_main(sh):
             sh.result = sh.PsOut()
             sh.result.color = sh.add(a = sh.g_f4A, b = sh.g_f4B)
@@ -152,3 +154,25 @@ class TestFunctions:
                 sh.return_()
 
         self._compile(hlsl_path, as_lib = True)
+
+    def test_func_no_args(self):
+        hlsl_path = self._get_hlsl_path('test_func_no_args')
+        with self._open_file(hlsl_path) as ps_file:
+            sh = ps_6_0.Generator(ps_file)
+            self._generate_test_uniforms(sh)
+
+            sh.function('getA0', sh.Float4)().declare()
+            sh.function('getA1', sh.Float4).declare()
+
+            with sh.function('getA2', sh.Float4)():
+                sh.return_(sh.g_f4A)
+
+            with sh.function('getA3', sh.Float4):
+                sh.return_(sh.g_f4A)
+
+            with self._generate_ps_main(sh):
+                sh.result = sh.PsOut()
+                sh.result.color = sh.getA2() + sh.getA3()
+                sh.return_(sh.result)
+            
+        self._compile(hlsl_path)

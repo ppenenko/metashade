@@ -1,11 +1,23 @@
-float4 add(float4 a, float4 b);
-
 cbuffer cb : register(b0)
 {
 	float4 g_f4A;
 	float4 g_f4B;
 	float3 g_f3C;
 };
+
+float4 getA0();
+
+float4 getA1();
+
+float4 getA2()
+{
+	return g_f4A;
+}
+
+float4 getA3()
+{
+	return g_f4A;
+}
 
 struct PsOut
 {
@@ -15,7 +27,7 @@ struct PsOut
 PsOut psMain()
 {
 	PsOut result;
-	result.color = add(g_f4A, g_f4B);
+	result.color = (getA2() + getA3());
 	return result;
 }
 

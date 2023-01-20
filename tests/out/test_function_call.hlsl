@@ -3,16 +3,16 @@ float4 add(float4 a, float4 b)
 	return (a + b);
 }
 
-struct PsOut
-{
-	float4 color : SV_TARGET;
-};
-
 cbuffer cb : register(b0)
 {
 	float4 g_f4A;
 	float4 g_f4B;
 	float3 g_f3C;
+};
+
+struct PsOut
+{
+	float4 color : SV_TARGET;
 };
 
 PsOut psMain()
