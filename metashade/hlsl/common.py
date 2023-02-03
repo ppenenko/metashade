@@ -19,7 +19,7 @@ def compile(
     path : str,
     entry_point_name : str,
     profile : str,
-    includes = None
+    include_paths = None
 ) -> int:
     args = [
         'dxc',
@@ -28,10 +28,10 @@ def compile(
         path
     ]
 
-    if includes:
-        for include in includes:
+    if include_paths:
+        for path in include_paths:
             args.append('-I')
-            args.append(include)
+            args.append(path)
 
     with util.TimedScope('Compiling'):
         dxc_result = subprocess.run( args, capture_output = True )

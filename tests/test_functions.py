@@ -12,29 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import io, os, pathlib, pytest, sys
+import pytest, _base
 from metashade.hlsl.sm6 import ps_6_0
-from metashade.hlsl.common import compile
 
-class TestFunctions:
-    @classmethod
-    def setup_class(cls):
-        parent_dir = pathlib.Path(sys.modules[cls.__module__].__file__).parent
-        cls._out_dir = os.path.join(parent_dir, 'out')
-        os.makedirs(cls._out_dir, exist_ok = True)
-
-    _entry_point_name = 'psMain'
-
-    def _get_hlsl_path(self, file_name : str) -> str:
-        return ( os.path.join(self._out_dir, f'{file_name}.hlsl')
-            if file_name is not None else None
-        )
-
-    def _open_file(self, hlsl_path : str = None):
-        return ( open(hlsl_path, 'w')
-            if hlsl_path is not None else io.StringIO()
-        )
-
+class TestFunctions(_base.Base):
     def _generate_add_func(self, sh, decl_only = False):
         func = sh.function('add', sh.Float4)(a = sh.Float4, b = sh.Float4)
 
@@ -58,19 +39,6 @@ class TestFunctions:
             PsOut.SV_Target('color', sh.Float4)
 
         return sh.main(self._entry_point_name, sh.PsOut)()
-
-    def _compile(self, hlsl_path, includes = None, as_lib : bool = False):
-        # LIB profiles support DXIL linking and therefore allow function
-        # declarations without definitions.
-        # Pure declarations may also be useful in other profiles if the
-        # definition is found elsewhere in the compilation unit, e.g. in an
-        # included header.
-        assert 0 == compile(
-            path = hlsl_path,
-            entry_point_name = self._entry_point_name,
-            profile = 'lib_6_6' if as_lib else 'ps_6_0',
-            includes = includes
-        )
 
     def _correct_ps_main(self, sh):
         self._generate_test_uniforms(sh)
@@ -102,12 +70,7 @@ class TestFunctions:
             sh.include('include/add.hlsl')
             self._generate_add_func(sh, decl_only = True)
             self._correct_ps_main(sh)
-        self._compile(
-            hlsl_path,
-            includes = [
-                pathlib.Path(sys.modules[self.__module__].__file__).parent
-            ]
-        )
+        self._compile(hlsl_path)
 
     def test_missing_arg(self):
         with self._open_file() as ps_file:
