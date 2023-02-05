@@ -178,13 +178,15 @@ class Point3f(rtsl.Point3, Float3):
     pass
 
 class RgbF(rtsl.RgbF, Float3):
-    pass
+    _swizzle_str = 'rgb'
 
 class RgbaF(rtsl.RgbaF, Float4, struct.StructBase):
     _member_defs = {
         'rgb' : struct.StructMemberDef(RgbF),
         'a' : struct.StructMemberDef(Float)
     }
+
+    _swizzle_str = 'rgba'
 
     def __init__(self, _ = None, rgb = None, a = None):
         if ( isinstance(rgb, Float3) and not isinstance(rgb, RgbF) ):
