@@ -40,7 +40,11 @@ class _MulMixin:
         return result_type( f'mul({self}, {rhs})' )
 
 class Float(rtsl.Float, _UnaryMixin):
-    pass
+    def __init__(self, _ = None):
+        super().__init__(
+            _ if isinstance(_, str)
+            else self.__class__._get_value_ref(_)
+        )
 
 class _RawVector(rtsl._RawVector, _MulMixin, _UnaryMixin):
     _element_type = Float

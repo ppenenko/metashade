@@ -31,6 +31,9 @@ class TestDTypes(_base.Base):
                 sh.f2A = sh.Float2(0.6578467)
                 sh.f2B = sh.Float2(0.4235) * sh.f2A
 
-                sh.return_(sh.f4B.w + sh.f3B.z + sh.f2B.y)
+                sh.fA = sh.Float(1.0)
+                sh.fB = sh.Float(2.0) + sh.fA
+
+                sh.return_(sh.f4B.w + sh.f3B.z + sh.f2B.y + sh.fB)
 
         self._compile(hlsl_path, as_lib = True)
