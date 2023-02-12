@@ -17,22 +17,20 @@ import metashade.rtsl.data_types as rtsl
 import metashade.clike.struct as struct
 
 import numbers
+from . import _float_intrinsics
 
-class _UnaryMixin:
+class _UnaryMixin(_float_intrinsics.FloatlikeMixin):
     def _checkDdxDdy(self, name):
         if not self._sh.__class__._is_pixel_shader:
             raise RuntimeError(f'"{name}" is only supported in pixel shaders')
 
-    def saturate(self):
-        return self.__class__( f'saturate({self})' )
-
     def ddx(self):
         self._checkDdxDdy('ddx')
-        return self.__class__( f'ddx({self})' )
+        return super.ddx()
 
     def ddy(self):
         self._checkDdxDdy('ddy')
-        return self.__class__( f'ddy({self})' )
+        return super.ddy()
 
 class _MulMixin:
     def mul(self, rhs, result_type):
