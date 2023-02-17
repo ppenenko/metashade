@@ -26,11 +26,11 @@ class _UnaryMixin(_float_intrinsics.FloatlikeMixin):
 
     def ddx(self):
         self._checkDdxDdy('ddx')
-        return super.ddx()
+        return super().ddx()
 
     def ddy(self):
         self._checkDdxDdy('ddy')
-        return super.ddy()
+        return super().ddy()
 
 class _MulMixin:
     def mul(self, rhs, result_type):
