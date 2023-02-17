@@ -24,7 +24,17 @@ class TestFloatIntrinsics(_base.Base):
             with sh.uniform_buffer(register = 0, name = 'cb'):
                 sh.uniform('g_f', sh.Float)
                 for dim in range(1, 5):
-                    sh.uniform(f'g_f{dim}', getattr(sh, f'Float{dim}'))
+                    sh.uniform(
+                        f'g_f{dim}',
+                        getattr(sh, f'Float{dim}')
+                    )
+
+                for row in range(1, 5):
+                    for col in range(1, 5):
+                        sh.uniform(
+                            f'g_f{row}x{col}',
+                            getattr(sh, f'Float{row}x{col}')
+                        )
 
             _auto_float_intrinsics.test(sh)
 
