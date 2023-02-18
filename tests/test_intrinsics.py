@@ -12,12 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import _base, _auto_float_intrinsics
+import _base, _auto_float_intrinsics, _auto_numeric_intrinsics
 from metashade.hlsl.sm6 import ps_6_0
 
-class TestFloatIntrinsics(_base.Base):
-    def test_float_intrinsics(self):
-        hlsl_path = self._get_hlsl_path('test_float_intrinsics')
+class TestIntrinsics(_base.Base):
+    def _test(self, hlsl_file_name, auto_package):
+        hlsl_path = self._get_hlsl_path(hlsl_file_name)
         with self._open_file(hlsl_path) as ps_file:
             sh = ps_6_0.Generator(ps_file)
 
@@ -36,6 +36,12 @@ class TestFloatIntrinsics(_base.Base):
                             getattr(sh, f'Float{row}x{col}')
                         )
 
-            _auto_float_intrinsics.test(sh)
+            auto_package.test(sh)
 
         self._compile(hlsl_path, as_lib = True)
+
+    def test_float_intrinsics(self):
+        self._test('test_float_intrinsics', _auto_float_intrinsics)
+
+    def test_numeric_intrinsics(self):
+        self._test('test_numeric_intrinsics', _auto_numeric_intrinsics)
