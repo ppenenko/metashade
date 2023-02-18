@@ -17,9 +17,12 @@ import metashade.rtsl.data_types as rtsl
 import metashade.clike.struct as struct
 
 import numbers
-from . import _float_intrinsics
+from . import _auto_float_intrinsics, _auto_numeric_intrinsics
 
-class _UnaryMixin(_float_intrinsics.FloatlikeMixin):
+class _AnyLayoutMixin(
+    _auto_float_intrinsics.Mixin,
+    _auto_numeric_intrinsics.Mixin
+):
     def _checkDdxDdy(self, name):
         if not self._sh.__class__._is_pixel_shader:
             raise RuntimeError(f'"{name}" is only supported in pixel shaders')
@@ -37,14 +40,14 @@ class _MulMixin:
         self._check_mul(rhs)
         return result_type( f'mul({self}, {rhs})' )
 
-class Float(rtsl.Float, _UnaryMixin):
+class Float(rtsl.Float, _AnyLayoutMixin):
     def __init__(self, _ = None):
         super().__init__(
             _ if isinstance(_, str)
             else self.__class__._get_value_ref(_)
         )
 
-class _RawVector(rtsl._RawVector, _MulMixin, _UnaryMixin):
+class _RawVector(rtsl._RawVector, _MulMixin, _AnyLayoutMixin):
     _element_type = Float
 
     def __init__(self, _ = None):
@@ -93,7 +96,7 @@ class Float4(_RawVector, rtsl.Float4):
             )
             super().__init__(expression)
 
-class _RawMatrixF(_MulMixin, _UnaryMixin, rtsl._RawMatrix):
+class _RawMatrixF(_MulMixin, _AnyLayoutMixin, rtsl._RawMatrix):
     # This is the HLSL default but should ideally be configurable
     _row_major = False
     _element_type = Float
