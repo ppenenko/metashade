@@ -53,7 +53,7 @@ class _RawVector(rtsl._RawVector, _MulMixin, _AnyLayoutMixin):
     def __init__(self, _ = None):
         element_ref = self.__class__._element_type._get_value_ref(_)
         super().__init__(
-            '.'.join((element_ref, 'x' * self.__class__._dim))
+            '.'.join((str(element_ref), 'x' * self.__class__._dim))
                 if element_ref is not None else _
         )
 
