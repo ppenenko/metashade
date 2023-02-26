@@ -49,3 +49,15 @@ class Mixin:
 	def abs(self):
 		return self.__class__( f'abs({self})' )
 
+	def clamp(self, min, max):
+		return self.__class__( f'clamp({self}, {min}, {max})' )
+
+	def mad(self, b, c):
+		return self.__class__( f'mad({self}, {b}, {c})' )
+
+	def max(self, b):
+		return self.__class__( f'max({self}, {b})' )
+
+	def min(self, b):
+		return self.__class__( f'min({self}, {b})' )
+

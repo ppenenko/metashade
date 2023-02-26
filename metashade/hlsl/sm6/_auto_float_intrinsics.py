@@ -25,6 +25,9 @@ class Mixin:
 	def atan(self):
 		return self.__class__( f'atan({self})' )
 
+	def atan2(self, y):
+		return self.__class__( f'atan2({self}, {y})' )
+
 	def ceil(self):
 		return self.__class__( f'ceil({self})' )
 
@@ -64,11 +67,20 @@ class Mixin:
 	def floor(self):
 		return self.__class__( f'floor({self})' )
 
+	def fmod(self, b):
+		return self.__class__( f'fmod({self}, {b})' )
+
 	def frac(self):
 		return self.__class__( f'frac({self})' )
 
 	def fwidth(self):
 		return self.__class__( f'fwidth({self})' )
+
+	def ldexp(self, exp):
+		return self.__class__( f'ldexp({self}, {exp})' )
+
+	def lerp(self, a, b):
+		return self.__class__( f'lerp({a}, {b}, {self})' )
 
 	def log(self):
 		return self.__class__( f'log({self})' )
@@ -78,6 +90,12 @@ class Mixin:
 
 	def log2(self):
 		return self.__class__( f'log2({self})' )
+
+	def modf(self, ip):
+		return self.__class__( f'modf({self}, {ip})' )
+
+	def pow(self, y):
+		return self.__class__( f'pow({self}, {y})' )
 
 	def radians(self):
 		return self.__class__( f'radians({self})' )
@@ -100,8 +118,14 @@ class Mixin:
 	def sinh(self):
 		return self.__class__( f'sinh({self})' )
 
+	def smoothstep(self, a, b):
+		return self.__class__( f'smoothstep({a}, {b}, {self})' )
+
 	def sqrt(self):
 		return self.__class__( f'sqrt({self})' )
+
+	def step(self, x):
+		return self.__class__( f'step({self}, {x})' )
 
 	def tan(self):
 		return self.__class__( f'tan({self})' )
