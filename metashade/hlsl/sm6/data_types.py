@@ -20,8 +20,8 @@ import numbers
 from . import _auto_float_intrinsics, _auto_numeric_intrinsics
 
 class _AnyLayoutMixin(
-    _auto_float_intrinsics.Mixin,
-    _auto_numeric_intrinsics.Mixin
+    _auto_float_intrinsics.AnyLayoutMixin,
+    _auto_numeric_intrinsics.AnyLayoutMixin
 ):
     def _checkDdxDdy(self, name):
         if not self._sh.__class__._is_pixel_shader:
