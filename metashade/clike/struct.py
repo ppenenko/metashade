@@ -50,9 +50,9 @@ class StructBase:
         return True
 
 class Struct(BaseType, StructBase):
-    def __init__(self):
-        BaseType.__init__(self)
-        StructBase.__init__(self)
+    def __init__(self, expression : str = None):
+        BaseType.__init__(self, expression)
+        StructBase.__init__(self, expression)
 
     def _bind(self, sh, identifier, allow_init):
         super()._bind(sh, identifier, allow_init)
