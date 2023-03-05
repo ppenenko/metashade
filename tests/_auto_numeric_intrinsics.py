@@ -17,926 +17,947 @@
  
 def test(sh):
 	with sh.function("test_EvaluateAttributeCentroid_Float", sh.Float)():
-		sh.f_EvaluateAttributeCentroid = sh.g_f.EvaluateAttributeCentroid()
-		sh.return_( sh.f_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float1", sh.Float1)():
-		sh.f1_EvaluateAttributeCentroid = sh.g_f1.EvaluateAttributeCentroid()
-		sh.return_( sh.f1_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f1.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float2", sh.Float2)():
-		sh.f2_EvaluateAttributeCentroid = sh.g_f2.EvaluateAttributeCentroid()
-		sh.return_( sh.f2_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f2.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float3", sh.Float3)():
-		sh.f3_EvaluateAttributeCentroid = sh.g_f3.EvaluateAttributeCentroid()
-		sh.return_( sh.f3_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f3.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float4", sh.Float4)():
-		sh.f4_EvaluateAttributeCentroid = sh.g_f4.EvaluateAttributeCentroid()
-		sh.return_( sh.f4_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f4.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float1x1", sh.Float1x1)():
-		sh.f1x1_EvaluateAttributeCentroid = sh.g_f1x1.EvaluateAttributeCentroid()
-		sh.return_( sh.f1x1_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f1x1.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float1x2", sh.Float1x2)():
-		sh.f1x2_EvaluateAttributeCentroid = sh.g_f1x2.EvaluateAttributeCentroid()
-		sh.return_( sh.f1x2_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f1x2.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float1x3", sh.Float1x3)():
-		sh.f1x3_EvaluateAttributeCentroid = sh.g_f1x3.EvaluateAttributeCentroid()
-		sh.return_( sh.f1x3_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f1x3.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float1x4", sh.Float1x4)():
-		sh.f1x4_EvaluateAttributeCentroid = sh.g_f1x4.EvaluateAttributeCentroid()
-		sh.return_( sh.f1x4_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f1x4.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float2x1", sh.Float2x1)():
-		sh.f2x1_EvaluateAttributeCentroid = sh.g_f2x1.EvaluateAttributeCentroid()
-		sh.return_( sh.f2x1_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f2x1.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float2x2", sh.Float2x2)():
-		sh.f2x2_EvaluateAttributeCentroid = sh.g_f2x2.EvaluateAttributeCentroid()
-		sh.return_( sh.f2x2_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f2x2.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float2x3", sh.Float2x3)():
-		sh.f2x3_EvaluateAttributeCentroid = sh.g_f2x3.EvaluateAttributeCentroid()
-		sh.return_( sh.f2x3_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f2x3.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float2x4", sh.Float2x4)():
-		sh.f2x4_EvaluateAttributeCentroid = sh.g_f2x4.EvaluateAttributeCentroid()
-		sh.return_( sh.f2x4_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f2x4.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float3x1", sh.Float3x1)():
-		sh.f3x1_EvaluateAttributeCentroid = sh.g_f3x1.EvaluateAttributeCentroid()
-		sh.return_( sh.f3x1_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f3x1.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float3x2", sh.Float3x2)():
-		sh.f3x2_EvaluateAttributeCentroid = sh.g_f3x2.EvaluateAttributeCentroid()
-		sh.return_( sh.f3x2_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f3x2.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float3x3", sh.Float3x3)():
-		sh.f3x3_EvaluateAttributeCentroid = sh.g_f3x3.EvaluateAttributeCentroid()
-		sh.return_( sh.f3x3_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f3x3.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float3x4", sh.Float3x4)():
-		sh.f3x4_EvaluateAttributeCentroid = sh.g_f3x4.EvaluateAttributeCentroid()
-		sh.return_( sh.f3x4_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f3x4.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float4x1", sh.Float4x1)():
-		sh.f4x1_EvaluateAttributeCentroid = sh.g_f4x1.EvaluateAttributeCentroid()
-		sh.return_( sh.f4x1_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f4x1.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float4x2", sh.Float4x2)():
-		sh.f4x2_EvaluateAttributeCentroid = sh.g_f4x2.EvaluateAttributeCentroid()
-		sh.return_( sh.f4x2_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f4x2.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float4x3", sh.Float4x3)():
-		sh.f4x3_EvaluateAttributeCentroid = sh.g_f4x3.EvaluateAttributeCentroid()
-		sh.return_( sh.f4x3_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f4x3.EvaluateAttributeCentroid() )
 
 	with sh.function("test_EvaluateAttributeCentroid_Float4x4", sh.Float4x4)():
-		sh.f4x4_EvaluateAttributeCentroid = sh.g_f4x4.EvaluateAttributeCentroid()
-		sh.return_( sh.f4x4_EvaluateAttributeCentroid )
+		sh.return_( sh.g_f4x4.EvaluateAttributeCentroid() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float", sh.Float)():
-		sh.f_QuadReadAcrossDiagonal = sh.g_f.QuadReadAcrossDiagonal()
-		sh.return_( sh.f_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float1", sh.Float1)():
-		sh.f1_QuadReadAcrossDiagonal = sh.g_f1.QuadReadAcrossDiagonal()
-		sh.return_( sh.f1_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f1.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float2", sh.Float2)():
-		sh.f2_QuadReadAcrossDiagonal = sh.g_f2.QuadReadAcrossDiagonal()
-		sh.return_( sh.f2_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f2.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float3", sh.Float3)():
-		sh.f3_QuadReadAcrossDiagonal = sh.g_f3.QuadReadAcrossDiagonal()
-		sh.return_( sh.f3_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f3.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float4", sh.Float4)():
-		sh.f4_QuadReadAcrossDiagonal = sh.g_f4.QuadReadAcrossDiagonal()
-		sh.return_( sh.f4_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f4.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float1x1", sh.Float1x1)():
-		sh.f1x1_QuadReadAcrossDiagonal = sh.g_f1x1.QuadReadAcrossDiagonal()
-		sh.return_( sh.f1x1_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f1x1.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float1x2", sh.Float1x2)():
-		sh.f1x2_QuadReadAcrossDiagonal = sh.g_f1x2.QuadReadAcrossDiagonal()
-		sh.return_( sh.f1x2_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f1x2.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float1x3", sh.Float1x3)():
-		sh.f1x3_QuadReadAcrossDiagonal = sh.g_f1x3.QuadReadAcrossDiagonal()
-		sh.return_( sh.f1x3_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f1x3.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float1x4", sh.Float1x4)():
-		sh.f1x4_QuadReadAcrossDiagonal = sh.g_f1x4.QuadReadAcrossDiagonal()
-		sh.return_( sh.f1x4_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f1x4.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float2x1", sh.Float2x1)():
-		sh.f2x1_QuadReadAcrossDiagonal = sh.g_f2x1.QuadReadAcrossDiagonal()
-		sh.return_( sh.f2x1_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f2x1.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float2x2", sh.Float2x2)():
-		sh.f2x2_QuadReadAcrossDiagonal = sh.g_f2x2.QuadReadAcrossDiagonal()
-		sh.return_( sh.f2x2_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f2x2.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float2x3", sh.Float2x3)():
-		sh.f2x3_QuadReadAcrossDiagonal = sh.g_f2x3.QuadReadAcrossDiagonal()
-		sh.return_( sh.f2x3_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f2x3.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float2x4", sh.Float2x4)():
-		sh.f2x4_QuadReadAcrossDiagonal = sh.g_f2x4.QuadReadAcrossDiagonal()
-		sh.return_( sh.f2x4_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f2x4.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float3x1", sh.Float3x1)():
-		sh.f3x1_QuadReadAcrossDiagonal = sh.g_f3x1.QuadReadAcrossDiagonal()
-		sh.return_( sh.f3x1_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f3x1.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float3x2", sh.Float3x2)():
-		sh.f3x2_QuadReadAcrossDiagonal = sh.g_f3x2.QuadReadAcrossDiagonal()
-		sh.return_( sh.f3x2_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f3x2.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float3x3", sh.Float3x3)():
-		sh.f3x3_QuadReadAcrossDiagonal = sh.g_f3x3.QuadReadAcrossDiagonal()
-		sh.return_( sh.f3x3_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f3x3.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float3x4", sh.Float3x4)():
-		sh.f3x4_QuadReadAcrossDiagonal = sh.g_f3x4.QuadReadAcrossDiagonal()
-		sh.return_( sh.f3x4_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f3x4.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float4x1", sh.Float4x1)():
-		sh.f4x1_QuadReadAcrossDiagonal = sh.g_f4x1.QuadReadAcrossDiagonal()
-		sh.return_( sh.f4x1_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f4x1.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float4x2", sh.Float4x2)():
-		sh.f4x2_QuadReadAcrossDiagonal = sh.g_f4x2.QuadReadAcrossDiagonal()
-		sh.return_( sh.f4x2_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f4x2.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float4x3", sh.Float4x3)():
-		sh.f4x3_QuadReadAcrossDiagonal = sh.g_f4x3.QuadReadAcrossDiagonal()
-		sh.return_( sh.f4x3_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f4x3.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossDiagonal_Float4x4", sh.Float4x4)():
-		sh.f4x4_QuadReadAcrossDiagonal = sh.g_f4x4.QuadReadAcrossDiagonal()
-		sh.return_( sh.f4x4_QuadReadAcrossDiagonal )
+		sh.return_( sh.g_f4x4.QuadReadAcrossDiagonal() )
 
 	with sh.function("test_QuadReadAcrossX_Float", sh.Float)():
-		sh.f_QuadReadAcrossX = sh.g_f.QuadReadAcrossX()
-		sh.return_( sh.f_QuadReadAcrossX )
+		sh.return_( sh.g_f.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float1", sh.Float1)():
-		sh.f1_QuadReadAcrossX = sh.g_f1.QuadReadAcrossX()
-		sh.return_( sh.f1_QuadReadAcrossX )
+		sh.return_( sh.g_f1.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float2", sh.Float2)():
-		sh.f2_QuadReadAcrossX = sh.g_f2.QuadReadAcrossX()
-		sh.return_( sh.f2_QuadReadAcrossX )
+		sh.return_( sh.g_f2.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float3", sh.Float3)():
-		sh.f3_QuadReadAcrossX = sh.g_f3.QuadReadAcrossX()
-		sh.return_( sh.f3_QuadReadAcrossX )
+		sh.return_( sh.g_f3.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float4", sh.Float4)():
-		sh.f4_QuadReadAcrossX = sh.g_f4.QuadReadAcrossX()
-		sh.return_( sh.f4_QuadReadAcrossX )
+		sh.return_( sh.g_f4.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float1x1", sh.Float1x1)():
-		sh.f1x1_QuadReadAcrossX = sh.g_f1x1.QuadReadAcrossX()
-		sh.return_( sh.f1x1_QuadReadAcrossX )
+		sh.return_( sh.g_f1x1.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float1x2", sh.Float1x2)():
-		sh.f1x2_QuadReadAcrossX = sh.g_f1x2.QuadReadAcrossX()
-		sh.return_( sh.f1x2_QuadReadAcrossX )
+		sh.return_( sh.g_f1x2.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float1x3", sh.Float1x3)():
-		sh.f1x3_QuadReadAcrossX = sh.g_f1x3.QuadReadAcrossX()
-		sh.return_( sh.f1x3_QuadReadAcrossX )
+		sh.return_( sh.g_f1x3.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float1x4", sh.Float1x4)():
-		sh.f1x4_QuadReadAcrossX = sh.g_f1x4.QuadReadAcrossX()
-		sh.return_( sh.f1x4_QuadReadAcrossX )
+		sh.return_( sh.g_f1x4.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float2x1", sh.Float2x1)():
-		sh.f2x1_QuadReadAcrossX = sh.g_f2x1.QuadReadAcrossX()
-		sh.return_( sh.f2x1_QuadReadAcrossX )
+		sh.return_( sh.g_f2x1.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float2x2", sh.Float2x2)():
-		sh.f2x2_QuadReadAcrossX = sh.g_f2x2.QuadReadAcrossX()
-		sh.return_( sh.f2x2_QuadReadAcrossX )
+		sh.return_( sh.g_f2x2.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float2x3", sh.Float2x3)():
-		sh.f2x3_QuadReadAcrossX = sh.g_f2x3.QuadReadAcrossX()
-		sh.return_( sh.f2x3_QuadReadAcrossX )
+		sh.return_( sh.g_f2x3.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float2x4", sh.Float2x4)():
-		sh.f2x4_QuadReadAcrossX = sh.g_f2x4.QuadReadAcrossX()
-		sh.return_( sh.f2x4_QuadReadAcrossX )
+		sh.return_( sh.g_f2x4.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float3x1", sh.Float3x1)():
-		sh.f3x1_QuadReadAcrossX = sh.g_f3x1.QuadReadAcrossX()
-		sh.return_( sh.f3x1_QuadReadAcrossX )
+		sh.return_( sh.g_f3x1.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float3x2", sh.Float3x2)():
-		sh.f3x2_QuadReadAcrossX = sh.g_f3x2.QuadReadAcrossX()
-		sh.return_( sh.f3x2_QuadReadAcrossX )
+		sh.return_( sh.g_f3x2.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float3x3", sh.Float3x3)():
-		sh.f3x3_QuadReadAcrossX = sh.g_f3x3.QuadReadAcrossX()
-		sh.return_( sh.f3x3_QuadReadAcrossX )
+		sh.return_( sh.g_f3x3.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float3x4", sh.Float3x4)():
-		sh.f3x4_QuadReadAcrossX = sh.g_f3x4.QuadReadAcrossX()
-		sh.return_( sh.f3x4_QuadReadAcrossX )
+		sh.return_( sh.g_f3x4.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float4x1", sh.Float4x1)():
-		sh.f4x1_QuadReadAcrossX = sh.g_f4x1.QuadReadAcrossX()
-		sh.return_( sh.f4x1_QuadReadAcrossX )
+		sh.return_( sh.g_f4x1.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float4x2", sh.Float4x2)():
-		sh.f4x2_QuadReadAcrossX = sh.g_f4x2.QuadReadAcrossX()
-		sh.return_( sh.f4x2_QuadReadAcrossX )
+		sh.return_( sh.g_f4x2.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float4x3", sh.Float4x3)():
-		sh.f4x3_QuadReadAcrossX = sh.g_f4x3.QuadReadAcrossX()
-		sh.return_( sh.f4x3_QuadReadAcrossX )
+		sh.return_( sh.g_f4x3.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossX_Float4x4", sh.Float4x4)():
-		sh.f4x4_QuadReadAcrossX = sh.g_f4x4.QuadReadAcrossX()
-		sh.return_( sh.f4x4_QuadReadAcrossX )
+		sh.return_( sh.g_f4x4.QuadReadAcrossX() )
 
 	with sh.function("test_QuadReadAcrossY_Float", sh.Float)():
-		sh.f_QuadReadAcrossY = sh.g_f.QuadReadAcrossY()
-		sh.return_( sh.f_QuadReadAcrossY )
+		sh.return_( sh.g_f.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float1", sh.Float1)():
-		sh.f1_QuadReadAcrossY = sh.g_f1.QuadReadAcrossY()
-		sh.return_( sh.f1_QuadReadAcrossY )
+		sh.return_( sh.g_f1.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float2", sh.Float2)():
-		sh.f2_QuadReadAcrossY = sh.g_f2.QuadReadAcrossY()
-		sh.return_( sh.f2_QuadReadAcrossY )
+		sh.return_( sh.g_f2.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float3", sh.Float3)():
-		sh.f3_QuadReadAcrossY = sh.g_f3.QuadReadAcrossY()
-		sh.return_( sh.f3_QuadReadAcrossY )
+		sh.return_( sh.g_f3.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float4", sh.Float4)():
-		sh.f4_QuadReadAcrossY = sh.g_f4.QuadReadAcrossY()
-		sh.return_( sh.f4_QuadReadAcrossY )
+		sh.return_( sh.g_f4.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float1x1", sh.Float1x1)():
-		sh.f1x1_QuadReadAcrossY = sh.g_f1x1.QuadReadAcrossY()
-		sh.return_( sh.f1x1_QuadReadAcrossY )
+		sh.return_( sh.g_f1x1.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float1x2", sh.Float1x2)():
-		sh.f1x2_QuadReadAcrossY = sh.g_f1x2.QuadReadAcrossY()
-		sh.return_( sh.f1x2_QuadReadAcrossY )
+		sh.return_( sh.g_f1x2.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float1x3", sh.Float1x3)():
-		sh.f1x3_QuadReadAcrossY = sh.g_f1x3.QuadReadAcrossY()
-		sh.return_( sh.f1x3_QuadReadAcrossY )
+		sh.return_( sh.g_f1x3.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float1x4", sh.Float1x4)():
-		sh.f1x4_QuadReadAcrossY = sh.g_f1x4.QuadReadAcrossY()
-		sh.return_( sh.f1x4_QuadReadAcrossY )
+		sh.return_( sh.g_f1x4.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float2x1", sh.Float2x1)():
-		sh.f2x1_QuadReadAcrossY = sh.g_f2x1.QuadReadAcrossY()
-		sh.return_( sh.f2x1_QuadReadAcrossY )
+		sh.return_( sh.g_f2x1.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float2x2", sh.Float2x2)():
-		sh.f2x2_QuadReadAcrossY = sh.g_f2x2.QuadReadAcrossY()
-		sh.return_( sh.f2x2_QuadReadAcrossY )
+		sh.return_( sh.g_f2x2.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float2x3", sh.Float2x3)():
-		sh.f2x3_QuadReadAcrossY = sh.g_f2x3.QuadReadAcrossY()
-		sh.return_( sh.f2x3_QuadReadAcrossY )
+		sh.return_( sh.g_f2x3.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float2x4", sh.Float2x4)():
-		sh.f2x4_QuadReadAcrossY = sh.g_f2x4.QuadReadAcrossY()
-		sh.return_( sh.f2x4_QuadReadAcrossY )
+		sh.return_( sh.g_f2x4.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float3x1", sh.Float3x1)():
-		sh.f3x1_QuadReadAcrossY = sh.g_f3x1.QuadReadAcrossY()
-		sh.return_( sh.f3x1_QuadReadAcrossY )
+		sh.return_( sh.g_f3x1.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float3x2", sh.Float3x2)():
-		sh.f3x2_QuadReadAcrossY = sh.g_f3x2.QuadReadAcrossY()
-		sh.return_( sh.f3x2_QuadReadAcrossY )
+		sh.return_( sh.g_f3x2.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float3x3", sh.Float3x3)():
-		sh.f3x3_QuadReadAcrossY = sh.g_f3x3.QuadReadAcrossY()
-		sh.return_( sh.f3x3_QuadReadAcrossY )
+		sh.return_( sh.g_f3x3.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float3x4", sh.Float3x4)():
-		sh.f3x4_QuadReadAcrossY = sh.g_f3x4.QuadReadAcrossY()
-		sh.return_( sh.f3x4_QuadReadAcrossY )
+		sh.return_( sh.g_f3x4.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float4x1", sh.Float4x1)():
-		sh.f4x1_QuadReadAcrossY = sh.g_f4x1.QuadReadAcrossY()
-		sh.return_( sh.f4x1_QuadReadAcrossY )
+		sh.return_( sh.g_f4x1.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float4x2", sh.Float4x2)():
-		sh.f4x2_QuadReadAcrossY = sh.g_f4x2.QuadReadAcrossY()
-		sh.return_( sh.f4x2_QuadReadAcrossY )
+		sh.return_( sh.g_f4x2.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float4x3", sh.Float4x3)():
-		sh.f4x3_QuadReadAcrossY = sh.g_f4x3.QuadReadAcrossY()
-		sh.return_( sh.f4x3_QuadReadAcrossY )
+		sh.return_( sh.g_f4x3.QuadReadAcrossY() )
 
 	with sh.function("test_QuadReadAcrossY_Float4x4", sh.Float4x4)():
-		sh.f4x4_QuadReadAcrossY = sh.g_f4x4.QuadReadAcrossY()
-		sh.return_( sh.f4x4_QuadReadAcrossY )
+		sh.return_( sh.g_f4x4.QuadReadAcrossY() )
 
 	with sh.function("test_WaveActiveMax_Float", sh.Float)():
-		sh.f_WaveActiveMax = sh.g_f.WaveActiveMax()
-		sh.return_( sh.f_WaveActiveMax )
+		sh.return_( sh.g_f.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float1", sh.Float1)():
-		sh.f1_WaveActiveMax = sh.g_f1.WaveActiveMax()
-		sh.return_( sh.f1_WaveActiveMax )
+		sh.return_( sh.g_f1.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float2", sh.Float2)():
-		sh.f2_WaveActiveMax = sh.g_f2.WaveActiveMax()
-		sh.return_( sh.f2_WaveActiveMax )
+		sh.return_( sh.g_f2.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float3", sh.Float3)():
-		sh.f3_WaveActiveMax = sh.g_f3.WaveActiveMax()
-		sh.return_( sh.f3_WaveActiveMax )
+		sh.return_( sh.g_f3.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float4", sh.Float4)():
-		sh.f4_WaveActiveMax = sh.g_f4.WaveActiveMax()
-		sh.return_( sh.f4_WaveActiveMax )
+		sh.return_( sh.g_f4.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float1x1", sh.Float1x1)():
-		sh.f1x1_WaveActiveMax = sh.g_f1x1.WaveActiveMax()
-		sh.return_( sh.f1x1_WaveActiveMax )
+		sh.return_( sh.g_f1x1.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float1x2", sh.Float1x2)():
-		sh.f1x2_WaveActiveMax = sh.g_f1x2.WaveActiveMax()
-		sh.return_( sh.f1x2_WaveActiveMax )
+		sh.return_( sh.g_f1x2.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float1x3", sh.Float1x3)():
-		sh.f1x3_WaveActiveMax = sh.g_f1x3.WaveActiveMax()
-		sh.return_( sh.f1x3_WaveActiveMax )
+		sh.return_( sh.g_f1x3.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float1x4", sh.Float1x4)():
-		sh.f1x4_WaveActiveMax = sh.g_f1x4.WaveActiveMax()
-		sh.return_( sh.f1x4_WaveActiveMax )
+		sh.return_( sh.g_f1x4.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float2x1", sh.Float2x1)():
-		sh.f2x1_WaveActiveMax = sh.g_f2x1.WaveActiveMax()
-		sh.return_( sh.f2x1_WaveActiveMax )
+		sh.return_( sh.g_f2x1.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float2x2", sh.Float2x2)():
-		sh.f2x2_WaveActiveMax = sh.g_f2x2.WaveActiveMax()
-		sh.return_( sh.f2x2_WaveActiveMax )
+		sh.return_( sh.g_f2x2.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float2x3", sh.Float2x3)():
-		sh.f2x3_WaveActiveMax = sh.g_f2x3.WaveActiveMax()
-		sh.return_( sh.f2x3_WaveActiveMax )
+		sh.return_( sh.g_f2x3.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float2x4", sh.Float2x4)():
-		sh.f2x4_WaveActiveMax = sh.g_f2x4.WaveActiveMax()
-		sh.return_( sh.f2x4_WaveActiveMax )
+		sh.return_( sh.g_f2x4.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float3x1", sh.Float3x1)():
-		sh.f3x1_WaveActiveMax = sh.g_f3x1.WaveActiveMax()
-		sh.return_( sh.f3x1_WaveActiveMax )
+		sh.return_( sh.g_f3x1.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float3x2", sh.Float3x2)():
-		sh.f3x2_WaveActiveMax = sh.g_f3x2.WaveActiveMax()
-		sh.return_( sh.f3x2_WaveActiveMax )
+		sh.return_( sh.g_f3x2.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float3x3", sh.Float3x3)():
-		sh.f3x3_WaveActiveMax = sh.g_f3x3.WaveActiveMax()
-		sh.return_( sh.f3x3_WaveActiveMax )
+		sh.return_( sh.g_f3x3.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float3x4", sh.Float3x4)():
-		sh.f3x4_WaveActiveMax = sh.g_f3x4.WaveActiveMax()
-		sh.return_( sh.f3x4_WaveActiveMax )
+		sh.return_( sh.g_f3x4.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float4x1", sh.Float4x1)():
-		sh.f4x1_WaveActiveMax = sh.g_f4x1.WaveActiveMax()
-		sh.return_( sh.f4x1_WaveActiveMax )
+		sh.return_( sh.g_f4x1.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float4x2", sh.Float4x2)():
-		sh.f4x2_WaveActiveMax = sh.g_f4x2.WaveActiveMax()
-		sh.return_( sh.f4x2_WaveActiveMax )
+		sh.return_( sh.g_f4x2.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float4x3", sh.Float4x3)():
-		sh.f4x3_WaveActiveMax = sh.g_f4x3.WaveActiveMax()
-		sh.return_( sh.f4x3_WaveActiveMax )
+		sh.return_( sh.g_f4x3.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMax_Float4x4", sh.Float4x4)():
-		sh.f4x4_WaveActiveMax = sh.g_f4x4.WaveActiveMax()
-		sh.return_( sh.f4x4_WaveActiveMax )
+		sh.return_( sh.g_f4x4.WaveActiveMax() )
 
 	with sh.function("test_WaveActiveMin_Float", sh.Float)():
-		sh.f_WaveActiveMin = sh.g_f.WaveActiveMin()
-		sh.return_( sh.f_WaveActiveMin )
+		sh.return_( sh.g_f.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float1", sh.Float1)():
-		sh.f1_WaveActiveMin = sh.g_f1.WaveActiveMin()
-		sh.return_( sh.f1_WaveActiveMin )
+		sh.return_( sh.g_f1.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float2", sh.Float2)():
-		sh.f2_WaveActiveMin = sh.g_f2.WaveActiveMin()
-		sh.return_( sh.f2_WaveActiveMin )
+		sh.return_( sh.g_f2.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float3", sh.Float3)():
-		sh.f3_WaveActiveMin = sh.g_f3.WaveActiveMin()
-		sh.return_( sh.f3_WaveActiveMin )
+		sh.return_( sh.g_f3.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float4", sh.Float4)():
-		sh.f4_WaveActiveMin = sh.g_f4.WaveActiveMin()
-		sh.return_( sh.f4_WaveActiveMin )
+		sh.return_( sh.g_f4.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float1x1", sh.Float1x1)():
-		sh.f1x1_WaveActiveMin = sh.g_f1x1.WaveActiveMin()
-		sh.return_( sh.f1x1_WaveActiveMin )
+		sh.return_( sh.g_f1x1.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float1x2", sh.Float1x2)():
-		sh.f1x2_WaveActiveMin = sh.g_f1x2.WaveActiveMin()
-		sh.return_( sh.f1x2_WaveActiveMin )
+		sh.return_( sh.g_f1x2.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float1x3", sh.Float1x3)():
-		sh.f1x3_WaveActiveMin = sh.g_f1x3.WaveActiveMin()
-		sh.return_( sh.f1x3_WaveActiveMin )
+		sh.return_( sh.g_f1x3.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float1x4", sh.Float1x4)():
-		sh.f1x4_WaveActiveMin = sh.g_f1x4.WaveActiveMin()
-		sh.return_( sh.f1x4_WaveActiveMin )
+		sh.return_( sh.g_f1x4.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float2x1", sh.Float2x1)():
-		sh.f2x1_WaveActiveMin = sh.g_f2x1.WaveActiveMin()
-		sh.return_( sh.f2x1_WaveActiveMin )
+		sh.return_( sh.g_f2x1.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float2x2", sh.Float2x2)():
-		sh.f2x2_WaveActiveMin = sh.g_f2x2.WaveActiveMin()
-		sh.return_( sh.f2x2_WaveActiveMin )
+		sh.return_( sh.g_f2x2.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float2x3", sh.Float2x3)():
-		sh.f2x3_WaveActiveMin = sh.g_f2x3.WaveActiveMin()
-		sh.return_( sh.f2x3_WaveActiveMin )
+		sh.return_( sh.g_f2x3.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float2x4", sh.Float2x4)():
-		sh.f2x4_WaveActiveMin = sh.g_f2x4.WaveActiveMin()
-		sh.return_( sh.f2x4_WaveActiveMin )
+		sh.return_( sh.g_f2x4.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float3x1", sh.Float3x1)():
-		sh.f3x1_WaveActiveMin = sh.g_f3x1.WaveActiveMin()
-		sh.return_( sh.f3x1_WaveActiveMin )
+		sh.return_( sh.g_f3x1.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float3x2", sh.Float3x2)():
-		sh.f3x2_WaveActiveMin = sh.g_f3x2.WaveActiveMin()
-		sh.return_( sh.f3x2_WaveActiveMin )
+		sh.return_( sh.g_f3x2.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float3x3", sh.Float3x3)():
-		sh.f3x3_WaveActiveMin = sh.g_f3x3.WaveActiveMin()
-		sh.return_( sh.f3x3_WaveActiveMin )
+		sh.return_( sh.g_f3x3.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float3x4", sh.Float3x4)():
-		sh.f3x4_WaveActiveMin = sh.g_f3x4.WaveActiveMin()
-		sh.return_( sh.f3x4_WaveActiveMin )
+		sh.return_( sh.g_f3x4.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float4x1", sh.Float4x1)():
-		sh.f4x1_WaveActiveMin = sh.g_f4x1.WaveActiveMin()
-		sh.return_( sh.f4x1_WaveActiveMin )
+		sh.return_( sh.g_f4x1.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float4x2", sh.Float4x2)():
-		sh.f4x2_WaveActiveMin = sh.g_f4x2.WaveActiveMin()
-		sh.return_( sh.f4x2_WaveActiveMin )
+		sh.return_( sh.g_f4x2.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float4x3", sh.Float4x3)():
-		sh.f4x3_WaveActiveMin = sh.g_f4x3.WaveActiveMin()
-		sh.return_( sh.f4x3_WaveActiveMin )
+		sh.return_( sh.g_f4x3.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveMin_Float4x4", sh.Float4x4)():
-		sh.f4x4_WaveActiveMin = sh.g_f4x4.WaveActiveMin()
-		sh.return_( sh.f4x4_WaveActiveMin )
+		sh.return_( sh.g_f4x4.WaveActiveMin() )
 
 	with sh.function("test_WaveActiveProduct_Float", sh.Float)():
-		sh.f_WaveActiveProduct = sh.g_f.WaveActiveProduct()
-		sh.return_( sh.f_WaveActiveProduct )
+		sh.return_( sh.g_f.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float1", sh.Float1)():
-		sh.f1_WaveActiveProduct = sh.g_f1.WaveActiveProduct()
-		sh.return_( sh.f1_WaveActiveProduct )
+		sh.return_( sh.g_f1.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float2", sh.Float2)():
-		sh.f2_WaveActiveProduct = sh.g_f2.WaveActiveProduct()
-		sh.return_( sh.f2_WaveActiveProduct )
+		sh.return_( sh.g_f2.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float3", sh.Float3)():
-		sh.f3_WaveActiveProduct = sh.g_f3.WaveActiveProduct()
-		sh.return_( sh.f3_WaveActiveProduct )
+		sh.return_( sh.g_f3.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float4", sh.Float4)():
-		sh.f4_WaveActiveProduct = sh.g_f4.WaveActiveProduct()
-		sh.return_( sh.f4_WaveActiveProduct )
+		sh.return_( sh.g_f4.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float1x1", sh.Float1x1)():
-		sh.f1x1_WaveActiveProduct = sh.g_f1x1.WaveActiveProduct()
-		sh.return_( sh.f1x1_WaveActiveProduct )
+		sh.return_( sh.g_f1x1.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float1x2", sh.Float1x2)():
-		sh.f1x2_WaveActiveProduct = sh.g_f1x2.WaveActiveProduct()
-		sh.return_( sh.f1x2_WaveActiveProduct )
+		sh.return_( sh.g_f1x2.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float1x3", sh.Float1x3)():
-		sh.f1x3_WaveActiveProduct = sh.g_f1x3.WaveActiveProduct()
-		sh.return_( sh.f1x3_WaveActiveProduct )
+		sh.return_( sh.g_f1x3.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float1x4", sh.Float1x4)():
-		sh.f1x4_WaveActiveProduct = sh.g_f1x4.WaveActiveProduct()
-		sh.return_( sh.f1x4_WaveActiveProduct )
+		sh.return_( sh.g_f1x4.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float2x1", sh.Float2x1)():
-		sh.f2x1_WaveActiveProduct = sh.g_f2x1.WaveActiveProduct()
-		sh.return_( sh.f2x1_WaveActiveProduct )
+		sh.return_( sh.g_f2x1.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float2x2", sh.Float2x2)():
-		sh.f2x2_WaveActiveProduct = sh.g_f2x2.WaveActiveProduct()
-		sh.return_( sh.f2x2_WaveActiveProduct )
+		sh.return_( sh.g_f2x2.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float2x3", sh.Float2x3)():
-		sh.f2x3_WaveActiveProduct = sh.g_f2x3.WaveActiveProduct()
-		sh.return_( sh.f2x3_WaveActiveProduct )
+		sh.return_( sh.g_f2x3.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float2x4", sh.Float2x4)():
-		sh.f2x4_WaveActiveProduct = sh.g_f2x4.WaveActiveProduct()
-		sh.return_( sh.f2x4_WaveActiveProduct )
+		sh.return_( sh.g_f2x4.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float3x1", sh.Float3x1)():
-		sh.f3x1_WaveActiveProduct = sh.g_f3x1.WaveActiveProduct()
-		sh.return_( sh.f3x1_WaveActiveProduct )
+		sh.return_( sh.g_f3x1.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float3x2", sh.Float3x2)():
-		sh.f3x2_WaveActiveProduct = sh.g_f3x2.WaveActiveProduct()
-		sh.return_( sh.f3x2_WaveActiveProduct )
+		sh.return_( sh.g_f3x2.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float3x3", sh.Float3x3)():
-		sh.f3x3_WaveActiveProduct = sh.g_f3x3.WaveActiveProduct()
-		sh.return_( sh.f3x3_WaveActiveProduct )
+		sh.return_( sh.g_f3x3.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float3x4", sh.Float3x4)():
-		sh.f3x4_WaveActiveProduct = sh.g_f3x4.WaveActiveProduct()
-		sh.return_( sh.f3x4_WaveActiveProduct )
+		sh.return_( sh.g_f3x4.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float4x1", sh.Float4x1)():
-		sh.f4x1_WaveActiveProduct = sh.g_f4x1.WaveActiveProduct()
-		sh.return_( sh.f4x1_WaveActiveProduct )
+		sh.return_( sh.g_f4x1.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float4x2", sh.Float4x2)():
-		sh.f4x2_WaveActiveProduct = sh.g_f4x2.WaveActiveProduct()
-		sh.return_( sh.f4x2_WaveActiveProduct )
+		sh.return_( sh.g_f4x2.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float4x3", sh.Float4x3)():
-		sh.f4x3_WaveActiveProduct = sh.g_f4x3.WaveActiveProduct()
-		sh.return_( sh.f4x3_WaveActiveProduct )
+		sh.return_( sh.g_f4x3.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveProduct_Float4x4", sh.Float4x4)():
-		sh.f4x4_WaveActiveProduct = sh.g_f4x4.WaveActiveProduct()
-		sh.return_( sh.f4x4_WaveActiveProduct )
+		sh.return_( sh.g_f4x4.WaveActiveProduct() )
 
 	with sh.function("test_WaveActiveSum_Float", sh.Float)():
-		sh.f_WaveActiveSum = sh.g_f.WaveActiveSum()
-		sh.return_( sh.f_WaveActiveSum )
+		sh.return_( sh.g_f.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float1", sh.Float1)():
-		sh.f1_WaveActiveSum = sh.g_f1.WaveActiveSum()
-		sh.return_( sh.f1_WaveActiveSum )
+		sh.return_( sh.g_f1.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float2", sh.Float2)():
-		sh.f2_WaveActiveSum = sh.g_f2.WaveActiveSum()
-		sh.return_( sh.f2_WaveActiveSum )
+		sh.return_( sh.g_f2.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float3", sh.Float3)():
-		sh.f3_WaveActiveSum = sh.g_f3.WaveActiveSum()
-		sh.return_( sh.f3_WaveActiveSum )
+		sh.return_( sh.g_f3.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float4", sh.Float4)():
-		sh.f4_WaveActiveSum = sh.g_f4.WaveActiveSum()
-		sh.return_( sh.f4_WaveActiveSum )
+		sh.return_( sh.g_f4.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float1x1", sh.Float1x1)():
-		sh.f1x1_WaveActiveSum = sh.g_f1x1.WaveActiveSum()
-		sh.return_( sh.f1x1_WaveActiveSum )
+		sh.return_( sh.g_f1x1.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float1x2", sh.Float1x2)():
-		sh.f1x2_WaveActiveSum = sh.g_f1x2.WaveActiveSum()
-		sh.return_( sh.f1x2_WaveActiveSum )
+		sh.return_( sh.g_f1x2.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float1x3", sh.Float1x3)():
-		sh.f1x3_WaveActiveSum = sh.g_f1x3.WaveActiveSum()
-		sh.return_( sh.f1x3_WaveActiveSum )
+		sh.return_( sh.g_f1x3.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float1x4", sh.Float1x4)():
-		sh.f1x4_WaveActiveSum = sh.g_f1x4.WaveActiveSum()
-		sh.return_( sh.f1x4_WaveActiveSum )
+		sh.return_( sh.g_f1x4.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float2x1", sh.Float2x1)():
-		sh.f2x1_WaveActiveSum = sh.g_f2x1.WaveActiveSum()
-		sh.return_( sh.f2x1_WaveActiveSum )
+		sh.return_( sh.g_f2x1.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float2x2", sh.Float2x2)():
-		sh.f2x2_WaveActiveSum = sh.g_f2x2.WaveActiveSum()
-		sh.return_( sh.f2x2_WaveActiveSum )
+		sh.return_( sh.g_f2x2.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float2x3", sh.Float2x3)():
-		sh.f2x3_WaveActiveSum = sh.g_f2x3.WaveActiveSum()
-		sh.return_( sh.f2x3_WaveActiveSum )
+		sh.return_( sh.g_f2x3.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float2x4", sh.Float2x4)():
-		sh.f2x4_WaveActiveSum = sh.g_f2x4.WaveActiveSum()
-		sh.return_( sh.f2x4_WaveActiveSum )
+		sh.return_( sh.g_f2x4.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float3x1", sh.Float3x1)():
-		sh.f3x1_WaveActiveSum = sh.g_f3x1.WaveActiveSum()
-		sh.return_( sh.f3x1_WaveActiveSum )
+		sh.return_( sh.g_f3x1.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float3x2", sh.Float3x2)():
-		sh.f3x2_WaveActiveSum = sh.g_f3x2.WaveActiveSum()
-		sh.return_( sh.f3x2_WaveActiveSum )
+		sh.return_( sh.g_f3x2.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float3x3", sh.Float3x3)():
-		sh.f3x3_WaveActiveSum = sh.g_f3x3.WaveActiveSum()
-		sh.return_( sh.f3x3_WaveActiveSum )
+		sh.return_( sh.g_f3x3.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float3x4", sh.Float3x4)():
-		sh.f3x4_WaveActiveSum = sh.g_f3x4.WaveActiveSum()
-		sh.return_( sh.f3x4_WaveActiveSum )
+		sh.return_( sh.g_f3x4.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float4x1", sh.Float4x1)():
-		sh.f4x1_WaveActiveSum = sh.g_f4x1.WaveActiveSum()
-		sh.return_( sh.f4x1_WaveActiveSum )
+		sh.return_( sh.g_f4x1.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float4x2", sh.Float4x2)():
-		sh.f4x2_WaveActiveSum = sh.g_f4x2.WaveActiveSum()
-		sh.return_( sh.f4x2_WaveActiveSum )
+		sh.return_( sh.g_f4x2.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float4x3", sh.Float4x3)():
-		sh.f4x3_WaveActiveSum = sh.g_f4x3.WaveActiveSum()
-		sh.return_( sh.f4x3_WaveActiveSum )
+		sh.return_( sh.g_f4x3.WaveActiveSum() )
 
 	with sh.function("test_WaveActiveSum_Float4x4", sh.Float4x4)():
-		sh.f4x4_WaveActiveSum = sh.g_f4x4.WaveActiveSum()
-		sh.return_( sh.f4x4_WaveActiveSum )
+		sh.return_( sh.g_f4x4.WaveActiveSum() )
 
 	with sh.function("test_WavePrefixProduct_Float", sh.Float)():
-		sh.f_WavePrefixProduct = sh.g_f.WavePrefixProduct()
-		sh.return_( sh.f_WavePrefixProduct )
+		sh.return_( sh.g_f.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float1", sh.Float1)():
-		sh.f1_WavePrefixProduct = sh.g_f1.WavePrefixProduct()
-		sh.return_( sh.f1_WavePrefixProduct )
+		sh.return_( sh.g_f1.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float2", sh.Float2)():
-		sh.f2_WavePrefixProduct = sh.g_f2.WavePrefixProduct()
-		sh.return_( sh.f2_WavePrefixProduct )
+		sh.return_( sh.g_f2.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float3", sh.Float3)():
-		sh.f3_WavePrefixProduct = sh.g_f3.WavePrefixProduct()
-		sh.return_( sh.f3_WavePrefixProduct )
+		sh.return_( sh.g_f3.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float4", sh.Float4)():
-		sh.f4_WavePrefixProduct = sh.g_f4.WavePrefixProduct()
-		sh.return_( sh.f4_WavePrefixProduct )
+		sh.return_( sh.g_f4.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float1x1", sh.Float1x1)():
-		sh.f1x1_WavePrefixProduct = sh.g_f1x1.WavePrefixProduct()
-		sh.return_( sh.f1x1_WavePrefixProduct )
+		sh.return_( sh.g_f1x1.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float1x2", sh.Float1x2)():
-		sh.f1x2_WavePrefixProduct = sh.g_f1x2.WavePrefixProduct()
-		sh.return_( sh.f1x2_WavePrefixProduct )
+		sh.return_( sh.g_f1x2.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float1x3", sh.Float1x3)():
-		sh.f1x3_WavePrefixProduct = sh.g_f1x3.WavePrefixProduct()
-		sh.return_( sh.f1x3_WavePrefixProduct )
+		sh.return_( sh.g_f1x3.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float1x4", sh.Float1x4)():
-		sh.f1x4_WavePrefixProduct = sh.g_f1x4.WavePrefixProduct()
-		sh.return_( sh.f1x4_WavePrefixProduct )
+		sh.return_( sh.g_f1x4.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float2x1", sh.Float2x1)():
-		sh.f2x1_WavePrefixProduct = sh.g_f2x1.WavePrefixProduct()
-		sh.return_( sh.f2x1_WavePrefixProduct )
+		sh.return_( sh.g_f2x1.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float2x2", sh.Float2x2)():
-		sh.f2x2_WavePrefixProduct = sh.g_f2x2.WavePrefixProduct()
-		sh.return_( sh.f2x2_WavePrefixProduct )
+		sh.return_( sh.g_f2x2.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float2x3", sh.Float2x3)():
-		sh.f2x3_WavePrefixProduct = sh.g_f2x3.WavePrefixProduct()
-		sh.return_( sh.f2x3_WavePrefixProduct )
+		sh.return_( sh.g_f2x3.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float2x4", sh.Float2x4)():
-		sh.f2x4_WavePrefixProduct = sh.g_f2x4.WavePrefixProduct()
-		sh.return_( sh.f2x4_WavePrefixProduct )
+		sh.return_( sh.g_f2x4.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float3x1", sh.Float3x1)():
-		sh.f3x1_WavePrefixProduct = sh.g_f3x1.WavePrefixProduct()
-		sh.return_( sh.f3x1_WavePrefixProduct )
+		sh.return_( sh.g_f3x1.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float3x2", sh.Float3x2)():
-		sh.f3x2_WavePrefixProduct = sh.g_f3x2.WavePrefixProduct()
-		sh.return_( sh.f3x2_WavePrefixProduct )
+		sh.return_( sh.g_f3x2.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float3x3", sh.Float3x3)():
-		sh.f3x3_WavePrefixProduct = sh.g_f3x3.WavePrefixProduct()
-		sh.return_( sh.f3x3_WavePrefixProduct )
+		sh.return_( sh.g_f3x3.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float3x4", sh.Float3x4)():
-		sh.f3x4_WavePrefixProduct = sh.g_f3x4.WavePrefixProduct()
-		sh.return_( sh.f3x4_WavePrefixProduct )
+		sh.return_( sh.g_f3x4.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float4x1", sh.Float4x1)():
-		sh.f4x1_WavePrefixProduct = sh.g_f4x1.WavePrefixProduct()
-		sh.return_( sh.f4x1_WavePrefixProduct )
+		sh.return_( sh.g_f4x1.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float4x2", sh.Float4x2)():
-		sh.f4x2_WavePrefixProduct = sh.g_f4x2.WavePrefixProduct()
-		sh.return_( sh.f4x2_WavePrefixProduct )
+		sh.return_( sh.g_f4x2.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float4x3", sh.Float4x3)():
-		sh.f4x3_WavePrefixProduct = sh.g_f4x3.WavePrefixProduct()
-		sh.return_( sh.f4x3_WavePrefixProduct )
+		sh.return_( sh.g_f4x3.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixProduct_Float4x4", sh.Float4x4)():
-		sh.f4x4_WavePrefixProduct = sh.g_f4x4.WavePrefixProduct()
-		sh.return_( sh.f4x4_WavePrefixProduct )
+		sh.return_( sh.g_f4x4.WavePrefixProduct() )
 
 	with sh.function("test_WavePrefixSum_Float", sh.Float)():
-		sh.f_WavePrefixSum = sh.g_f.WavePrefixSum()
-		sh.return_( sh.f_WavePrefixSum )
+		sh.return_( sh.g_f.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float1", sh.Float1)():
-		sh.f1_WavePrefixSum = sh.g_f1.WavePrefixSum()
-		sh.return_( sh.f1_WavePrefixSum )
+		sh.return_( sh.g_f1.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float2", sh.Float2)():
-		sh.f2_WavePrefixSum = sh.g_f2.WavePrefixSum()
-		sh.return_( sh.f2_WavePrefixSum )
+		sh.return_( sh.g_f2.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float3", sh.Float3)():
-		sh.f3_WavePrefixSum = sh.g_f3.WavePrefixSum()
-		sh.return_( sh.f3_WavePrefixSum )
+		sh.return_( sh.g_f3.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float4", sh.Float4)():
-		sh.f4_WavePrefixSum = sh.g_f4.WavePrefixSum()
-		sh.return_( sh.f4_WavePrefixSum )
+		sh.return_( sh.g_f4.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float1x1", sh.Float1x1)():
-		sh.f1x1_WavePrefixSum = sh.g_f1x1.WavePrefixSum()
-		sh.return_( sh.f1x1_WavePrefixSum )
+		sh.return_( sh.g_f1x1.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float1x2", sh.Float1x2)():
-		sh.f1x2_WavePrefixSum = sh.g_f1x2.WavePrefixSum()
-		sh.return_( sh.f1x2_WavePrefixSum )
+		sh.return_( sh.g_f1x2.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float1x3", sh.Float1x3)():
-		sh.f1x3_WavePrefixSum = sh.g_f1x3.WavePrefixSum()
-		sh.return_( sh.f1x3_WavePrefixSum )
+		sh.return_( sh.g_f1x3.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float1x4", sh.Float1x4)():
-		sh.f1x4_WavePrefixSum = sh.g_f1x4.WavePrefixSum()
-		sh.return_( sh.f1x4_WavePrefixSum )
+		sh.return_( sh.g_f1x4.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float2x1", sh.Float2x1)():
-		sh.f2x1_WavePrefixSum = sh.g_f2x1.WavePrefixSum()
-		sh.return_( sh.f2x1_WavePrefixSum )
+		sh.return_( sh.g_f2x1.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float2x2", sh.Float2x2)():
-		sh.f2x2_WavePrefixSum = sh.g_f2x2.WavePrefixSum()
-		sh.return_( sh.f2x2_WavePrefixSum )
+		sh.return_( sh.g_f2x2.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float2x3", sh.Float2x3)():
-		sh.f2x3_WavePrefixSum = sh.g_f2x3.WavePrefixSum()
-		sh.return_( sh.f2x3_WavePrefixSum )
+		sh.return_( sh.g_f2x3.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float2x4", sh.Float2x4)():
-		sh.f2x4_WavePrefixSum = sh.g_f2x4.WavePrefixSum()
-		sh.return_( sh.f2x4_WavePrefixSum )
+		sh.return_( sh.g_f2x4.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float3x1", sh.Float3x1)():
-		sh.f3x1_WavePrefixSum = sh.g_f3x1.WavePrefixSum()
-		sh.return_( sh.f3x1_WavePrefixSum )
+		sh.return_( sh.g_f3x1.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float3x2", sh.Float3x2)():
-		sh.f3x2_WavePrefixSum = sh.g_f3x2.WavePrefixSum()
-		sh.return_( sh.f3x2_WavePrefixSum )
+		sh.return_( sh.g_f3x2.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float3x3", sh.Float3x3)():
-		sh.f3x3_WavePrefixSum = sh.g_f3x3.WavePrefixSum()
-		sh.return_( sh.f3x3_WavePrefixSum )
+		sh.return_( sh.g_f3x3.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float3x4", sh.Float3x4)():
-		sh.f3x4_WavePrefixSum = sh.g_f3x4.WavePrefixSum()
-		sh.return_( sh.f3x4_WavePrefixSum )
+		sh.return_( sh.g_f3x4.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float4x1", sh.Float4x1)():
-		sh.f4x1_WavePrefixSum = sh.g_f4x1.WavePrefixSum()
-		sh.return_( sh.f4x1_WavePrefixSum )
+		sh.return_( sh.g_f4x1.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float4x2", sh.Float4x2)():
-		sh.f4x2_WavePrefixSum = sh.g_f4x2.WavePrefixSum()
-		sh.return_( sh.f4x2_WavePrefixSum )
+		sh.return_( sh.g_f4x2.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float4x3", sh.Float4x3)():
-		sh.f4x3_WavePrefixSum = sh.g_f4x3.WavePrefixSum()
-		sh.return_( sh.f4x3_WavePrefixSum )
+		sh.return_( sh.g_f4x3.WavePrefixSum() )
 
 	with sh.function("test_WavePrefixSum_Float4x4", sh.Float4x4)():
-		sh.f4x4_WavePrefixSum = sh.g_f4x4.WavePrefixSum()
-		sh.return_( sh.f4x4_WavePrefixSum )
+		sh.return_( sh.g_f4x4.WavePrefixSum() )
 
 	with sh.function("test_abs_Float", sh.Float)():
-		sh.f_abs = sh.g_f.abs()
-		sh.return_( sh.f_abs )
+		sh.return_( sh.g_f.abs() )
 
 	with sh.function("test_abs_Float1", sh.Float1)():
-		sh.f1_abs = sh.g_f1.abs()
-		sh.return_( sh.f1_abs )
+		sh.return_( sh.g_f1.abs() )
 
 	with sh.function("test_abs_Float2", sh.Float2)():
-		sh.f2_abs = sh.g_f2.abs()
-		sh.return_( sh.f2_abs )
+		sh.return_( sh.g_f2.abs() )
 
 	with sh.function("test_abs_Float3", sh.Float3)():
-		sh.f3_abs = sh.g_f3.abs()
-		sh.return_( sh.f3_abs )
+		sh.return_( sh.g_f3.abs() )
 
 	with sh.function("test_abs_Float4", sh.Float4)():
-		sh.f4_abs = sh.g_f4.abs()
-		sh.return_( sh.f4_abs )
+		sh.return_( sh.g_f4.abs() )
 
 	with sh.function("test_abs_Float1x1", sh.Float1x1)():
-		sh.f1x1_abs = sh.g_f1x1.abs()
-		sh.return_( sh.f1x1_abs )
+		sh.return_( sh.g_f1x1.abs() )
 
 	with sh.function("test_abs_Float1x2", sh.Float1x2)():
-		sh.f1x2_abs = sh.g_f1x2.abs()
-		sh.return_( sh.f1x2_abs )
+		sh.return_( sh.g_f1x2.abs() )
 
 	with sh.function("test_abs_Float1x3", sh.Float1x3)():
-		sh.f1x3_abs = sh.g_f1x3.abs()
-		sh.return_( sh.f1x3_abs )
+		sh.return_( sh.g_f1x3.abs() )
 
 	with sh.function("test_abs_Float1x4", sh.Float1x4)():
-		sh.f1x4_abs = sh.g_f1x4.abs()
-		sh.return_( sh.f1x4_abs )
+		sh.return_( sh.g_f1x4.abs() )
 
 	with sh.function("test_abs_Float2x1", sh.Float2x1)():
-		sh.f2x1_abs = sh.g_f2x1.abs()
-		sh.return_( sh.f2x1_abs )
+		sh.return_( sh.g_f2x1.abs() )
 
 	with sh.function("test_abs_Float2x2", sh.Float2x2)():
-		sh.f2x2_abs = sh.g_f2x2.abs()
-		sh.return_( sh.f2x2_abs )
+		sh.return_( sh.g_f2x2.abs() )
 
 	with sh.function("test_abs_Float2x3", sh.Float2x3)():
-		sh.f2x3_abs = sh.g_f2x3.abs()
-		sh.return_( sh.f2x3_abs )
+		sh.return_( sh.g_f2x3.abs() )
 
 	with sh.function("test_abs_Float2x4", sh.Float2x4)():
-		sh.f2x4_abs = sh.g_f2x4.abs()
-		sh.return_( sh.f2x4_abs )
+		sh.return_( sh.g_f2x4.abs() )
 
 	with sh.function("test_abs_Float3x1", sh.Float3x1)():
-		sh.f3x1_abs = sh.g_f3x1.abs()
-		sh.return_( sh.f3x1_abs )
+		sh.return_( sh.g_f3x1.abs() )
 
 	with sh.function("test_abs_Float3x2", sh.Float3x2)():
-		sh.f3x2_abs = sh.g_f3x2.abs()
-		sh.return_( sh.f3x2_abs )
+		sh.return_( sh.g_f3x2.abs() )
 
 	with sh.function("test_abs_Float3x3", sh.Float3x3)():
-		sh.f3x3_abs = sh.g_f3x3.abs()
-		sh.return_( sh.f3x3_abs )
+		sh.return_( sh.g_f3x3.abs() )
 
 	with sh.function("test_abs_Float3x4", sh.Float3x4)():
-		sh.f3x4_abs = sh.g_f3x4.abs()
-		sh.return_( sh.f3x4_abs )
+		sh.return_( sh.g_f3x4.abs() )
 
 	with sh.function("test_abs_Float4x1", sh.Float4x1)():
-		sh.f4x1_abs = sh.g_f4x1.abs()
-		sh.return_( sh.f4x1_abs )
+		sh.return_( sh.g_f4x1.abs() )
 
 	with sh.function("test_abs_Float4x2", sh.Float4x2)():
-		sh.f4x2_abs = sh.g_f4x2.abs()
-		sh.return_( sh.f4x2_abs )
+		sh.return_( sh.g_f4x2.abs() )
 
 	with sh.function("test_abs_Float4x3", sh.Float4x3)():
-		sh.f4x3_abs = sh.g_f4x3.abs()
-		sh.return_( sh.f4x3_abs )
+		sh.return_( sh.g_f4x3.abs() )
 
 	with sh.function("test_abs_Float4x4", sh.Float4x4)():
-		sh.f4x4_abs = sh.g_f4x4.abs()
-		sh.return_( sh.f4x4_abs )
+		sh.return_( sh.g_f4x4.abs() )
+
+	with sh.function("test_clamp_Float", sh.Float)(min = sh.Float, max = sh.Float):
+		sh.return_( sh.g_f.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float1", sh.Float1)(min = sh.Float1, max = sh.Float1):
+		sh.return_( sh.g_f1.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float2", sh.Float2)(min = sh.Float2, max = sh.Float2):
+		sh.return_( sh.g_f2.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float3", sh.Float3)(min = sh.Float3, max = sh.Float3):
+		sh.return_( sh.g_f3.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float4", sh.Float4)(min = sh.Float4, max = sh.Float4):
+		sh.return_( sh.g_f4.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float1x1", sh.Float1x1)(min = sh.Float1x1, max = sh.Float1x1):
+		sh.return_( sh.g_f1x1.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float1x2", sh.Float1x2)(min = sh.Float1x2, max = sh.Float1x2):
+		sh.return_( sh.g_f1x2.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float1x3", sh.Float1x3)(min = sh.Float1x3, max = sh.Float1x3):
+		sh.return_( sh.g_f1x3.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float1x4", sh.Float1x4)(min = sh.Float1x4, max = sh.Float1x4):
+		sh.return_( sh.g_f1x4.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float2x1", sh.Float2x1)(min = sh.Float2x1, max = sh.Float2x1):
+		sh.return_( sh.g_f2x1.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float2x2", sh.Float2x2)(min = sh.Float2x2, max = sh.Float2x2):
+		sh.return_( sh.g_f2x2.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float2x3", sh.Float2x3)(min = sh.Float2x3, max = sh.Float2x3):
+		sh.return_( sh.g_f2x3.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float2x4", sh.Float2x4)(min = sh.Float2x4, max = sh.Float2x4):
+		sh.return_( sh.g_f2x4.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float3x1", sh.Float3x1)(min = sh.Float3x1, max = sh.Float3x1):
+		sh.return_( sh.g_f3x1.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float3x2", sh.Float3x2)(min = sh.Float3x2, max = sh.Float3x2):
+		sh.return_( sh.g_f3x2.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float3x3", sh.Float3x3)(min = sh.Float3x3, max = sh.Float3x3):
+		sh.return_( sh.g_f3x3.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float3x4", sh.Float3x4)(min = sh.Float3x4, max = sh.Float3x4):
+		sh.return_( sh.g_f3x4.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float4x1", sh.Float4x1)(min = sh.Float4x1, max = sh.Float4x1):
+		sh.return_( sh.g_f4x1.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float4x2", sh.Float4x2)(min = sh.Float4x2, max = sh.Float4x2):
+		sh.return_( sh.g_f4x2.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float4x3", sh.Float4x3)(min = sh.Float4x3, max = sh.Float4x3):
+		sh.return_( sh.g_f4x3.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_clamp_Float4x4", sh.Float4x4)(min = sh.Float4x4, max = sh.Float4x4):
+		sh.return_( sh.g_f4x4.clamp(min = sh.min, max = sh.max) )
+
+	with sh.function("test_mad_Float", sh.Float)(b = sh.Float, c = sh.Float):
+		sh.return_( sh.g_f.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float1", sh.Float1)(b = sh.Float1, c = sh.Float1):
+		sh.return_( sh.g_f1.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float2", sh.Float2)(b = sh.Float2, c = sh.Float2):
+		sh.return_( sh.g_f2.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float3", sh.Float3)(b = sh.Float3, c = sh.Float3):
+		sh.return_( sh.g_f3.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float4", sh.Float4)(b = sh.Float4, c = sh.Float4):
+		sh.return_( sh.g_f4.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float1x1", sh.Float1x1)(b = sh.Float1x1, c = sh.Float1x1):
+		sh.return_( sh.g_f1x1.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float1x2", sh.Float1x2)(b = sh.Float1x2, c = sh.Float1x2):
+		sh.return_( sh.g_f1x2.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float1x3", sh.Float1x3)(b = sh.Float1x3, c = sh.Float1x3):
+		sh.return_( sh.g_f1x3.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float1x4", sh.Float1x4)(b = sh.Float1x4, c = sh.Float1x4):
+		sh.return_( sh.g_f1x4.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float2x1", sh.Float2x1)(b = sh.Float2x1, c = sh.Float2x1):
+		sh.return_( sh.g_f2x1.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float2x2", sh.Float2x2)(b = sh.Float2x2, c = sh.Float2x2):
+		sh.return_( sh.g_f2x2.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float2x3", sh.Float2x3)(b = sh.Float2x3, c = sh.Float2x3):
+		sh.return_( sh.g_f2x3.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float2x4", sh.Float2x4)(b = sh.Float2x4, c = sh.Float2x4):
+		sh.return_( sh.g_f2x4.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float3x1", sh.Float3x1)(b = sh.Float3x1, c = sh.Float3x1):
+		sh.return_( sh.g_f3x1.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float3x2", sh.Float3x2)(b = sh.Float3x2, c = sh.Float3x2):
+		sh.return_( sh.g_f3x2.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float3x3", sh.Float3x3)(b = sh.Float3x3, c = sh.Float3x3):
+		sh.return_( sh.g_f3x3.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float3x4", sh.Float3x4)(b = sh.Float3x4, c = sh.Float3x4):
+		sh.return_( sh.g_f3x4.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float4x1", sh.Float4x1)(b = sh.Float4x1, c = sh.Float4x1):
+		sh.return_( sh.g_f4x1.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float4x2", sh.Float4x2)(b = sh.Float4x2, c = sh.Float4x2):
+		sh.return_( sh.g_f4x2.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float4x3", sh.Float4x3)(b = sh.Float4x3, c = sh.Float4x3):
+		sh.return_( sh.g_f4x3.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_mad_Float4x4", sh.Float4x4)(b = sh.Float4x4, c = sh.Float4x4):
+		sh.return_( sh.g_f4x4.mad(b = sh.b, c = sh.c) )
+
+	with sh.function("test_max_Float", sh.Float)(b = sh.Float):
+		sh.return_( sh.g_f.max(b = sh.b) )
+
+	with sh.function("test_max_Float1", sh.Float1)(b = sh.Float1):
+		sh.return_( sh.g_f1.max(b = sh.b) )
+
+	with sh.function("test_max_Float2", sh.Float2)(b = sh.Float2):
+		sh.return_( sh.g_f2.max(b = sh.b) )
+
+	with sh.function("test_max_Float3", sh.Float3)(b = sh.Float3):
+		sh.return_( sh.g_f3.max(b = sh.b) )
+
+	with sh.function("test_max_Float4", sh.Float4)(b = sh.Float4):
+		sh.return_( sh.g_f4.max(b = sh.b) )
+
+	with sh.function("test_max_Float1x1", sh.Float1x1)(b = sh.Float1x1):
+		sh.return_( sh.g_f1x1.max(b = sh.b) )
+
+	with sh.function("test_max_Float1x2", sh.Float1x2)(b = sh.Float1x2):
+		sh.return_( sh.g_f1x2.max(b = sh.b) )
+
+	with sh.function("test_max_Float1x3", sh.Float1x3)(b = sh.Float1x3):
+		sh.return_( sh.g_f1x3.max(b = sh.b) )
+
+	with sh.function("test_max_Float1x4", sh.Float1x4)(b = sh.Float1x4):
+		sh.return_( sh.g_f1x4.max(b = sh.b) )
+
+	with sh.function("test_max_Float2x1", sh.Float2x1)(b = sh.Float2x1):
+		sh.return_( sh.g_f2x1.max(b = sh.b) )
+
+	with sh.function("test_max_Float2x2", sh.Float2x2)(b = sh.Float2x2):
+		sh.return_( sh.g_f2x2.max(b = sh.b) )
+
+	with sh.function("test_max_Float2x3", sh.Float2x3)(b = sh.Float2x3):
+		sh.return_( sh.g_f2x3.max(b = sh.b) )
+
+	with sh.function("test_max_Float2x4", sh.Float2x4)(b = sh.Float2x4):
+		sh.return_( sh.g_f2x4.max(b = sh.b) )
+
+	with sh.function("test_max_Float3x1", sh.Float3x1)(b = sh.Float3x1):
+		sh.return_( sh.g_f3x1.max(b = sh.b) )
+
+	with sh.function("test_max_Float3x2", sh.Float3x2)(b = sh.Float3x2):
+		sh.return_( sh.g_f3x2.max(b = sh.b) )
+
+	with sh.function("test_max_Float3x3", sh.Float3x3)(b = sh.Float3x3):
+		sh.return_( sh.g_f3x3.max(b = sh.b) )
+
+	with sh.function("test_max_Float3x4", sh.Float3x4)(b = sh.Float3x4):
+		sh.return_( sh.g_f3x4.max(b = sh.b) )
+
+	with sh.function("test_max_Float4x1", sh.Float4x1)(b = sh.Float4x1):
+		sh.return_( sh.g_f4x1.max(b = sh.b) )
+
+	with sh.function("test_max_Float4x2", sh.Float4x2)(b = sh.Float4x2):
+		sh.return_( sh.g_f4x2.max(b = sh.b) )
+
+	with sh.function("test_max_Float4x3", sh.Float4x3)(b = sh.Float4x3):
+		sh.return_( sh.g_f4x3.max(b = sh.b) )
+
+	with sh.function("test_max_Float4x4", sh.Float4x4)(b = sh.Float4x4):
+		sh.return_( sh.g_f4x4.max(b = sh.b) )
+
+	with sh.function("test_min_Float", sh.Float)(b = sh.Float):
+		sh.return_( sh.g_f.min(b = sh.b) )
+
+	with sh.function("test_min_Float1", sh.Float1)(b = sh.Float1):
+		sh.return_( sh.g_f1.min(b = sh.b) )
+
+	with sh.function("test_min_Float2", sh.Float2)(b = sh.Float2):
+		sh.return_( sh.g_f2.min(b = sh.b) )
+
+	with sh.function("test_min_Float3", sh.Float3)(b = sh.Float3):
+		sh.return_( sh.g_f3.min(b = sh.b) )
+
+	with sh.function("test_min_Float4", sh.Float4)(b = sh.Float4):
+		sh.return_( sh.g_f4.min(b = sh.b) )
+
+	with sh.function("test_min_Float1x1", sh.Float1x1)(b = sh.Float1x1):
+		sh.return_( sh.g_f1x1.min(b = sh.b) )
+
+	with sh.function("test_min_Float1x2", sh.Float1x2)(b = sh.Float1x2):
+		sh.return_( sh.g_f1x2.min(b = sh.b) )
+
+	with sh.function("test_min_Float1x3", sh.Float1x3)(b = sh.Float1x3):
+		sh.return_( sh.g_f1x3.min(b = sh.b) )
+
+	with sh.function("test_min_Float1x4", sh.Float1x4)(b = sh.Float1x4):
+		sh.return_( sh.g_f1x4.min(b = sh.b) )
+
+	with sh.function("test_min_Float2x1", sh.Float2x1)(b = sh.Float2x1):
+		sh.return_( sh.g_f2x1.min(b = sh.b) )
+
+	with sh.function("test_min_Float2x2", sh.Float2x2)(b = sh.Float2x2):
+		sh.return_( sh.g_f2x2.min(b = sh.b) )
+
+	with sh.function("test_min_Float2x3", sh.Float2x3)(b = sh.Float2x3):
+		sh.return_( sh.g_f2x3.min(b = sh.b) )
+
+	with sh.function("test_min_Float2x4", sh.Float2x4)(b = sh.Float2x4):
+		sh.return_( sh.g_f2x4.min(b = sh.b) )
+
+	with sh.function("test_min_Float3x1", sh.Float3x1)(b = sh.Float3x1):
+		sh.return_( sh.g_f3x1.min(b = sh.b) )
+
+	with sh.function("test_min_Float3x2", sh.Float3x2)(b = sh.Float3x2):
+		sh.return_( sh.g_f3x2.min(b = sh.b) )
+
+	with sh.function("test_min_Float3x3", sh.Float3x3)(b = sh.Float3x3):
+		sh.return_( sh.g_f3x3.min(b = sh.b) )
+
+	with sh.function("test_min_Float3x4", sh.Float3x4)(b = sh.Float3x4):
+		sh.return_( sh.g_f3x4.min(b = sh.b) )
+
+	with sh.function("test_min_Float4x1", sh.Float4x1)(b = sh.Float4x1):
+		sh.return_( sh.g_f4x1.min(b = sh.b) )
+
+	with sh.function("test_min_Float4x2", sh.Float4x2)(b = sh.Float4x2):
+		sh.return_( sh.g_f4x2.min(b = sh.b) )
+
+	with sh.function("test_min_Float4x3", sh.Float4x3)(b = sh.Float4x3):
+		sh.return_( sh.g_f4x3.min(b = sh.b) )
+
+	with sh.function("test_min_Float4x4", sh.Float4x4)(b = sh.Float4x4):
+		sh.return_( sh.g_f4x4.min(b = sh.b) )
 

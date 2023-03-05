@@ -17,2690 +17,2522 @@
  
 def test(sh):
 	with sh.function("test_acos_Float", sh.Float)():
-		sh.f_acos = sh.g_f.acos()
-		sh.return_( sh.f_acos )
+		sh.return_( sh.g_f.acos() )
 
 	with sh.function("test_acos_Float1", sh.Float1)():
-		sh.f1_acos = sh.g_f1.acos()
-		sh.return_( sh.f1_acos )
+		sh.return_( sh.g_f1.acos() )
 
 	with sh.function("test_acos_Float2", sh.Float2)():
-		sh.f2_acos = sh.g_f2.acos()
-		sh.return_( sh.f2_acos )
+		sh.return_( sh.g_f2.acos() )
 
 	with sh.function("test_acos_Float3", sh.Float3)():
-		sh.f3_acos = sh.g_f3.acos()
-		sh.return_( sh.f3_acos )
+		sh.return_( sh.g_f3.acos() )
 
 	with sh.function("test_acos_Float4", sh.Float4)():
-		sh.f4_acos = sh.g_f4.acos()
-		sh.return_( sh.f4_acos )
+		sh.return_( sh.g_f4.acos() )
 
 	with sh.function("test_acos_Float1x1", sh.Float1x1)():
-		sh.f1x1_acos = sh.g_f1x1.acos()
-		sh.return_( sh.f1x1_acos )
+		sh.return_( sh.g_f1x1.acos() )
 
 	with sh.function("test_acos_Float1x2", sh.Float1x2)():
-		sh.f1x2_acos = sh.g_f1x2.acos()
-		sh.return_( sh.f1x2_acos )
+		sh.return_( sh.g_f1x2.acos() )
 
 	with sh.function("test_acos_Float1x3", sh.Float1x3)():
-		sh.f1x3_acos = sh.g_f1x3.acos()
-		sh.return_( sh.f1x3_acos )
+		sh.return_( sh.g_f1x3.acos() )
 
 	with sh.function("test_acos_Float1x4", sh.Float1x4)():
-		sh.f1x4_acos = sh.g_f1x4.acos()
-		sh.return_( sh.f1x4_acos )
+		sh.return_( sh.g_f1x4.acos() )
 
 	with sh.function("test_acos_Float2x1", sh.Float2x1)():
-		sh.f2x1_acos = sh.g_f2x1.acos()
-		sh.return_( sh.f2x1_acos )
+		sh.return_( sh.g_f2x1.acos() )
 
 	with sh.function("test_acos_Float2x2", sh.Float2x2)():
-		sh.f2x2_acos = sh.g_f2x2.acos()
-		sh.return_( sh.f2x2_acos )
+		sh.return_( sh.g_f2x2.acos() )
 
 	with sh.function("test_acos_Float2x3", sh.Float2x3)():
-		sh.f2x3_acos = sh.g_f2x3.acos()
-		sh.return_( sh.f2x3_acos )
+		sh.return_( sh.g_f2x3.acos() )
 
 	with sh.function("test_acos_Float2x4", sh.Float2x4)():
-		sh.f2x4_acos = sh.g_f2x4.acos()
-		sh.return_( sh.f2x4_acos )
+		sh.return_( sh.g_f2x4.acos() )
 
 	with sh.function("test_acos_Float3x1", sh.Float3x1)():
-		sh.f3x1_acos = sh.g_f3x1.acos()
-		sh.return_( sh.f3x1_acos )
+		sh.return_( sh.g_f3x1.acos() )
 
 	with sh.function("test_acos_Float3x2", sh.Float3x2)():
-		sh.f3x2_acos = sh.g_f3x2.acos()
-		sh.return_( sh.f3x2_acos )
+		sh.return_( sh.g_f3x2.acos() )
 
 	with sh.function("test_acos_Float3x3", sh.Float3x3)():
-		sh.f3x3_acos = sh.g_f3x3.acos()
-		sh.return_( sh.f3x3_acos )
+		sh.return_( sh.g_f3x3.acos() )
 
 	with sh.function("test_acos_Float3x4", sh.Float3x4)():
-		sh.f3x4_acos = sh.g_f3x4.acos()
-		sh.return_( sh.f3x4_acos )
+		sh.return_( sh.g_f3x4.acos() )
 
 	with sh.function("test_acos_Float4x1", sh.Float4x1)():
-		sh.f4x1_acos = sh.g_f4x1.acos()
-		sh.return_( sh.f4x1_acos )
+		sh.return_( sh.g_f4x1.acos() )
 
 	with sh.function("test_acos_Float4x2", sh.Float4x2)():
-		sh.f4x2_acos = sh.g_f4x2.acos()
-		sh.return_( sh.f4x2_acos )
+		sh.return_( sh.g_f4x2.acos() )
 
 	with sh.function("test_acos_Float4x3", sh.Float4x3)():
-		sh.f4x3_acos = sh.g_f4x3.acos()
-		sh.return_( sh.f4x3_acos )
+		sh.return_( sh.g_f4x3.acos() )
 
 	with sh.function("test_acos_Float4x4", sh.Float4x4)():
-		sh.f4x4_acos = sh.g_f4x4.acos()
-		sh.return_( sh.f4x4_acos )
+		sh.return_( sh.g_f4x4.acos() )
 
 	with sh.function("test_asin_Float", sh.Float)():
-		sh.f_asin = sh.g_f.asin()
-		sh.return_( sh.f_asin )
+		sh.return_( sh.g_f.asin() )
 
 	with sh.function("test_asin_Float1", sh.Float1)():
-		sh.f1_asin = sh.g_f1.asin()
-		sh.return_( sh.f1_asin )
+		sh.return_( sh.g_f1.asin() )
 
 	with sh.function("test_asin_Float2", sh.Float2)():
-		sh.f2_asin = sh.g_f2.asin()
-		sh.return_( sh.f2_asin )
+		sh.return_( sh.g_f2.asin() )
 
 	with sh.function("test_asin_Float3", sh.Float3)():
-		sh.f3_asin = sh.g_f3.asin()
-		sh.return_( sh.f3_asin )
+		sh.return_( sh.g_f3.asin() )
 
 	with sh.function("test_asin_Float4", sh.Float4)():
-		sh.f4_asin = sh.g_f4.asin()
-		sh.return_( sh.f4_asin )
+		sh.return_( sh.g_f4.asin() )
 
 	with sh.function("test_asin_Float1x1", sh.Float1x1)():
-		sh.f1x1_asin = sh.g_f1x1.asin()
-		sh.return_( sh.f1x1_asin )
+		sh.return_( sh.g_f1x1.asin() )
 
 	with sh.function("test_asin_Float1x2", sh.Float1x2)():
-		sh.f1x2_asin = sh.g_f1x2.asin()
-		sh.return_( sh.f1x2_asin )
+		sh.return_( sh.g_f1x2.asin() )
 
 	with sh.function("test_asin_Float1x3", sh.Float1x3)():
-		sh.f1x3_asin = sh.g_f1x3.asin()
-		sh.return_( sh.f1x3_asin )
+		sh.return_( sh.g_f1x3.asin() )
 
 	with sh.function("test_asin_Float1x4", sh.Float1x4)():
-		sh.f1x4_asin = sh.g_f1x4.asin()
-		sh.return_( sh.f1x4_asin )
+		sh.return_( sh.g_f1x4.asin() )
 
 	with sh.function("test_asin_Float2x1", sh.Float2x1)():
-		sh.f2x1_asin = sh.g_f2x1.asin()
-		sh.return_( sh.f2x1_asin )
+		sh.return_( sh.g_f2x1.asin() )
 
 	with sh.function("test_asin_Float2x2", sh.Float2x2)():
-		sh.f2x2_asin = sh.g_f2x2.asin()
-		sh.return_( sh.f2x2_asin )
+		sh.return_( sh.g_f2x2.asin() )
 
 	with sh.function("test_asin_Float2x3", sh.Float2x3)():
-		sh.f2x3_asin = sh.g_f2x3.asin()
-		sh.return_( sh.f2x3_asin )
+		sh.return_( sh.g_f2x3.asin() )
 
 	with sh.function("test_asin_Float2x4", sh.Float2x4)():
-		sh.f2x4_asin = sh.g_f2x4.asin()
-		sh.return_( sh.f2x4_asin )
+		sh.return_( sh.g_f2x4.asin() )
 
 	with sh.function("test_asin_Float3x1", sh.Float3x1)():
-		sh.f3x1_asin = sh.g_f3x1.asin()
-		sh.return_( sh.f3x1_asin )
+		sh.return_( sh.g_f3x1.asin() )
 
 	with sh.function("test_asin_Float3x2", sh.Float3x2)():
-		sh.f3x2_asin = sh.g_f3x2.asin()
-		sh.return_( sh.f3x2_asin )
+		sh.return_( sh.g_f3x2.asin() )
 
 	with sh.function("test_asin_Float3x3", sh.Float3x3)():
-		sh.f3x3_asin = sh.g_f3x3.asin()
-		sh.return_( sh.f3x3_asin )
+		sh.return_( sh.g_f3x3.asin() )
 
 	with sh.function("test_asin_Float3x4", sh.Float3x4)():
-		sh.f3x4_asin = sh.g_f3x4.asin()
-		sh.return_( sh.f3x4_asin )
+		sh.return_( sh.g_f3x4.asin() )
 
 	with sh.function("test_asin_Float4x1", sh.Float4x1)():
-		sh.f4x1_asin = sh.g_f4x1.asin()
-		sh.return_( sh.f4x1_asin )
+		sh.return_( sh.g_f4x1.asin() )
 
 	with sh.function("test_asin_Float4x2", sh.Float4x2)():
-		sh.f4x2_asin = sh.g_f4x2.asin()
-		sh.return_( sh.f4x2_asin )
+		sh.return_( sh.g_f4x2.asin() )
 
 	with sh.function("test_asin_Float4x3", sh.Float4x3)():
-		sh.f4x3_asin = sh.g_f4x3.asin()
-		sh.return_( sh.f4x3_asin )
+		sh.return_( sh.g_f4x3.asin() )
 
 	with sh.function("test_asin_Float4x4", sh.Float4x4)():
-		sh.f4x4_asin = sh.g_f4x4.asin()
-		sh.return_( sh.f4x4_asin )
+		sh.return_( sh.g_f4x4.asin() )
 
 	with sh.function("test_atan_Float", sh.Float)():
-		sh.f_atan = sh.g_f.atan()
-		sh.return_( sh.f_atan )
+		sh.return_( sh.g_f.atan() )
 
 	with sh.function("test_atan_Float1", sh.Float1)():
-		sh.f1_atan = sh.g_f1.atan()
-		sh.return_( sh.f1_atan )
+		sh.return_( sh.g_f1.atan() )
 
 	with sh.function("test_atan_Float2", sh.Float2)():
-		sh.f2_atan = sh.g_f2.atan()
-		sh.return_( sh.f2_atan )
+		sh.return_( sh.g_f2.atan() )
 
 	with sh.function("test_atan_Float3", sh.Float3)():
-		sh.f3_atan = sh.g_f3.atan()
-		sh.return_( sh.f3_atan )
+		sh.return_( sh.g_f3.atan() )
 
 	with sh.function("test_atan_Float4", sh.Float4)():
-		sh.f4_atan = sh.g_f4.atan()
-		sh.return_( sh.f4_atan )
+		sh.return_( sh.g_f4.atan() )
 
 	with sh.function("test_atan_Float1x1", sh.Float1x1)():
-		sh.f1x1_atan = sh.g_f1x1.atan()
-		sh.return_( sh.f1x1_atan )
+		sh.return_( sh.g_f1x1.atan() )
 
 	with sh.function("test_atan_Float1x2", sh.Float1x2)():
-		sh.f1x2_atan = sh.g_f1x2.atan()
-		sh.return_( sh.f1x2_atan )
+		sh.return_( sh.g_f1x2.atan() )
 
 	with sh.function("test_atan_Float1x3", sh.Float1x3)():
-		sh.f1x3_atan = sh.g_f1x3.atan()
-		sh.return_( sh.f1x3_atan )
+		sh.return_( sh.g_f1x3.atan() )
 
 	with sh.function("test_atan_Float1x4", sh.Float1x4)():
-		sh.f1x4_atan = sh.g_f1x4.atan()
-		sh.return_( sh.f1x4_atan )
+		sh.return_( sh.g_f1x4.atan() )
 
 	with sh.function("test_atan_Float2x1", sh.Float2x1)():
-		sh.f2x1_atan = sh.g_f2x1.atan()
-		sh.return_( sh.f2x1_atan )
+		sh.return_( sh.g_f2x1.atan() )
 
 	with sh.function("test_atan_Float2x2", sh.Float2x2)():
-		sh.f2x2_atan = sh.g_f2x2.atan()
-		sh.return_( sh.f2x2_atan )
+		sh.return_( sh.g_f2x2.atan() )
 
 	with sh.function("test_atan_Float2x3", sh.Float2x3)():
-		sh.f2x3_atan = sh.g_f2x3.atan()
-		sh.return_( sh.f2x3_atan )
+		sh.return_( sh.g_f2x3.atan() )
 
 	with sh.function("test_atan_Float2x4", sh.Float2x4)():
-		sh.f2x4_atan = sh.g_f2x4.atan()
-		sh.return_( sh.f2x4_atan )
+		sh.return_( sh.g_f2x4.atan() )
 
 	with sh.function("test_atan_Float3x1", sh.Float3x1)():
-		sh.f3x1_atan = sh.g_f3x1.atan()
-		sh.return_( sh.f3x1_atan )
+		sh.return_( sh.g_f3x1.atan() )
 
 	with sh.function("test_atan_Float3x2", sh.Float3x2)():
-		sh.f3x2_atan = sh.g_f3x2.atan()
-		sh.return_( sh.f3x2_atan )
+		sh.return_( sh.g_f3x2.atan() )
 
 	with sh.function("test_atan_Float3x3", sh.Float3x3)():
-		sh.f3x3_atan = sh.g_f3x3.atan()
-		sh.return_( sh.f3x3_atan )
+		sh.return_( sh.g_f3x3.atan() )
 
 	with sh.function("test_atan_Float3x4", sh.Float3x4)():
-		sh.f3x4_atan = sh.g_f3x4.atan()
-		sh.return_( sh.f3x4_atan )
+		sh.return_( sh.g_f3x4.atan() )
 
 	with sh.function("test_atan_Float4x1", sh.Float4x1)():
-		sh.f4x1_atan = sh.g_f4x1.atan()
-		sh.return_( sh.f4x1_atan )
+		sh.return_( sh.g_f4x1.atan() )
 
 	with sh.function("test_atan_Float4x2", sh.Float4x2)():
-		sh.f4x2_atan = sh.g_f4x2.atan()
-		sh.return_( sh.f4x2_atan )
+		sh.return_( sh.g_f4x2.atan() )
 
 	with sh.function("test_atan_Float4x3", sh.Float4x3)():
-		sh.f4x3_atan = sh.g_f4x3.atan()
-		sh.return_( sh.f4x3_atan )
+		sh.return_( sh.g_f4x3.atan() )
 
 	with sh.function("test_atan_Float4x4", sh.Float4x4)():
-		sh.f4x4_atan = sh.g_f4x4.atan()
-		sh.return_( sh.f4x4_atan )
+		sh.return_( sh.g_f4x4.atan() )
+
+	with sh.function("test_atan2_Float", sh.Float)(y = sh.Float):
+		sh.return_( sh.g_f.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float1", sh.Float1)(y = sh.Float1):
+		sh.return_( sh.g_f1.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float2", sh.Float2)(y = sh.Float2):
+		sh.return_( sh.g_f2.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float3", sh.Float3)(y = sh.Float3):
+		sh.return_( sh.g_f3.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float4", sh.Float4)(y = sh.Float4):
+		sh.return_( sh.g_f4.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float1x1", sh.Float1x1)(y = sh.Float1x1):
+		sh.return_( sh.g_f1x1.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float1x2", sh.Float1x2)(y = sh.Float1x2):
+		sh.return_( sh.g_f1x2.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float1x3", sh.Float1x3)(y = sh.Float1x3):
+		sh.return_( sh.g_f1x3.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float1x4", sh.Float1x4)(y = sh.Float1x4):
+		sh.return_( sh.g_f1x4.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float2x1", sh.Float2x1)(y = sh.Float2x1):
+		sh.return_( sh.g_f2x1.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float2x2", sh.Float2x2)(y = sh.Float2x2):
+		sh.return_( sh.g_f2x2.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float2x3", sh.Float2x3)(y = sh.Float2x3):
+		sh.return_( sh.g_f2x3.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float2x4", sh.Float2x4)(y = sh.Float2x4):
+		sh.return_( sh.g_f2x4.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float3x1", sh.Float3x1)(y = sh.Float3x1):
+		sh.return_( sh.g_f3x1.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float3x2", sh.Float3x2)(y = sh.Float3x2):
+		sh.return_( sh.g_f3x2.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float3x3", sh.Float3x3)(y = sh.Float3x3):
+		sh.return_( sh.g_f3x3.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float3x4", sh.Float3x4)(y = sh.Float3x4):
+		sh.return_( sh.g_f3x4.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float4x1", sh.Float4x1)(y = sh.Float4x1):
+		sh.return_( sh.g_f4x1.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float4x2", sh.Float4x2)(y = sh.Float4x2):
+		sh.return_( sh.g_f4x2.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float4x3", sh.Float4x3)(y = sh.Float4x3):
+		sh.return_( sh.g_f4x3.atan2(y = sh.y) )
+
+	with sh.function("test_atan2_Float4x4", sh.Float4x4)(y = sh.Float4x4):
+		sh.return_( sh.g_f4x4.atan2(y = sh.y) )
 
 	with sh.function("test_ceil_Float", sh.Float)():
-		sh.f_ceil = sh.g_f.ceil()
-		sh.return_( sh.f_ceil )
+		sh.return_( sh.g_f.ceil() )
 
 	with sh.function("test_ceil_Float1", sh.Float1)():
-		sh.f1_ceil = sh.g_f1.ceil()
-		sh.return_( sh.f1_ceil )
+		sh.return_( sh.g_f1.ceil() )
 
 	with sh.function("test_ceil_Float2", sh.Float2)():
-		sh.f2_ceil = sh.g_f2.ceil()
-		sh.return_( sh.f2_ceil )
+		sh.return_( sh.g_f2.ceil() )
 
 	with sh.function("test_ceil_Float3", sh.Float3)():
-		sh.f3_ceil = sh.g_f3.ceil()
-		sh.return_( sh.f3_ceil )
+		sh.return_( sh.g_f3.ceil() )
 
 	with sh.function("test_ceil_Float4", sh.Float4)():
-		sh.f4_ceil = sh.g_f4.ceil()
-		sh.return_( sh.f4_ceil )
+		sh.return_( sh.g_f4.ceil() )
 
 	with sh.function("test_ceil_Float1x1", sh.Float1x1)():
-		sh.f1x1_ceil = sh.g_f1x1.ceil()
-		sh.return_( sh.f1x1_ceil )
+		sh.return_( sh.g_f1x1.ceil() )
 
 	with sh.function("test_ceil_Float1x2", sh.Float1x2)():
-		sh.f1x2_ceil = sh.g_f1x2.ceil()
-		sh.return_( sh.f1x2_ceil )
+		sh.return_( sh.g_f1x2.ceil() )
 
 	with sh.function("test_ceil_Float1x3", sh.Float1x3)():
-		sh.f1x3_ceil = sh.g_f1x3.ceil()
-		sh.return_( sh.f1x3_ceil )
+		sh.return_( sh.g_f1x3.ceil() )
 
 	with sh.function("test_ceil_Float1x4", sh.Float1x4)():
-		sh.f1x4_ceil = sh.g_f1x4.ceil()
-		sh.return_( sh.f1x4_ceil )
+		sh.return_( sh.g_f1x4.ceil() )
 
 	with sh.function("test_ceil_Float2x1", sh.Float2x1)():
-		sh.f2x1_ceil = sh.g_f2x1.ceil()
-		sh.return_( sh.f2x1_ceil )
+		sh.return_( sh.g_f2x1.ceil() )
 
 	with sh.function("test_ceil_Float2x2", sh.Float2x2)():
-		sh.f2x2_ceil = sh.g_f2x2.ceil()
-		sh.return_( sh.f2x2_ceil )
+		sh.return_( sh.g_f2x2.ceil() )
 
 	with sh.function("test_ceil_Float2x3", sh.Float2x3)():
-		sh.f2x3_ceil = sh.g_f2x3.ceil()
-		sh.return_( sh.f2x3_ceil )
+		sh.return_( sh.g_f2x3.ceil() )
 
 	with sh.function("test_ceil_Float2x4", sh.Float2x4)():
-		sh.f2x4_ceil = sh.g_f2x4.ceil()
-		sh.return_( sh.f2x4_ceil )
+		sh.return_( sh.g_f2x4.ceil() )
 
 	with sh.function("test_ceil_Float3x1", sh.Float3x1)():
-		sh.f3x1_ceil = sh.g_f3x1.ceil()
-		sh.return_( sh.f3x1_ceil )
+		sh.return_( sh.g_f3x1.ceil() )
 
 	with sh.function("test_ceil_Float3x2", sh.Float3x2)():
-		sh.f3x2_ceil = sh.g_f3x2.ceil()
-		sh.return_( sh.f3x2_ceil )
+		sh.return_( sh.g_f3x2.ceil() )
 
 	with sh.function("test_ceil_Float3x3", sh.Float3x3)():
-		sh.f3x3_ceil = sh.g_f3x3.ceil()
-		sh.return_( sh.f3x3_ceil )
+		sh.return_( sh.g_f3x3.ceil() )
 
 	with sh.function("test_ceil_Float3x4", sh.Float3x4)():
-		sh.f3x4_ceil = sh.g_f3x4.ceil()
-		sh.return_( sh.f3x4_ceil )
+		sh.return_( sh.g_f3x4.ceil() )
 
 	with sh.function("test_ceil_Float4x1", sh.Float4x1)():
-		sh.f4x1_ceil = sh.g_f4x1.ceil()
-		sh.return_( sh.f4x1_ceil )
+		sh.return_( sh.g_f4x1.ceil() )
 
 	with sh.function("test_ceil_Float4x2", sh.Float4x2)():
-		sh.f4x2_ceil = sh.g_f4x2.ceil()
-		sh.return_( sh.f4x2_ceil )
+		sh.return_( sh.g_f4x2.ceil() )
 
 	with sh.function("test_ceil_Float4x3", sh.Float4x3)():
-		sh.f4x3_ceil = sh.g_f4x3.ceil()
-		sh.return_( sh.f4x3_ceil )
+		sh.return_( sh.g_f4x3.ceil() )
 
 	with sh.function("test_ceil_Float4x4", sh.Float4x4)():
-		sh.f4x4_ceil = sh.g_f4x4.ceil()
-		sh.return_( sh.f4x4_ceil )
+		sh.return_( sh.g_f4x4.ceil() )
 
 	with sh.function("test_cos_Float", sh.Float)():
-		sh.f_cos = sh.g_f.cos()
-		sh.return_( sh.f_cos )
+		sh.return_( sh.g_f.cos() )
 
 	with sh.function("test_cos_Float1", sh.Float1)():
-		sh.f1_cos = sh.g_f1.cos()
-		sh.return_( sh.f1_cos )
+		sh.return_( sh.g_f1.cos() )
 
 	with sh.function("test_cos_Float2", sh.Float2)():
-		sh.f2_cos = sh.g_f2.cos()
-		sh.return_( sh.f2_cos )
+		sh.return_( sh.g_f2.cos() )
 
 	with sh.function("test_cos_Float3", sh.Float3)():
-		sh.f3_cos = sh.g_f3.cos()
-		sh.return_( sh.f3_cos )
+		sh.return_( sh.g_f3.cos() )
 
 	with sh.function("test_cos_Float4", sh.Float4)():
-		sh.f4_cos = sh.g_f4.cos()
-		sh.return_( sh.f4_cos )
+		sh.return_( sh.g_f4.cos() )
 
 	with sh.function("test_cos_Float1x1", sh.Float1x1)():
-		sh.f1x1_cos = sh.g_f1x1.cos()
-		sh.return_( sh.f1x1_cos )
+		sh.return_( sh.g_f1x1.cos() )
 
 	with sh.function("test_cos_Float1x2", sh.Float1x2)():
-		sh.f1x2_cos = sh.g_f1x2.cos()
-		sh.return_( sh.f1x2_cos )
+		sh.return_( sh.g_f1x2.cos() )
 
 	with sh.function("test_cos_Float1x3", sh.Float1x3)():
-		sh.f1x3_cos = sh.g_f1x3.cos()
-		sh.return_( sh.f1x3_cos )
+		sh.return_( sh.g_f1x3.cos() )
 
 	with sh.function("test_cos_Float1x4", sh.Float1x4)():
-		sh.f1x4_cos = sh.g_f1x4.cos()
-		sh.return_( sh.f1x4_cos )
+		sh.return_( sh.g_f1x4.cos() )
 
 	with sh.function("test_cos_Float2x1", sh.Float2x1)():
-		sh.f2x1_cos = sh.g_f2x1.cos()
-		sh.return_( sh.f2x1_cos )
+		sh.return_( sh.g_f2x1.cos() )
 
 	with sh.function("test_cos_Float2x2", sh.Float2x2)():
-		sh.f2x2_cos = sh.g_f2x2.cos()
-		sh.return_( sh.f2x2_cos )
+		sh.return_( sh.g_f2x2.cos() )
 
 	with sh.function("test_cos_Float2x3", sh.Float2x3)():
-		sh.f2x3_cos = sh.g_f2x3.cos()
-		sh.return_( sh.f2x3_cos )
+		sh.return_( sh.g_f2x3.cos() )
 
 	with sh.function("test_cos_Float2x4", sh.Float2x4)():
-		sh.f2x4_cos = sh.g_f2x4.cos()
-		sh.return_( sh.f2x4_cos )
+		sh.return_( sh.g_f2x4.cos() )
 
 	with sh.function("test_cos_Float3x1", sh.Float3x1)():
-		sh.f3x1_cos = sh.g_f3x1.cos()
-		sh.return_( sh.f3x1_cos )
+		sh.return_( sh.g_f3x1.cos() )
 
 	with sh.function("test_cos_Float3x2", sh.Float3x2)():
-		sh.f3x2_cos = sh.g_f3x2.cos()
-		sh.return_( sh.f3x2_cos )
+		sh.return_( sh.g_f3x2.cos() )
 
 	with sh.function("test_cos_Float3x3", sh.Float3x3)():
-		sh.f3x3_cos = sh.g_f3x3.cos()
-		sh.return_( sh.f3x3_cos )
+		sh.return_( sh.g_f3x3.cos() )
 
 	with sh.function("test_cos_Float3x4", sh.Float3x4)():
-		sh.f3x4_cos = sh.g_f3x4.cos()
-		sh.return_( sh.f3x4_cos )
+		sh.return_( sh.g_f3x4.cos() )
 
 	with sh.function("test_cos_Float4x1", sh.Float4x1)():
-		sh.f4x1_cos = sh.g_f4x1.cos()
-		sh.return_( sh.f4x1_cos )
+		sh.return_( sh.g_f4x1.cos() )
 
 	with sh.function("test_cos_Float4x2", sh.Float4x2)():
-		sh.f4x2_cos = sh.g_f4x2.cos()
-		sh.return_( sh.f4x2_cos )
+		sh.return_( sh.g_f4x2.cos() )
 
 	with sh.function("test_cos_Float4x3", sh.Float4x3)():
-		sh.f4x3_cos = sh.g_f4x3.cos()
-		sh.return_( sh.f4x3_cos )
+		sh.return_( sh.g_f4x3.cos() )
 
 	with sh.function("test_cos_Float4x4", sh.Float4x4)():
-		sh.f4x4_cos = sh.g_f4x4.cos()
-		sh.return_( sh.f4x4_cos )
+		sh.return_( sh.g_f4x4.cos() )
 
 	with sh.function("test_cosh_Float", sh.Float)():
-		sh.f_cosh = sh.g_f.cosh()
-		sh.return_( sh.f_cosh )
+		sh.return_( sh.g_f.cosh() )
 
 	with sh.function("test_cosh_Float1", sh.Float1)():
-		sh.f1_cosh = sh.g_f1.cosh()
-		sh.return_( sh.f1_cosh )
+		sh.return_( sh.g_f1.cosh() )
 
 	with sh.function("test_cosh_Float2", sh.Float2)():
-		sh.f2_cosh = sh.g_f2.cosh()
-		sh.return_( sh.f2_cosh )
+		sh.return_( sh.g_f2.cosh() )
 
 	with sh.function("test_cosh_Float3", sh.Float3)():
-		sh.f3_cosh = sh.g_f3.cosh()
-		sh.return_( sh.f3_cosh )
+		sh.return_( sh.g_f3.cosh() )
 
 	with sh.function("test_cosh_Float4", sh.Float4)():
-		sh.f4_cosh = sh.g_f4.cosh()
-		sh.return_( sh.f4_cosh )
+		sh.return_( sh.g_f4.cosh() )
 
 	with sh.function("test_cosh_Float1x1", sh.Float1x1)():
-		sh.f1x1_cosh = sh.g_f1x1.cosh()
-		sh.return_( sh.f1x1_cosh )
+		sh.return_( sh.g_f1x1.cosh() )
 
 	with sh.function("test_cosh_Float1x2", sh.Float1x2)():
-		sh.f1x2_cosh = sh.g_f1x2.cosh()
-		sh.return_( sh.f1x2_cosh )
+		sh.return_( sh.g_f1x2.cosh() )
 
 	with sh.function("test_cosh_Float1x3", sh.Float1x3)():
-		sh.f1x3_cosh = sh.g_f1x3.cosh()
-		sh.return_( sh.f1x3_cosh )
+		sh.return_( sh.g_f1x3.cosh() )
 
 	with sh.function("test_cosh_Float1x4", sh.Float1x4)():
-		sh.f1x4_cosh = sh.g_f1x4.cosh()
-		sh.return_( sh.f1x4_cosh )
+		sh.return_( sh.g_f1x4.cosh() )
 
 	with sh.function("test_cosh_Float2x1", sh.Float2x1)():
-		sh.f2x1_cosh = sh.g_f2x1.cosh()
-		sh.return_( sh.f2x1_cosh )
+		sh.return_( sh.g_f2x1.cosh() )
 
 	with sh.function("test_cosh_Float2x2", sh.Float2x2)():
-		sh.f2x2_cosh = sh.g_f2x2.cosh()
-		sh.return_( sh.f2x2_cosh )
+		sh.return_( sh.g_f2x2.cosh() )
 
 	with sh.function("test_cosh_Float2x3", sh.Float2x3)():
-		sh.f2x3_cosh = sh.g_f2x3.cosh()
-		sh.return_( sh.f2x3_cosh )
+		sh.return_( sh.g_f2x3.cosh() )
 
 	with sh.function("test_cosh_Float2x4", sh.Float2x4)():
-		sh.f2x4_cosh = sh.g_f2x4.cosh()
-		sh.return_( sh.f2x4_cosh )
+		sh.return_( sh.g_f2x4.cosh() )
 
 	with sh.function("test_cosh_Float3x1", sh.Float3x1)():
-		sh.f3x1_cosh = sh.g_f3x1.cosh()
-		sh.return_( sh.f3x1_cosh )
+		sh.return_( sh.g_f3x1.cosh() )
 
 	with sh.function("test_cosh_Float3x2", sh.Float3x2)():
-		sh.f3x2_cosh = sh.g_f3x2.cosh()
-		sh.return_( sh.f3x2_cosh )
+		sh.return_( sh.g_f3x2.cosh() )
 
 	with sh.function("test_cosh_Float3x3", sh.Float3x3)():
-		sh.f3x3_cosh = sh.g_f3x3.cosh()
-		sh.return_( sh.f3x3_cosh )
+		sh.return_( sh.g_f3x3.cosh() )
 
 	with sh.function("test_cosh_Float3x4", sh.Float3x4)():
-		sh.f3x4_cosh = sh.g_f3x4.cosh()
-		sh.return_( sh.f3x4_cosh )
+		sh.return_( sh.g_f3x4.cosh() )
 
 	with sh.function("test_cosh_Float4x1", sh.Float4x1)():
-		sh.f4x1_cosh = sh.g_f4x1.cosh()
-		sh.return_( sh.f4x1_cosh )
+		sh.return_( sh.g_f4x1.cosh() )
 
 	with sh.function("test_cosh_Float4x2", sh.Float4x2)():
-		sh.f4x2_cosh = sh.g_f4x2.cosh()
-		sh.return_( sh.f4x2_cosh )
+		sh.return_( sh.g_f4x2.cosh() )
 
 	with sh.function("test_cosh_Float4x3", sh.Float4x3)():
-		sh.f4x3_cosh = sh.g_f4x3.cosh()
-		sh.return_( sh.f4x3_cosh )
+		sh.return_( sh.g_f4x3.cosh() )
 
 	with sh.function("test_cosh_Float4x4", sh.Float4x4)():
-		sh.f4x4_cosh = sh.g_f4x4.cosh()
-		sh.return_( sh.f4x4_cosh )
+		sh.return_( sh.g_f4x4.cosh() )
 
 	with sh.function("test_ddx_Float", sh.Float)():
-		sh.f_ddx = sh.g_f.ddx()
-		sh.return_( sh.f_ddx )
+		sh.return_( sh.g_f.ddx() )
 
 	with sh.function("test_ddx_Float1", sh.Float1)():
-		sh.f1_ddx = sh.g_f1.ddx()
-		sh.return_( sh.f1_ddx )
+		sh.return_( sh.g_f1.ddx() )
 
 	with sh.function("test_ddx_Float2", sh.Float2)():
-		sh.f2_ddx = sh.g_f2.ddx()
-		sh.return_( sh.f2_ddx )
+		sh.return_( sh.g_f2.ddx() )
 
 	with sh.function("test_ddx_Float3", sh.Float3)():
-		sh.f3_ddx = sh.g_f3.ddx()
-		sh.return_( sh.f3_ddx )
+		sh.return_( sh.g_f3.ddx() )
 
 	with sh.function("test_ddx_Float4", sh.Float4)():
-		sh.f4_ddx = sh.g_f4.ddx()
-		sh.return_( sh.f4_ddx )
+		sh.return_( sh.g_f4.ddx() )
 
 	with sh.function("test_ddx_Float1x1", sh.Float1x1)():
-		sh.f1x1_ddx = sh.g_f1x1.ddx()
-		sh.return_( sh.f1x1_ddx )
+		sh.return_( sh.g_f1x1.ddx() )
 
 	with sh.function("test_ddx_Float1x2", sh.Float1x2)():
-		sh.f1x2_ddx = sh.g_f1x2.ddx()
-		sh.return_( sh.f1x2_ddx )
+		sh.return_( sh.g_f1x2.ddx() )
 
 	with sh.function("test_ddx_Float1x3", sh.Float1x3)():
-		sh.f1x3_ddx = sh.g_f1x3.ddx()
-		sh.return_( sh.f1x3_ddx )
+		sh.return_( sh.g_f1x3.ddx() )
 
 	with sh.function("test_ddx_Float1x4", sh.Float1x4)():
-		sh.f1x4_ddx = sh.g_f1x4.ddx()
-		sh.return_( sh.f1x4_ddx )
+		sh.return_( sh.g_f1x4.ddx() )
 
 	with sh.function("test_ddx_Float2x1", sh.Float2x1)():
-		sh.f2x1_ddx = sh.g_f2x1.ddx()
-		sh.return_( sh.f2x1_ddx )
+		sh.return_( sh.g_f2x1.ddx() )
 
 	with sh.function("test_ddx_Float2x2", sh.Float2x2)():
-		sh.f2x2_ddx = sh.g_f2x2.ddx()
-		sh.return_( sh.f2x2_ddx )
+		sh.return_( sh.g_f2x2.ddx() )
 
 	with sh.function("test_ddx_Float2x3", sh.Float2x3)():
-		sh.f2x3_ddx = sh.g_f2x3.ddx()
-		sh.return_( sh.f2x3_ddx )
+		sh.return_( sh.g_f2x3.ddx() )
 
 	with sh.function("test_ddx_Float2x4", sh.Float2x4)():
-		sh.f2x4_ddx = sh.g_f2x4.ddx()
-		sh.return_( sh.f2x4_ddx )
+		sh.return_( sh.g_f2x4.ddx() )
 
 	with sh.function("test_ddx_Float3x1", sh.Float3x1)():
-		sh.f3x1_ddx = sh.g_f3x1.ddx()
-		sh.return_( sh.f3x1_ddx )
+		sh.return_( sh.g_f3x1.ddx() )
 
 	with sh.function("test_ddx_Float3x2", sh.Float3x2)():
-		sh.f3x2_ddx = sh.g_f3x2.ddx()
-		sh.return_( sh.f3x2_ddx )
+		sh.return_( sh.g_f3x2.ddx() )
 
 	with sh.function("test_ddx_Float3x3", sh.Float3x3)():
-		sh.f3x3_ddx = sh.g_f3x3.ddx()
-		sh.return_( sh.f3x3_ddx )
+		sh.return_( sh.g_f3x3.ddx() )
 
 	with sh.function("test_ddx_Float3x4", sh.Float3x4)():
-		sh.f3x4_ddx = sh.g_f3x4.ddx()
-		sh.return_( sh.f3x4_ddx )
+		sh.return_( sh.g_f3x4.ddx() )
 
 	with sh.function("test_ddx_Float4x1", sh.Float4x1)():
-		sh.f4x1_ddx = sh.g_f4x1.ddx()
-		sh.return_( sh.f4x1_ddx )
+		sh.return_( sh.g_f4x1.ddx() )
 
 	with sh.function("test_ddx_Float4x2", sh.Float4x2)():
-		sh.f4x2_ddx = sh.g_f4x2.ddx()
-		sh.return_( sh.f4x2_ddx )
+		sh.return_( sh.g_f4x2.ddx() )
 
 	with sh.function("test_ddx_Float4x3", sh.Float4x3)():
-		sh.f4x3_ddx = sh.g_f4x3.ddx()
-		sh.return_( sh.f4x3_ddx )
+		sh.return_( sh.g_f4x3.ddx() )
 
 	with sh.function("test_ddx_Float4x4", sh.Float4x4)():
-		sh.f4x4_ddx = sh.g_f4x4.ddx()
-		sh.return_( sh.f4x4_ddx )
+		sh.return_( sh.g_f4x4.ddx() )
 
 	with sh.function("test_ddx_coarse_Float", sh.Float)():
-		sh.f_ddx_coarse = sh.g_f.ddx_coarse()
-		sh.return_( sh.f_ddx_coarse )
+		sh.return_( sh.g_f.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float1", sh.Float1)():
-		sh.f1_ddx_coarse = sh.g_f1.ddx_coarse()
-		sh.return_( sh.f1_ddx_coarse )
+		sh.return_( sh.g_f1.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float2", sh.Float2)():
-		sh.f2_ddx_coarse = sh.g_f2.ddx_coarse()
-		sh.return_( sh.f2_ddx_coarse )
+		sh.return_( sh.g_f2.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float3", sh.Float3)():
-		sh.f3_ddx_coarse = sh.g_f3.ddx_coarse()
-		sh.return_( sh.f3_ddx_coarse )
+		sh.return_( sh.g_f3.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float4", sh.Float4)():
-		sh.f4_ddx_coarse = sh.g_f4.ddx_coarse()
-		sh.return_( sh.f4_ddx_coarse )
+		sh.return_( sh.g_f4.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float1x1", sh.Float1x1)():
-		sh.f1x1_ddx_coarse = sh.g_f1x1.ddx_coarse()
-		sh.return_( sh.f1x1_ddx_coarse )
+		sh.return_( sh.g_f1x1.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float1x2", sh.Float1x2)():
-		sh.f1x2_ddx_coarse = sh.g_f1x2.ddx_coarse()
-		sh.return_( sh.f1x2_ddx_coarse )
+		sh.return_( sh.g_f1x2.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float1x3", sh.Float1x3)():
-		sh.f1x3_ddx_coarse = sh.g_f1x3.ddx_coarse()
-		sh.return_( sh.f1x3_ddx_coarse )
+		sh.return_( sh.g_f1x3.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float1x4", sh.Float1x4)():
-		sh.f1x4_ddx_coarse = sh.g_f1x4.ddx_coarse()
-		sh.return_( sh.f1x4_ddx_coarse )
+		sh.return_( sh.g_f1x4.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float2x1", sh.Float2x1)():
-		sh.f2x1_ddx_coarse = sh.g_f2x1.ddx_coarse()
-		sh.return_( sh.f2x1_ddx_coarse )
+		sh.return_( sh.g_f2x1.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float2x2", sh.Float2x2)():
-		sh.f2x2_ddx_coarse = sh.g_f2x2.ddx_coarse()
-		sh.return_( sh.f2x2_ddx_coarse )
+		sh.return_( sh.g_f2x2.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float2x3", sh.Float2x3)():
-		sh.f2x3_ddx_coarse = sh.g_f2x3.ddx_coarse()
-		sh.return_( sh.f2x3_ddx_coarse )
+		sh.return_( sh.g_f2x3.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float2x4", sh.Float2x4)():
-		sh.f2x4_ddx_coarse = sh.g_f2x4.ddx_coarse()
-		sh.return_( sh.f2x4_ddx_coarse )
+		sh.return_( sh.g_f2x4.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float3x1", sh.Float3x1)():
-		sh.f3x1_ddx_coarse = sh.g_f3x1.ddx_coarse()
-		sh.return_( sh.f3x1_ddx_coarse )
+		sh.return_( sh.g_f3x1.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float3x2", sh.Float3x2)():
-		sh.f3x2_ddx_coarse = sh.g_f3x2.ddx_coarse()
-		sh.return_( sh.f3x2_ddx_coarse )
+		sh.return_( sh.g_f3x2.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float3x3", sh.Float3x3)():
-		sh.f3x3_ddx_coarse = sh.g_f3x3.ddx_coarse()
-		sh.return_( sh.f3x3_ddx_coarse )
+		sh.return_( sh.g_f3x3.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float3x4", sh.Float3x4)():
-		sh.f3x4_ddx_coarse = sh.g_f3x4.ddx_coarse()
-		sh.return_( sh.f3x4_ddx_coarse )
+		sh.return_( sh.g_f3x4.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float4x1", sh.Float4x1)():
-		sh.f4x1_ddx_coarse = sh.g_f4x1.ddx_coarse()
-		sh.return_( sh.f4x1_ddx_coarse )
+		sh.return_( sh.g_f4x1.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float4x2", sh.Float4x2)():
-		sh.f4x2_ddx_coarse = sh.g_f4x2.ddx_coarse()
-		sh.return_( sh.f4x2_ddx_coarse )
+		sh.return_( sh.g_f4x2.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float4x3", sh.Float4x3)():
-		sh.f4x3_ddx_coarse = sh.g_f4x3.ddx_coarse()
-		sh.return_( sh.f4x3_ddx_coarse )
+		sh.return_( sh.g_f4x3.ddx_coarse() )
 
 	with sh.function("test_ddx_coarse_Float4x4", sh.Float4x4)():
-		sh.f4x4_ddx_coarse = sh.g_f4x4.ddx_coarse()
-		sh.return_( sh.f4x4_ddx_coarse )
+		sh.return_( sh.g_f4x4.ddx_coarse() )
 
 	with sh.function("test_ddx_fine_Float", sh.Float)():
-		sh.f_ddx_fine = sh.g_f.ddx_fine()
-		sh.return_( sh.f_ddx_fine )
+		sh.return_( sh.g_f.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float1", sh.Float1)():
-		sh.f1_ddx_fine = sh.g_f1.ddx_fine()
-		sh.return_( sh.f1_ddx_fine )
+		sh.return_( sh.g_f1.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float2", sh.Float2)():
-		sh.f2_ddx_fine = sh.g_f2.ddx_fine()
-		sh.return_( sh.f2_ddx_fine )
+		sh.return_( sh.g_f2.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float3", sh.Float3)():
-		sh.f3_ddx_fine = sh.g_f3.ddx_fine()
-		sh.return_( sh.f3_ddx_fine )
+		sh.return_( sh.g_f3.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float4", sh.Float4)():
-		sh.f4_ddx_fine = sh.g_f4.ddx_fine()
-		sh.return_( sh.f4_ddx_fine )
+		sh.return_( sh.g_f4.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float1x1", sh.Float1x1)():
-		sh.f1x1_ddx_fine = sh.g_f1x1.ddx_fine()
-		sh.return_( sh.f1x1_ddx_fine )
+		sh.return_( sh.g_f1x1.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float1x2", sh.Float1x2)():
-		sh.f1x2_ddx_fine = sh.g_f1x2.ddx_fine()
-		sh.return_( sh.f1x2_ddx_fine )
+		sh.return_( sh.g_f1x2.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float1x3", sh.Float1x3)():
-		sh.f1x3_ddx_fine = sh.g_f1x3.ddx_fine()
-		sh.return_( sh.f1x3_ddx_fine )
+		sh.return_( sh.g_f1x3.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float1x4", sh.Float1x4)():
-		sh.f1x4_ddx_fine = sh.g_f1x4.ddx_fine()
-		sh.return_( sh.f1x4_ddx_fine )
+		sh.return_( sh.g_f1x4.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float2x1", sh.Float2x1)():
-		sh.f2x1_ddx_fine = sh.g_f2x1.ddx_fine()
-		sh.return_( sh.f2x1_ddx_fine )
+		sh.return_( sh.g_f2x1.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float2x2", sh.Float2x2)():
-		sh.f2x2_ddx_fine = sh.g_f2x2.ddx_fine()
-		sh.return_( sh.f2x2_ddx_fine )
+		sh.return_( sh.g_f2x2.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float2x3", sh.Float2x3)():
-		sh.f2x3_ddx_fine = sh.g_f2x3.ddx_fine()
-		sh.return_( sh.f2x3_ddx_fine )
+		sh.return_( sh.g_f2x3.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float2x4", sh.Float2x4)():
-		sh.f2x4_ddx_fine = sh.g_f2x4.ddx_fine()
-		sh.return_( sh.f2x4_ddx_fine )
+		sh.return_( sh.g_f2x4.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float3x1", sh.Float3x1)():
-		sh.f3x1_ddx_fine = sh.g_f3x1.ddx_fine()
-		sh.return_( sh.f3x1_ddx_fine )
+		sh.return_( sh.g_f3x1.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float3x2", sh.Float3x2)():
-		sh.f3x2_ddx_fine = sh.g_f3x2.ddx_fine()
-		sh.return_( sh.f3x2_ddx_fine )
+		sh.return_( sh.g_f3x2.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float3x3", sh.Float3x3)():
-		sh.f3x3_ddx_fine = sh.g_f3x3.ddx_fine()
-		sh.return_( sh.f3x3_ddx_fine )
+		sh.return_( sh.g_f3x3.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float3x4", sh.Float3x4)():
-		sh.f3x4_ddx_fine = sh.g_f3x4.ddx_fine()
-		sh.return_( sh.f3x4_ddx_fine )
+		sh.return_( sh.g_f3x4.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float4x1", sh.Float4x1)():
-		sh.f4x1_ddx_fine = sh.g_f4x1.ddx_fine()
-		sh.return_( sh.f4x1_ddx_fine )
+		sh.return_( sh.g_f4x1.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float4x2", sh.Float4x2)():
-		sh.f4x2_ddx_fine = sh.g_f4x2.ddx_fine()
-		sh.return_( sh.f4x2_ddx_fine )
+		sh.return_( sh.g_f4x2.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float4x3", sh.Float4x3)():
-		sh.f4x3_ddx_fine = sh.g_f4x3.ddx_fine()
-		sh.return_( sh.f4x3_ddx_fine )
+		sh.return_( sh.g_f4x3.ddx_fine() )
 
 	with sh.function("test_ddx_fine_Float4x4", sh.Float4x4)():
-		sh.f4x4_ddx_fine = sh.g_f4x4.ddx_fine()
-		sh.return_( sh.f4x4_ddx_fine )
+		sh.return_( sh.g_f4x4.ddx_fine() )
 
 	with sh.function("test_ddy_Float", sh.Float)():
-		sh.f_ddy = sh.g_f.ddy()
-		sh.return_( sh.f_ddy )
+		sh.return_( sh.g_f.ddy() )
 
 	with sh.function("test_ddy_Float1", sh.Float1)():
-		sh.f1_ddy = sh.g_f1.ddy()
-		sh.return_( sh.f1_ddy )
+		sh.return_( sh.g_f1.ddy() )
 
 	with sh.function("test_ddy_Float2", sh.Float2)():
-		sh.f2_ddy = sh.g_f2.ddy()
-		sh.return_( sh.f2_ddy )
+		sh.return_( sh.g_f2.ddy() )
 
 	with sh.function("test_ddy_Float3", sh.Float3)():
-		sh.f3_ddy = sh.g_f3.ddy()
-		sh.return_( sh.f3_ddy )
+		sh.return_( sh.g_f3.ddy() )
 
 	with sh.function("test_ddy_Float4", sh.Float4)():
-		sh.f4_ddy = sh.g_f4.ddy()
-		sh.return_( sh.f4_ddy )
+		sh.return_( sh.g_f4.ddy() )
 
 	with sh.function("test_ddy_Float1x1", sh.Float1x1)():
-		sh.f1x1_ddy = sh.g_f1x1.ddy()
-		sh.return_( sh.f1x1_ddy )
+		sh.return_( sh.g_f1x1.ddy() )
 
 	with sh.function("test_ddy_Float1x2", sh.Float1x2)():
-		sh.f1x2_ddy = sh.g_f1x2.ddy()
-		sh.return_( sh.f1x2_ddy )
+		sh.return_( sh.g_f1x2.ddy() )
 
 	with sh.function("test_ddy_Float1x3", sh.Float1x3)():
-		sh.f1x3_ddy = sh.g_f1x3.ddy()
-		sh.return_( sh.f1x3_ddy )
+		sh.return_( sh.g_f1x3.ddy() )
 
 	with sh.function("test_ddy_Float1x4", sh.Float1x4)():
-		sh.f1x4_ddy = sh.g_f1x4.ddy()
-		sh.return_( sh.f1x4_ddy )
+		sh.return_( sh.g_f1x4.ddy() )
 
 	with sh.function("test_ddy_Float2x1", sh.Float2x1)():
-		sh.f2x1_ddy = sh.g_f2x1.ddy()
-		sh.return_( sh.f2x1_ddy )
+		sh.return_( sh.g_f2x1.ddy() )
 
 	with sh.function("test_ddy_Float2x2", sh.Float2x2)():
-		sh.f2x2_ddy = sh.g_f2x2.ddy()
-		sh.return_( sh.f2x2_ddy )
+		sh.return_( sh.g_f2x2.ddy() )
 
 	with sh.function("test_ddy_Float2x3", sh.Float2x3)():
-		sh.f2x3_ddy = sh.g_f2x3.ddy()
-		sh.return_( sh.f2x3_ddy )
+		sh.return_( sh.g_f2x3.ddy() )
 
 	with sh.function("test_ddy_Float2x4", sh.Float2x4)():
-		sh.f2x4_ddy = sh.g_f2x4.ddy()
-		sh.return_( sh.f2x4_ddy )
+		sh.return_( sh.g_f2x4.ddy() )
 
 	with sh.function("test_ddy_Float3x1", sh.Float3x1)():
-		sh.f3x1_ddy = sh.g_f3x1.ddy()
-		sh.return_( sh.f3x1_ddy )
+		sh.return_( sh.g_f3x1.ddy() )
 
 	with sh.function("test_ddy_Float3x2", sh.Float3x2)():
-		sh.f3x2_ddy = sh.g_f3x2.ddy()
-		sh.return_( sh.f3x2_ddy )
+		sh.return_( sh.g_f3x2.ddy() )
 
 	with sh.function("test_ddy_Float3x3", sh.Float3x3)():
-		sh.f3x3_ddy = sh.g_f3x3.ddy()
-		sh.return_( sh.f3x3_ddy )
+		sh.return_( sh.g_f3x3.ddy() )
 
 	with sh.function("test_ddy_Float3x4", sh.Float3x4)():
-		sh.f3x4_ddy = sh.g_f3x4.ddy()
-		sh.return_( sh.f3x4_ddy )
+		sh.return_( sh.g_f3x4.ddy() )
 
 	with sh.function("test_ddy_Float4x1", sh.Float4x1)():
-		sh.f4x1_ddy = sh.g_f4x1.ddy()
-		sh.return_( sh.f4x1_ddy )
+		sh.return_( sh.g_f4x1.ddy() )
 
 	with sh.function("test_ddy_Float4x2", sh.Float4x2)():
-		sh.f4x2_ddy = sh.g_f4x2.ddy()
-		sh.return_( sh.f4x2_ddy )
+		sh.return_( sh.g_f4x2.ddy() )
 
 	with sh.function("test_ddy_Float4x3", sh.Float4x3)():
-		sh.f4x3_ddy = sh.g_f4x3.ddy()
-		sh.return_( sh.f4x3_ddy )
+		sh.return_( sh.g_f4x3.ddy() )
 
 	with sh.function("test_ddy_Float4x4", sh.Float4x4)():
-		sh.f4x4_ddy = sh.g_f4x4.ddy()
-		sh.return_( sh.f4x4_ddy )
+		sh.return_( sh.g_f4x4.ddy() )
 
 	with sh.function("test_ddy_coarse_Float", sh.Float)():
-		sh.f_ddy_coarse = sh.g_f.ddy_coarse()
-		sh.return_( sh.f_ddy_coarse )
+		sh.return_( sh.g_f.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float1", sh.Float1)():
-		sh.f1_ddy_coarse = sh.g_f1.ddy_coarse()
-		sh.return_( sh.f1_ddy_coarse )
+		sh.return_( sh.g_f1.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float2", sh.Float2)():
-		sh.f2_ddy_coarse = sh.g_f2.ddy_coarse()
-		sh.return_( sh.f2_ddy_coarse )
+		sh.return_( sh.g_f2.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float3", sh.Float3)():
-		sh.f3_ddy_coarse = sh.g_f3.ddy_coarse()
-		sh.return_( sh.f3_ddy_coarse )
+		sh.return_( sh.g_f3.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float4", sh.Float4)():
-		sh.f4_ddy_coarse = sh.g_f4.ddy_coarse()
-		sh.return_( sh.f4_ddy_coarse )
+		sh.return_( sh.g_f4.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float1x1", sh.Float1x1)():
-		sh.f1x1_ddy_coarse = sh.g_f1x1.ddy_coarse()
-		sh.return_( sh.f1x1_ddy_coarse )
+		sh.return_( sh.g_f1x1.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float1x2", sh.Float1x2)():
-		sh.f1x2_ddy_coarse = sh.g_f1x2.ddy_coarse()
-		sh.return_( sh.f1x2_ddy_coarse )
+		sh.return_( sh.g_f1x2.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float1x3", sh.Float1x3)():
-		sh.f1x3_ddy_coarse = sh.g_f1x3.ddy_coarse()
-		sh.return_( sh.f1x3_ddy_coarse )
+		sh.return_( sh.g_f1x3.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float1x4", sh.Float1x4)():
-		sh.f1x4_ddy_coarse = sh.g_f1x4.ddy_coarse()
-		sh.return_( sh.f1x4_ddy_coarse )
+		sh.return_( sh.g_f1x4.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float2x1", sh.Float2x1)():
-		sh.f2x1_ddy_coarse = sh.g_f2x1.ddy_coarse()
-		sh.return_( sh.f2x1_ddy_coarse )
+		sh.return_( sh.g_f2x1.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float2x2", sh.Float2x2)():
-		sh.f2x2_ddy_coarse = sh.g_f2x2.ddy_coarse()
-		sh.return_( sh.f2x2_ddy_coarse )
+		sh.return_( sh.g_f2x2.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float2x3", sh.Float2x3)():
-		sh.f2x3_ddy_coarse = sh.g_f2x3.ddy_coarse()
-		sh.return_( sh.f2x3_ddy_coarse )
+		sh.return_( sh.g_f2x3.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float2x4", sh.Float2x4)():
-		sh.f2x4_ddy_coarse = sh.g_f2x4.ddy_coarse()
-		sh.return_( sh.f2x4_ddy_coarse )
+		sh.return_( sh.g_f2x4.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float3x1", sh.Float3x1)():
-		sh.f3x1_ddy_coarse = sh.g_f3x1.ddy_coarse()
-		sh.return_( sh.f3x1_ddy_coarse )
+		sh.return_( sh.g_f3x1.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float3x2", sh.Float3x2)():
-		sh.f3x2_ddy_coarse = sh.g_f3x2.ddy_coarse()
-		sh.return_( sh.f3x2_ddy_coarse )
+		sh.return_( sh.g_f3x2.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float3x3", sh.Float3x3)():
-		sh.f3x3_ddy_coarse = sh.g_f3x3.ddy_coarse()
-		sh.return_( sh.f3x3_ddy_coarse )
+		sh.return_( sh.g_f3x3.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float3x4", sh.Float3x4)():
-		sh.f3x4_ddy_coarse = sh.g_f3x4.ddy_coarse()
-		sh.return_( sh.f3x4_ddy_coarse )
+		sh.return_( sh.g_f3x4.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float4x1", sh.Float4x1)():
-		sh.f4x1_ddy_coarse = sh.g_f4x1.ddy_coarse()
-		sh.return_( sh.f4x1_ddy_coarse )
+		sh.return_( sh.g_f4x1.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float4x2", sh.Float4x2)():
-		sh.f4x2_ddy_coarse = sh.g_f4x2.ddy_coarse()
-		sh.return_( sh.f4x2_ddy_coarse )
+		sh.return_( sh.g_f4x2.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float4x3", sh.Float4x3)():
-		sh.f4x3_ddy_coarse = sh.g_f4x3.ddy_coarse()
-		sh.return_( sh.f4x3_ddy_coarse )
+		sh.return_( sh.g_f4x3.ddy_coarse() )
 
 	with sh.function("test_ddy_coarse_Float4x4", sh.Float4x4)():
-		sh.f4x4_ddy_coarse = sh.g_f4x4.ddy_coarse()
-		sh.return_( sh.f4x4_ddy_coarse )
+		sh.return_( sh.g_f4x4.ddy_coarse() )
 
 	with sh.function("test_ddy_fine_Float", sh.Float)():
-		sh.f_ddy_fine = sh.g_f.ddy_fine()
-		sh.return_( sh.f_ddy_fine )
+		sh.return_( sh.g_f.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float1", sh.Float1)():
-		sh.f1_ddy_fine = sh.g_f1.ddy_fine()
-		sh.return_( sh.f1_ddy_fine )
+		sh.return_( sh.g_f1.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float2", sh.Float2)():
-		sh.f2_ddy_fine = sh.g_f2.ddy_fine()
-		sh.return_( sh.f2_ddy_fine )
+		sh.return_( sh.g_f2.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float3", sh.Float3)():
-		sh.f3_ddy_fine = sh.g_f3.ddy_fine()
-		sh.return_( sh.f3_ddy_fine )
+		sh.return_( sh.g_f3.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float4", sh.Float4)():
-		sh.f4_ddy_fine = sh.g_f4.ddy_fine()
-		sh.return_( sh.f4_ddy_fine )
+		sh.return_( sh.g_f4.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float1x1", sh.Float1x1)():
-		sh.f1x1_ddy_fine = sh.g_f1x1.ddy_fine()
-		sh.return_( sh.f1x1_ddy_fine )
+		sh.return_( sh.g_f1x1.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float1x2", sh.Float1x2)():
-		sh.f1x2_ddy_fine = sh.g_f1x2.ddy_fine()
-		sh.return_( sh.f1x2_ddy_fine )
+		sh.return_( sh.g_f1x2.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float1x3", sh.Float1x3)():
-		sh.f1x3_ddy_fine = sh.g_f1x3.ddy_fine()
-		sh.return_( sh.f1x3_ddy_fine )
+		sh.return_( sh.g_f1x3.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float1x4", sh.Float1x4)():
-		sh.f1x4_ddy_fine = sh.g_f1x4.ddy_fine()
-		sh.return_( sh.f1x4_ddy_fine )
+		sh.return_( sh.g_f1x4.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float2x1", sh.Float2x1)():
-		sh.f2x1_ddy_fine = sh.g_f2x1.ddy_fine()
-		sh.return_( sh.f2x1_ddy_fine )
+		sh.return_( sh.g_f2x1.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float2x2", sh.Float2x2)():
-		sh.f2x2_ddy_fine = sh.g_f2x2.ddy_fine()
-		sh.return_( sh.f2x2_ddy_fine )
+		sh.return_( sh.g_f2x2.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float2x3", sh.Float2x3)():
-		sh.f2x3_ddy_fine = sh.g_f2x3.ddy_fine()
-		sh.return_( sh.f2x3_ddy_fine )
+		sh.return_( sh.g_f2x3.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float2x4", sh.Float2x4)():
-		sh.f2x4_ddy_fine = sh.g_f2x4.ddy_fine()
-		sh.return_( sh.f2x4_ddy_fine )
+		sh.return_( sh.g_f2x4.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float3x1", sh.Float3x1)():
-		sh.f3x1_ddy_fine = sh.g_f3x1.ddy_fine()
-		sh.return_( sh.f3x1_ddy_fine )
+		sh.return_( sh.g_f3x1.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float3x2", sh.Float3x2)():
-		sh.f3x2_ddy_fine = sh.g_f3x2.ddy_fine()
-		sh.return_( sh.f3x2_ddy_fine )
+		sh.return_( sh.g_f3x2.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float3x3", sh.Float3x3)():
-		sh.f3x3_ddy_fine = sh.g_f3x3.ddy_fine()
-		sh.return_( sh.f3x3_ddy_fine )
+		sh.return_( sh.g_f3x3.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float3x4", sh.Float3x4)():
-		sh.f3x4_ddy_fine = sh.g_f3x4.ddy_fine()
-		sh.return_( sh.f3x4_ddy_fine )
+		sh.return_( sh.g_f3x4.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float4x1", sh.Float4x1)():
-		sh.f4x1_ddy_fine = sh.g_f4x1.ddy_fine()
-		sh.return_( sh.f4x1_ddy_fine )
+		sh.return_( sh.g_f4x1.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float4x2", sh.Float4x2)():
-		sh.f4x2_ddy_fine = sh.g_f4x2.ddy_fine()
-		sh.return_( sh.f4x2_ddy_fine )
+		sh.return_( sh.g_f4x2.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float4x3", sh.Float4x3)():
-		sh.f4x3_ddy_fine = sh.g_f4x3.ddy_fine()
-		sh.return_( sh.f4x3_ddy_fine )
+		sh.return_( sh.g_f4x3.ddy_fine() )
 
 	with sh.function("test_ddy_fine_Float4x4", sh.Float4x4)():
-		sh.f4x4_ddy_fine = sh.g_f4x4.ddy_fine()
-		sh.return_( sh.f4x4_ddy_fine )
+		sh.return_( sh.g_f4x4.ddy_fine() )
 
 	with sh.function("test_degrees_Float", sh.Float)():
-		sh.f_degrees = sh.g_f.degrees()
-		sh.return_( sh.f_degrees )
+		sh.return_( sh.g_f.degrees() )
 
 	with sh.function("test_degrees_Float1", sh.Float1)():
-		sh.f1_degrees = sh.g_f1.degrees()
-		sh.return_( sh.f1_degrees )
+		sh.return_( sh.g_f1.degrees() )
 
 	with sh.function("test_degrees_Float2", sh.Float2)():
-		sh.f2_degrees = sh.g_f2.degrees()
-		sh.return_( sh.f2_degrees )
+		sh.return_( sh.g_f2.degrees() )
 
 	with sh.function("test_degrees_Float3", sh.Float3)():
-		sh.f3_degrees = sh.g_f3.degrees()
-		sh.return_( sh.f3_degrees )
+		sh.return_( sh.g_f3.degrees() )
 
 	with sh.function("test_degrees_Float4", sh.Float4)():
-		sh.f4_degrees = sh.g_f4.degrees()
-		sh.return_( sh.f4_degrees )
+		sh.return_( sh.g_f4.degrees() )
 
 	with sh.function("test_degrees_Float1x1", sh.Float1x1)():
-		sh.f1x1_degrees = sh.g_f1x1.degrees()
-		sh.return_( sh.f1x1_degrees )
+		sh.return_( sh.g_f1x1.degrees() )
 
 	with sh.function("test_degrees_Float1x2", sh.Float1x2)():
-		sh.f1x2_degrees = sh.g_f1x2.degrees()
-		sh.return_( sh.f1x2_degrees )
+		sh.return_( sh.g_f1x2.degrees() )
 
 	with sh.function("test_degrees_Float1x3", sh.Float1x3)():
-		sh.f1x3_degrees = sh.g_f1x3.degrees()
-		sh.return_( sh.f1x3_degrees )
+		sh.return_( sh.g_f1x3.degrees() )
 
 	with sh.function("test_degrees_Float1x4", sh.Float1x4)():
-		sh.f1x4_degrees = sh.g_f1x4.degrees()
-		sh.return_( sh.f1x4_degrees )
+		sh.return_( sh.g_f1x4.degrees() )
 
 	with sh.function("test_degrees_Float2x1", sh.Float2x1)():
-		sh.f2x1_degrees = sh.g_f2x1.degrees()
-		sh.return_( sh.f2x1_degrees )
+		sh.return_( sh.g_f2x1.degrees() )
 
 	with sh.function("test_degrees_Float2x2", sh.Float2x2)():
-		sh.f2x2_degrees = sh.g_f2x2.degrees()
-		sh.return_( sh.f2x2_degrees )
+		sh.return_( sh.g_f2x2.degrees() )
 
 	with sh.function("test_degrees_Float2x3", sh.Float2x3)():
-		sh.f2x3_degrees = sh.g_f2x3.degrees()
-		sh.return_( sh.f2x3_degrees )
+		sh.return_( sh.g_f2x3.degrees() )
 
 	with sh.function("test_degrees_Float2x4", sh.Float2x4)():
-		sh.f2x4_degrees = sh.g_f2x4.degrees()
-		sh.return_( sh.f2x4_degrees )
+		sh.return_( sh.g_f2x4.degrees() )
 
 	with sh.function("test_degrees_Float3x1", sh.Float3x1)():
-		sh.f3x1_degrees = sh.g_f3x1.degrees()
-		sh.return_( sh.f3x1_degrees )
+		sh.return_( sh.g_f3x1.degrees() )
 
 	with sh.function("test_degrees_Float3x2", sh.Float3x2)():
-		sh.f3x2_degrees = sh.g_f3x2.degrees()
-		sh.return_( sh.f3x2_degrees )
+		sh.return_( sh.g_f3x2.degrees() )
 
 	with sh.function("test_degrees_Float3x3", sh.Float3x3)():
-		sh.f3x3_degrees = sh.g_f3x3.degrees()
-		sh.return_( sh.f3x3_degrees )
+		sh.return_( sh.g_f3x3.degrees() )
 
 	with sh.function("test_degrees_Float3x4", sh.Float3x4)():
-		sh.f3x4_degrees = sh.g_f3x4.degrees()
-		sh.return_( sh.f3x4_degrees )
+		sh.return_( sh.g_f3x4.degrees() )
 
 	with sh.function("test_degrees_Float4x1", sh.Float4x1)():
-		sh.f4x1_degrees = sh.g_f4x1.degrees()
-		sh.return_( sh.f4x1_degrees )
+		sh.return_( sh.g_f4x1.degrees() )
 
 	with sh.function("test_degrees_Float4x2", sh.Float4x2)():
-		sh.f4x2_degrees = sh.g_f4x2.degrees()
-		sh.return_( sh.f4x2_degrees )
+		sh.return_( sh.g_f4x2.degrees() )
 
 	with sh.function("test_degrees_Float4x3", sh.Float4x3)():
-		sh.f4x3_degrees = sh.g_f4x3.degrees()
-		sh.return_( sh.f4x3_degrees )
+		sh.return_( sh.g_f4x3.degrees() )
 
 	with sh.function("test_degrees_Float4x4", sh.Float4x4)():
-		sh.f4x4_degrees = sh.g_f4x4.degrees()
-		sh.return_( sh.f4x4_degrees )
+		sh.return_( sh.g_f4x4.degrees() )
 
 	with sh.function("test_exp_Float", sh.Float)():
-		sh.f_exp = sh.g_f.exp()
-		sh.return_( sh.f_exp )
+		sh.return_( sh.g_f.exp() )
 
 	with sh.function("test_exp_Float1", sh.Float1)():
-		sh.f1_exp = sh.g_f1.exp()
-		sh.return_( sh.f1_exp )
+		sh.return_( sh.g_f1.exp() )
 
 	with sh.function("test_exp_Float2", sh.Float2)():
-		sh.f2_exp = sh.g_f2.exp()
-		sh.return_( sh.f2_exp )
+		sh.return_( sh.g_f2.exp() )
 
 	with sh.function("test_exp_Float3", sh.Float3)():
-		sh.f3_exp = sh.g_f3.exp()
-		sh.return_( sh.f3_exp )
+		sh.return_( sh.g_f3.exp() )
 
 	with sh.function("test_exp_Float4", sh.Float4)():
-		sh.f4_exp = sh.g_f4.exp()
-		sh.return_( sh.f4_exp )
+		sh.return_( sh.g_f4.exp() )
 
 	with sh.function("test_exp_Float1x1", sh.Float1x1)():
-		sh.f1x1_exp = sh.g_f1x1.exp()
-		sh.return_( sh.f1x1_exp )
+		sh.return_( sh.g_f1x1.exp() )
 
 	with sh.function("test_exp_Float1x2", sh.Float1x2)():
-		sh.f1x2_exp = sh.g_f1x2.exp()
-		sh.return_( sh.f1x2_exp )
+		sh.return_( sh.g_f1x2.exp() )
 
 	with sh.function("test_exp_Float1x3", sh.Float1x3)():
-		sh.f1x3_exp = sh.g_f1x3.exp()
-		sh.return_( sh.f1x3_exp )
+		sh.return_( sh.g_f1x3.exp() )
 
 	with sh.function("test_exp_Float1x4", sh.Float1x4)():
-		sh.f1x4_exp = sh.g_f1x4.exp()
-		sh.return_( sh.f1x4_exp )
+		sh.return_( sh.g_f1x4.exp() )
 
 	with sh.function("test_exp_Float2x1", sh.Float2x1)():
-		sh.f2x1_exp = sh.g_f2x1.exp()
-		sh.return_( sh.f2x1_exp )
+		sh.return_( sh.g_f2x1.exp() )
 
 	with sh.function("test_exp_Float2x2", sh.Float2x2)():
-		sh.f2x2_exp = sh.g_f2x2.exp()
-		sh.return_( sh.f2x2_exp )
+		sh.return_( sh.g_f2x2.exp() )
 
 	with sh.function("test_exp_Float2x3", sh.Float2x3)():
-		sh.f2x3_exp = sh.g_f2x3.exp()
-		sh.return_( sh.f2x3_exp )
+		sh.return_( sh.g_f2x3.exp() )
 
 	with sh.function("test_exp_Float2x4", sh.Float2x4)():
-		sh.f2x4_exp = sh.g_f2x4.exp()
-		sh.return_( sh.f2x4_exp )
+		sh.return_( sh.g_f2x4.exp() )
 
 	with sh.function("test_exp_Float3x1", sh.Float3x1)():
-		sh.f3x1_exp = sh.g_f3x1.exp()
-		sh.return_( sh.f3x1_exp )
+		sh.return_( sh.g_f3x1.exp() )
 
 	with sh.function("test_exp_Float3x2", sh.Float3x2)():
-		sh.f3x2_exp = sh.g_f3x2.exp()
-		sh.return_( sh.f3x2_exp )
+		sh.return_( sh.g_f3x2.exp() )
 
 	with sh.function("test_exp_Float3x3", sh.Float3x3)():
-		sh.f3x3_exp = sh.g_f3x3.exp()
-		sh.return_( sh.f3x3_exp )
+		sh.return_( sh.g_f3x3.exp() )
 
 	with sh.function("test_exp_Float3x4", sh.Float3x4)():
-		sh.f3x4_exp = sh.g_f3x4.exp()
-		sh.return_( sh.f3x4_exp )
+		sh.return_( sh.g_f3x4.exp() )
 
 	with sh.function("test_exp_Float4x1", sh.Float4x1)():
-		sh.f4x1_exp = sh.g_f4x1.exp()
-		sh.return_( sh.f4x1_exp )
+		sh.return_( sh.g_f4x1.exp() )
 
 	with sh.function("test_exp_Float4x2", sh.Float4x2)():
-		sh.f4x2_exp = sh.g_f4x2.exp()
-		sh.return_( sh.f4x2_exp )
+		sh.return_( sh.g_f4x2.exp() )
 
 	with sh.function("test_exp_Float4x3", sh.Float4x3)():
-		sh.f4x3_exp = sh.g_f4x3.exp()
-		sh.return_( sh.f4x3_exp )
+		sh.return_( sh.g_f4x3.exp() )
 
 	with sh.function("test_exp_Float4x4", sh.Float4x4)():
-		sh.f4x4_exp = sh.g_f4x4.exp()
-		sh.return_( sh.f4x4_exp )
+		sh.return_( sh.g_f4x4.exp() )
 
 	with sh.function("test_exp2_Float", sh.Float)():
-		sh.f_exp2 = sh.g_f.exp2()
-		sh.return_( sh.f_exp2 )
+		sh.return_( sh.g_f.exp2() )
 
 	with sh.function("test_exp2_Float1", sh.Float1)():
-		sh.f1_exp2 = sh.g_f1.exp2()
-		sh.return_( sh.f1_exp2 )
+		sh.return_( sh.g_f1.exp2() )
 
 	with sh.function("test_exp2_Float2", sh.Float2)():
-		sh.f2_exp2 = sh.g_f2.exp2()
-		sh.return_( sh.f2_exp2 )
+		sh.return_( sh.g_f2.exp2() )
 
 	with sh.function("test_exp2_Float3", sh.Float3)():
-		sh.f3_exp2 = sh.g_f3.exp2()
-		sh.return_( sh.f3_exp2 )
+		sh.return_( sh.g_f3.exp2() )
 
 	with sh.function("test_exp2_Float4", sh.Float4)():
-		sh.f4_exp2 = sh.g_f4.exp2()
-		sh.return_( sh.f4_exp2 )
+		sh.return_( sh.g_f4.exp2() )
 
 	with sh.function("test_exp2_Float1x1", sh.Float1x1)():
-		sh.f1x1_exp2 = sh.g_f1x1.exp2()
-		sh.return_( sh.f1x1_exp2 )
+		sh.return_( sh.g_f1x1.exp2() )
 
 	with sh.function("test_exp2_Float1x2", sh.Float1x2)():
-		sh.f1x2_exp2 = sh.g_f1x2.exp2()
-		sh.return_( sh.f1x2_exp2 )
+		sh.return_( sh.g_f1x2.exp2() )
 
 	with sh.function("test_exp2_Float1x3", sh.Float1x3)():
-		sh.f1x3_exp2 = sh.g_f1x3.exp2()
-		sh.return_( sh.f1x3_exp2 )
+		sh.return_( sh.g_f1x3.exp2() )
 
 	with sh.function("test_exp2_Float1x4", sh.Float1x4)():
-		sh.f1x4_exp2 = sh.g_f1x4.exp2()
-		sh.return_( sh.f1x4_exp2 )
+		sh.return_( sh.g_f1x4.exp2() )
 
 	with sh.function("test_exp2_Float2x1", sh.Float2x1)():
-		sh.f2x1_exp2 = sh.g_f2x1.exp2()
-		sh.return_( sh.f2x1_exp2 )
+		sh.return_( sh.g_f2x1.exp2() )
 
 	with sh.function("test_exp2_Float2x2", sh.Float2x2)():
-		sh.f2x2_exp2 = sh.g_f2x2.exp2()
-		sh.return_( sh.f2x2_exp2 )
+		sh.return_( sh.g_f2x2.exp2() )
 
 	with sh.function("test_exp2_Float2x3", sh.Float2x3)():
-		sh.f2x3_exp2 = sh.g_f2x3.exp2()
-		sh.return_( sh.f2x3_exp2 )
+		sh.return_( sh.g_f2x3.exp2() )
 
 	with sh.function("test_exp2_Float2x4", sh.Float2x4)():
-		sh.f2x4_exp2 = sh.g_f2x4.exp2()
-		sh.return_( sh.f2x4_exp2 )
+		sh.return_( sh.g_f2x4.exp2() )
 
 	with sh.function("test_exp2_Float3x1", sh.Float3x1)():
-		sh.f3x1_exp2 = sh.g_f3x1.exp2()
-		sh.return_( sh.f3x1_exp2 )
+		sh.return_( sh.g_f3x1.exp2() )
 
 	with sh.function("test_exp2_Float3x2", sh.Float3x2)():
-		sh.f3x2_exp2 = sh.g_f3x2.exp2()
-		sh.return_( sh.f3x2_exp2 )
+		sh.return_( sh.g_f3x2.exp2() )
 
 	with sh.function("test_exp2_Float3x3", sh.Float3x3)():
-		sh.f3x3_exp2 = sh.g_f3x3.exp2()
-		sh.return_( sh.f3x3_exp2 )
+		sh.return_( sh.g_f3x3.exp2() )
 
 	with sh.function("test_exp2_Float3x4", sh.Float3x4)():
-		sh.f3x4_exp2 = sh.g_f3x4.exp2()
-		sh.return_( sh.f3x4_exp2 )
+		sh.return_( sh.g_f3x4.exp2() )
 
 	with sh.function("test_exp2_Float4x1", sh.Float4x1)():
-		sh.f4x1_exp2 = sh.g_f4x1.exp2()
-		sh.return_( sh.f4x1_exp2 )
+		sh.return_( sh.g_f4x1.exp2() )
 
 	with sh.function("test_exp2_Float4x2", sh.Float4x2)():
-		sh.f4x2_exp2 = sh.g_f4x2.exp2()
-		sh.return_( sh.f4x2_exp2 )
+		sh.return_( sh.g_f4x2.exp2() )
 
 	with sh.function("test_exp2_Float4x3", sh.Float4x3)():
-		sh.f4x3_exp2 = sh.g_f4x3.exp2()
-		sh.return_( sh.f4x3_exp2 )
+		sh.return_( sh.g_f4x3.exp2() )
 
 	with sh.function("test_exp2_Float4x4", sh.Float4x4)():
-		sh.f4x4_exp2 = sh.g_f4x4.exp2()
-		sh.return_( sh.f4x4_exp2 )
+		sh.return_( sh.g_f4x4.exp2() )
 
 	with sh.function("test_floor_Float", sh.Float)():
-		sh.f_floor = sh.g_f.floor()
-		sh.return_( sh.f_floor )
+		sh.return_( sh.g_f.floor() )
 
 	with sh.function("test_floor_Float1", sh.Float1)():
-		sh.f1_floor = sh.g_f1.floor()
-		sh.return_( sh.f1_floor )
+		sh.return_( sh.g_f1.floor() )
 
 	with sh.function("test_floor_Float2", sh.Float2)():
-		sh.f2_floor = sh.g_f2.floor()
-		sh.return_( sh.f2_floor )
+		sh.return_( sh.g_f2.floor() )
 
 	with sh.function("test_floor_Float3", sh.Float3)():
-		sh.f3_floor = sh.g_f3.floor()
-		sh.return_( sh.f3_floor )
+		sh.return_( sh.g_f3.floor() )
 
 	with sh.function("test_floor_Float4", sh.Float4)():
-		sh.f4_floor = sh.g_f4.floor()
-		sh.return_( sh.f4_floor )
+		sh.return_( sh.g_f4.floor() )
 
 	with sh.function("test_floor_Float1x1", sh.Float1x1)():
-		sh.f1x1_floor = sh.g_f1x1.floor()
-		sh.return_( sh.f1x1_floor )
+		sh.return_( sh.g_f1x1.floor() )
 
 	with sh.function("test_floor_Float1x2", sh.Float1x2)():
-		sh.f1x2_floor = sh.g_f1x2.floor()
-		sh.return_( sh.f1x2_floor )
+		sh.return_( sh.g_f1x2.floor() )
 
 	with sh.function("test_floor_Float1x3", sh.Float1x3)():
-		sh.f1x3_floor = sh.g_f1x3.floor()
-		sh.return_( sh.f1x3_floor )
+		sh.return_( sh.g_f1x3.floor() )
 
 	with sh.function("test_floor_Float1x4", sh.Float1x4)():
-		sh.f1x4_floor = sh.g_f1x4.floor()
-		sh.return_( sh.f1x4_floor )
+		sh.return_( sh.g_f1x4.floor() )
 
 	with sh.function("test_floor_Float2x1", sh.Float2x1)():
-		sh.f2x1_floor = sh.g_f2x1.floor()
-		sh.return_( sh.f2x1_floor )
+		sh.return_( sh.g_f2x1.floor() )
 
 	with sh.function("test_floor_Float2x2", sh.Float2x2)():
-		sh.f2x2_floor = sh.g_f2x2.floor()
-		sh.return_( sh.f2x2_floor )
+		sh.return_( sh.g_f2x2.floor() )
 
 	with sh.function("test_floor_Float2x3", sh.Float2x3)():
-		sh.f2x3_floor = sh.g_f2x3.floor()
-		sh.return_( sh.f2x3_floor )
+		sh.return_( sh.g_f2x3.floor() )
 
 	with sh.function("test_floor_Float2x4", sh.Float2x4)():
-		sh.f2x4_floor = sh.g_f2x4.floor()
-		sh.return_( sh.f2x4_floor )
+		sh.return_( sh.g_f2x4.floor() )
 
 	with sh.function("test_floor_Float3x1", sh.Float3x1)():
-		sh.f3x1_floor = sh.g_f3x1.floor()
-		sh.return_( sh.f3x1_floor )
+		sh.return_( sh.g_f3x1.floor() )
 
 	with sh.function("test_floor_Float3x2", sh.Float3x2)():
-		sh.f3x2_floor = sh.g_f3x2.floor()
-		sh.return_( sh.f3x2_floor )
+		sh.return_( sh.g_f3x2.floor() )
 
 	with sh.function("test_floor_Float3x3", sh.Float3x3)():
-		sh.f3x3_floor = sh.g_f3x3.floor()
-		sh.return_( sh.f3x3_floor )
+		sh.return_( sh.g_f3x3.floor() )
 
 	with sh.function("test_floor_Float3x4", sh.Float3x4)():
-		sh.f3x4_floor = sh.g_f3x4.floor()
-		sh.return_( sh.f3x4_floor )
+		sh.return_( sh.g_f3x4.floor() )
 
 	with sh.function("test_floor_Float4x1", sh.Float4x1)():
-		sh.f4x1_floor = sh.g_f4x1.floor()
-		sh.return_( sh.f4x1_floor )
+		sh.return_( sh.g_f4x1.floor() )
 
 	with sh.function("test_floor_Float4x2", sh.Float4x2)():
-		sh.f4x2_floor = sh.g_f4x2.floor()
-		sh.return_( sh.f4x2_floor )
+		sh.return_( sh.g_f4x2.floor() )
 
 	with sh.function("test_floor_Float4x3", sh.Float4x3)():
-		sh.f4x3_floor = sh.g_f4x3.floor()
-		sh.return_( sh.f4x3_floor )
+		sh.return_( sh.g_f4x3.floor() )
 
 	with sh.function("test_floor_Float4x4", sh.Float4x4)():
-		sh.f4x4_floor = sh.g_f4x4.floor()
-		sh.return_( sh.f4x4_floor )
+		sh.return_( sh.g_f4x4.floor() )
+
+	with sh.function("test_fmod_Float", sh.Float)(b = sh.Float):
+		sh.return_( sh.g_f.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float1", sh.Float1)(b = sh.Float1):
+		sh.return_( sh.g_f1.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float2", sh.Float2)(b = sh.Float2):
+		sh.return_( sh.g_f2.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float3", sh.Float3)(b = sh.Float3):
+		sh.return_( sh.g_f3.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float4", sh.Float4)(b = sh.Float4):
+		sh.return_( sh.g_f4.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float1x1", sh.Float1x1)(b = sh.Float1x1):
+		sh.return_( sh.g_f1x1.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float1x2", sh.Float1x2)(b = sh.Float1x2):
+		sh.return_( sh.g_f1x2.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float1x3", sh.Float1x3)(b = sh.Float1x3):
+		sh.return_( sh.g_f1x3.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float1x4", sh.Float1x4)(b = sh.Float1x4):
+		sh.return_( sh.g_f1x4.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float2x1", sh.Float2x1)(b = sh.Float2x1):
+		sh.return_( sh.g_f2x1.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float2x2", sh.Float2x2)(b = sh.Float2x2):
+		sh.return_( sh.g_f2x2.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float2x3", sh.Float2x3)(b = sh.Float2x3):
+		sh.return_( sh.g_f2x3.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float2x4", sh.Float2x4)(b = sh.Float2x4):
+		sh.return_( sh.g_f2x4.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float3x1", sh.Float3x1)(b = sh.Float3x1):
+		sh.return_( sh.g_f3x1.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float3x2", sh.Float3x2)(b = sh.Float3x2):
+		sh.return_( sh.g_f3x2.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float3x3", sh.Float3x3)(b = sh.Float3x3):
+		sh.return_( sh.g_f3x3.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float3x4", sh.Float3x4)(b = sh.Float3x4):
+		sh.return_( sh.g_f3x4.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float4x1", sh.Float4x1)(b = sh.Float4x1):
+		sh.return_( sh.g_f4x1.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float4x2", sh.Float4x2)(b = sh.Float4x2):
+		sh.return_( sh.g_f4x2.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float4x3", sh.Float4x3)(b = sh.Float4x3):
+		sh.return_( sh.g_f4x3.fmod(b = sh.b) )
+
+	with sh.function("test_fmod_Float4x4", sh.Float4x4)(b = sh.Float4x4):
+		sh.return_( sh.g_f4x4.fmod(b = sh.b) )
 
 	with sh.function("test_frac_Float", sh.Float)():
-		sh.f_frac = sh.g_f.frac()
-		sh.return_( sh.f_frac )
+		sh.return_( sh.g_f.frac() )
 
 	with sh.function("test_frac_Float1", sh.Float1)():
-		sh.f1_frac = sh.g_f1.frac()
-		sh.return_( sh.f1_frac )
+		sh.return_( sh.g_f1.frac() )
 
 	with sh.function("test_frac_Float2", sh.Float2)():
-		sh.f2_frac = sh.g_f2.frac()
-		sh.return_( sh.f2_frac )
+		sh.return_( sh.g_f2.frac() )
 
 	with sh.function("test_frac_Float3", sh.Float3)():
-		sh.f3_frac = sh.g_f3.frac()
-		sh.return_( sh.f3_frac )
+		sh.return_( sh.g_f3.frac() )
 
 	with sh.function("test_frac_Float4", sh.Float4)():
-		sh.f4_frac = sh.g_f4.frac()
-		sh.return_( sh.f4_frac )
+		sh.return_( sh.g_f4.frac() )
 
 	with sh.function("test_frac_Float1x1", sh.Float1x1)():
-		sh.f1x1_frac = sh.g_f1x1.frac()
-		sh.return_( sh.f1x1_frac )
+		sh.return_( sh.g_f1x1.frac() )
 
 	with sh.function("test_frac_Float1x2", sh.Float1x2)():
-		sh.f1x2_frac = sh.g_f1x2.frac()
-		sh.return_( sh.f1x2_frac )
+		sh.return_( sh.g_f1x2.frac() )
 
 	with sh.function("test_frac_Float1x3", sh.Float1x3)():
-		sh.f1x3_frac = sh.g_f1x3.frac()
-		sh.return_( sh.f1x3_frac )
+		sh.return_( sh.g_f1x3.frac() )
 
 	with sh.function("test_frac_Float1x4", sh.Float1x4)():
-		sh.f1x4_frac = sh.g_f1x4.frac()
-		sh.return_( sh.f1x4_frac )
+		sh.return_( sh.g_f1x4.frac() )
 
 	with sh.function("test_frac_Float2x1", sh.Float2x1)():
-		sh.f2x1_frac = sh.g_f2x1.frac()
-		sh.return_( sh.f2x1_frac )
+		sh.return_( sh.g_f2x1.frac() )
 
 	with sh.function("test_frac_Float2x2", sh.Float2x2)():
-		sh.f2x2_frac = sh.g_f2x2.frac()
-		sh.return_( sh.f2x2_frac )
+		sh.return_( sh.g_f2x2.frac() )
 
 	with sh.function("test_frac_Float2x3", sh.Float2x3)():
-		sh.f2x3_frac = sh.g_f2x3.frac()
-		sh.return_( sh.f2x3_frac )
+		sh.return_( sh.g_f2x3.frac() )
 
 	with sh.function("test_frac_Float2x4", sh.Float2x4)():
-		sh.f2x4_frac = sh.g_f2x4.frac()
-		sh.return_( sh.f2x4_frac )
+		sh.return_( sh.g_f2x4.frac() )
 
 	with sh.function("test_frac_Float3x1", sh.Float3x1)():
-		sh.f3x1_frac = sh.g_f3x1.frac()
-		sh.return_( sh.f3x1_frac )
+		sh.return_( sh.g_f3x1.frac() )
 
 	with sh.function("test_frac_Float3x2", sh.Float3x2)():
-		sh.f3x2_frac = sh.g_f3x2.frac()
-		sh.return_( sh.f3x2_frac )
+		sh.return_( sh.g_f3x2.frac() )
 
 	with sh.function("test_frac_Float3x3", sh.Float3x3)():
-		sh.f3x3_frac = sh.g_f3x3.frac()
-		sh.return_( sh.f3x3_frac )
+		sh.return_( sh.g_f3x3.frac() )
 
 	with sh.function("test_frac_Float3x4", sh.Float3x4)():
-		sh.f3x4_frac = sh.g_f3x4.frac()
-		sh.return_( sh.f3x4_frac )
+		sh.return_( sh.g_f3x4.frac() )
 
 	with sh.function("test_frac_Float4x1", sh.Float4x1)():
-		sh.f4x1_frac = sh.g_f4x1.frac()
-		sh.return_( sh.f4x1_frac )
+		sh.return_( sh.g_f4x1.frac() )
 
 	with sh.function("test_frac_Float4x2", sh.Float4x2)():
-		sh.f4x2_frac = sh.g_f4x2.frac()
-		sh.return_( sh.f4x2_frac )
+		sh.return_( sh.g_f4x2.frac() )
 
 	with sh.function("test_frac_Float4x3", sh.Float4x3)():
-		sh.f4x3_frac = sh.g_f4x3.frac()
-		sh.return_( sh.f4x3_frac )
+		sh.return_( sh.g_f4x3.frac() )
 
 	with sh.function("test_frac_Float4x4", sh.Float4x4)():
-		sh.f4x4_frac = sh.g_f4x4.frac()
-		sh.return_( sh.f4x4_frac )
+		sh.return_( sh.g_f4x4.frac() )
 
 	with sh.function("test_fwidth_Float", sh.Float)():
-		sh.f_fwidth = sh.g_f.fwidth()
-		sh.return_( sh.f_fwidth )
+		sh.return_( sh.g_f.fwidth() )
 
 	with sh.function("test_fwidth_Float1", sh.Float1)():
-		sh.f1_fwidth = sh.g_f1.fwidth()
-		sh.return_( sh.f1_fwidth )
+		sh.return_( sh.g_f1.fwidth() )
 
 	with sh.function("test_fwidth_Float2", sh.Float2)():
-		sh.f2_fwidth = sh.g_f2.fwidth()
-		sh.return_( sh.f2_fwidth )
+		sh.return_( sh.g_f2.fwidth() )
 
 	with sh.function("test_fwidth_Float3", sh.Float3)():
-		sh.f3_fwidth = sh.g_f3.fwidth()
-		sh.return_( sh.f3_fwidth )
+		sh.return_( sh.g_f3.fwidth() )
 
 	with sh.function("test_fwidth_Float4", sh.Float4)():
-		sh.f4_fwidth = sh.g_f4.fwidth()
-		sh.return_( sh.f4_fwidth )
+		sh.return_( sh.g_f4.fwidth() )
 
 	with sh.function("test_fwidth_Float1x1", sh.Float1x1)():
-		sh.f1x1_fwidth = sh.g_f1x1.fwidth()
-		sh.return_( sh.f1x1_fwidth )
+		sh.return_( sh.g_f1x1.fwidth() )
 
 	with sh.function("test_fwidth_Float1x2", sh.Float1x2)():
-		sh.f1x2_fwidth = sh.g_f1x2.fwidth()
-		sh.return_( sh.f1x2_fwidth )
+		sh.return_( sh.g_f1x2.fwidth() )
 
 	with sh.function("test_fwidth_Float1x3", sh.Float1x3)():
-		sh.f1x3_fwidth = sh.g_f1x3.fwidth()
-		sh.return_( sh.f1x3_fwidth )
+		sh.return_( sh.g_f1x3.fwidth() )
 
 	with sh.function("test_fwidth_Float1x4", sh.Float1x4)():
-		sh.f1x4_fwidth = sh.g_f1x4.fwidth()
-		sh.return_( sh.f1x4_fwidth )
+		sh.return_( sh.g_f1x4.fwidth() )
 
 	with sh.function("test_fwidth_Float2x1", sh.Float2x1)():
-		sh.f2x1_fwidth = sh.g_f2x1.fwidth()
-		sh.return_( sh.f2x1_fwidth )
+		sh.return_( sh.g_f2x1.fwidth() )
 
 	with sh.function("test_fwidth_Float2x2", sh.Float2x2)():
-		sh.f2x2_fwidth = sh.g_f2x2.fwidth()
-		sh.return_( sh.f2x2_fwidth )
+		sh.return_( sh.g_f2x2.fwidth() )
 
 	with sh.function("test_fwidth_Float2x3", sh.Float2x3)():
-		sh.f2x3_fwidth = sh.g_f2x3.fwidth()
-		sh.return_( sh.f2x3_fwidth )
+		sh.return_( sh.g_f2x3.fwidth() )
 
 	with sh.function("test_fwidth_Float2x4", sh.Float2x4)():
-		sh.f2x4_fwidth = sh.g_f2x4.fwidth()
-		sh.return_( sh.f2x4_fwidth )
+		sh.return_( sh.g_f2x4.fwidth() )
 
 	with sh.function("test_fwidth_Float3x1", sh.Float3x1)():
-		sh.f3x1_fwidth = sh.g_f3x1.fwidth()
-		sh.return_( sh.f3x1_fwidth )
+		sh.return_( sh.g_f3x1.fwidth() )
 
 	with sh.function("test_fwidth_Float3x2", sh.Float3x2)():
-		sh.f3x2_fwidth = sh.g_f3x2.fwidth()
-		sh.return_( sh.f3x2_fwidth )
+		sh.return_( sh.g_f3x2.fwidth() )
 
 	with sh.function("test_fwidth_Float3x3", sh.Float3x3)():
-		sh.f3x3_fwidth = sh.g_f3x3.fwidth()
-		sh.return_( sh.f3x3_fwidth )
+		sh.return_( sh.g_f3x3.fwidth() )
 
 	with sh.function("test_fwidth_Float3x4", sh.Float3x4)():
-		sh.f3x4_fwidth = sh.g_f3x4.fwidth()
-		sh.return_( sh.f3x4_fwidth )
+		sh.return_( sh.g_f3x4.fwidth() )
 
 	with sh.function("test_fwidth_Float4x1", sh.Float4x1)():
-		sh.f4x1_fwidth = sh.g_f4x1.fwidth()
-		sh.return_( sh.f4x1_fwidth )
+		sh.return_( sh.g_f4x1.fwidth() )
 
 	with sh.function("test_fwidth_Float4x2", sh.Float4x2)():
-		sh.f4x2_fwidth = sh.g_f4x2.fwidth()
-		sh.return_( sh.f4x2_fwidth )
+		sh.return_( sh.g_f4x2.fwidth() )
 
 	with sh.function("test_fwidth_Float4x3", sh.Float4x3)():
-		sh.f4x3_fwidth = sh.g_f4x3.fwidth()
-		sh.return_( sh.f4x3_fwidth )
+		sh.return_( sh.g_f4x3.fwidth() )
 
 	with sh.function("test_fwidth_Float4x4", sh.Float4x4)():
-		sh.f4x4_fwidth = sh.g_f4x4.fwidth()
-		sh.return_( sh.f4x4_fwidth )
+		sh.return_( sh.g_f4x4.fwidth() )
+
+	with sh.function("test_ldexp_Float", sh.Float)(exp = sh.Float):
+		sh.return_( sh.g_f.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float1", sh.Float1)(exp = sh.Float1):
+		sh.return_( sh.g_f1.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float2", sh.Float2)(exp = sh.Float2):
+		sh.return_( sh.g_f2.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float3", sh.Float3)(exp = sh.Float3):
+		sh.return_( sh.g_f3.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float4", sh.Float4)(exp = sh.Float4):
+		sh.return_( sh.g_f4.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float1x1", sh.Float1x1)(exp = sh.Float1x1):
+		sh.return_( sh.g_f1x1.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float1x2", sh.Float1x2)(exp = sh.Float1x2):
+		sh.return_( sh.g_f1x2.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float1x3", sh.Float1x3)(exp = sh.Float1x3):
+		sh.return_( sh.g_f1x3.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float1x4", sh.Float1x4)(exp = sh.Float1x4):
+		sh.return_( sh.g_f1x4.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float2x1", sh.Float2x1)(exp = sh.Float2x1):
+		sh.return_( sh.g_f2x1.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float2x2", sh.Float2x2)(exp = sh.Float2x2):
+		sh.return_( sh.g_f2x2.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float2x3", sh.Float2x3)(exp = sh.Float2x3):
+		sh.return_( sh.g_f2x3.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float2x4", sh.Float2x4)(exp = sh.Float2x4):
+		sh.return_( sh.g_f2x4.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float3x1", sh.Float3x1)(exp = sh.Float3x1):
+		sh.return_( sh.g_f3x1.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float3x2", sh.Float3x2)(exp = sh.Float3x2):
+		sh.return_( sh.g_f3x2.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float3x3", sh.Float3x3)(exp = sh.Float3x3):
+		sh.return_( sh.g_f3x3.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float3x4", sh.Float3x4)(exp = sh.Float3x4):
+		sh.return_( sh.g_f3x4.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float4x1", sh.Float4x1)(exp = sh.Float4x1):
+		sh.return_( sh.g_f4x1.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float4x2", sh.Float4x2)(exp = sh.Float4x2):
+		sh.return_( sh.g_f4x2.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float4x3", sh.Float4x3)(exp = sh.Float4x3):
+		sh.return_( sh.g_f4x3.ldexp(exp = sh.exp) )
+
+	with sh.function("test_ldexp_Float4x4", sh.Float4x4)(exp = sh.Float4x4):
+		sh.return_( sh.g_f4x4.ldexp(exp = sh.exp) )
+
+	with sh.function("test_lerp_Float", sh.Float)(a = sh.Float, b = sh.Float):
+		sh.return_( sh.g_f.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float1", sh.Float1)(a = sh.Float1, b = sh.Float1):
+		sh.return_( sh.g_f1.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float2", sh.Float2)(a = sh.Float2, b = sh.Float2):
+		sh.return_( sh.g_f2.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float3", sh.Float3)(a = sh.Float3, b = sh.Float3):
+		sh.return_( sh.g_f3.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float4", sh.Float4)(a = sh.Float4, b = sh.Float4):
+		sh.return_( sh.g_f4.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float1x1", sh.Float1x1)(a = sh.Float1x1, b = sh.Float1x1):
+		sh.return_( sh.g_f1x1.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float1x2", sh.Float1x2)(a = sh.Float1x2, b = sh.Float1x2):
+		sh.return_( sh.g_f1x2.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float1x3", sh.Float1x3)(a = sh.Float1x3, b = sh.Float1x3):
+		sh.return_( sh.g_f1x3.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float1x4", sh.Float1x4)(a = sh.Float1x4, b = sh.Float1x4):
+		sh.return_( sh.g_f1x4.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float2x1", sh.Float2x1)(a = sh.Float2x1, b = sh.Float2x1):
+		sh.return_( sh.g_f2x1.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float2x2", sh.Float2x2)(a = sh.Float2x2, b = sh.Float2x2):
+		sh.return_( sh.g_f2x2.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float2x3", sh.Float2x3)(a = sh.Float2x3, b = sh.Float2x3):
+		sh.return_( sh.g_f2x3.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float2x4", sh.Float2x4)(a = sh.Float2x4, b = sh.Float2x4):
+		sh.return_( sh.g_f2x4.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float3x1", sh.Float3x1)(a = sh.Float3x1, b = sh.Float3x1):
+		sh.return_( sh.g_f3x1.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float3x2", sh.Float3x2)(a = sh.Float3x2, b = sh.Float3x2):
+		sh.return_( sh.g_f3x2.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float3x3", sh.Float3x3)(a = sh.Float3x3, b = sh.Float3x3):
+		sh.return_( sh.g_f3x3.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float3x4", sh.Float3x4)(a = sh.Float3x4, b = sh.Float3x4):
+		sh.return_( sh.g_f3x4.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float4x1", sh.Float4x1)(a = sh.Float4x1, b = sh.Float4x1):
+		sh.return_( sh.g_f4x1.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float4x2", sh.Float4x2)(a = sh.Float4x2, b = sh.Float4x2):
+		sh.return_( sh.g_f4x2.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float4x3", sh.Float4x3)(a = sh.Float4x3, b = sh.Float4x3):
+		sh.return_( sh.g_f4x3.lerp(a = sh.a, b = sh.b) )
+
+	with sh.function("test_lerp_Float4x4", sh.Float4x4)(a = sh.Float4x4, b = sh.Float4x4):
+		sh.return_( sh.g_f4x4.lerp(a = sh.a, b = sh.b) )
 
 	with sh.function("test_log_Float", sh.Float)():
-		sh.f_log = sh.g_f.log()
-		sh.return_( sh.f_log )
+		sh.return_( sh.g_f.log() )
 
 	with sh.function("test_log_Float1", sh.Float1)():
-		sh.f1_log = sh.g_f1.log()
-		sh.return_( sh.f1_log )
+		sh.return_( sh.g_f1.log() )
 
 	with sh.function("test_log_Float2", sh.Float2)():
-		sh.f2_log = sh.g_f2.log()
-		sh.return_( sh.f2_log )
+		sh.return_( sh.g_f2.log() )
 
 	with sh.function("test_log_Float3", sh.Float3)():
-		sh.f3_log = sh.g_f3.log()
-		sh.return_( sh.f3_log )
+		sh.return_( sh.g_f3.log() )
 
 	with sh.function("test_log_Float4", sh.Float4)():
-		sh.f4_log = sh.g_f4.log()
-		sh.return_( sh.f4_log )
+		sh.return_( sh.g_f4.log() )
 
 	with sh.function("test_log_Float1x1", sh.Float1x1)():
-		sh.f1x1_log = sh.g_f1x1.log()
-		sh.return_( sh.f1x1_log )
+		sh.return_( sh.g_f1x1.log() )
 
 	with sh.function("test_log_Float1x2", sh.Float1x2)():
-		sh.f1x2_log = sh.g_f1x2.log()
-		sh.return_( sh.f1x2_log )
+		sh.return_( sh.g_f1x2.log() )
 
 	with sh.function("test_log_Float1x3", sh.Float1x3)():
-		sh.f1x3_log = sh.g_f1x3.log()
-		sh.return_( sh.f1x3_log )
+		sh.return_( sh.g_f1x3.log() )
 
 	with sh.function("test_log_Float1x4", sh.Float1x4)():
-		sh.f1x4_log = sh.g_f1x4.log()
-		sh.return_( sh.f1x4_log )
+		sh.return_( sh.g_f1x4.log() )
 
 	with sh.function("test_log_Float2x1", sh.Float2x1)():
-		sh.f2x1_log = sh.g_f2x1.log()
-		sh.return_( sh.f2x1_log )
+		sh.return_( sh.g_f2x1.log() )
 
 	with sh.function("test_log_Float2x2", sh.Float2x2)():
-		sh.f2x2_log = sh.g_f2x2.log()
-		sh.return_( sh.f2x2_log )
+		sh.return_( sh.g_f2x2.log() )
 
 	with sh.function("test_log_Float2x3", sh.Float2x3)():
-		sh.f2x3_log = sh.g_f2x3.log()
-		sh.return_( sh.f2x3_log )
+		sh.return_( sh.g_f2x3.log() )
 
 	with sh.function("test_log_Float2x4", sh.Float2x4)():
-		sh.f2x4_log = sh.g_f2x4.log()
-		sh.return_( sh.f2x4_log )
+		sh.return_( sh.g_f2x4.log() )
 
 	with sh.function("test_log_Float3x1", sh.Float3x1)():
-		sh.f3x1_log = sh.g_f3x1.log()
-		sh.return_( sh.f3x1_log )
+		sh.return_( sh.g_f3x1.log() )
 
 	with sh.function("test_log_Float3x2", sh.Float3x2)():
-		sh.f3x2_log = sh.g_f3x2.log()
-		sh.return_( sh.f3x2_log )
+		sh.return_( sh.g_f3x2.log() )
 
 	with sh.function("test_log_Float3x3", sh.Float3x3)():
-		sh.f3x3_log = sh.g_f3x3.log()
-		sh.return_( sh.f3x3_log )
+		sh.return_( sh.g_f3x3.log() )
 
 	with sh.function("test_log_Float3x4", sh.Float3x4)():
-		sh.f3x4_log = sh.g_f3x4.log()
-		sh.return_( sh.f3x4_log )
+		sh.return_( sh.g_f3x4.log() )
 
 	with sh.function("test_log_Float4x1", sh.Float4x1)():
-		sh.f4x1_log = sh.g_f4x1.log()
-		sh.return_( sh.f4x1_log )
+		sh.return_( sh.g_f4x1.log() )
 
 	with sh.function("test_log_Float4x2", sh.Float4x2)():
-		sh.f4x2_log = sh.g_f4x2.log()
-		sh.return_( sh.f4x2_log )
+		sh.return_( sh.g_f4x2.log() )
 
 	with sh.function("test_log_Float4x3", sh.Float4x3)():
-		sh.f4x3_log = sh.g_f4x3.log()
-		sh.return_( sh.f4x3_log )
+		sh.return_( sh.g_f4x3.log() )
 
 	with sh.function("test_log_Float4x4", sh.Float4x4)():
-		sh.f4x4_log = sh.g_f4x4.log()
-		sh.return_( sh.f4x4_log )
+		sh.return_( sh.g_f4x4.log() )
 
 	with sh.function("test_log10_Float", sh.Float)():
-		sh.f_log10 = sh.g_f.log10()
-		sh.return_( sh.f_log10 )
+		sh.return_( sh.g_f.log10() )
 
 	with sh.function("test_log10_Float1", sh.Float1)():
-		sh.f1_log10 = sh.g_f1.log10()
-		sh.return_( sh.f1_log10 )
+		sh.return_( sh.g_f1.log10() )
 
 	with sh.function("test_log10_Float2", sh.Float2)():
-		sh.f2_log10 = sh.g_f2.log10()
-		sh.return_( sh.f2_log10 )
+		sh.return_( sh.g_f2.log10() )
 
 	with sh.function("test_log10_Float3", sh.Float3)():
-		sh.f3_log10 = sh.g_f3.log10()
-		sh.return_( sh.f3_log10 )
+		sh.return_( sh.g_f3.log10() )
 
 	with sh.function("test_log10_Float4", sh.Float4)():
-		sh.f4_log10 = sh.g_f4.log10()
-		sh.return_( sh.f4_log10 )
+		sh.return_( sh.g_f4.log10() )
 
 	with sh.function("test_log10_Float1x1", sh.Float1x1)():
-		sh.f1x1_log10 = sh.g_f1x1.log10()
-		sh.return_( sh.f1x1_log10 )
+		sh.return_( sh.g_f1x1.log10() )
 
 	with sh.function("test_log10_Float1x2", sh.Float1x2)():
-		sh.f1x2_log10 = sh.g_f1x2.log10()
-		sh.return_( sh.f1x2_log10 )
+		sh.return_( sh.g_f1x2.log10() )
 
 	with sh.function("test_log10_Float1x3", sh.Float1x3)():
-		sh.f1x3_log10 = sh.g_f1x3.log10()
-		sh.return_( sh.f1x3_log10 )
+		sh.return_( sh.g_f1x3.log10() )
 
 	with sh.function("test_log10_Float1x4", sh.Float1x4)():
-		sh.f1x4_log10 = sh.g_f1x4.log10()
-		sh.return_( sh.f1x4_log10 )
+		sh.return_( sh.g_f1x4.log10() )
 
 	with sh.function("test_log10_Float2x1", sh.Float2x1)():
-		sh.f2x1_log10 = sh.g_f2x1.log10()
-		sh.return_( sh.f2x1_log10 )
+		sh.return_( sh.g_f2x1.log10() )
 
 	with sh.function("test_log10_Float2x2", sh.Float2x2)():
-		sh.f2x2_log10 = sh.g_f2x2.log10()
-		sh.return_( sh.f2x2_log10 )
+		sh.return_( sh.g_f2x2.log10() )
 
 	with sh.function("test_log10_Float2x3", sh.Float2x3)():
-		sh.f2x3_log10 = sh.g_f2x3.log10()
-		sh.return_( sh.f2x3_log10 )
+		sh.return_( sh.g_f2x3.log10() )
 
 	with sh.function("test_log10_Float2x4", sh.Float2x4)():
-		sh.f2x4_log10 = sh.g_f2x4.log10()
-		sh.return_( sh.f2x4_log10 )
+		sh.return_( sh.g_f2x4.log10() )
 
 	with sh.function("test_log10_Float3x1", sh.Float3x1)():
-		sh.f3x1_log10 = sh.g_f3x1.log10()
-		sh.return_( sh.f3x1_log10 )
+		sh.return_( sh.g_f3x1.log10() )
 
 	with sh.function("test_log10_Float3x2", sh.Float3x2)():
-		sh.f3x2_log10 = sh.g_f3x2.log10()
-		sh.return_( sh.f3x2_log10 )
+		sh.return_( sh.g_f3x2.log10() )
 
 	with sh.function("test_log10_Float3x3", sh.Float3x3)():
-		sh.f3x3_log10 = sh.g_f3x3.log10()
-		sh.return_( sh.f3x3_log10 )
+		sh.return_( sh.g_f3x3.log10() )
 
 	with sh.function("test_log10_Float3x4", sh.Float3x4)():
-		sh.f3x4_log10 = sh.g_f3x4.log10()
-		sh.return_( sh.f3x4_log10 )
+		sh.return_( sh.g_f3x4.log10() )
 
 	with sh.function("test_log10_Float4x1", sh.Float4x1)():
-		sh.f4x1_log10 = sh.g_f4x1.log10()
-		sh.return_( sh.f4x1_log10 )
+		sh.return_( sh.g_f4x1.log10() )
 
 	with sh.function("test_log10_Float4x2", sh.Float4x2)():
-		sh.f4x2_log10 = sh.g_f4x2.log10()
-		sh.return_( sh.f4x2_log10 )
+		sh.return_( sh.g_f4x2.log10() )
 
 	with sh.function("test_log10_Float4x3", sh.Float4x3)():
-		sh.f4x3_log10 = sh.g_f4x3.log10()
-		sh.return_( sh.f4x3_log10 )
+		sh.return_( sh.g_f4x3.log10() )
 
 	with sh.function("test_log10_Float4x4", sh.Float4x4)():
-		sh.f4x4_log10 = sh.g_f4x4.log10()
-		sh.return_( sh.f4x4_log10 )
+		sh.return_( sh.g_f4x4.log10() )
 
 	with sh.function("test_log2_Float", sh.Float)():
-		sh.f_log2 = sh.g_f.log2()
-		sh.return_( sh.f_log2 )
+		sh.return_( sh.g_f.log2() )
 
 	with sh.function("test_log2_Float1", sh.Float1)():
-		sh.f1_log2 = sh.g_f1.log2()
-		sh.return_( sh.f1_log2 )
+		sh.return_( sh.g_f1.log2() )
 
 	with sh.function("test_log2_Float2", sh.Float2)():
-		sh.f2_log2 = sh.g_f2.log2()
-		sh.return_( sh.f2_log2 )
+		sh.return_( sh.g_f2.log2() )
 
 	with sh.function("test_log2_Float3", sh.Float3)():
-		sh.f3_log2 = sh.g_f3.log2()
-		sh.return_( sh.f3_log2 )
+		sh.return_( sh.g_f3.log2() )
 
 	with sh.function("test_log2_Float4", sh.Float4)():
-		sh.f4_log2 = sh.g_f4.log2()
-		sh.return_( sh.f4_log2 )
+		sh.return_( sh.g_f4.log2() )
 
 	with sh.function("test_log2_Float1x1", sh.Float1x1)():
-		sh.f1x1_log2 = sh.g_f1x1.log2()
-		sh.return_( sh.f1x1_log2 )
+		sh.return_( sh.g_f1x1.log2() )
 
 	with sh.function("test_log2_Float1x2", sh.Float1x2)():
-		sh.f1x2_log2 = sh.g_f1x2.log2()
-		sh.return_( sh.f1x2_log2 )
+		sh.return_( sh.g_f1x2.log2() )
 
 	with sh.function("test_log2_Float1x3", sh.Float1x3)():
-		sh.f1x3_log2 = sh.g_f1x3.log2()
-		sh.return_( sh.f1x3_log2 )
+		sh.return_( sh.g_f1x3.log2() )
 
 	with sh.function("test_log2_Float1x4", sh.Float1x4)():
-		sh.f1x4_log2 = sh.g_f1x4.log2()
-		sh.return_( sh.f1x4_log2 )
+		sh.return_( sh.g_f1x4.log2() )
 
 	with sh.function("test_log2_Float2x1", sh.Float2x1)():
-		sh.f2x1_log2 = sh.g_f2x1.log2()
-		sh.return_( sh.f2x1_log2 )
+		sh.return_( sh.g_f2x1.log2() )
 
 	with sh.function("test_log2_Float2x2", sh.Float2x2)():
-		sh.f2x2_log2 = sh.g_f2x2.log2()
-		sh.return_( sh.f2x2_log2 )
+		sh.return_( sh.g_f2x2.log2() )
 
 	with sh.function("test_log2_Float2x3", sh.Float2x3)():
-		sh.f2x3_log2 = sh.g_f2x3.log2()
-		sh.return_( sh.f2x3_log2 )
+		sh.return_( sh.g_f2x3.log2() )
 
 	with sh.function("test_log2_Float2x4", sh.Float2x4)():
-		sh.f2x4_log2 = sh.g_f2x4.log2()
-		sh.return_( sh.f2x4_log2 )
+		sh.return_( sh.g_f2x4.log2() )
 
 	with sh.function("test_log2_Float3x1", sh.Float3x1)():
-		sh.f3x1_log2 = sh.g_f3x1.log2()
-		sh.return_( sh.f3x1_log2 )
+		sh.return_( sh.g_f3x1.log2() )
 
 	with sh.function("test_log2_Float3x2", sh.Float3x2)():
-		sh.f3x2_log2 = sh.g_f3x2.log2()
-		sh.return_( sh.f3x2_log2 )
+		sh.return_( sh.g_f3x2.log2() )
 
 	with sh.function("test_log2_Float3x3", sh.Float3x3)():
-		sh.f3x3_log2 = sh.g_f3x3.log2()
-		sh.return_( sh.f3x3_log2 )
+		sh.return_( sh.g_f3x3.log2() )
 
 	with sh.function("test_log2_Float3x4", sh.Float3x4)():
-		sh.f3x4_log2 = sh.g_f3x4.log2()
-		sh.return_( sh.f3x4_log2 )
+		sh.return_( sh.g_f3x4.log2() )
 
 	with sh.function("test_log2_Float4x1", sh.Float4x1)():
-		sh.f4x1_log2 = sh.g_f4x1.log2()
-		sh.return_( sh.f4x1_log2 )
+		sh.return_( sh.g_f4x1.log2() )
 
 	with sh.function("test_log2_Float4x2", sh.Float4x2)():
-		sh.f4x2_log2 = sh.g_f4x2.log2()
-		sh.return_( sh.f4x2_log2 )
+		sh.return_( sh.g_f4x2.log2() )
 
 	with sh.function("test_log2_Float4x3", sh.Float4x3)():
-		sh.f4x3_log2 = sh.g_f4x3.log2()
-		sh.return_( sh.f4x3_log2 )
+		sh.return_( sh.g_f4x3.log2() )
 
 	with sh.function("test_log2_Float4x4", sh.Float4x4)():
-		sh.f4x4_log2 = sh.g_f4x4.log2()
-		sh.return_( sh.f4x4_log2 )
+		sh.return_( sh.g_f4x4.log2() )
+
+	with sh.function("test_modf_Float", sh.Float)(ip = sh.Float):
+		sh.return_( sh.g_f.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float1", sh.Float1)(ip = sh.Float1):
+		sh.return_( sh.g_f1.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float2", sh.Float2)(ip = sh.Float2):
+		sh.return_( sh.g_f2.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float3", sh.Float3)(ip = sh.Float3):
+		sh.return_( sh.g_f3.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float4", sh.Float4)(ip = sh.Float4):
+		sh.return_( sh.g_f4.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float1x1", sh.Float1x1)(ip = sh.Float1x1):
+		sh.return_( sh.g_f1x1.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float1x2", sh.Float1x2)(ip = sh.Float1x2):
+		sh.return_( sh.g_f1x2.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float1x3", sh.Float1x3)(ip = sh.Float1x3):
+		sh.return_( sh.g_f1x3.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float1x4", sh.Float1x4)(ip = sh.Float1x4):
+		sh.return_( sh.g_f1x4.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float2x1", sh.Float2x1)(ip = sh.Float2x1):
+		sh.return_( sh.g_f2x1.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float2x2", sh.Float2x2)(ip = sh.Float2x2):
+		sh.return_( sh.g_f2x2.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float2x3", sh.Float2x3)(ip = sh.Float2x3):
+		sh.return_( sh.g_f2x3.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float2x4", sh.Float2x4)(ip = sh.Float2x4):
+		sh.return_( sh.g_f2x4.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float3x1", sh.Float3x1)(ip = sh.Float3x1):
+		sh.return_( sh.g_f3x1.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float3x2", sh.Float3x2)(ip = sh.Float3x2):
+		sh.return_( sh.g_f3x2.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float3x3", sh.Float3x3)(ip = sh.Float3x3):
+		sh.return_( sh.g_f3x3.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float3x4", sh.Float3x4)(ip = sh.Float3x4):
+		sh.return_( sh.g_f3x4.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float4x1", sh.Float4x1)(ip = sh.Float4x1):
+		sh.return_( sh.g_f4x1.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float4x2", sh.Float4x2)(ip = sh.Float4x2):
+		sh.return_( sh.g_f4x2.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float4x3", sh.Float4x3)(ip = sh.Float4x3):
+		sh.return_( sh.g_f4x3.modf(ip = sh.ip) )
+
+	with sh.function("test_modf_Float4x4", sh.Float4x4)(ip = sh.Float4x4):
+		sh.return_( sh.g_f4x4.modf(ip = sh.ip) )
+
+	with sh.function("test_pow_Float", sh.Float)(y = sh.Float):
+		sh.return_( sh.g_f.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float1", sh.Float1)(y = sh.Float1):
+		sh.return_( sh.g_f1.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float2", sh.Float2)(y = sh.Float2):
+		sh.return_( sh.g_f2.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float3", sh.Float3)(y = sh.Float3):
+		sh.return_( sh.g_f3.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float4", sh.Float4)(y = sh.Float4):
+		sh.return_( sh.g_f4.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float1x1", sh.Float1x1)(y = sh.Float1x1):
+		sh.return_( sh.g_f1x1.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float1x2", sh.Float1x2)(y = sh.Float1x2):
+		sh.return_( sh.g_f1x2.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float1x3", sh.Float1x3)(y = sh.Float1x3):
+		sh.return_( sh.g_f1x3.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float1x4", sh.Float1x4)(y = sh.Float1x4):
+		sh.return_( sh.g_f1x4.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float2x1", sh.Float2x1)(y = sh.Float2x1):
+		sh.return_( sh.g_f2x1.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float2x2", sh.Float2x2)(y = sh.Float2x2):
+		sh.return_( sh.g_f2x2.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float2x3", sh.Float2x3)(y = sh.Float2x3):
+		sh.return_( sh.g_f2x3.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float2x4", sh.Float2x4)(y = sh.Float2x4):
+		sh.return_( sh.g_f2x4.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float3x1", sh.Float3x1)(y = sh.Float3x1):
+		sh.return_( sh.g_f3x1.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float3x2", sh.Float3x2)(y = sh.Float3x2):
+		sh.return_( sh.g_f3x2.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float3x3", sh.Float3x3)(y = sh.Float3x3):
+		sh.return_( sh.g_f3x3.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float3x4", sh.Float3x4)(y = sh.Float3x4):
+		sh.return_( sh.g_f3x4.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float4x1", sh.Float4x1)(y = sh.Float4x1):
+		sh.return_( sh.g_f4x1.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float4x2", sh.Float4x2)(y = sh.Float4x2):
+		sh.return_( sh.g_f4x2.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float4x3", sh.Float4x3)(y = sh.Float4x3):
+		sh.return_( sh.g_f4x3.pow(y = sh.y) )
+
+	with sh.function("test_pow_Float4x4", sh.Float4x4)(y = sh.Float4x4):
+		sh.return_( sh.g_f4x4.pow(y = sh.y) )
 
 	with sh.function("test_radians_Float", sh.Float)():
-		sh.f_radians = sh.g_f.radians()
-		sh.return_( sh.f_radians )
+		sh.return_( sh.g_f.radians() )
 
 	with sh.function("test_radians_Float1", sh.Float1)():
-		sh.f1_radians = sh.g_f1.radians()
-		sh.return_( sh.f1_radians )
+		sh.return_( sh.g_f1.radians() )
 
 	with sh.function("test_radians_Float2", sh.Float2)():
-		sh.f2_radians = sh.g_f2.radians()
-		sh.return_( sh.f2_radians )
+		sh.return_( sh.g_f2.radians() )
 
 	with sh.function("test_radians_Float3", sh.Float3)():
-		sh.f3_radians = sh.g_f3.radians()
-		sh.return_( sh.f3_radians )
+		sh.return_( sh.g_f3.radians() )
 
 	with sh.function("test_radians_Float4", sh.Float4)():
-		sh.f4_radians = sh.g_f4.radians()
-		sh.return_( sh.f4_radians )
+		sh.return_( sh.g_f4.radians() )
 
 	with sh.function("test_radians_Float1x1", sh.Float1x1)():
-		sh.f1x1_radians = sh.g_f1x1.radians()
-		sh.return_( sh.f1x1_radians )
+		sh.return_( sh.g_f1x1.radians() )
 
 	with sh.function("test_radians_Float1x2", sh.Float1x2)():
-		sh.f1x2_radians = sh.g_f1x2.radians()
-		sh.return_( sh.f1x2_radians )
+		sh.return_( sh.g_f1x2.radians() )
 
 	with sh.function("test_radians_Float1x3", sh.Float1x3)():
-		sh.f1x3_radians = sh.g_f1x3.radians()
-		sh.return_( sh.f1x3_radians )
+		sh.return_( sh.g_f1x3.radians() )
 
 	with sh.function("test_radians_Float1x4", sh.Float1x4)():
-		sh.f1x4_radians = sh.g_f1x4.radians()
-		sh.return_( sh.f1x4_radians )
+		sh.return_( sh.g_f1x4.radians() )
 
 	with sh.function("test_radians_Float2x1", sh.Float2x1)():
-		sh.f2x1_radians = sh.g_f2x1.radians()
-		sh.return_( sh.f2x1_radians )
+		sh.return_( sh.g_f2x1.radians() )
 
 	with sh.function("test_radians_Float2x2", sh.Float2x2)():
-		sh.f2x2_radians = sh.g_f2x2.radians()
-		sh.return_( sh.f2x2_radians )
+		sh.return_( sh.g_f2x2.radians() )
 
 	with sh.function("test_radians_Float2x3", sh.Float2x3)():
-		sh.f2x3_radians = sh.g_f2x3.radians()
-		sh.return_( sh.f2x3_radians )
+		sh.return_( sh.g_f2x3.radians() )
 
 	with sh.function("test_radians_Float2x4", sh.Float2x4)():
-		sh.f2x4_radians = sh.g_f2x4.radians()
-		sh.return_( sh.f2x4_radians )
+		sh.return_( sh.g_f2x4.radians() )
 
 	with sh.function("test_radians_Float3x1", sh.Float3x1)():
-		sh.f3x1_radians = sh.g_f3x1.radians()
-		sh.return_( sh.f3x1_radians )
+		sh.return_( sh.g_f3x1.radians() )
 
 	with sh.function("test_radians_Float3x2", sh.Float3x2)():
-		sh.f3x2_radians = sh.g_f3x2.radians()
-		sh.return_( sh.f3x2_radians )
+		sh.return_( sh.g_f3x2.radians() )
 
 	with sh.function("test_radians_Float3x3", sh.Float3x3)():
-		sh.f3x3_radians = sh.g_f3x3.radians()
-		sh.return_( sh.f3x3_radians )
+		sh.return_( sh.g_f3x3.radians() )
 
 	with sh.function("test_radians_Float3x4", sh.Float3x4)():
-		sh.f3x4_radians = sh.g_f3x4.radians()
-		sh.return_( sh.f3x4_radians )
+		sh.return_( sh.g_f3x4.radians() )
 
 	with sh.function("test_radians_Float4x1", sh.Float4x1)():
-		sh.f4x1_radians = sh.g_f4x1.radians()
-		sh.return_( sh.f4x1_radians )
+		sh.return_( sh.g_f4x1.radians() )
 
 	with sh.function("test_radians_Float4x2", sh.Float4x2)():
-		sh.f4x2_radians = sh.g_f4x2.radians()
-		sh.return_( sh.f4x2_radians )
+		sh.return_( sh.g_f4x2.radians() )
 
 	with sh.function("test_radians_Float4x3", sh.Float4x3)():
-		sh.f4x3_radians = sh.g_f4x3.radians()
-		sh.return_( sh.f4x3_radians )
+		sh.return_( sh.g_f4x3.radians() )
 
 	with sh.function("test_radians_Float4x4", sh.Float4x4)():
-		sh.f4x4_radians = sh.g_f4x4.radians()
-		sh.return_( sh.f4x4_radians )
+		sh.return_( sh.g_f4x4.radians() )
 
 	with sh.function("test_rcp_Float", sh.Float)():
-		sh.f_rcp = sh.g_f.rcp()
-		sh.return_( sh.f_rcp )
+		sh.return_( sh.g_f.rcp() )
 
 	with sh.function("test_rcp_Float1", sh.Float1)():
-		sh.f1_rcp = sh.g_f1.rcp()
-		sh.return_( sh.f1_rcp )
+		sh.return_( sh.g_f1.rcp() )
 
 	with sh.function("test_rcp_Float2", sh.Float2)():
-		sh.f2_rcp = sh.g_f2.rcp()
-		sh.return_( sh.f2_rcp )
+		sh.return_( sh.g_f2.rcp() )
 
 	with sh.function("test_rcp_Float3", sh.Float3)():
-		sh.f3_rcp = sh.g_f3.rcp()
-		sh.return_( sh.f3_rcp )
+		sh.return_( sh.g_f3.rcp() )
 
 	with sh.function("test_rcp_Float4", sh.Float4)():
-		sh.f4_rcp = sh.g_f4.rcp()
-		sh.return_( sh.f4_rcp )
+		sh.return_( sh.g_f4.rcp() )
 
 	with sh.function("test_rcp_Float1x1", sh.Float1x1)():
-		sh.f1x1_rcp = sh.g_f1x1.rcp()
-		sh.return_( sh.f1x1_rcp )
+		sh.return_( sh.g_f1x1.rcp() )
 
 	with sh.function("test_rcp_Float1x2", sh.Float1x2)():
-		sh.f1x2_rcp = sh.g_f1x2.rcp()
-		sh.return_( sh.f1x2_rcp )
+		sh.return_( sh.g_f1x2.rcp() )
 
 	with sh.function("test_rcp_Float1x3", sh.Float1x3)():
-		sh.f1x3_rcp = sh.g_f1x3.rcp()
-		sh.return_( sh.f1x3_rcp )
+		sh.return_( sh.g_f1x3.rcp() )
 
 	with sh.function("test_rcp_Float1x4", sh.Float1x4)():
-		sh.f1x4_rcp = sh.g_f1x4.rcp()
-		sh.return_( sh.f1x4_rcp )
+		sh.return_( sh.g_f1x4.rcp() )
 
 	with sh.function("test_rcp_Float2x1", sh.Float2x1)():
-		sh.f2x1_rcp = sh.g_f2x1.rcp()
-		sh.return_( sh.f2x1_rcp )
+		sh.return_( sh.g_f2x1.rcp() )
 
 	with sh.function("test_rcp_Float2x2", sh.Float2x2)():
-		sh.f2x2_rcp = sh.g_f2x2.rcp()
-		sh.return_( sh.f2x2_rcp )
+		sh.return_( sh.g_f2x2.rcp() )
 
 	with sh.function("test_rcp_Float2x3", sh.Float2x3)():
-		sh.f2x3_rcp = sh.g_f2x3.rcp()
-		sh.return_( sh.f2x3_rcp )
+		sh.return_( sh.g_f2x3.rcp() )
 
 	with sh.function("test_rcp_Float2x4", sh.Float2x4)():
-		sh.f2x4_rcp = sh.g_f2x4.rcp()
-		sh.return_( sh.f2x4_rcp )
+		sh.return_( sh.g_f2x4.rcp() )
 
 	with sh.function("test_rcp_Float3x1", sh.Float3x1)():
-		sh.f3x1_rcp = sh.g_f3x1.rcp()
-		sh.return_( sh.f3x1_rcp )
+		sh.return_( sh.g_f3x1.rcp() )
 
 	with sh.function("test_rcp_Float3x2", sh.Float3x2)():
-		sh.f3x2_rcp = sh.g_f3x2.rcp()
-		sh.return_( sh.f3x2_rcp )
+		sh.return_( sh.g_f3x2.rcp() )
 
 	with sh.function("test_rcp_Float3x3", sh.Float3x3)():
-		sh.f3x3_rcp = sh.g_f3x3.rcp()
-		sh.return_( sh.f3x3_rcp )
+		sh.return_( sh.g_f3x3.rcp() )
 
 	with sh.function("test_rcp_Float3x4", sh.Float3x4)():
-		sh.f3x4_rcp = sh.g_f3x4.rcp()
-		sh.return_( sh.f3x4_rcp )
+		sh.return_( sh.g_f3x4.rcp() )
 
 	with sh.function("test_rcp_Float4x1", sh.Float4x1)():
-		sh.f4x1_rcp = sh.g_f4x1.rcp()
-		sh.return_( sh.f4x1_rcp )
+		sh.return_( sh.g_f4x1.rcp() )
 
 	with sh.function("test_rcp_Float4x2", sh.Float4x2)():
-		sh.f4x2_rcp = sh.g_f4x2.rcp()
-		sh.return_( sh.f4x2_rcp )
+		sh.return_( sh.g_f4x2.rcp() )
 
 	with sh.function("test_rcp_Float4x3", sh.Float4x3)():
-		sh.f4x3_rcp = sh.g_f4x3.rcp()
-		sh.return_( sh.f4x3_rcp )
+		sh.return_( sh.g_f4x3.rcp() )
 
 	with sh.function("test_rcp_Float4x4", sh.Float4x4)():
-		sh.f4x4_rcp = sh.g_f4x4.rcp()
-		sh.return_( sh.f4x4_rcp )
+		sh.return_( sh.g_f4x4.rcp() )
 
 	with sh.function("test_round_Float", sh.Float)():
-		sh.f_round = sh.g_f.round()
-		sh.return_( sh.f_round )
+		sh.return_( sh.g_f.round() )
 
 	with sh.function("test_round_Float1", sh.Float1)():
-		sh.f1_round = sh.g_f1.round()
-		sh.return_( sh.f1_round )
+		sh.return_( sh.g_f1.round() )
 
 	with sh.function("test_round_Float2", sh.Float2)():
-		sh.f2_round = sh.g_f2.round()
-		sh.return_( sh.f2_round )
+		sh.return_( sh.g_f2.round() )
 
 	with sh.function("test_round_Float3", sh.Float3)():
-		sh.f3_round = sh.g_f3.round()
-		sh.return_( sh.f3_round )
+		sh.return_( sh.g_f3.round() )
 
 	with sh.function("test_round_Float4", sh.Float4)():
-		sh.f4_round = sh.g_f4.round()
-		sh.return_( sh.f4_round )
+		sh.return_( sh.g_f4.round() )
 
 	with sh.function("test_round_Float1x1", sh.Float1x1)():
-		sh.f1x1_round = sh.g_f1x1.round()
-		sh.return_( sh.f1x1_round )
+		sh.return_( sh.g_f1x1.round() )
 
 	with sh.function("test_round_Float1x2", sh.Float1x2)():
-		sh.f1x2_round = sh.g_f1x2.round()
-		sh.return_( sh.f1x2_round )
+		sh.return_( sh.g_f1x2.round() )
 
 	with sh.function("test_round_Float1x3", sh.Float1x3)():
-		sh.f1x3_round = sh.g_f1x3.round()
-		sh.return_( sh.f1x3_round )
+		sh.return_( sh.g_f1x3.round() )
 
 	with sh.function("test_round_Float1x4", sh.Float1x4)():
-		sh.f1x4_round = sh.g_f1x4.round()
-		sh.return_( sh.f1x4_round )
+		sh.return_( sh.g_f1x4.round() )
 
 	with sh.function("test_round_Float2x1", sh.Float2x1)():
-		sh.f2x1_round = sh.g_f2x1.round()
-		sh.return_( sh.f2x1_round )
+		sh.return_( sh.g_f2x1.round() )
 
 	with sh.function("test_round_Float2x2", sh.Float2x2)():
-		sh.f2x2_round = sh.g_f2x2.round()
-		sh.return_( sh.f2x2_round )
+		sh.return_( sh.g_f2x2.round() )
 
 	with sh.function("test_round_Float2x3", sh.Float2x3)():
-		sh.f2x3_round = sh.g_f2x3.round()
-		sh.return_( sh.f2x3_round )
+		sh.return_( sh.g_f2x3.round() )
 
 	with sh.function("test_round_Float2x4", sh.Float2x4)():
-		sh.f2x4_round = sh.g_f2x4.round()
-		sh.return_( sh.f2x4_round )
+		sh.return_( sh.g_f2x4.round() )
 
 	with sh.function("test_round_Float3x1", sh.Float3x1)():
-		sh.f3x1_round = sh.g_f3x1.round()
-		sh.return_( sh.f3x1_round )
+		sh.return_( sh.g_f3x1.round() )
 
 	with sh.function("test_round_Float3x2", sh.Float3x2)():
-		sh.f3x2_round = sh.g_f3x2.round()
-		sh.return_( sh.f3x2_round )
+		sh.return_( sh.g_f3x2.round() )
 
 	with sh.function("test_round_Float3x3", sh.Float3x3)():
-		sh.f3x3_round = sh.g_f3x3.round()
-		sh.return_( sh.f3x3_round )
+		sh.return_( sh.g_f3x3.round() )
 
 	with sh.function("test_round_Float3x4", sh.Float3x4)():
-		sh.f3x4_round = sh.g_f3x4.round()
-		sh.return_( sh.f3x4_round )
+		sh.return_( sh.g_f3x4.round() )
 
 	with sh.function("test_round_Float4x1", sh.Float4x1)():
-		sh.f4x1_round = sh.g_f4x1.round()
-		sh.return_( sh.f4x1_round )
+		sh.return_( sh.g_f4x1.round() )
 
 	with sh.function("test_round_Float4x2", sh.Float4x2)():
-		sh.f4x2_round = sh.g_f4x2.round()
-		sh.return_( sh.f4x2_round )
+		sh.return_( sh.g_f4x2.round() )
 
 	with sh.function("test_round_Float4x3", sh.Float4x3)():
-		sh.f4x3_round = sh.g_f4x3.round()
-		sh.return_( sh.f4x3_round )
+		sh.return_( sh.g_f4x3.round() )
 
 	with sh.function("test_round_Float4x4", sh.Float4x4)():
-		sh.f4x4_round = sh.g_f4x4.round()
-		sh.return_( sh.f4x4_round )
+		sh.return_( sh.g_f4x4.round() )
 
 	with sh.function("test_rsqrt_Float", sh.Float)():
-		sh.f_rsqrt = sh.g_f.rsqrt()
-		sh.return_( sh.f_rsqrt )
+		sh.return_( sh.g_f.rsqrt() )
 
 	with sh.function("test_rsqrt_Float1", sh.Float1)():
-		sh.f1_rsqrt = sh.g_f1.rsqrt()
-		sh.return_( sh.f1_rsqrt )
+		sh.return_( sh.g_f1.rsqrt() )
 
 	with sh.function("test_rsqrt_Float2", sh.Float2)():
-		sh.f2_rsqrt = sh.g_f2.rsqrt()
-		sh.return_( sh.f2_rsqrt )
+		sh.return_( sh.g_f2.rsqrt() )
 
 	with sh.function("test_rsqrt_Float3", sh.Float3)():
-		sh.f3_rsqrt = sh.g_f3.rsqrt()
-		sh.return_( sh.f3_rsqrt )
+		sh.return_( sh.g_f3.rsqrt() )
 
 	with sh.function("test_rsqrt_Float4", sh.Float4)():
-		sh.f4_rsqrt = sh.g_f4.rsqrt()
-		sh.return_( sh.f4_rsqrt )
+		sh.return_( sh.g_f4.rsqrt() )
 
 	with sh.function("test_rsqrt_Float1x1", sh.Float1x1)():
-		sh.f1x1_rsqrt = sh.g_f1x1.rsqrt()
-		sh.return_( sh.f1x1_rsqrt )
+		sh.return_( sh.g_f1x1.rsqrt() )
 
 	with sh.function("test_rsqrt_Float1x2", sh.Float1x2)():
-		sh.f1x2_rsqrt = sh.g_f1x2.rsqrt()
-		sh.return_( sh.f1x2_rsqrt )
+		sh.return_( sh.g_f1x2.rsqrt() )
 
 	with sh.function("test_rsqrt_Float1x3", sh.Float1x3)():
-		sh.f1x3_rsqrt = sh.g_f1x3.rsqrt()
-		sh.return_( sh.f1x3_rsqrt )
+		sh.return_( sh.g_f1x3.rsqrt() )
 
 	with sh.function("test_rsqrt_Float1x4", sh.Float1x4)():
-		sh.f1x4_rsqrt = sh.g_f1x4.rsqrt()
-		sh.return_( sh.f1x4_rsqrt )
+		sh.return_( sh.g_f1x4.rsqrt() )
 
 	with sh.function("test_rsqrt_Float2x1", sh.Float2x1)():
-		sh.f2x1_rsqrt = sh.g_f2x1.rsqrt()
-		sh.return_( sh.f2x1_rsqrt )
+		sh.return_( sh.g_f2x1.rsqrt() )
 
 	with sh.function("test_rsqrt_Float2x2", sh.Float2x2)():
-		sh.f2x2_rsqrt = sh.g_f2x2.rsqrt()
-		sh.return_( sh.f2x2_rsqrt )
+		sh.return_( sh.g_f2x2.rsqrt() )
 
 	with sh.function("test_rsqrt_Float2x3", sh.Float2x3)():
-		sh.f2x3_rsqrt = sh.g_f2x3.rsqrt()
-		sh.return_( sh.f2x3_rsqrt )
+		sh.return_( sh.g_f2x3.rsqrt() )
 
 	with sh.function("test_rsqrt_Float2x4", sh.Float2x4)():
-		sh.f2x4_rsqrt = sh.g_f2x4.rsqrt()
-		sh.return_( sh.f2x4_rsqrt )
+		sh.return_( sh.g_f2x4.rsqrt() )
 
 	with sh.function("test_rsqrt_Float3x1", sh.Float3x1)():
-		sh.f3x1_rsqrt = sh.g_f3x1.rsqrt()
-		sh.return_( sh.f3x1_rsqrt )
+		sh.return_( sh.g_f3x1.rsqrt() )
 
 	with sh.function("test_rsqrt_Float3x2", sh.Float3x2)():
-		sh.f3x2_rsqrt = sh.g_f3x2.rsqrt()
-		sh.return_( sh.f3x2_rsqrt )
+		sh.return_( sh.g_f3x2.rsqrt() )
 
 	with sh.function("test_rsqrt_Float3x3", sh.Float3x3)():
-		sh.f3x3_rsqrt = sh.g_f3x3.rsqrt()
-		sh.return_( sh.f3x3_rsqrt )
+		sh.return_( sh.g_f3x3.rsqrt() )
 
 	with sh.function("test_rsqrt_Float3x4", sh.Float3x4)():
-		sh.f3x4_rsqrt = sh.g_f3x4.rsqrt()
-		sh.return_( sh.f3x4_rsqrt )
+		sh.return_( sh.g_f3x4.rsqrt() )
 
 	with sh.function("test_rsqrt_Float4x1", sh.Float4x1)():
-		sh.f4x1_rsqrt = sh.g_f4x1.rsqrt()
-		sh.return_( sh.f4x1_rsqrt )
+		sh.return_( sh.g_f4x1.rsqrt() )
 
 	with sh.function("test_rsqrt_Float4x2", sh.Float4x2)():
-		sh.f4x2_rsqrt = sh.g_f4x2.rsqrt()
-		sh.return_( sh.f4x2_rsqrt )
+		sh.return_( sh.g_f4x2.rsqrt() )
 
 	with sh.function("test_rsqrt_Float4x3", sh.Float4x3)():
-		sh.f4x3_rsqrt = sh.g_f4x3.rsqrt()
-		sh.return_( sh.f4x3_rsqrt )
+		sh.return_( sh.g_f4x3.rsqrt() )
 
 	with sh.function("test_rsqrt_Float4x4", sh.Float4x4)():
-		sh.f4x4_rsqrt = sh.g_f4x4.rsqrt()
-		sh.return_( sh.f4x4_rsqrt )
+		sh.return_( sh.g_f4x4.rsqrt() )
 
 	with sh.function("test_saturate_Float", sh.Float)():
-		sh.f_saturate = sh.g_f.saturate()
-		sh.return_( sh.f_saturate )
+		sh.return_( sh.g_f.saturate() )
 
 	with sh.function("test_saturate_Float1", sh.Float1)():
-		sh.f1_saturate = sh.g_f1.saturate()
-		sh.return_( sh.f1_saturate )
+		sh.return_( sh.g_f1.saturate() )
 
 	with sh.function("test_saturate_Float2", sh.Float2)():
-		sh.f2_saturate = sh.g_f2.saturate()
-		sh.return_( sh.f2_saturate )
+		sh.return_( sh.g_f2.saturate() )
 
 	with sh.function("test_saturate_Float3", sh.Float3)():
-		sh.f3_saturate = sh.g_f3.saturate()
-		sh.return_( sh.f3_saturate )
+		sh.return_( sh.g_f3.saturate() )
 
 	with sh.function("test_saturate_Float4", sh.Float4)():
-		sh.f4_saturate = sh.g_f4.saturate()
-		sh.return_( sh.f4_saturate )
+		sh.return_( sh.g_f4.saturate() )
 
 	with sh.function("test_saturate_Float1x1", sh.Float1x1)():
-		sh.f1x1_saturate = sh.g_f1x1.saturate()
-		sh.return_( sh.f1x1_saturate )
+		sh.return_( sh.g_f1x1.saturate() )
 
 	with sh.function("test_saturate_Float1x2", sh.Float1x2)():
-		sh.f1x2_saturate = sh.g_f1x2.saturate()
-		sh.return_( sh.f1x2_saturate )
+		sh.return_( sh.g_f1x2.saturate() )
 
 	with sh.function("test_saturate_Float1x3", sh.Float1x3)():
-		sh.f1x3_saturate = sh.g_f1x3.saturate()
-		sh.return_( sh.f1x3_saturate )
+		sh.return_( sh.g_f1x3.saturate() )
 
 	with sh.function("test_saturate_Float1x4", sh.Float1x4)():
-		sh.f1x4_saturate = sh.g_f1x4.saturate()
-		sh.return_( sh.f1x4_saturate )
+		sh.return_( sh.g_f1x4.saturate() )
 
 	with sh.function("test_saturate_Float2x1", sh.Float2x1)():
-		sh.f2x1_saturate = sh.g_f2x1.saturate()
-		sh.return_( sh.f2x1_saturate )
+		sh.return_( sh.g_f2x1.saturate() )
 
 	with sh.function("test_saturate_Float2x2", sh.Float2x2)():
-		sh.f2x2_saturate = sh.g_f2x2.saturate()
-		sh.return_( sh.f2x2_saturate )
+		sh.return_( sh.g_f2x2.saturate() )
 
 	with sh.function("test_saturate_Float2x3", sh.Float2x3)():
-		sh.f2x3_saturate = sh.g_f2x3.saturate()
-		sh.return_( sh.f2x3_saturate )
+		sh.return_( sh.g_f2x3.saturate() )
 
 	with sh.function("test_saturate_Float2x4", sh.Float2x4)():
-		sh.f2x4_saturate = sh.g_f2x4.saturate()
-		sh.return_( sh.f2x4_saturate )
+		sh.return_( sh.g_f2x4.saturate() )
 
 	with sh.function("test_saturate_Float3x1", sh.Float3x1)():
-		sh.f3x1_saturate = sh.g_f3x1.saturate()
-		sh.return_( sh.f3x1_saturate )
+		sh.return_( sh.g_f3x1.saturate() )
 
 	with sh.function("test_saturate_Float3x2", sh.Float3x2)():
-		sh.f3x2_saturate = sh.g_f3x2.saturate()
-		sh.return_( sh.f3x2_saturate )
+		sh.return_( sh.g_f3x2.saturate() )
 
 	with sh.function("test_saturate_Float3x3", sh.Float3x3)():
-		sh.f3x3_saturate = sh.g_f3x3.saturate()
-		sh.return_( sh.f3x3_saturate )
+		sh.return_( sh.g_f3x3.saturate() )
 
 	with sh.function("test_saturate_Float3x4", sh.Float3x4)():
-		sh.f3x4_saturate = sh.g_f3x4.saturate()
-		sh.return_( sh.f3x4_saturate )
+		sh.return_( sh.g_f3x4.saturate() )
 
 	with sh.function("test_saturate_Float4x1", sh.Float4x1)():
-		sh.f4x1_saturate = sh.g_f4x1.saturate()
-		sh.return_( sh.f4x1_saturate )
+		sh.return_( sh.g_f4x1.saturate() )
 
 	with sh.function("test_saturate_Float4x2", sh.Float4x2)():
-		sh.f4x2_saturate = sh.g_f4x2.saturate()
-		sh.return_( sh.f4x2_saturate )
+		sh.return_( sh.g_f4x2.saturate() )
 
 	with sh.function("test_saturate_Float4x3", sh.Float4x3)():
-		sh.f4x3_saturate = sh.g_f4x3.saturate()
-		sh.return_( sh.f4x3_saturate )
+		sh.return_( sh.g_f4x3.saturate() )
 
 	with sh.function("test_saturate_Float4x4", sh.Float4x4)():
-		sh.f4x4_saturate = sh.g_f4x4.saturate()
-		sh.return_( sh.f4x4_saturate )
+		sh.return_( sh.g_f4x4.saturate() )
 
 	with sh.function("test_sin_Float", sh.Float)():
-		sh.f_sin = sh.g_f.sin()
-		sh.return_( sh.f_sin )
+		sh.return_( sh.g_f.sin() )
 
 	with sh.function("test_sin_Float1", sh.Float1)():
-		sh.f1_sin = sh.g_f1.sin()
-		sh.return_( sh.f1_sin )
+		sh.return_( sh.g_f1.sin() )
 
 	with sh.function("test_sin_Float2", sh.Float2)():
-		sh.f2_sin = sh.g_f2.sin()
-		sh.return_( sh.f2_sin )
+		sh.return_( sh.g_f2.sin() )
 
 	with sh.function("test_sin_Float3", sh.Float3)():
-		sh.f3_sin = sh.g_f3.sin()
-		sh.return_( sh.f3_sin )
+		sh.return_( sh.g_f3.sin() )
 
 	with sh.function("test_sin_Float4", sh.Float4)():
-		sh.f4_sin = sh.g_f4.sin()
-		sh.return_( sh.f4_sin )
+		sh.return_( sh.g_f4.sin() )
 
 	with sh.function("test_sin_Float1x1", sh.Float1x1)():
-		sh.f1x1_sin = sh.g_f1x1.sin()
-		sh.return_( sh.f1x1_sin )
+		sh.return_( sh.g_f1x1.sin() )
 
 	with sh.function("test_sin_Float1x2", sh.Float1x2)():
-		sh.f1x2_sin = sh.g_f1x2.sin()
-		sh.return_( sh.f1x2_sin )
+		sh.return_( sh.g_f1x2.sin() )
 
 	with sh.function("test_sin_Float1x3", sh.Float1x3)():
-		sh.f1x3_sin = sh.g_f1x3.sin()
-		sh.return_( sh.f1x3_sin )
+		sh.return_( sh.g_f1x3.sin() )
 
 	with sh.function("test_sin_Float1x4", sh.Float1x4)():
-		sh.f1x4_sin = sh.g_f1x4.sin()
-		sh.return_( sh.f1x4_sin )
+		sh.return_( sh.g_f1x4.sin() )
 
 	with sh.function("test_sin_Float2x1", sh.Float2x1)():
-		sh.f2x1_sin = sh.g_f2x1.sin()
-		sh.return_( sh.f2x1_sin )
+		sh.return_( sh.g_f2x1.sin() )
 
 	with sh.function("test_sin_Float2x2", sh.Float2x2)():
-		sh.f2x2_sin = sh.g_f2x2.sin()
-		sh.return_( sh.f2x2_sin )
+		sh.return_( sh.g_f2x2.sin() )
 
 	with sh.function("test_sin_Float2x3", sh.Float2x3)():
-		sh.f2x3_sin = sh.g_f2x3.sin()
-		sh.return_( sh.f2x3_sin )
+		sh.return_( sh.g_f2x3.sin() )
 
 	with sh.function("test_sin_Float2x4", sh.Float2x4)():
-		sh.f2x4_sin = sh.g_f2x4.sin()
-		sh.return_( sh.f2x4_sin )
+		sh.return_( sh.g_f2x4.sin() )
 
 	with sh.function("test_sin_Float3x1", sh.Float3x1)():
-		sh.f3x1_sin = sh.g_f3x1.sin()
-		sh.return_( sh.f3x1_sin )
+		sh.return_( sh.g_f3x1.sin() )
 
 	with sh.function("test_sin_Float3x2", sh.Float3x2)():
-		sh.f3x2_sin = sh.g_f3x2.sin()
-		sh.return_( sh.f3x2_sin )
+		sh.return_( sh.g_f3x2.sin() )
 
 	with sh.function("test_sin_Float3x3", sh.Float3x3)():
-		sh.f3x3_sin = sh.g_f3x3.sin()
-		sh.return_( sh.f3x3_sin )
+		sh.return_( sh.g_f3x3.sin() )
 
 	with sh.function("test_sin_Float3x4", sh.Float3x4)():
-		sh.f3x4_sin = sh.g_f3x4.sin()
-		sh.return_( sh.f3x4_sin )
+		sh.return_( sh.g_f3x4.sin() )
 
 	with sh.function("test_sin_Float4x1", sh.Float4x1)():
-		sh.f4x1_sin = sh.g_f4x1.sin()
-		sh.return_( sh.f4x1_sin )
+		sh.return_( sh.g_f4x1.sin() )
 
 	with sh.function("test_sin_Float4x2", sh.Float4x2)():
-		sh.f4x2_sin = sh.g_f4x2.sin()
-		sh.return_( sh.f4x2_sin )
+		sh.return_( sh.g_f4x2.sin() )
 
 	with sh.function("test_sin_Float4x3", sh.Float4x3)():
-		sh.f4x3_sin = sh.g_f4x3.sin()
-		sh.return_( sh.f4x3_sin )
+		sh.return_( sh.g_f4x3.sin() )
 
 	with sh.function("test_sin_Float4x4", sh.Float4x4)():
-		sh.f4x4_sin = sh.g_f4x4.sin()
-		sh.return_( sh.f4x4_sin )
+		sh.return_( sh.g_f4x4.sin() )
 
 	with sh.function("test_sinh_Float", sh.Float)():
-		sh.f_sinh = sh.g_f.sinh()
-		sh.return_( sh.f_sinh )
+		sh.return_( sh.g_f.sinh() )
 
 	with sh.function("test_sinh_Float1", sh.Float1)():
-		sh.f1_sinh = sh.g_f1.sinh()
-		sh.return_( sh.f1_sinh )
+		sh.return_( sh.g_f1.sinh() )
 
 	with sh.function("test_sinh_Float2", sh.Float2)():
-		sh.f2_sinh = sh.g_f2.sinh()
-		sh.return_( sh.f2_sinh )
+		sh.return_( sh.g_f2.sinh() )
 
 	with sh.function("test_sinh_Float3", sh.Float3)():
-		sh.f3_sinh = sh.g_f3.sinh()
-		sh.return_( sh.f3_sinh )
+		sh.return_( sh.g_f3.sinh() )
 
 	with sh.function("test_sinh_Float4", sh.Float4)():
-		sh.f4_sinh = sh.g_f4.sinh()
-		sh.return_( sh.f4_sinh )
+		sh.return_( sh.g_f4.sinh() )
 
 	with sh.function("test_sinh_Float1x1", sh.Float1x1)():
-		sh.f1x1_sinh = sh.g_f1x1.sinh()
-		sh.return_( sh.f1x1_sinh )
+		sh.return_( sh.g_f1x1.sinh() )
 
 	with sh.function("test_sinh_Float1x2", sh.Float1x2)():
-		sh.f1x2_sinh = sh.g_f1x2.sinh()
-		sh.return_( sh.f1x2_sinh )
+		sh.return_( sh.g_f1x2.sinh() )
 
 	with sh.function("test_sinh_Float1x3", sh.Float1x3)():
-		sh.f1x3_sinh = sh.g_f1x3.sinh()
-		sh.return_( sh.f1x3_sinh )
+		sh.return_( sh.g_f1x3.sinh() )
 
 	with sh.function("test_sinh_Float1x4", sh.Float1x4)():
-		sh.f1x4_sinh = sh.g_f1x4.sinh()
-		sh.return_( sh.f1x4_sinh )
+		sh.return_( sh.g_f1x4.sinh() )
 
 	with sh.function("test_sinh_Float2x1", sh.Float2x1)():
-		sh.f2x1_sinh = sh.g_f2x1.sinh()
-		sh.return_( sh.f2x1_sinh )
+		sh.return_( sh.g_f2x1.sinh() )
 
 	with sh.function("test_sinh_Float2x2", sh.Float2x2)():
-		sh.f2x2_sinh = sh.g_f2x2.sinh()
-		sh.return_( sh.f2x2_sinh )
+		sh.return_( sh.g_f2x2.sinh() )
 
 	with sh.function("test_sinh_Float2x3", sh.Float2x3)():
-		sh.f2x3_sinh = sh.g_f2x3.sinh()
-		sh.return_( sh.f2x3_sinh )
+		sh.return_( sh.g_f2x3.sinh() )
 
 	with sh.function("test_sinh_Float2x4", sh.Float2x4)():
-		sh.f2x4_sinh = sh.g_f2x4.sinh()
-		sh.return_( sh.f2x4_sinh )
+		sh.return_( sh.g_f2x4.sinh() )
 
 	with sh.function("test_sinh_Float3x1", sh.Float3x1)():
-		sh.f3x1_sinh = sh.g_f3x1.sinh()
-		sh.return_( sh.f3x1_sinh )
+		sh.return_( sh.g_f3x1.sinh() )
 
 	with sh.function("test_sinh_Float3x2", sh.Float3x2)():
-		sh.f3x2_sinh = sh.g_f3x2.sinh()
-		sh.return_( sh.f3x2_sinh )
+		sh.return_( sh.g_f3x2.sinh() )
 
 	with sh.function("test_sinh_Float3x3", sh.Float3x3)():
-		sh.f3x3_sinh = sh.g_f3x3.sinh()
-		sh.return_( sh.f3x3_sinh )
+		sh.return_( sh.g_f3x3.sinh() )
 
 	with sh.function("test_sinh_Float3x4", sh.Float3x4)():
-		sh.f3x4_sinh = sh.g_f3x4.sinh()
-		sh.return_( sh.f3x4_sinh )
+		sh.return_( sh.g_f3x4.sinh() )
 
 	with sh.function("test_sinh_Float4x1", sh.Float4x1)():
-		sh.f4x1_sinh = sh.g_f4x1.sinh()
-		sh.return_( sh.f4x1_sinh )
+		sh.return_( sh.g_f4x1.sinh() )
 
 	with sh.function("test_sinh_Float4x2", sh.Float4x2)():
-		sh.f4x2_sinh = sh.g_f4x2.sinh()
-		sh.return_( sh.f4x2_sinh )
+		sh.return_( sh.g_f4x2.sinh() )
 
 	with sh.function("test_sinh_Float4x3", sh.Float4x3)():
-		sh.f4x3_sinh = sh.g_f4x3.sinh()
-		sh.return_( sh.f4x3_sinh )
+		sh.return_( sh.g_f4x3.sinh() )
 
 	with sh.function("test_sinh_Float4x4", sh.Float4x4)():
-		sh.f4x4_sinh = sh.g_f4x4.sinh()
-		sh.return_( sh.f4x4_sinh )
+		sh.return_( sh.g_f4x4.sinh() )
+
+	with sh.function("test_smoothstep_Float", sh.Float)(a = sh.Float, b = sh.Float):
+		sh.return_( sh.g_f.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float1", sh.Float1)(a = sh.Float1, b = sh.Float1):
+		sh.return_( sh.g_f1.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float2", sh.Float2)(a = sh.Float2, b = sh.Float2):
+		sh.return_( sh.g_f2.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float3", sh.Float3)(a = sh.Float3, b = sh.Float3):
+		sh.return_( sh.g_f3.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float4", sh.Float4)(a = sh.Float4, b = sh.Float4):
+		sh.return_( sh.g_f4.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float1x1", sh.Float1x1)(a = sh.Float1x1, b = sh.Float1x1):
+		sh.return_( sh.g_f1x1.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float1x2", sh.Float1x2)(a = sh.Float1x2, b = sh.Float1x2):
+		sh.return_( sh.g_f1x2.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float1x3", sh.Float1x3)(a = sh.Float1x3, b = sh.Float1x3):
+		sh.return_( sh.g_f1x3.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float1x4", sh.Float1x4)(a = sh.Float1x4, b = sh.Float1x4):
+		sh.return_( sh.g_f1x4.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float2x1", sh.Float2x1)(a = sh.Float2x1, b = sh.Float2x1):
+		sh.return_( sh.g_f2x1.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float2x2", sh.Float2x2)(a = sh.Float2x2, b = sh.Float2x2):
+		sh.return_( sh.g_f2x2.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float2x3", sh.Float2x3)(a = sh.Float2x3, b = sh.Float2x3):
+		sh.return_( sh.g_f2x3.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float2x4", sh.Float2x4)(a = sh.Float2x4, b = sh.Float2x4):
+		sh.return_( sh.g_f2x4.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float3x1", sh.Float3x1)(a = sh.Float3x1, b = sh.Float3x1):
+		sh.return_( sh.g_f3x1.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float3x2", sh.Float3x2)(a = sh.Float3x2, b = sh.Float3x2):
+		sh.return_( sh.g_f3x2.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float3x3", sh.Float3x3)(a = sh.Float3x3, b = sh.Float3x3):
+		sh.return_( sh.g_f3x3.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float3x4", sh.Float3x4)(a = sh.Float3x4, b = sh.Float3x4):
+		sh.return_( sh.g_f3x4.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float4x1", sh.Float4x1)(a = sh.Float4x1, b = sh.Float4x1):
+		sh.return_( sh.g_f4x1.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float4x2", sh.Float4x2)(a = sh.Float4x2, b = sh.Float4x2):
+		sh.return_( sh.g_f4x2.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float4x3", sh.Float4x3)(a = sh.Float4x3, b = sh.Float4x3):
+		sh.return_( sh.g_f4x3.smoothstep(a = sh.a, b = sh.b) )
+
+	with sh.function("test_smoothstep_Float4x4", sh.Float4x4)(a = sh.Float4x4, b = sh.Float4x4):
+		sh.return_( sh.g_f4x4.smoothstep(a = sh.a, b = sh.b) )
 
 	with sh.function("test_sqrt_Float", sh.Float)():
-		sh.f_sqrt = sh.g_f.sqrt()
-		sh.return_( sh.f_sqrt )
+		sh.return_( sh.g_f.sqrt() )
 
 	with sh.function("test_sqrt_Float1", sh.Float1)():
-		sh.f1_sqrt = sh.g_f1.sqrt()
-		sh.return_( sh.f1_sqrt )
+		sh.return_( sh.g_f1.sqrt() )
 
 	with sh.function("test_sqrt_Float2", sh.Float2)():
-		sh.f2_sqrt = sh.g_f2.sqrt()
-		sh.return_( sh.f2_sqrt )
+		sh.return_( sh.g_f2.sqrt() )
 
 	with sh.function("test_sqrt_Float3", sh.Float3)():
-		sh.f3_sqrt = sh.g_f3.sqrt()
-		sh.return_( sh.f3_sqrt )
+		sh.return_( sh.g_f3.sqrt() )
 
 	with sh.function("test_sqrt_Float4", sh.Float4)():
-		sh.f4_sqrt = sh.g_f4.sqrt()
-		sh.return_( sh.f4_sqrt )
+		sh.return_( sh.g_f4.sqrt() )
 
 	with sh.function("test_sqrt_Float1x1", sh.Float1x1)():
-		sh.f1x1_sqrt = sh.g_f1x1.sqrt()
-		sh.return_( sh.f1x1_sqrt )
+		sh.return_( sh.g_f1x1.sqrt() )
 
 	with sh.function("test_sqrt_Float1x2", sh.Float1x2)():
-		sh.f1x2_sqrt = sh.g_f1x2.sqrt()
-		sh.return_( sh.f1x2_sqrt )
+		sh.return_( sh.g_f1x2.sqrt() )
 
 	with sh.function("test_sqrt_Float1x3", sh.Float1x3)():
-		sh.f1x3_sqrt = sh.g_f1x3.sqrt()
-		sh.return_( sh.f1x3_sqrt )
+		sh.return_( sh.g_f1x3.sqrt() )
 
 	with sh.function("test_sqrt_Float1x4", sh.Float1x4)():
-		sh.f1x4_sqrt = sh.g_f1x4.sqrt()
-		sh.return_( sh.f1x4_sqrt )
+		sh.return_( sh.g_f1x4.sqrt() )
 
 	with sh.function("test_sqrt_Float2x1", sh.Float2x1)():
-		sh.f2x1_sqrt = sh.g_f2x1.sqrt()
-		sh.return_( sh.f2x1_sqrt )
+		sh.return_( sh.g_f2x1.sqrt() )
 
 	with sh.function("test_sqrt_Float2x2", sh.Float2x2)():
-		sh.f2x2_sqrt = sh.g_f2x2.sqrt()
-		sh.return_( sh.f2x2_sqrt )
+		sh.return_( sh.g_f2x2.sqrt() )
 
 	with sh.function("test_sqrt_Float2x3", sh.Float2x3)():
-		sh.f2x3_sqrt = sh.g_f2x3.sqrt()
-		sh.return_( sh.f2x3_sqrt )
+		sh.return_( sh.g_f2x3.sqrt() )
 
 	with sh.function("test_sqrt_Float2x4", sh.Float2x4)():
-		sh.f2x4_sqrt = sh.g_f2x4.sqrt()
-		sh.return_( sh.f2x4_sqrt )
+		sh.return_( sh.g_f2x4.sqrt() )
 
 	with sh.function("test_sqrt_Float3x1", sh.Float3x1)():
-		sh.f3x1_sqrt = sh.g_f3x1.sqrt()
-		sh.return_( sh.f3x1_sqrt )
+		sh.return_( sh.g_f3x1.sqrt() )
 
 	with sh.function("test_sqrt_Float3x2", sh.Float3x2)():
-		sh.f3x2_sqrt = sh.g_f3x2.sqrt()
-		sh.return_( sh.f3x2_sqrt )
+		sh.return_( sh.g_f3x2.sqrt() )
 
 	with sh.function("test_sqrt_Float3x3", sh.Float3x3)():
-		sh.f3x3_sqrt = sh.g_f3x3.sqrt()
-		sh.return_( sh.f3x3_sqrt )
+		sh.return_( sh.g_f3x3.sqrt() )
 
 	with sh.function("test_sqrt_Float3x4", sh.Float3x4)():
-		sh.f3x4_sqrt = sh.g_f3x4.sqrt()
-		sh.return_( sh.f3x4_sqrt )
+		sh.return_( sh.g_f3x4.sqrt() )
 
 	with sh.function("test_sqrt_Float4x1", sh.Float4x1)():
-		sh.f4x1_sqrt = sh.g_f4x1.sqrt()
-		sh.return_( sh.f4x1_sqrt )
+		sh.return_( sh.g_f4x1.sqrt() )
 
 	with sh.function("test_sqrt_Float4x2", sh.Float4x2)():
-		sh.f4x2_sqrt = sh.g_f4x2.sqrt()
-		sh.return_( sh.f4x2_sqrt )
+		sh.return_( sh.g_f4x2.sqrt() )
 
 	with sh.function("test_sqrt_Float4x3", sh.Float4x3)():
-		sh.f4x3_sqrt = sh.g_f4x3.sqrt()
-		sh.return_( sh.f4x3_sqrt )
+		sh.return_( sh.g_f4x3.sqrt() )
 
 	with sh.function("test_sqrt_Float4x4", sh.Float4x4)():
-		sh.f4x4_sqrt = sh.g_f4x4.sqrt()
-		sh.return_( sh.f4x4_sqrt )
+		sh.return_( sh.g_f4x4.sqrt() )
+
+	with sh.function("test_step_Float", sh.Float)(x = sh.Float):
+		sh.return_( sh.g_f.step(x = sh.x) )
+
+	with sh.function("test_step_Float1", sh.Float1)(x = sh.Float1):
+		sh.return_( sh.g_f1.step(x = sh.x) )
+
+	with sh.function("test_step_Float2", sh.Float2)(x = sh.Float2):
+		sh.return_( sh.g_f2.step(x = sh.x) )
+
+	with sh.function("test_step_Float3", sh.Float3)(x = sh.Float3):
+		sh.return_( sh.g_f3.step(x = sh.x) )
+
+	with sh.function("test_step_Float4", sh.Float4)(x = sh.Float4):
+		sh.return_( sh.g_f4.step(x = sh.x) )
+
+	with sh.function("test_step_Float1x1", sh.Float1x1)(x = sh.Float1x1):
+		sh.return_( sh.g_f1x1.step(x = sh.x) )
+
+	with sh.function("test_step_Float1x2", sh.Float1x2)(x = sh.Float1x2):
+		sh.return_( sh.g_f1x2.step(x = sh.x) )
+
+	with sh.function("test_step_Float1x3", sh.Float1x3)(x = sh.Float1x3):
+		sh.return_( sh.g_f1x3.step(x = sh.x) )
+
+	with sh.function("test_step_Float1x4", sh.Float1x4)(x = sh.Float1x4):
+		sh.return_( sh.g_f1x4.step(x = sh.x) )
+
+	with sh.function("test_step_Float2x1", sh.Float2x1)(x = sh.Float2x1):
+		sh.return_( sh.g_f2x1.step(x = sh.x) )
+
+	with sh.function("test_step_Float2x2", sh.Float2x2)(x = sh.Float2x2):
+		sh.return_( sh.g_f2x2.step(x = sh.x) )
+
+	with sh.function("test_step_Float2x3", sh.Float2x3)(x = sh.Float2x3):
+		sh.return_( sh.g_f2x3.step(x = sh.x) )
+
+	with sh.function("test_step_Float2x4", sh.Float2x4)(x = sh.Float2x4):
+		sh.return_( sh.g_f2x4.step(x = sh.x) )
+
+	with sh.function("test_step_Float3x1", sh.Float3x1)(x = sh.Float3x1):
+		sh.return_( sh.g_f3x1.step(x = sh.x) )
+
+	with sh.function("test_step_Float3x2", sh.Float3x2)(x = sh.Float3x2):
+		sh.return_( sh.g_f3x2.step(x = sh.x) )
+
+	with sh.function("test_step_Float3x3", sh.Float3x3)(x = sh.Float3x3):
+		sh.return_( sh.g_f3x3.step(x = sh.x) )
+
+	with sh.function("test_step_Float3x4", sh.Float3x4)(x = sh.Float3x4):
+		sh.return_( sh.g_f3x4.step(x = sh.x) )
+
+	with sh.function("test_step_Float4x1", sh.Float4x1)(x = sh.Float4x1):
+		sh.return_( sh.g_f4x1.step(x = sh.x) )
+
+	with sh.function("test_step_Float4x2", sh.Float4x2)(x = sh.Float4x2):
+		sh.return_( sh.g_f4x2.step(x = sh.x) )
+
+	with sh.function("test_step_Float4x3", sh.Float4x3)(x = sh.Float4x3):
+		sh.return_( sh.g_f4x3.step(x = sh.x) )
+
+	with sh.function("test_step_Float4x4", sh.Float4x4)(x = sh.Float4x4):
+		sh.return_( sh.g_f4x4.step(x = sh.x) )
 
 	with sh.function("test_tan_Float", sh.Float)():
-		sh.f_tan = sh.g_f.tan()
-		sh.return_( sh.f_tan )
+		sh.return_( sh.g_f.tan() )
 
 	with sh.function("test_tan_Float1", sh.Float1)():
-		sh.f1_tan = sh.g_f1.tan()
-		sh.return_( sh.f1_tan )
+		sh.return_( sh.g_f1.tan() )
 
 	with sh.function("test_tan_Float2", sh.Float2)():
-		sh.f2_tan = sh.g_f2.tan()
-		sh.return_( sh.f2_tan )
+		sh.return_( sh.g_f2.tan() )
 
 	with sh.function("test_tan_Float3", sh.Float3)():
-		sh.f3_tan = sh.g_f3.tan()
-		sh.return_( sh.f3_tan )
+		sh.return_( sh.g_f3.tan() )
 
 	with sh.function("test_tan_Float4", sh.Float4)():
-		sh.f4_tan = sh.g_f4.tan()
-		sh.return_( sh.f4_tan )
+		sh.return_( sh.g_f4.tan() )
 
 	with sh.function("test_tan_Float1x1", sh.Float1x1)():
-		sh.f1x1_tan = sh.g_f1x1.tan()
-		sh.return_( sh.f1x1_tan )
+		sh.return_( sh.g_f1x1.tan() )
 
 	with sh.function("test_tan_Float1x2", sh.Float1x2)():
-		sh.f1x2_tan = sh.g_f1x2.tan()
-		sh.return_( sh.f1x2_tan )
+		sh.return_( sh.g_f1x2.tan() )
 
 	with sh.function("test_tan_Float1x3", sh.Float1x3)():
-		sh.f1x3_tan = sh.g_f1x3.tan()
-		sh.return_( sh.f1x3_tan )
+		sh.return_( sh.g_f1x3.tan() )
 
 	with sh.function("test_tan_Float1x4", sh.Float1x4)():
-		sh.f1x4_tan = sh.g_f1x4.tan()
-		sh.return_( sh.f1x4_tan )
+		sh.return_( sh.g_f1x4.tan() )
 
 	with sh.function("test_tan_Float2x1", sh.Float2x1)():
-		sh.f2x1_tan = sh.g_f2x1.tan()
-		sh.return_( sh.f2x1_tan )
+		sh.return_( sh.g_f2x1.tan() )
 
 	with sh.function("test_tan_Float2x2", sh.Float2x2)():
-		sh.f2x2_tan = sh.g_f2x2.tan()
-		sh.return_( sh.f2x2_tan )
+		sh.return_( sh.g_f2x2.tan() )
 
 	with sh.function("test_tan_Float2x3", sh.Float2x3)():
-		sh.f2x3_tan = sh.g_f2x3.tan()
-		sh.return_( sh.f2x3_tan )
+		sh.return_( sh.g_f2x3.tan() )
 
 	with sh.function("test_tan_Float2x4", sh.Float2x4)():
-		sh.f2x4_tan = sh.g_f2x4.tan()
-		sh.return_( sh.f2x4_tan )
+		sh.return_( sh.g_f2x4.tan() )
 
 	with sh.function("test_tan_Float3x1", sh.Float3x1)():
-		sh.f3x1_tan = sh.g_f3x1.tan()
-		sh.return_( sh.f3x1_tan )
+		sh.return_( sh.g_f3x1.tan() )
 
 	with sh.function("test_tan_Float3x2", sh.Float3x2)():
-		sh.f3x2_tan = sh.g_f3x2.tan()
-		sh.return_( sh.f3x2_tan )
+		sh.return_( sh.g_f3x2.tan() )
 
 	with sh.function("test_tan_Float3x3", sh.Float3x3)():
-		sh.f3x3_tan = sh.g_f3x3.tan()
-		sh.return_( sh.f3x3_tan )
+		sh.return_( sh.g_f3x3.tan() )
 
 	with sh.function("test_tan_Float3x4", sh.Float3x4)():
-		sh.f3x4_tan = sh.g_f3x4.tan()
-		sh.return_( sh.f3x4_tan )
+		sh.return_( sh.g_f3x4.tan() )
 
 	with sh.function("test_tan_Float4x1", sh.Float4x1)():
-		sh.f4x1_tan = sh.g_f4x1.tan()
-		sh.return_( sh.f4x1_tan )
+		sh.return_( sh.g_f4x1.tan() )
 
 	with sh.function("test_tan_Float4x2", sh.Float4x2)():
-		sh.f4x2_tan = sh.g_f4x2.tan()
-		sh.return_( sh.f4x2_tan )
+		sh.return_( sh.g_f4x2.tan() )
 
 	with sh.function("test_tan_Float4x3", sh.Float4x3)():
-		sh.f4x3_tan = sh.g_f4x3.tan()
-		sh.return_( sh.f4x3_tan )
+		sh.return_( sh.g_f4x3.tan() )
 
 	with sh.function("test_tan_Float4x4", sh.Float4x4)():
-		sh.f4x4_tan = sh.g_f4x4.tan()
-		sh.return_( sh.f4x4_tan )
+		sh.return_( sh.g_f4x4.tan() )
 
 	with sh.function("test_tanh_Float", sh.Float)():
-		sh.f_tanh = sh.g_f.tanh()
-		sh.return_( sh.f_tanh )
+		sh.return_( sh.g_f.tanh() )
 
 	with sh.function("test_tanh_Float1", sh.Float1)():
-		sh.f1_tanh = sh.g_f1.tanh()
-		sh.return_( sh.f1_tanh )
+		sh.return_( sh.g_f1.tanh() )
 
 	with sh.function("test_tanh_Float2", sh.Float2)():
-		sh.f2_tanh = sh.g_f2.tanh()
-		sh.return_( sh.f2_tanh )
+		sh.return_( sh.g_f2.tanh() )
 
 	with sh.function("test_tanh_Float3", sh.Float3)():
-		sh.f3_tanh = sh.g_f3.tanh()
-		sh.return_( sh.f3_tanh )
+		sh.return_( sh.g_f3.tanh() )
 
 	with sh.function("test_tanh_Float4", sh.Float4)():
-		sh.f4_tanh = sh.g_f4.tanh()
-		sh.return_( sh.f4_tanh )
+		sh.return_( sh.g_f4.tanh() )
 
 	with sh.function("test_tanh_Float1x1", sh.Float1x1)():
-		sh.f1x1_tanh = sh.g_f1x1.tanh()
-		sh.return_( sh.f1x1_tanh )
+		sh.return_( sh.g_f1x1.tanh() )
 
 	with sh.function("test_tanh_Float1x2", sh.Float1x2)():
-		sh.f1x2_tanh = sh.g_f1x2.tanh()
-		sh.return_( sh.f1x2_tanh )
+		sh.return_( sh.g_f1x2.tanh() )
 
 	with sh.function("test_tanh_Float1x3", sh.Float1x3)():
-		sh.f1x3_tanh = sh.g_f1x3.tanh()
-		sh.return_( sh.f1x3_tanh )
+		sh.return_( sh.g_f1x3.tanh() )
 
 	with sh.function("test_tanh_Float1x4", sh.Float1x4)():
-		sh.f1x4_tanh = sh.g_f1x4.tanh()
-		sh.return_( sh.f1x4_tanh )
+		sh.return_( sh.g_f1x4.tanh() )
 
 	with sh.function("test_tanh_Float2x1", sh.Float2x1)():
-		sh.f2x1_tanh = sh.g_f2x1.tanh()
-		sh.return_( sh.f2x1_tanh )
+		sh.return_( sh.g_f2x1.tanh() )
 
 	with sh.function("test_tanh_Float2x2", sh.Float2x2)():
-		sh.f2x2_tanh = sh.g_f2x2.tanh()
-		sh.return_( sh.f2x2_tanh )
+		sh.return_( sh.g_f2x2.tanh() )
 
 	with sh.function("test_tanh_Float2x3", sh.Float2x3)():
-		sh.f2x3_tanh = sh.g_f2x3.tanh()
-		sh.return_( sh.f2x3_tanh )
+		sh.return_( sh.g_f2x3.tanh() )
 
 	with sh.function("test_tanh_Float2x4", sh.Float2x4)():
-		sh.f2x4_tanh = sh.g_f2x4.tanh()
-		sh.return_( sh.f2x4_tanh )
+		sh.return_( sh.g_f2x4.tanh() )
 
 	with sh.function("test_tanh_Float3x1", sh.Float3x1)():
-		sh.f3x1_tanh = sh.g_f3x1.tanh()
-		sh.return_( sh.f3x1_tanh )
+		sh.return_( sh.g_f3x1.tanh() )
 
 	with sh.function("test_tanh_Float3x2", sh.Float3x2)():
-		sh.f3x2_tanh = sh.g_f3x2.tanh()
-		sh.return_( sh.f3x2_tanh )
+		sh.return_( sh.g_f3x2.tanh() )
 
 	with sh.function("test_tanh_Float3x3", sh.Float3x3)():
-		sh.f3x3_tanh = sh.g_f3x3.tanh()
-		sh.return_( sh.f3x3_tanh )
+		sh.return_( sh.g_f3x3.tanh() )
 
 	with sh.function("test_tanh_Float3x4", sh.Float3x4)():
-		sh.f3x4_tanh = sh.g_f3x4.tanh()
-		sh.return_( sh.f3x4_tanh )
+		sh.return_( sh.g_f3x4.tanh() )
 
 	with sh.function("test_tanh_Float4x1", sh.Float4x1)():
-		sh.f4x1_tanh = sh.g_f4x1.tanh()
-		sh.return_( sh.f4x1_tanh )
+		sh.return_( sh.g_f4x1.tanh() )
 
 	with sh.function("test_tanh_Float4x2", sh.Float4x2)():
-		sh.f4x2_tanh = sh.g_f4x2.tanh()
-		sh.return_( sh.f4x2_tanh )
+		sh.return_( sh.g_f4x2.tanh() )
 
 	with sh.function("test_tanh_Float4x3", sh.Float4x3)():
-		sh.f4x3_tanh = sh.g_f4x3.tanh()
-		sh.return_( sh.f4x3_tanh )
+		sh.return_( sh.g_f4x3.tanh() )
 
 	with sh.function("test_tanh_Float4x4", sh.Float4x4)():
-		sh.f4x4_tanh = sh.g_f4x4.tanh()
-		sh.return_( sh.f4x4_tanh )
+		sh.return_( sh.g_f4x4.tanh() )
 
 	with sh.function("test_trunc_Float", sh.Float)():
-		sh.f_trunc = sh.g_f.trunc()
-		sh.return_( sh.f_trunc )
+		sh.return_( sh.g_f.trunc() )
 
 	with sh.function("test_trunc_Float1", sh.Float1)():
-		sh.f1_trunc = sh.g_f1.trunc()
-		sh.return_( sh.f1_trunc )
+		sh.return_( sh.g_f1.trunc() )
 
 	with sh.function("test_trunc_Float2", sh.Float2)():
-		sh.f2_trunc = sh.g_f2.trunc()
-		sh.return_( sh.f2_trunc )
+		sh.return_( sh.g_f2.trunc() )
 
 	with sh.function("test_trunc_Float3", sh.Float3)():
-		sh.f3_trunc = sh.g_f3.trunc()
-		sh.return_( sh.f3_trunc )
+		sh.return_( sh.g_f3.trunc() )
 
 	with sh.function("test_trunc_Float4", sh.Float4)():
-		sh.f4_trunc = sh.g_f4.trunc()
-		sh.return_( sh.f4_trunc )
+		sh.return_( sh.g_f4.trunc() )
 
 	with sh.function("test_trunc_Float1x1", sh.Float1x1)():
-		sh.f1x1_trunc = sh.g_f1x1.trunc()
-		sh.return_( sh.f1x1_trunc )
+		sh.return_( sh.g_f1x1.trunc() )
 
 	with sh.function("test_trunc_Float1x2", sh.Float1x2)():
-		sh.f1x2_trunc = sh.g_f1x2.trunc()
-		sh.return_( sh.f1x2_trunc )
+		sh.return_( sh.g_f1x2.trunc() )
 
 	with sh.function("test_trunc_Float1x3", sh.Float1x3)():
-		sh.f1x3_trunc = sh.g_f1x3.trunc()
-		sh.return_( sh.f1x3_trunc )
+		sh.return_( sh.g_f1x3.trunc() )
 
 	with sh.function("test_trunc_Float1x4", sh.Float1x4)():
-		sh.f1x4_trunc = sh.g_f1x4.trunc()
-		sh.return_( sh.f1x4_trunc )
+		sh.return_( sh.g_f1x4.trunc() )
 
 	with sh.function("test_trunc_Float2x1", sh.Float2x1)():
-		sh.f2x1_trunc = sh.g_f2x1.trunc()
-		sh.return_( sh.f2x1_trunc )
+		sh.return_( sh.g_f2x1.trunc() )
 
 	with sh.function("test_trunc_Float2x2", sh.Float2x2)():
-		sh.f2x2_trunc = sh.g_f2x2.trunc()
-		sh.return_( sh.f2x2_trunc )
+		sh.return_( sh.g_f2x2.trunc() )
 
 	with sh.function("test_trunc_Float2x3", sh.Float2x3)():
-		sh.f2x3_trunc = sh.g_f2x3.trunc()
-		sh.return_( sh.f2x3_trunc )
+		sh.return_( sh.g_f2x3.trunc() )
 
 	with sh.function("test_trunc_Float2x4", sh.Float2x4)():
-		sh.f2x4_trunc = sh.g_f2x4.trunc()
-		sh.return_( sh.f2x4_trunc )
+		sh.return_( sh.g_f2x4.trunc() )
 
 	with sh.function("test_trunc_Float3x1", sh.Float3x1)():
-		sh.f3x1_trunc = sh.g_f3x1.trunc()
-		sh.return_( sh.f3x1_trunc )
+		sh.return_( sh.g_f3x1.trunc() )
 
 	with sh.function("test_trunc_Float3x2", sh.Float3x2)():
-		sh.f3x2_trunc = sh.g_f3x2.trunc()
-		sh.return_( sh.f3x2_trunc )
+		sh.return_( sh.g_f3x2.trunc() )
 
 	with sh.function("test_trunc_Float3x3", sh.Float3x3)():
-		sh.f3x3_trunc = sh.g_f3x3.trunc()
-		sh.return_( sh.f3x3_trunc )
+		sh.return_( sh.g_f3x3.trunc() )
 
 	with sh.function("test_trunc_Float3x4", sh.Float3x4)():
-		sh.f3x4_trunc = sh.g_f3x4.trunc()
-		sh.return_( sh.f3x4_trunc )
+		sh.return_( sh.g_f3x4.trunc() )
 
 	with sh.function("test_trunc_Float4x1", sh.Float4x1)():
-		sh.f4x1_trunc = sh.g_f4x1.trunc()
-		sh.return_( sh.f4x1_trunc )
+		sh.return_( sh.g_f4x1.trunc() )
 
 	with sh.function("test_trunc_Float4x2", sh.Float4x2)():
-		sh.f4x2_trunc = sh.g_f4x2.trunc()
-		sh.return_( sh.f4x2_trunc )
+		sh.return_( sh.g_f4x2.trunc() )
 
 	with sh.function("test_trunc_Float4x3", sh.Float4x3)():
-		sh.f4x3_trunc = sh.g_f4x3.trunc()
-		sh.return_( sh.f4x3_trunc )
+		sh.return_( sh.g_f4x3.trunc() )
 
 	with sh.function("test_trunc_Float4x4", sh.Float4x4)():
-		sh.f4x4_trunc = sh.g_f4x4.trunc()
-		sh.return_( sh.f4x4_trunc )
+		sh.return_( sh.g_f4x4.trunc() )
 

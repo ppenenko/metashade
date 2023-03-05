@@ -25,1387 +25,1576 @@ cbuffer cb : register(b0)
 
 float test_EvaluateAttributeCentroid_Float()
 {
-	float f_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f);
-	return f_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f);
 }
 
 float1 test_EvaluateAttributeCentroid_Float1()
 {
-	float1 f1_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f1);
-	return f1_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f1);
 }
 
 float2 test_EvaluateAttributeCentroid_Float2()
 {
-	float2 f2_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f2);
-	return f2_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f2);
 }
 
 float3 test_EvaluateAttributeCentroid_Float3()
 {
-	float3 f3_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f3);
-	return f3_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f3);
 }
 
 float4 test_EvaluateAttributeCentroid_Float4()
 {
-	float4 f4_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f4);
-	return f4_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f4);
 }
 
 float1x1 test_EvaluateAttributeCentroid_Float1x1()
 {
-	float1x1 f1x1_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f1x1);
-	return f1x1_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f1x1);
 }
 
 float1x2 test_EvaluateAttributeCentroid_Float1x2()
 {
-	float1x2 f1x2_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f1x2);
-	return f1x2_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f1x2);
 }
 
 float1x3 test_EvaluateAttributeCentroid_Float1x3()
 {
-	float1x3 f1x3_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f1x3);
-	return f1x3_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f1x3);
 }
 
 float1x4 test_EvaluateAttributeCentroid_Float1x4()
 {
-	float1x4 f1x4_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f1x4);
-	return f1x4_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f1x4);
 }
 
 float2x1 test_EvaluateAttributeCentroid_Float2x1()
 {
-	float2x1 f2x1_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f2x1);
-	return f2x1_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f2x1);
 }
 
 float2x2 test_EvaluateAttributeCentroid_Float2x2()
 {
-	float2x2 f2x2_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f2x2);
-	return f2x2_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f2x2);
 }
 
 float2x3 test_EvaluateAttributeCentroid_Float2x3()
 {
-	float2x3 f2x3_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f2x3);
-	return f2x3_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f2x3);
 }
 
 float2x4 test_EvaluateAttributeCentroid_Float2x4()
 {
-	float2x4 f2x4_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f2x4);
-	return f2x4_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f2x4);
 }
 
 float3x1 test_EvaluateAttributeCentroid_Float3x1()
 {
-	float3x1 f3x1_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f3x1);
-	return f3x1_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f3x1);
 }
 
 float3x2 test_EvaluateAttributeCentroid_Float3x2()
 {
-	float3x2 f3x2_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f3x2);
-	return f3x2_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f3x2);
 }
 
 float3x3 test_EvaluateAttributeCentroid_Float3x3()
 {
-	float3x3 f3x3_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f3x3);
-	return f3x3_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f3x3);
 }
 
 float3x4 test_EvaluateAttributeCentroid_Float3x4()
 {
-	float3x4 f3x4_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f3x4);
-	return f3x4_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f3x4);
 }
 
 float4x1 test_EvaluateAttributeCentroid_Float4x1()
 {
-	float4x1 f4x1_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f4x1);
-	return f4x1_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f4x1);
 }
 
 float4x2 test_EvaluateAttributeCentroid_Float4x2()
 {
-	float4x2 f4x2_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f4x2);
-	return f4x2_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f4x2);
 }
 
 float4x3 test_EvaluateAttributeCentroid_Float4x3()
 {
-	float4x3 f4x3_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f4x3);
-	return f4x3_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f4x3);
 }
 
 float4x4 test_EvaluateAttributeCentroid_Float4x4()
 {
-	float4x4 f4x4_EvaluateAttributeCentroid = EvaluateAttributeCentroid(g_f4x4);
-	return f4x4_EvaluateAttributeCentroid;
+	return EvaluateAttributeCentroid(g_f4x4);
 }
 
 float test_QuadReadAcrossDiagonal_Float()
 {
-	float f_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f);
-	return f_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f);
 }
 
 float1 test_QuadReadAcrossDiagonal_Float1()
 {
-	float1 f1_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f1);
-	return f1_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f1);
 }
 
 float2 test_QuadReadAcrossDiagonal_Float2()
 {
-	float2 f2_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f2);
-	return f2_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f2);
 }
 
 float3 test_QuadReadAcrossDiagonal_Float3()
 {
-	float3 f3_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f3);
-	return f3_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f3);
 }
 
 float4 test_QuadReadAcrossDiagonal_Float4()
 {
-	float4 f4_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f4);
-	return f4_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f4);
 }
 
 float1x1 test_QuadReadAcrossDiagonal_Float1x1()
 {
-	float1x1 f1x1_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f1x1);
-	return f1x1_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f1x1);
 }
 
 float1x2 test_QuadReadAcrossDiagonal_Float1x2()
 {
-	float1x2 f1x2_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f1x2);
-	return f1x2_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f1x2);
 }
 
 float1x3 test_QuadReadAcrossDiagonal_Float1x3()
 {
-	float1x3 f1x3_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f1x3);
-	return f1x3_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f1x3);
 }
 
 float1x4 test_QuadReadAcrossDiagonal_Float1x4()
 {
-	float1x4 f1x4_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f1x4);
-	return f1x4_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f1x4);
 }
 
 float2x1 test_QuadReadAcrossDiagonal_Float2x1()
 {
-	float2x1 f2x1_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f2x1);
-	return f2x1_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f2x1);
 }
 
 float2x2 test_QuadReadAcrossDiagonal_Float2x2()
 {
-	float2x2 f2x2_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f2x2);
-	return f2x2_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f2x2);
 }
 
 float2x3 test_QuadReadAcrossDiagonal_Float2x3()
 {
-	float2x3 f2x3_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f2x3);
-	return f2x3_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f2x3);
 }
 
 float2x4 test_QuadReadAcrossDiagonal_Float2x4()
 {
-	float2x4 f2x4_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f2x4);
-	return f2x4_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f2x4);
 }
 
 float3x1 test_QuadReadAcrossDiagonal_Float3x1()
 {
-	float3x1 f3x1_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f3x1);
-	return f3x1_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f3x1);
 }
 
 float3x2 test_QuadReadAcrossDiagonal_Float3x2()
 {
-	float3x2 f3x2_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f3x2);
-	return f3x2_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f3x2);
 }
 
 float3x3 test_QuadReadAcrossDiagonal_Float3x3()
 {
-	float3x3 f3x3_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f3x3);
-	return f3x3_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f3x3);
 }
 
 float3x4 test_QuadReadAcrossDiagonal_Float3x4()
 {
-	float3x4 f3x4_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f3x4);
-	return f3x4_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f3x4);
 }
 
 float4x1 test_QuadReadAcrossDiagonal_Float4x1()
 {
-	float4x1 f4x1_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f4x1);
-	return f4x1_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f4x1);
 }
 
 float4x2 test_QuadReadAcrossDiagonal_Float4x2()
 {
-	float4x2 f4x2_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f4x2);
-	return f4x2_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f4x2);
 }
 
 float4x3 test_QuadReadAcrossDiagonal_Float4x3()
 {
-	float4x3 f4x3_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f4x3);
-	return f4x3_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f4x3);
 }
 
 float4x4 test_QuadReadAcrossDiagonal_Float4x4()
 {
-	float4x4 f4x4_QuadReadAcrossDiagonal = QuadReadAcrossDiagonal(g_f4x4);
-	return f4x4_QuadReadAcrossDiagonal;
+	return QuadReadAcrossDiagonal(g_f4x4);
 }
 
 float test_QuadReadAcrossX_Float()
 {
-	float f_QuadReadAcrossX = QuadReadAcrossX(g_f);
-	return f_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f);
 }
 
 float1 test_QuadReadAcrossX_Float1()
 {
-	float1 f1_QuadReadAcrossX = QuadReadAcrossX(g_f1);
-	return f1_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f1);
 }
 
 float2 test_QuadReadAcrossX_Float2()
 {
-	float2 f2_QuadReadAcrossX = QuadReadAcrossX(g_f2);
-	return f2_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f2);
 }
 
 float3 test_QuadReadAcrossX_Float3()
 {
-	float3 f3_QuadReadAcrossX = QuadReadAcrossX(g_f3);
-	return f3_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f3);
 }
 
 float4 test_QuadReadAcrossX_Float4()
 {
-	float4 f4_QuadReadAcrossX = QuadReadAcrossX(g_f4);
-	return f4_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f4);
 }
 
 float1x1 test_QuadReadAcrossX_Float1x1()
 {
-	float1x1 f1x1_QuadReadAcrossX = QuadReadAcrossX(g_f1x1);
-	return f1x1_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f1x1);
 }
 
 float1x2 test_QuadReadAcrossX_Float1x2()
 {
-	float1x2 f1x2_QuadReadAcrossX = QuadReadAcrossX(g_f1x2);
-	return f1x2_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f1x2);
 }
 
 float1x3 test_QuadReadAcrossX_Float1x3()
 {
-	float1x3 f1x3_QuadReadAcrossX = QuadReadAcrossX(g_f1x3);
-	return f1x3_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f1x3);
 }
 
 float1x4 test_QuadReadAcrossX_Float1x4()
 {
-	float1x4 f1x4_QuadReadAcrossX = QuadReadAcrossX(g_f1x4);
-	return f1x4_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f1x4);
 }
 
 float2x1 test_QuadReadAcrossX_Float2x1()
 {
-	float2x1 f2x1_QuadReadAcrossX = QuadReadAcrossX(g_f2x1);
-	return f2x1_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f2x1);
 }
 
 float2x2 test_QuadReadAcrossX_Float2x2()
 {
-	float2x2 f2x2_QuadReadAcrossX = QuadReadAcrossX(g_f2x2);
-	return f2x2_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f2x2);
 }
 
 float2x3 test_QuadReadAcrossX_Float2x3()
 {
-	float2x3 f2x3_QuadReadAcrossX = QuadReadAcrossX(g_f2x3);
-	return f2x3_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f2x3);
 }
 
 float2x4 test_QuadReadAcrossX_Float2x4()
 {
-	float2x4 f2x4_QuadReadAcrossX = QuadReadAcrossX(g_f2x4);
-	return f2x4_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f2x4);
 }
 
 float3x1 test_QuadReadAcrossX_Float3x1()
 {
-	float3x1 f3x1_QuadReadAcrossX = QuadReadAcrossX(g_f3x1);
-	return f3x1_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f3x1);
 }
 
 float3x2 test_QuadReadAcrossX_Float3x2()
 {
-	float3x2 f3x2_QuadReadAcrossX = QuadReadAcrossX(g_f3x2);
-	return f3x2_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f3x2);
 }
 
 float3x3 test_QuadReadAcrossX_Float3x3()
 {
-	float3x3 f3x3_QuadReadAcrossX = QuadReadAcrossX(g_f3x3);
-	return f3x3_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f3x3);
 }
 
 float3x4 test_QuadReadAcrossX_Float3x4()
 {
-	float3x4 f3x4_QuadReadAcrossX = QuadReadAcrossX(g_f3x4);
-	return f3x4_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f3x4);
 }
 
 float4x1 test_QuadReadAcrossX_Float4x1()
 {
-	float4x1 f4x1_QuadReadAcrossX = QuadReadAcrossX(g_f4x1);
-	return f4x1_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f4x1);
 }
 
 float4x2 test_QuadReadAcrossX_Float4x2()
 {
-	float4x2 f4x2_QuadReadAcrossX = QuadReadAcrossX(g_f4x2);
-	return f4x2_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f4x2);
 }
 
 float4x3 test_QuadReadAcrossX_Float4x3()
 {
-	float4x3 f4x3_QuadReadAcrossX = QuadReadAcrossX(g_f4x3);
-	return f4x3_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f4x3);
 }
 
 float4x4 test_QuadReadAcrossX_Float4x4()
 {
-	float4x4 f4x4_QuadReadAcrossX = QuadReadAcrossX(g_f4x4);
-	return f4x4_QuadReadAcrossX;
+	return QuadReadAcrossX(g_f4x4);
 }
 
 float test_QuadReadAcrossY_Float()
 {
-	float f_QuadReadAcrossY = QuadReadAcrossY(g_f);
-	return f_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f);
 }
 
 float1 test_QuadReadAcrossY_Float1()
 {
-	float1 f1_QuadReadAcrossY = QuadReadAcrossY(g_f1);
-	return f1_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f1);
 }
 
 float2 test_QuadReadAcrossY_Float2()
 {
-	float2 f2_QuadReadAcrossY = QuadReadAcrossY(g_f2);
-	return f2_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f2);
 }
 
 float3 test_QuadReadAcrossY_Float3()
 {
-	float3 f3_QuadReadAcrossY = QuadReadAcrossY(g_f3);
-	return f3_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f3);
 }
 
 float4 test_QuadReadAcrossY_Float4()
 {
-	float4 f4_QuadReadAcrossY = QuadReadAcrossY(g_f4);
-	return f4_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f4);
 }
 
 float1x1 test_QuadReadAcrossY_Float1x1()
 {
-	float1x1 f1x1_QuadReadAcrossY = QuadReadAcrossY(g_f1x1);
-	return f1x1_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f1x1);
 }
 
 float1x2 test_QuadReadAcrossY_Float1x2()
 {
-	float1x2 f1x2_QuadReadAcrossY = QuadReadAcrossY(g_f1x2);
-	return f1x2_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f1x2);
 }
 
 float1x3 test_QuadReadAcrossY_Float1x3()
 {
-	float1x3 f1x3_QuadReadAcrossY = QuadReadAcrossY(g_f1x3);
-	return f1x3_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f1x3);
 }
 
 float1x4 test_QuadReadAcrossY_Float1x4()
 {
-	float1x4 f1x4_QuadReadAcrossY = QuadReadAcrossY(g_f1x4);
-	return f1x4_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f1x4);
 }
 
 float2x1 test_QuadReadAcrossY_Float2x1()
 {
-	float2x1 f2x1_QuadReadAcrossY = QuadReadAcrossY(g_f2x1);
-	return f2x1_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f2x1);
 }
 
 float2x2 test_QuadReadAcrossY_Float2x2()
 {
-	float2x2 f2x2_QuadReadAcrossY = QuadReadAcrossY(g_f2x2);
-	return f2x2_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f2x2);
 }
 
 float2x3 test_QuadReadAcrossY_Float2x3()
 {
-	float2x3 f2x3_QuadReadAcrossY = QuadReadAcrossY(g_f2x3);
-	return f2x3_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f2x3);
 }
 
 float2x4 test_QuadReadAcrossY_Float2x4()
 {
-	float2x4 f2x4_QuadReadAcrossY = QuadReadAcrossY(g_f2x4);
-	return f2x4_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f2x4);
 }
 
 float3x1 test_QuadReadAcrossY_Float3x1()
 {
-	float3x1 f3x1_QuadReadAcrossY = QuadReadAcrossY(g_f3x1);
-	return f3x1_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f3x1);
 }
 
 float3x2 test_QuadReadAcrossY_Float3x2()
 {
-	float3x2 f3x2_QuadReadAcrossY = QuadReadAcrossY(g_f3x2);
-	return f3x2_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f3x2);
 }
 
 float3x3 test_QuadReadAcrossY_Float3x3()
 {
-	float3x3 f3x3_QuadReadAcrossY = QuadReadAcrossY(g_f3x3);
-	return f3x3_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f3x3);
 }
 
 float3x4 test_QuadReadAcrossY_Float3x4()
 {
-	float3x4 f3x4_QuadReadAcrossY = QuadReadAcrossY(g_f3x4);
-	return f3x4_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f3x4);
 }
 
 float4x1 test_QuadReadAcrossY_Float4x1()
 {
-	float4x1 f4x1_QuadReadAcrossY = QuadReadAcrossY(g_f4x1);
-	return f4x1_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f4x1);
 }
 
 float4x2 test_QuadReadAcrossY_Float4x2()
 {
-	float4x2 f4x2_QuadReadAcrossY = QuadReadAcrossY(g_f4x2);
-	return f4x2_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f4x2);
 }
 
 float4x3 test_QuadReadAcrossY_Float4x3()
 {
-	float4x3 f4x3_QuadReadAcrossY = QuadReadAcrossY(g_f4x3);
-	return f4x3_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f4x3);
 }
 
 float4x4 test_QuadReadAcrossY_Float4x4()
 {
-	float4x4 f4x4_QuadReadAcrossY = QuadReadAcrossY(g_f4x4);
-	return f4x4_QuadReadAcrossY;
+	return QuadReadAcrossY(g_f4x4);
 }
 
 float test_WaveActiveMax_Float()
 {
-	float f_WaveActiveMax = WaveActiveMax(g_f);
-	return f_WaveActiveMax;
+	return WaveActiveMax(g_f);
 }
 
 float1 test_WaveActiveMax_Float1()
 {
-	float1 f1_WaveActiveMax = WaveActiveMax(g_f1);
-	return f1_WaveActiveMax;
+	return WaveActiveMax(g_f1);
 }
 
 float2 test_WaveActiveMax_Float2()
 {
-	float2 f2_WaveActiveMax = WaveActiveMax(g_f2);
-	return f2_WaveActiveMax;
+	return WaveActiveMax(g_f2);
 }
 
 float3 test_WaveActiveMax_Float3()
 {
-	float3 f3_WaveActiveMax = WaveActiveMax(g_f3);
-	return f3_WaveActiveMax;
+	return WaveActiveMax(g_f3);
 }
 
 float4 test_WaveActiveMax_Float4()
 {
-	float4 f4_WaveActiveMax = WaveActiveMax(g_f4);
-	return f4_WaveActiveMax;
+	return WaveActiveMax(g_f4);
 }
 
 float1x1 test_WaveActiveMax_Float1x1()
 {
-	float1x1 f1x1_WaveActiveMax = WaveActiveMax(g_f1x1);
-	return f1x1_WaveActiveMax;
+	return WaveActiveMax(g_f1x1);
 }
 
 float1x2 test_WaveActiveMax_Float1x2()
 {
-	float1x2 f1x2_WaveActiveMax = WaveActiveMax(g_f1x2);
-	return f1x2_WaveActiveMax;
+	return WaveActiveMax(g_f1x2);
 }
 
 float1x3 test_WaveActiveMax_Float1x3()
 {
-	float1x3 f1x3_WaveActiveMax = WaveActiveMax(g_f1x3);
-	return f1x3_WaveActiveMax;
+	return WaveActiveMax(g_f1x3);
 }
 
 float1x4 test_WaveActiveMax_Float1x4()
 {
-	float1x4 f1x4_WaveActiveMax = WaveActiveMax(g_f1x4);
-	return f1x4_WaveActiveMax;
+	return WaveActiveMax(g_f1x4);
 }
 
 float2x1 test_WaveActiveMax_Float2x1()
 {
-	float2x1 f2x1_WaveActiveMax = WaveActiveMax(g_f2x1);
-	return f2x1_WaveActiveMax;
+	return WaveActiveMax(g_f2x1);
 }
 
 float2x2 test_WaveActiveMax_Float2x2()
 {
-	float2x2 f2x2_WaveActiveMax = WaveActiveMax(g_f2x2);
-	return f2x2_WaveActiveMax;
+	return WaveActiveMax(g_f2x2);
 }
 
 float2x3 test_WaveActiveMax_Float2x3()
 {
-	float2x3 f2x3_WaveActiveMax = WaveActiveMax(g_f2x3);
-	return f2x3_WaveActiveMax;
+	return WaveActiveMax(g_f2x3);
 }
 
 float2x4 test_WaveActiveMax_Float2x4()
 {
-	float2x4 f2x4_WaveActiveMax = WaveActiveMax(g_f2x4);
-	return f2x4_WaveActiveMax;
+	return WaveActiveMax(g_f2x4);
 }
 
 float3x1 test_WaveActiveMax_Float3x1()
 {
-	float3x1 f3x1_WaveActiveMax = WaveActiveMax(g_f3x1);
-	return f3x1_WaveActiveMax;
+	return WaveActiveMax(g_f3x1);
 }
 
 float3x2 test_WaveActiveMax_Float3x2()
 {
-	float3x2 f3x2_WaveActiveMax = WaveActiveMax(g_f3x2);
-	return f3x2_WaveActiveMax;
+	return WaveActiveMax(g_f3x2);
 }
 
 float3x3 test_WaveActiveMax_Float3x3()
 {
-	float3x3 f3x3_WaveActiveMax = WaveActiveMax(g_f3x3);
-	return f3x3_WaveActiveMax;
+	return WaveActiveMax(g_f3x3);
 }
 
 float3x4 test_WaveActiveMax_Float3x4()
 {
-	float3x4 f3x4_WaveActiveMax = WaveActiveMax(g_f3x4);
-	return f3x4_WaveActiveMax;
+	return WaveActiveMax(g_f3x4);
 }
 
 float4x1 test_WaveActiveMax_Float4x1()
 {
-	float4x1 f4x1_WaveActiveMax = WaveActiveMax(g_f4x1);
-	return f4x1_WaveActiveMax;
+	return WaveActiveMax(g_f4x1);
 }
 
 float4x2 test_WaveActiveMax_Float4x2()
 {
-	float4x2 f4x2_WaveActiveMax = WaveActiveMax(g_f4x2);
-	return f4x2_WaveActiveMax;
+	return WaveActiveMax(g_f4x2);
 }
 
 float4x3 test_WaveActiveMax_Float4x3()
 {
-	float4x3 f4x3_WaveActiveMax = WaveActiveMax(g_f4x3);
-	return f4x3_WaveActiveMax;
+	return WaveActiveMax(g_f4x3);
 }
 
 float4x4 test_WaveActiveMax_Float4x4()
 {
-	float4x4 f4x4_WaveActiveMax = WaveActiveMax(g_f4x4);
-	return f4x4_WaveActiveMax;
+	return WaveActiveMax(g_f4x4);
 }
 
 float test_WaveActiveMin_Float()
 {
-	float f_WaveActiveMin = WaveActiveMin(g_f);
-	return f_WaveActiveMin;
+	return WaveActiveMin(g_f);
 }
 
 float1 test_WaveActiveMin_Float1()
 {
-	float1 f1_WaveActiveMin = WaveActiveMin(g_f1);
-	return f1_WaveActiveMin;
+	return WaveActiveMin(g_f1);
 }
 
 float2 test_WaveActiveMin_Float2()
 {
-	float2 f2_WaveActiveMin = WaveActiveMin(g_f2);
-	return f2_WaveActiveMin;
+	return WaveActiveMin(g_f2);
 }
 
 float3 test_WaveActiveMin_Float3()
 {
-	float3 f3_WaveActiveMin = WaveActiveMin(g_f3);
-	return f3_WaveActiveMin;
+	return WaveActiveMin(g_f3);
 }
 
 float4 test_WaveActiveMin_Float4()
 {
-	float4 f4_WaveActiveMin = WaveActiveMin(g_f4);
-	return f4_WaveActiveMin;
+	return WaveActiveMin(g_f4);
 }
 
 float1x1 test_WaveActiveMin_Float1x1()
 {
-	float1x1 f1x1_WaveActiveMin = WaveActiveMin(g_f1x1);
-	return f1x1_WaveActiveMin;
+	return WaveActiveMin(g_f1x1);
 }
 
 float1x2 test_WaveActiveMin_Float1x2()
 {
-	float1x2 f1x2_WaveActiveMin = WaveActiveMin(g_f1x2);
-	return f1x2_WaveActiveMin;
+	return WaveActiveMin(g_f1x2);
 }
 
 float1x3 test_WaveActiveMin_Float1x3()
 {
-	float1x3 f1x3_WaveActiveMin = WaveActiveMin(g_f1x3);
-	return f1x3_WaveActiveMin;
+	return WaveActiveMin(g_f1x3);
 }
 
 float1x4 test_WaveActiveMin_Float1x4()
 {
-	float1x4 f1x4_WaveActiveMin = WaveActiveMin(g_f1x4);
-	return f1x4_WaveActiveMin;
+	return WaveActiveMin(g_f1x4);
 }
 
 float2x1 test_WaveActiveMin_Float2x1()
 {
-	float2x1 f2x1_WaveActiveMin = WaveActiveMin(g_f2x1);
-	return f2x1_WaveActiveMin;
+	return WaveActiveMin(g_f2x1);
 }
 
 float2x2 test_WaveActiveMin_Float2x2()
 {
-	float2x2 f2x2_WaveActiveMin = WaveActiveMin(g_f2x2);
-	return f2x2_WaveActiveMin;
+	return WaveActiveMin(g_f2x2);
 }
 
 float2x3 test_WaveActiveMin_Float2x3()
 {
-	float2x3 f2x3_WaveActiveMin = WaveActiveMin(g_f2x3);
-	return f2x3_WaveActiveMin;
+	return WaveActiveMin(g_f2x3);
 }
 
 float2x4 test_WaveActiveMin_Float2x4()
 {
-	float2x4 f2x4_WaveActiveMin = WaveActiveMin(g_f2x4);
-	return f2x4_WaveActiveMin;
+	return WaveActiveMin(g_f2x4);
 }
 
 float3x1 test_WaveActiveMin_Float3x1()
 {
-	float3x1 f3x1_WaveActiveMin = WaveActiveMin(g_f3x1);
-	return f3x1_WaveActiveMin;
+	return WaveActiveMin(g_f3x1);
 }
 
 float3x2 test_WaveActiveMin_Float3x2()
 {
-	float3x2 f3x2_WaveActiveMin = WaveActiveMin(g_f3x2);
-	return f3x2_WaveActiveMin;
+	return WaveActiveMin(g_f3x2);
 }
 
 float3x3 test_WaveActiveMin_Float3x3()
 {
-	float3x3 f3x3_WaveActiveMin = WaveActiveMin(g_f3x3);
-	return f3x3_WaveActiveMin;
+	return WaveActiveMin(g_f3x3);
 }
 
 float3x4 test_WaveActiveMin_Float3x4()
 {
-	float3x4 f3x4_WaveActiveMin = WaveActiveMin(g_f3x4);
-	return f3x4_WaveActiveMin;
+	return WaveActiveMin(g_f3x4);
 }
 
 float4x1 test_WaveActiveMin_Float4x1()
 {
-	float4x1 f4x1_WaveActiveMin = WaveActiveMin(g_f4x1);
-	return f4x1_WaveActiveMin;
+	return WaveActiveMin(g_f4x1);
 }
 
 float4x2 test_WaveActiveMin_Float4x2()
 {
-	float4x2 f4x2_WaveActiveMin = WaveActiveMin(g_f4x2);
-	return f4x2_WaveActiveMin;
+	return WaveActiveMin(g_f4x2);
 }
 
 float4x3 test_WaveActiveMin_Float4x3()
 {
-	float4x3 f4x3_WaveActiveMin = WaveActiveMin(g_f4x3);
-	return f4x3_WaveActiveMin;
+	return WaveActiveMin(g_f4x3);
 }
 
 float4x4 test_WaveActiveMin_Float4x4()
 {
-	float4x4 f4x4_WaveActiveMin = WaveActiveMin(g_f4x4);
-	return f4x4_WaveActiveMin;
+	return WaveActiveMin(g_f4x4);
 }
 
 float test_WaveActiveProduct_Float()
 {
-	float f_WaveActiveProduct = WaveActiveProduct(g_f);
-	return f_WaveActiveProduct;
+	return WaveActiveProduct(g_f);
 }
 
 float1 test_WaveActiveProduct_Float1()
 {
-	float1 f1_WaveActiveProduct = WaveActiveProduct(g_f1);
-	return f1_WaveActiveProduct;
+	return WaveActiveProduct(g_f1);
 }
 
 float2 test_WaveActiveProduct_Float2()
 {
-	float2 f2_WaveActiveProduct = WaveActiveProduct(g_f2);
-	return f2_WaveActiveProduct;
+	return WaveActiveProduct(g_f2);
 }
 
 float3 test_WaveActiveProduct_Float3()
 {
-	float3 f3_WaveActiveProduct = WaveActiveProduct(g_f3);
-	return f3_WaveActiveProduct;
+	return WaveActiveProduct(g_f3);
 }
 
 float4 test_WaveActiveProduct_Float4()
 {
-	float4 f4_WaveActiveProduct = WaveActiveProduct(g_f4);
-	return f4_WaveActiveProduct;
+	return WaveActiveProduct(g_f4);
 }
 
 float1x1 test_WaveActiveProduct_Float1x1()
 {
-	float1x1 f1x1_WaveActiveProduct = WaveActiveProduct(g_f1x1);
-	return f1x1_WaveActiveProduct;
+	return WaveActiveProduct(g_f1x1);
 }
 
 float1x2 test_WaveActiveProduct_Float1x2()
 {
-	float1x2 f1x2_WaveActiveProduct = WaveActiveProduct(g_f1x2);
-	return f1x2_WaveActiveProduct;
+	return WaveActiveProduct(g_f1x2);
 }
 
 float1x3 test_WaveActiveProduct_Float1x3()
 {
-	float1x3 f1x3_WaveActiveProduct = WaveActiveProduct(g_f1x3);
-	return f1x3_WaveActiveProduct;
+	return WaveActiveProduct(g_f1x3);
 }
 
 float1x4 test_WaveActiveProduct_Float1x4()
 {
-	float1x4 f1x4_WaveActiveProduct = WaveActiveProduct(g_f1x4);
-	return f1x4_WaveActiveProduct;
+	return WaveActiveProduct(g_f1x4);
 }
 
 float2x1 test_WaveActiveProduct_Float2x1()
 {
-	float2x1 f2x1_WaveActiveProduct = WaveActiveProduct(g_f2x1);
-	return f2x1_WaveActiveProduct;
+	return WaveActiveProduct(g_f2x1);
 }
 
 float2x2 test_WaveActiveProduct_Float2x2()
 {
-	float2x2 f2x2_WaveActiveProduct = WaveActiveProduct(g_f2x2);
-	return f2x2_WaveActiveProduct;
+	return WaveActiveProduct(g_f2x2);
 }
 
 float2x3 test_WaveActiveProduct_Float2x3()
 {
-	float2x3 f2x3_WaveActiveProduct = WaveActiveProduct(g_f2x3);
-	return f2x3_WaveActiveProduct;
+	return WaveActiveProduct(g_f2x3);
 }
 
 float2x4 test_WaveActiveProduct_Float2x4()
 {
-	float2x4 f2x4_WaveActiveProduct = WaveActiveProduct(g_f2x4);
-	return f2x4_WaveActiveProduct;
+	return WaveActiveProduct(g_f2x4);
 }
 
 float3x1 test_WaveActiveProduct_Float3x1()
 {
-	float3x1 f3x1_WaveActiveProduct = WaveActiveProduct(g_f3x1);
-	return f3x1_WaveActiveProduct;
+	return WaveActiveProduct(g_f3x1);
 }
 
 float3x2 test_WaveActiveProduct_Float3x2()
 {
-	float3x2 f3x2_WaveActiveProduct = WaveActiveProduct(g_f3x2);
-	return f3x2_WaveActiveProduct;
+	return WaveActiveProduct(g_f3x2);
 }
 
 float3x3 test_WaveActiveProduct_Float3x3()
 {
-	float3x3 f3x3_WaveActiveProduct = WaveActiveProduct(g_f3x3);
-	return f3x3_WaveActiveProduct;
+	return WaveActiveProduct(g_f3x3);
 }
 
 float3x4 test_WaveActiveProduct_Float3x4()
 {
-	float3x4 f3x4_WaveActiveProduct = WaveActiveProduct(g_f3x4);
-	return f3x4_WaveActiveProduct;
+	return WaveActiveProduct(g_f3x4);
 }
 
 float4x1 test_WaveActiveProduct_Float4x1()
 {
-	float4x1 f4x1_WaveActiveProduct = WaveActiveProduct(g_f4x1);
-	return f4x1_WaveActiveProduct;
+	return WaveActiveProduct(g_f4x1);
 }
 
 float4x2 test_WaveActiveProduct_Float4x2()
 {
-	float4x2 f4x2_WaveActiveProduct = WaveActiveProduct(g_f4x2);
-	return f4x2_WaveActiveProduct;
+	return WaveActiveProduct(g_f4x2);
 }
 
 float4x3 test_WaveActiveProduct_Float4x3()
 {
-	float4x3 f4x3_WaveActiveProduct = WaveActiveProduct(g_f4x3);
-	return f4x3_WaveActiveProduct;
+	return WaveActiveProduct(g_f4x3);
 }
 
 float4x4 test_WaveActiveProduct_Float4x4()
 {
-	float4x4 f4x4_WaveActiveProduct = WaveActiveProduct(g_f4x4);
-	return f4x4_WaveActiveProduct;
+	return WaveActiveProduct(g_f4x4);
 }
 
 float test_WaveActiveSum_Float()
 {
-	float f_WaveActiveSum = WaveActiveSum(g_f);
-	return f_WaveActiveSum;
+	return WaveActiveSum(g_f);
 }
 
 float1 test_WaveActiveSum_Float1()
 {
-	float1 f1_WaveActiveSum = WaveActiveSum(g_f1);
-	return f1_WaveActiveSum;
+	return WaveActiveSum(g_f1);
 }
 
 float2 test_WaveActiveSum_Float2()
 {
-	float2 f2_WaveActiveSum = WaveActiveSum(g_f2);
-	return f2_WaveActiveSum;
+	return WaveActiveSum(g_f2);
 }
 
 float3 test_WaveActiveSum_Float3()
 {
-	float3 f3_WaveActiveSum = WaveActiveSum(g_f3);
-	return f3_WaveActiveSum;
+	return WaveActiveSum(g_f3);
 }
 
 float4 test_WaveActiveSum_Float4()
 {
-	float4 f4_WaveActiveSum = WaveActiveSum(g_f4);
-	return f4_WaveActiveSum;
+	return WaveActiveSum(g_f4);
 }
 
 float1x1 test_WaveActiveSum_Float1x1()
 {
-	float1x1 f1x1_WaveActiveSum = WaveActiveSum(g_f1x1);
-	return f1x1_WaveActiveSum;
+	return WaveActiveSum(g_f1x1);
 }
 
 float1x2 test_WaveActiveSum_Float1x2()
 {
-	float1x2 f1x2_WaveActiveSum = WaveActiveSum(g_f1x2);
-	return f1x2_WaveActiveSum;
+	return WaveActiveSum(g_f1x2);
 }
 
 float1x3 test_WaveActiveSum_Float1x3()
 {
-	float1x3 f1x3_WaveActiveSum = WaveActiveSum(g_f1x3);
-	return f1x3_WaveActiveSum;
+	return WaveActiveSum(g_f1x3);
 }
 
 float1x4 test_WaveActiveSum_Float1x4()
 {
-	float1x4 f1x4_WaveActiveSum = WaveActiveSum(g_f1x4);
-	return f1x4_WaveActiveSum;
+	return WaveActiveSum(g_f1x4);
 }
 
 float2x1 test_WaveActiveSum_Float2x1()
 {
-	float2x1 f2x1_WaveActiveSum = WaveActiveSum(g_f2x1);
-	return f2x1_WaveActiveSum;
+	return WaveActiveSum(g_f2x1);
 }
 
 float2x2 test_WaveActiveSum_Float2x2()
 {
-	float2x2 f2x2_WaveActiveSum = WaveActiveSum(g_f2x2);
-	return f2x2_WaveActiveSum;
+	return WaveActiveSum(g_f2x2);
 }
 
 float2x3 test_WaveActiveSum_Float2x3()
 {
-	float2x3 f2x3_WaveActiveSum = WaveActiveSum(g_f2x3);
-	return f2x3_WaveActiveSum;
+	return WaveActiveSum(g_f2x3);
 }
 
 float2x4 test_WaveActiveSum_Float2x4()
 {
-	float2x4 f2x4_WaveActiveSum = WaveActiveSum(g_f2x4);
-	return f2x4_WaveActiveSum;
+	return WaveActiveSum(g_f2x4);
 }
 
 float3x1 test_WaveActiveSum_Float3x1()
 {
-	float3x1 f3x1_WaveActiveSum = WaveActiveSum(g_f3x1);
-	return f3x1_WaveActiveSum;
+	return WaveActiveSum(g_f3x1);
 }
 
 float3x2 test_WaveActiveSum_Float3x2()
 {
-	float3x2 f3x2_WaveActiveSum = WaveActiveSum(g_f3x2);
-	return f3x2_WaveActiveSum;
+	return WaveActiveSum(g_f3x2);
 }
 
 float3x3 test_WaveActiveSum_Float3x3()
 {
-	float3x3 f3x3_WaveActiveSum = WaveActiveSum(g_f3x3);
-	return f3x3_WaveActiveSum;
+	return WaveActiveSum(g_f3x3);
 }
 
 float3x4 test_WaveActiveSum_Float3x4()
 {
-	float3x4 f3x4_WaveActiveSum = WaveActiveSum(g_f3x4);
-	return f3x4_WaveActiveSum;
+	return WaveActiveSum(g_f3x4);
 }
 
 float4x1 test_WaveActiveSum_Float4x1()
 {
-	float4x1 f4x1_WaveActiveSum = WaveActiveSum(g_f4x1);
-	return f4x1_WaveActiveSum;
+	return WaveActiveSum(g_f4x1);
 }
 
 float4x2 test_WaveActiveSum_Float4x2()
 {
-	float4x2 f4x2_WaveActiveSum = WaveActiveSum(g_f4x2);
-	return f4x2_WaveActiveSum;
+	return WaveActiveSum(g_f4x2);
 }
 
 float4x3 test_WaveActiveSum_Float4x3()
 {
-	float4x3 f4x3_WaveActiveSum = WaveActiveSum(g_f4x3);
-	return f4x3_WaveActiveSum;
+	return WaveActiveSum(g_f4x3);
 }
 
 float4x4 test_WaveActiveSum_Float4x4()
 {
-	float4x4 f4x4_WaveActiveSum = WaveActiveSum(g_f4x4);
-	return f4x4_WaveActiveSum;
+	return WaveActiveSum(g_f4x4);
 }
 
 float test_WavePrefixProduct_Float()
 {
-	float f_WavePrefixProduct = WavePrefixProduct(g_f);
-	return f_WavePrefixProduct;
+	return WavePrefixProduct(g_f);
 }
 
 float1 test_WavePrefixProduct_Float1()
 {
-	float1 f1_WavePrefixProduct = WavePrefixProduct(g_f1);
-	return f1_WavePrefixProduct;
+	return WavePrefixProduct(g_f1);
 }
 
 float2 test_WavePrefixProduct_Float2()
 {
-	float2 f2_WavePrefixProduct = WavePrefixProduct(g_f2);
-	return f2_WavePrefixProduct;
+	return WavePrefixProduct(g_f2);
 }
 
 float3 test_WavePrefixProduct_Float3()
 {
-	float3 f3_WavePrefixProduct = WavePrefixProduct(g_f3);
-	return f3_WavePrefixProduct;
+	return WavePrefixProduct(g_f3);
 }
 
 float4 test_WavePrefixProduct_Float4()
 {
-	float4 f4_WavePrefixProduct = WavePrefixProduct(g_f4);
-	return f4_WavePrefixProduct;
+	return WavePrefixProduct(g_f4);
 }
 
 float1x1 test_WavePrefixProduct_Float1x1()
 {
-	float1x1 f1x1_WavePrefixProduct = WavePrefixProduct(g_f1x1);
-	return f1x1_WavePrefixProduct;
+	return WavePrefixProduct(g_f1x1);
 }
 
 float1x2 test_WavePrefixProduct_Float1x2()
 {
-	float1x2 f1x2_WavePrefixProduct = WavePrefixProduct(g_f1x2);
-	return f1x2_WavePrefixProduct;
+	return WavePrefixProduct(g_f1x2);
 }
 
 float1x3 test_WavePrefixProduct_Float1x3()
 {
-	float1x3 f1x3_WavePrefixProduct = WavePrefixProduct(g_f1x3);
-	return f1x3_WavePrefixProduct;
+	return WavePrefixProduct(g_f1x3);
 }
 
 float1x4 test_WavePrefixProduct_Float1x4()
 {
-	float1x4 f1x4_WavePrefixProduct = WavePrefixProduct(g_f1x4);
-	return f1x4_WavePrefixProduct;
+	return WavePrefixProduct(g_f1x4);
 }
 
 float2x1 test_WavePrefixProduct_Float2x1()
 {
-	float2x1 f2x1_WavePrefixProduct = WavePrefixProduct(g_f2x1);
-	return f2x1_WavePrefixProduct;
+	return WavePrefixProduct(g_f2x1);
 }
 
 float2x2 test_WavePrefixProduct_Float2x2()
 {
-	float2x2 f2x2_WavePrefixProduct = WavePrefixProduct(g_f2x2);
-	return f2x2_WavePrefixProduct;
+	return WavePrefixProduct(g_f2x2);
 }
 
 float2x3 test_WavePrefixProduct_Float2x3()
 {
-	float2x3 f2x3_WavePrefixProduct = WavePrefixProduct(g_f2x3);
-	return f2x3_WavePrefixProduct;
+	return WavePrefixProduct(g_f2x3);
 }
 
 float2x4 test_WavePrefixProduct_Float2x4()
 {
-	float2x4 f2x4_WavePrefixProduct = WavePrefixProduct(g_f2x4);
-	return f2x4_WavePrefixProduct;
+	return WavePrefixProduct(g_f2x4);
 }
 
 float3x1 test_WavePrefixProduct_Float3x1()
 {
-	float3x1 f3x1_WavePrefixProduct = WavePrefixProduct(g_f3x1);
-	return f3x1_WavePrefixProduct;
+	return WavePrefixProduct(g_f3x1);
 }
 
 float3x2 test_WavePrefixProduct_Float3x2()
 {
-	float3x2 f3x2_WavePrefixProduct = WavePrefixProduct(g_f3x2);
-	return f3x2_WavePrefixProduct;
+	return WavePrefixProduct(g_f3x2);
 }
 
 float3x3 test_WavePrefixProduct_Float3x3()
 {
-	float3x3 f3x3_WavePrefixProduct = WavePrefixProduct(g_f3x3);
-	return f3x3_WavePrefixProduct;
+	return WavePrefixProduct(g_f3x3);
 }
 
 float3x4 test_WavePrefixProduct_Float3x4()
 {
-	float3x4 f3x4_WavePrefixProduct = WavePrefixProduct(g_f3x4);
-	return f3x4_WavePrefixProduct;
+	return WavePrefixProduct(g_f3x4);
 }
 
 float4x1 test_WavePrefixProduct_Float4x1()
 {
-	float4x1 f4x1_WavePrefixProduct = WavePrefixProduct(g_f4x1);
-	return f4x1_WavePrefixProduct;
+	return WavePrefixProduct(g_f4x1);
 }
 
 float4x2 test_WavePrefixProduct_Float4x2()
 {
-	float4x2 f4x2_WavePrefixProduct = WavePrefixProduct(g_f4x2);
-	return f4x2_WavePrefixProduct;
+	return WavePrefixProduct(g_f4x2);
 }
 
 float4x3 test_WavePrefixProduct_Float4x3()
 {
-	float4x3 f4x3_WavePrefixProduct = WavePrefixProduct(g_f4x3);
-	return f4x3_WavePrefixProduct;
+	return WavePrefixProduct(g_f4x3);
 }
 
 float4x4 test_WavePrefixProduct_Float4x4()
 {
-	float4x4 f4x4_WavePrefixProduct = WavePrefixProduct(g_f4x4);
-	return f4x4_WavePrefixProduct;
+	return WavePrefixProduct(g_f4x4);
 }
 
 float test_WavePrefixSum_Float()
 {
-	float f_WavePrefixSum = WavePrefixSum(g_f);
-	return f_WavePrefixSum;
+	return WavePrefixSum(g_f);
 }
 
 float1 test_WavePrefixSum_Float1()
 {
-	float1 f1_WavePrefixSum = WavePrefixSum(g_f1);
-	return f1_WavePrefixSum;
+	return WavePrefixSum(g_f1);
 }
 
 float2 test_WavePrefixSum_Float2()
 {
-	float2 f2_WavePrefixSum = WavePrefixSum(g_f2);
-	return f2_WavePrefixSum;
+	return WavePrefixSum(g_f2);
 }
 
 float3 test_WavePrefixSum_Float3()
 {
-	float3 f3_WavePrefixSum = WavePrefixSum(g_f3);
-	return f3_WavePrefixSum;
+	return WavePrefixSum(g_f3);
 }
 
 float4 test_WavePrefixSum_Float4()
 {
-	float4 f4_WavePrefixSum = WavePrefixSum(g_f4);
-	return f4_WavePrefixSum;
+	return WavePrefixSum(g_f4);
 }
 
 float1x1 test_WavePrefixSum_Float1x1()
 {
-	float1x1 f1x1_WavePrefixSum = WavePrefixSum(g_f1x1);
-	return f1x1_WavePrefixSum;
+	return WavePrefixSum(g_f1x1);
 }
 
 float1x2 test_WavePrefixSum_Float1x2()
 {
-	float1x2 f1x2_WavePrefixSum = WavePrefixSum(g_f1x2);
-	return f1x2_WavePrefixSum;
+	return WavePrefixSum(g_f1x2);
 }
 
 float1x3 test_WavePrefixSum_Float1x3()
 {
-	float1x3 f1x3_WavePrefixSum = WavePrefixSum(g_f1x3);
-	return f1x3_WavePrefixSum;
+	return WavePrefixSum(g_f1x3);
 }
 
 float1x4 test_WavePrefixSum_Float1x4()
 {
-	float1x4 f1x4_WavePrefixSum = WavePrefixSum(g_f1x4);
-	return f1x4_WavePrefixSum;
+	return WavePrefixSum(g_f1x4);
 }
 
 float2x1 test_WavePrefixSum_Float2x1()
 {
-	float2x1 f2x1_WavePrefixSum = WavePrefixSum(g_f2x1);
-	return f2x1_WavePrefixSum;
+	return WavePrefixSum(g_f2x1);
 }
 
 float2x2 test_WavePrefixSum_Float2x2()
 {
-	float2x2 f2x2_WavePrefixSum = WavePrefixSum(g_f2x2);
-	return f2x2_WavePrefixSum;
+	return WavePrefixSum(g_f2x2);
 }
 
 float2x3 test_WavePrefixSum_Float2x3()
 {
-	float2x3 f2x3_WavePrefixSum = WavePrefixSum(g_f2x3);
-	return f2x3_WavePrefixSum;
+	return WavePrefixSum(g_f2x3);
 }
 
 float2x4 test_WavePrefixSum_Float2x4()
 {
-	float2x4 f2x4_WavePrefixSum = WavePrefixSum(g_f2x4);
-	return f2x4_WavePrefixSum;
+	return WavePrefixSum(g_f2x4);
 }
 
 float3x1 test_WavePrefixSum_Float3x1()
 {
-	float3x1 f3x1_WavePrefixSum = WavePrefixSum(g_f3x1);
-	return f3x1_WavePrefixSum;
+	return WavePrefixSum(g_f3x1);
 }
 
 float3x2 test_WavePrefixSum_Float3x2()
 {
-	float3x2 f3x2_WavePrefixSum = WavePrefixSum(g_f3x2);
-	return f3x2_WavePrefixSum;
+	return WavePrefixSum(g_f3x2);
 }
 
 float3x3 test_WavePrefixSum_Float3x3()
 {
-	float3x3 f3x3_WavePrefixSum = WavePrefixSum(g_f3x3);
-	return f3x3_WavePrefixSum;
+	return WavePrefixSum(g_f3x3);
 }
 
 float3x4 test_WavePrefixSum_Float3x4()
 {
-	float3x4 f3x4_WavePrefixSum = WavePrefixSum(g_f3x4);
-	return f3x4_WavePrefixSum;
+	return WavePrefixSum(g_f3x4);
 }
 
 float4x1 test_WavePrefixSum_Float4x1()
 {
-	float4x1 f4x1_WavePrefixSum = WavePrefixSum(g_f4x1);
-	return f4x1_WavePrefixSum;
+	return WavePrefixSum(g_f4x1);
 }
 
 float4x2 test_WavePrefixSum_Float4x2()
 {
-	float4x2 f4x2_WavePrefixSum = WavePrefixSum(g_f4x2);
-	return f4x2_WavePrefixSum;
+	return WavePrefixSum(g_f4x2);
 }
 
 float4x3 test_WavePrefixSum_Float4x3()
 {
-	float4x3 f4x3_WavePrefixSum = WavePrefixSum(g_f4x3);
-	return f4x3_WavePrefixSum;
+	return WavePrefixSum(g_f4x3);
 }
 
 float4x4 test_WavePrefixSum_Float4x4()
 {
-	float4x4 f4x4_WavePrefixSum = WavePrefixSum(g_f4x4);
-	return f4x4_WavePrefixSum;
+	return WavePrefixSum(g_f4x4);
 }
 
 float test_abs_Float()
 {
-	float f_abs = abs(g_f);
-	return f_abs;
+	return abs(g_f);
 }
 
 float1 test_abs_Float1()
 {
-	float1 f1_abs = abs(g_f1);
-	return f1_abs;
+	return abs(g_f1);
 }
 
 float2 test_abs_Float2()
 {
-	float2 f2_abs = abs(g_f2);
-	return f2_abs;
+	return abs(g_f2);
 }
 
 float3 test_abs_Float3()
 {
-	float3 f3_abs = abs(g_f3);
-	return f3_abs;
+	return abs(g_f3);
 }
 
 float4 test_abs_Float4()
 {
-	float4 f4_abs = abs(g_f4);
-	return f4_abs;
+	return abs(g_f4);
 }
 
 float1x1 test_abs_Float1x1()
 {
-	float1x1 f1x1_abs = abs(g_f1x1);
-	return f1x1_abs;
+	return abs(g_f1x1);
 }
 
 float1x2 test_abs_Float1x2()
 {
-	float1x2 f1x2_abs = abs(g_f1x2);
-	return f1x2_abs;
+	return abs(g_f1x2);
 }
 
 float1x3 test_abs_Float1x3()
 {
-	float1x3 f1x3_abs = abs(g_f1x3);
-	return f1x3_abs;
+	return abs(g_f1x3);
 }
 
 float1x4 test_abs_Float1x4()
 {
-	float1x4 f1x4_abs = abs(g_f1x4);
-	return f1x4_abs;
+	return abs(g_f1x4);
 }
 
 float2x1 test_abs_Float2x1()
 {
-	float2x1 f2x1_abs = abs(g_f2x1);
-	return f2x1_abs;
+	return abs(g_f2x1);
 }
 
 float2x2 test_abs_Float2x2()
 {
-	float2x2 f2x2_abs = abs(g_f2x2);
-	return f2x2_abs;
+	return abs(g_f2x2);
 }
 
 float2x3 test_abs_Float2x3()
 {
-	float2x3 f2x3_abs = abs(g_f2x3);
-	return f2x3_abs;
+	return abs(g_f2x3);
 }
 
 float2x4 test_abs_Float2x4()
 {
-	float2x4 f2x4_abs = abs(g_f2x4);
-	return f2x4_abs;
+	return abs(g_f2x4);
 }
 
 float3x1 test_abs_Float3x1()
 {
-	float3x1 f3x1_abs = abs(g_f3x1);
-	return f3x1_abs;
+	return abs(g_f3x1);
 }
 
 float3x2 test_abs_Float3x2()
 {
-	float3x2 f3x2_abs = abs(g_f3x2);
-	return f3x2_abs;
+	return abs(g_f3x2);
 }
 
 float3x3 test_abs_Float3x3()
 {
-	float3x3 f3x3_abs = abs(g_f3x3);
-	return f3x3_abs;
+	return abs(g_f3x3);
 }
 
 float3x4 test_abs_Float3x4()
 {
-	float3x4 f3x4_abs = abs(g_f3x4);
-	return f3x4_abs;
+	return abs(g_f3x4);
 }
 
 float4x1 test_abs_Float4x1()
 {
-	float4x1 f4x1_abs = abs(g_f4x1);
-	return f4x1_abs;
+	return abs(g_f4x1);
 }
 
 float4x2 test_abs_Float4x2()
 {
-	float4x2 f4x2_abs = abs(g_f4x2);
-	return f4x2_abs;
+	return abs(g_f4x2);
 }
 
 float4x3 test_abs_Float4x3()
 {
-	float4x3 f4x3_abs = abs(g_f4x3);
-	return f4x3_abs;
+	return abs(g_f4x3);
 }
 
 float4x4 test_abs_Float4x4()
 {
-	float4x4 f4x4_abs = abs(g_f4x4);
-	return f4x4_abs;
+	return abs(g_f4x4);
+}
+
+float test_clamp_Float(float min, float max)
+{
+	return clamp(g_f, min, max);
+}
+
+float1 test_clamp_Float1(float1 min, float1 max)
+{
+	return clamp(g_f1, min, max);
+}
+
+float2 test_clamp_Float2(float2 min, float2 max)
+{
+	return clamp(g_f2, min, max);
+}
+
+float3 test_clamp_Float3(float3 min, float3 max)
+{
+	return clamp(g_f3, min, max);
+}
+
+float4 test_clamp_Float4(float4 min, float4 max)
+{
+	return clamp(g_f4, min, max);
+}
+
+float1x1 test_clamp_Float1x1(float1x1 min, float1x1 max)
+{
+	return clamp(g_f1x1, min, max);
+}
+
+float1x2 test_clamp_Float1x2(float1x2 min, float1x2 max)
+{
+	return clamp(g_f1x2, min, max);
+}
+
+float1x3 test_clamp_Float1x3(float1x3 min, float1x3 max)
+{
+	return clamp(g_f1x3, min, max);
+}
+
+float1x4 test_clamp_Float1x4(float1x4 min, float1x4 max)
+{
+	return clamp(g_f1x4, min, max);
+}
+
+float2x1 test_clamp_Float2x1(float2x1 min, float2x1 max)
+{
+	return clamp(g_f2x1, min, max);
+}
+
+float2x2 test_clamp_Float2x2(float2x2 min, float2x2 max)
+{
+	return clamp(g_f2x2, min, max);
+}
+
+float2x3 test_clamp_Float2x3(float2x3 min, float2x3 max)
+{
+	return clamp(g_f2x3, min, max);
+}
+
+float2x4 test_clamp_Float2x4(float2x4 min, float2x4 max)
+{
+	return clamp(g_f2x4, min, max);
+}
+
+float3x1 test_clamp_Float3x1(float3x1 min, float3x1 max)
+{
+	return clamp(g_f3x1, min, max);
+}
+
+float3x2 test_clamp_Float3x2(float3x2 min, float3x2 max)
+{
+	return clamp(g_f3x2, min, max);
+}
+
+float3x3 test_clamp_Float3x3(float3x3 min, float3x3 max)
+{
+	return clamp(g_f3x3, min, max);
+}
+
+float3x4 test_clamp_Float3x4(float3x4 min, float3x4 max)
+{
+	return clamp(g_f3x4, min, max);
+}
+
+float4x1 test_clamp_Float4x1(float4x1 min, float4x1 max)
+{
+	return clamp(g_f4x1, min, max);
+}
+
+float4x2 test_clamp_Float4x2(float4x2 min, float4x2 max)
+{
+	return clamp(g_f4x2, min, max);
+}
+
+float4x3 test_clamp_Float4x3(float4x3 min, float4x3 max)
+{
+	return clamp(g_f4x3, min, max);
+}
+
+float4x4 test_clamp_Float4x4(float4x4 min, float4x4 max)
+{
+	return clamp(g_f4x4, min, max);
+}
+
+float test_mad_Float(float b, float c)
+{
+	return mad(g_f, b, c);
+}
+
+float1 test_mad_Float1(float1 b, float1 c)
+{
+	return mad(g_f1, b, c);
+}
+
+float2 test_mad_Float2(float2 b, float2 c)
+{
+	return mad(g_f2, b, c);
+}
+
+float3 test_mad_Float3(float3 b, float3 c)
+{
+	return mad(g_f3, b, c);
+}
+
+float4 test_mad_Float4(float4 b, float4 c)
+{
+	return mad(g_f4, b, c);
+}
+
+float1x1 test_mad_Float1x1(float1x1 b, float1x1 c)
+{
+	return mad(g_f1x1, b, c);
+}
+
+float1x2 test_mad_Float1x2(float1x2 b, float1x2 c)
+{
+	return mad(g_f1x2, b, c);
+}
+
+float1x3 test_mad_Float1x3(float1x3 b, float1x3 c)
+{
+	return mad(g_f1x3, b, c);
+}
+
+float1x4 test_mad_Float1x4(float1x4 b, float1x4 c)
+{
+	return mad(g_f1x4, b, c);
+}
+
+float2x1 test_mad_Float2x1(float2x1 b, float2x1 c)
+{
+	return mad(g_f2x1, b, c);
+}
+
+float2x2 test_mad_Float2x2(float2x2 b, float2x2 c)
+{
+	return mad(g_f2x2, b, c);
+}
+
+float2x3 test_mad_Float2x3(float2x3 b, float2x3 c)
+{
+	return mad(g_f2x3, b, c);
+}
+
+float2x4 test_mad_Float2x4(float2x4 b, float2x4 c)
+{
+	return mad(g_f2x4, b, c);
+}
+
+float3x1 test_mad_Float3x1(float3x1 b, float3x1 c)
+{
+	return mad(g_f3x1, b, c);
+}
+
+float3x2 test_mad_Float3x2(float3x2 b, float3x2 c)
+{
+	return mad(g_f3x2, b, c);
+}
+
+float3x3 test_mad_Float3x3(float3x3 b, float3x3 c)
+{
+	return mad(g_f3x3, b, c);
+}
+
+float3x4 test_mad_Float3x4(float3x4 b, float3x4 c)
+{
+	return mad(g_f3x4, b, c);
+}
+
+float4x1 test_mad_Float4x1(float4x1 b, float4x1 c)
+{
+	return mad(g_f4x1, b, c);
+}
+
+float4x2 test_mad_Float4x2(float4x2 b, float4x2 c)
+{
+	return mad(g_f4x2, b, c);
+}
+
+float4x3 test_mad_Float4x3(float4x3 b, float4x3 c)
+{
+	return mad(g_f4x3, b, c);
+}
+
+float4x4 test_mad_Float4x4(float4x4 b, float4x4 c)
+{
+	return mad(g_f4x4, b, c);
+}
+
+float test_max_Float(float b)
+{
+	return max(g_f, b);
+}
+
+float1 test_max_Float1(float1 b)
+{
+	return max(g_f1, b);
+}
+
+float2 test_max_Float2(float2 b)
+{
+	return max(g_f2, b);
+}
+
+float3 test_max_Float3(float3 b)
+{
+	return max(g_f3, b);
+}
+
+float4 test_max_Float4(float4 b)
+{
+	return max(g_f4, b);
+}
+
+float1x1 test_max_Float1x1(float1x1 b)
+{
+	return max(g_f1x1, b);
+}
+
+float1x2 test_max_Float1x2(float1x2 b)
+{
+	return max(g_f1x2, b);
+}
+
+float1x3 test_max_Float1x3(float1x3 b)
+{
+	return max(g_f1x3, b);
+}
+
+float1x4 test_max_Float1x4(float1x4 b)
+{
+	return max(g_f1x4, b);
+}
+
+float2x1 test_max_Float2x1(float2x1 b)
+{
+	return max(g_f2x1, b);
+}
+
+float2x2 test_max_Float2x2(float2x2 b)
+{
+	return max(g_f2x2, b);
+}
+
+float2x3 test_max_Float2x3(float2x3 b)
+{
+	return max(g_f2x3, b);
+}
+
+float2x4 test_max_Float2x4(float2x4 b)
+{
+	return max(g_f2x4, b);
+}
+
+float3x1 test_max_Float3x1(float3x1 b)
+{
+	return max(g_f3x1, b);
+}
+
+float3x2 test_max_Float3x2(float3x2 b)
+{
+	return max(g_f3x2, b);
+}
+
+float3x3 test_max_Float3x3(float3x3 b)
+{
+	return max(g_f3x3, b);
+}
+
+float3x4 test_max_Float3x4(float3x4 b)
+{
+	return max(g_f3x4, b);
+}
+
+float4x1 test_max_Float4x1(float4x1 b)
+{
+	return max(g_f4x1, b);
+}
+
+float4x2 test_max_Float4x2(float4x2 b)
+{
+	return max(g_f4x2, b);
+}
+
+float4x3 test_max_Float4x3(float4x3 b)
+{
+	return max(g_f4x3, b);
+}
+
+float4x4 test_max_Float4x4(float4x4 b)
+{
+	return max(g_f4x4, b);
+}
+
+float test_min_Float(float b)
+{
+	return min(g_f, b);
+}
+
+float1 test_min_Float1(float1 b)
+{
+	return min(g_f1, b);
+}
+
+float2 test_min_Float2(float2 b)
+{
+	return min(g_f2, b);
+}
+
+float3 test_min_Float3(float3 b)
+{
+	return min(g_f3, b);
+}
+
+float4 test_min_Float4(float4 b)
+{
+	return min(g_f4, b);
+}
+
+float1x1 test_min_Float1x1(float1x1 b)
+{
+	return min(g_f1x1, b);
+}
+
+float1x2 test_min_Float1x2(float1x2 b)
+{
+	return min(g_f1x2, b);
+}
+
+float1x3 test_min_Float1x3(float1x3 b)
+{
+	return min(g_f1x3, b);
+}
+
+float1x4 test_min_Float1x4(float1x4 b)
+{
+	return min(g_f1x4, b);
+}
+
+float2x1 test_min_Float2x1(float2x1 b)
+{
+	return min(g_f2x1, b);
+}
+
+float2x2 test_min_Float2x2(float2x2 b)
+{
+	return min(g_f2x2, b);
+}
+
+float2x3 test_min_Float2x3(float2x3 b)
+{
+	return min(g_f2x3, b);
+}
+
+float2x4 test_min_Float2x4(float2x4 b)
+{
+	return min(g_f2x4, b);
+}
+
+float3x1 test_min_Float3x1(float3x1 b)
+{
+	return min(g_f3x1, b);
+}
+
+float3x2 test_min_Float3x2(float3x2 b)
+{
+	return min(g_f3x2, b);
+}
+
+float3x3 test_min_Float3x3(float3x3 b)
+{
+	return min(g_f3x3, b);
+}
+
+float3x4 test_min_Float3x4(float3x4 b)
+{
+	return min(g_f3x4, b);
+}
+
+float4x1 test_min_Float4x1(float4x1 b)
+{
+	return min(g_f4x1, b);
+}
+
+float4x2 test_min_Float4x2(float4x2 b)
+{
+	return min(g_f4x2, b);
+}
+
+float4x3 test_min_Float4x3(float4x3 b)
+{
+	return min(g_f4x3, b);
+}
+
+float4x4 test_min_Float4x4(float4x4 b)
+{
+	return min(g_f4x4, b);
 }
 

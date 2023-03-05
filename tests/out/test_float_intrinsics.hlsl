@@ -25,4033 +25,4201 @@ cbuffer cb : register(b0)
 
 float test_acos_Float()
 {
-	float f_acos = acos(g_f);
-	return f_acos;
+	return acos(g_f);
 }
 
 float1 test_acos_Float1()
 {
-	float1 f1_acos = acos(g_f1);
-	return f1_acos;
+	return acos(g_f1);
 }
 
 float2 test_acos_Float2()
 {
-	float2 f2_acos = acos(g_f2);
-	return f2_acos;
+	return acos(g_f2);
 }
 
 float3 test_acos_Float3()
 {
-	float3 f3_acos = acos(g_f3);
-	return f3_acos;
+	return acos(g_f3);
 }
 
 float4 test_acos_Float4()
 {
-	float4 f4_acos = acos(g_f4);
-	return f4_acos;
+	return acos(g_f4);
 }
 
 float1x1 test_acos_Float1x1()
 {
-	float1x1 f1x1_acos = acos(g_f1x1);
-	return f1x1_acos;
+	return acos(g_f1x1);
 }
 
 float1x2 test_acos_Float1x2()
 {
-	float1x2 f1x2_acos = acos(g_f1x2);
-	return f1x2_acos;
+	return acos(g_f1x2);
 }
 
 float1x3 test_acos_Float1x3()
 {
-	float1x3 f1x3_acos = acos(g_f1x3);
-	return f1x3_acos;
+	return acos(g_f1x3);
 }
 
 float1x4 test_acos_Float1x4()
 {
-	float1x4 f1x4_acos = acos(g_f1x4);
-	return f1x4_acos;
+	return acos(g_f1x4);
 }
 
 float2x1 test_acos_Float2x1()
 {
-	float2x1 f2x1_acos = acos(g_f2x1);
-	return f2x1_acos;
+	return acos(g_f2x1);
 }
 
 float2x2 test_acos_Float2x2()
 {
-	float2x2 f2x2_acos = acos(g_f2x2);
-	return f2x2_acos;
+	return acos(g_f2x2);
 }
 
 float2x3 test_acos_Float2x3()
 {
-	float2x3 f2x3_acos = acos(g_f2x3);
-	return f2x3_acos;
+	return acos(g_f2x3);
 }
 
 float2x4 test_acos_Float2x4()
 {
-	float2x4 f2x4_acos = acos(g_f2x4);
-	return f2x4_acos;
+	return acos(g_f2x4);
 }
 
 float3x1 test_acos_Float3x1()
 {
-	float3x1 f3x1_acos = acos(g_f3x1);
-	return f3x1_acos;
+	return acos(g_f3x1);
 }
 
 float3x2 test_acos_Float3x2()
 {
-	float3x2 f3x2_acos = acos(g_f3x2);
-	return f3x2_acos;
+	return acos(g_f3x2);
 }
 
 float3x3 test_acos_Float3x3()
 {
-	float3x3 f3x3_acos = acos(g_f3x3);
-	return f3x3_acos;
+	return acos(g_f3x3);
 }
 
 float3x4 test_acos_Float3x4()
 {
-	float3x4 f3x4_acos = acos(g_f3x4);
-	return f3x4_acos;
+	return acos(g_f3x4);
 }
 
 float4x1 test_acos_Float4x1()
 {
-	float4x1 f4x1_acos = acos(g_f4x1);
-	return f4x1_acos;
+	return acos(g_f4x1);
 }
 
 float4x2 test_acos_Float4x2()
 {
-	float4x2 f4x2_acos = acos(g_f4x2);
-	return f4x2_acos;
+	return acos(g_f4x2);
 }
 
 float4x3 test_acos_Float4x3()
 {
-	float4x3 f4x3_acos = acos(g_f4x3);
-	return f4x3_acos;
+	return acos(g_f4x3);
 }
 
 float4x4 test_acos_Float4x4()
 {
-	float4x4 f4x4_acos = acos(g_f4x4);
-	return f4x4_acos;
+	return acos(g_f4x4);
 }
 
 float test_asin_Float()
 {
-	float f_asin = asin(g_f);
-	return f_asin;
+	return asin(g_f);
 }
 
 float1 test_asin_Float1()
 {
-	float1 f1_asin = asin(g_f1);
-	return f1_asin;
+	return asin(g_f1);
 }
 
 float2 test_asin_Float2()
 {
-	float2 f2_asin = asin(g_f2);
-	return f2_asin;
+	return asin(g_f2);
 }
 
 float3 test_asin_Float3()
 {
-	float3 f3_asin = asin(g_f3);
-	return f3_asin;
+	return asin(g_f3);
 }
 
 float4 test_asin_Float4()
 {
-	float4 f4_asin = asin(g_f4);
-	return f4_asin;
+	return asin(g_f4);
 }
 
 float1x1 test_asin_Float1x1()
 {
-	float1x1 f1x1_asin = asin(g_f1x1);
-	return f1x1_asin;
+	return asin(g_f1x1);
 }
 
 float1x2 test_asin_Float1x2()
 {
-	float1x2 f1x2_asin = asin(g_f1x2);
-	return f1x2_asin;
+	return asin(g_f1x2);
 }
 
 float1x3 test_asin_Float1x3()
 {
-	float1x3 f1x3_asin = asin(g_f1x3);
-	return f1x3_asin;
+	return asin(g_f1x3);
 }
 
 float1x4 test_asin_Float1x4()
 {
-	float1x4 f1x4_asin = asin(g_f1x4);
-	return f1x4_asin;
+	return asin(g_f1x4);
 }
 
 float2x1 test_asin_Float2x1()
 {
-	float2x1 f2x1_asin = asin(g_f2x1);
-	return f2x1_asin;
+	return asin(g_f2x1);
 }
 
 float2x2 test_asin_Float2x2()
 {
-	float2x2 f2x2_asin = asin(g_f2x2);
-	return f2x2_asin;
+	return asin(g_f2x2);
 }
 
 float2x3 test_asin_Float2x3()
 {
-	float2x3 f2x3_asin = asin(g_f2x3);
-	return f2x3_asin;
+	return asin(g_f2x3);
 }
 
 float2x4 test_asin_Float2x4()
 {
-	float2x4 f2x4_asin = asin(g_f2x4);
-	return f2x4_asin;
+	return asin(g_f2x4);
 }
 
 float3x1 test_asin_Float3x1()
 {
-	float3x1 f3x1_asin = asin(g_f3x1);
-	return f3x1_asin;
+	return asin(g_f3x1);
 }
 
 float3x2 test_asin_Float3x2()
 {
-	float3x2 f3x2_asin = asin(g_f3x2);
-	return f3x2_asin;
+	return asin(g_f3x2);
 }
 
 float3x3 test_asin_Float3x3()
 {
-	float3x3 f3x3_asin = asin(g_f3x3);
-	return f3x3_asin;
+	return asin(g_f3x3);
 }
 
 float3x4 test_asin_Float3x4()
 {
-	float3x4 f3x4_asin = asin(g_f3x4);
-	return f3x4_asin;
+	return asin(g_f3x4);
 }
 
 float4x1 test_asin_Float4x1()
 {
-	float4x1 f4x1_asin = asin(g_f4x1);
-	return f4x1_asin;
+	return asin(g_f4x1);
 }
 
 float4x2 test_asin_Float4x2()
 {
-	float4x2 f4x2_asin = asin(g_f4x2);
-	return f4x2_asin;
+	return asin(g_f4x2);
 }
 
 float4x3 test_asin_Float4x3()
 {
-	float4x3 f4x3_asin = asin(g_f4x3);
-	return f4x3_asin;
+	return asin(g_f4x3);
 }
 
 float4x4 test_asin_Float4x4()
 {
-	float4x4 f4x4_asin = asin(g_f4x4);
-	return f4x4_asin;
+	return asin(g_f4x4);
 }
 
 float test_atan_Float()
 {
-	float f_atan = atan(g_f);
-	return f_atan;
+	return atan(g_f);
 }
 
 float1 test_atan_Float1()
 {
-	float1 f1_atan = atan(g_f1);
-	return f1_atan;
+	return atan(g_f1);
 }
 
 float2 test_atan_Float2()
 {
-	float2 f2_atan = atan(g_f2);
-	return f2_atan;
+	return atan(g_f2);
 }
 
 float3 test_atan_Float3()
 {
-	float3 f3_atan = atan(g_f3);
-	return f3_atan;
+	return atan(g_f3);
 }
 
 float4 test_atan_Float4()
 {
-	float4 f4_atan = atan(g_f4);
-	return f4_atan;
+	return atan(g_f4);
 }
 
 float1x1 test_atan_Float1x1()
 {
-	float1x1 f1x1_atan = atan(g_f1x1);
-	return f1x1_atan;
+	return atan(g_f1x1);
 }
 
 float1x2 test_atan_Float1x2()
 {
-	float1x2 f1x2_atan = atan(g_f1x2);
-	return f1x2_atan;
+	return atan(g_f1x2);
 }
 
 float1x3 test_atan_Float1x3()
 {
-	float1x3 f1x3_atan = atan(g_f1x3);
-	return f1x3_atan;
+	return atan(g_f1x3);
 }
 
 float1x4 test_atan_Float1x4()
 {
-	float1x4 f1x4_atan = atan(g_f1x4);
-	return f1x4_atan;
+	return atan(g_f1x4);
 }
 
 float2x1 test_atan_Float2x1()
 {
-	float2x1 f2x1_atan = atan(g_f2x1);
-	return f2x1_atan;
+	return atan(g_f2x1);
 }
 
 float2x2 test_atan_Float2x2()
 {
-	float2x2 f2x2_atan = atan(g_f2x2);
-	return f2x2_atan;
+	return atan(g_f2x2);
 }
 
 float2x3 test_atan_Float2x3()
 {
-	float2x3 f2x3_atan = atan(g_f2x3);
-	return f2x3_atan;
+	return atan(g_f2x3);
 }
 
 float2x4 test_atan_Float2x4()
 {
-	float2x4 f2x4_atan = atan(g_f2x4);
-	return f2x4_atan;
+	return atan(g_f2x4);
 }
 
 float3x1 test_atan_Float3x1()
 {
-	float3x1 f3x1_atan = atan(g_f3x1);
-	return f3x1_atan;
+	return atan(g_f3x1);
 }
 
 float3x2 test_atan_Float3x2()
 {
-	float3x2 f3x2_atan = atan(g_f3x2);
-	return f3x2_atan;
+	return atan(g_f3x2);
 }
 
 float3x3 test_atan_Float3x3()
 {
-	float3x3 f3x3_atan = atan(g_f3x3);
-	return f3x3_atan;
+	return atan(g_f3x3);
 }
 
 float3x4 test_atan_Float3x4()
 {
-	float3x4 f3x4_atan = atan(g_f3x4);
-	return f3x4_atan;
+	return atan(g_f3x4);
 }
 
 float4x1 test_atan_Float4x1()
 {
-	float4x1 f4x1_atan = atan(g_f4x1);
-	return f4x1_atan;
+	return atan(g_f4x1);
 }
 
 float4x2 test_atan_Float4x2()
 {
-	float4x2 f4x2_atan = atan(g_f4x2);
-	return f4x2_atan;
+	return atan(g_f4x2);
 }
 
 float4x3 test_atan_Float4x3()
 {
-	float4x3 f4x3_atan = atan(g_f4x3);
-	return f4x3_atan;
+	return atan(g_f4x3);
 }
 
 float4x4 test_atan_Float4x4()
 {
-	float4x4 f4x4_atan = atan(g_f4x4);
-	return f4x4_atan;
+	return atan(g_f4x4);
+}
+
+float test_atan2_Float(float y)
+{
+	return atan2(g_f, y);
+}
+
+float1 test_atan2_Float1(float1 y)
+{
+	return atan2(g_f1, y);
+}
+
+float2 test_atan2_Float2(float2 y)
+{
+	return atan2(g_f2, y);
+}
+
+float3 test_atan2_Float3(float3 y)
+{
+	return atan2(g_f3, y);
+}
+
+float4 test_atan2_Float4(float4 y)
+{
+	return atan2(g_f4, y);
+}
+
+float1x1 test_atan2_Float1x1(float1x1 y)
+{
+	return atan2(g_f1x1, y);
+}
+
+float1x2 test_atan2_Float1x2(float1x2 y)
+{
+	return atan2(g_f1x2, y);
+}
+
+float1x3 test_atan2_Float1x3(float1x3 y)
+{
+	return atan2(g_f1x3, y);
+}
+
+float1x4 test_atan2_Float1x4(float1x4 y)
+{
+	return atan2(g_f1x4, y);
+}
+
+float2x1 test_atan2_Float2x1(float2x1 y)
+{
+	return atan2(g_f2x1, y);
+}
+
+float2x2 test_atan2_Float2x2(float2x2 y)
+{
+	return atan2(g_f2x2, y);
+}
+
+float2x3 test_atan2_Float2x3(float2x3 y)
+{
+	return atan2(g_f2x3, y);
+}
+
+float2x4 test_atan2_Float2x4(float2x4 y)
+{
+	return atan2(g_f2x4, y);
+}
+
+float3x1 test_atan2_Float3x1(float3x1 y)
+{
+	return atan2(g_f3x1, y);
+}
+
+float3x2 test_atan2_Float3x2(float3x2 y)
+{
+	return atan2(g_f3x2, y);
+}
+
+float3x3 test_atan2_Float3x3(float3x3 y)
+{
+	return atan2(g_f3x3, y);
+}
+
+float3x4 test_atan2_Float3x4(float3x4 y)
+{
+	return atan2(g_f3x4, y);
+}
+
+float4x1 test_atan2_Float4x1(float4x1 y)
+{
+	return atan2(g_f4x1, y);
+}
+
+float4x2 test_atan2_Float4x2(float4x2 y)
+{
+	return atan2(g_f4x2, y);
+}
+
+float4x3 test_atan2_Float4x3(float4x3 y)
+{
+	return atan2(g_f4x3, y);
+}
+
+float4x4 test_atan2_Float4x4(float4x4 y)
+{
+	return atan2(g_f4x4, y);
 }
 
 float test_ceil_Float()
 {
-	float f_ceil = ceil(g_f);
-	return f_ceil;
+	return ceil(g_f);
 }
 
 float1 test_ceil_Float1()
 {
-	float1 f1_ceil = ceil(g_f1);
-	return f1_ceil;
+	return ceil(g_f1);
 }
 
 float2 test_ceil_Float2()
 {
-	float2 f2_ceil = ceil(g_f2);
-	return f2_ceil;
+	return ceil(g_f2);
 }
 
 float3 test_ceil_Float3()
 {
-	float3 f3_ceil = ceil(g_f3);
-	return f3_ceil;
+	return ceil(g_f3);
 }
 
 float4 test_ceil_Float4()
 {
-	float4 f4_ceil = ceil(g_f4);
-	return f4_ceil;
+	return ceil(g_f4);
 }
 
 float1x1 test_ceil_Float1x1()
 {
-	float1x1 f1x1_ceil = ceil(g_f1x1);
-	return f1x1_ceil;
+	return ceil(g_f1x1);
 }
 
 float1x2 test_ceil_Float1x2()
 {
-	float1x2 f1x2_ceil = ceil(g_f1x2);
-	return f1x2_ceil;
+	return ceil(g_f1x2);
 }
 
 float1x3 test_ceil_Float1x3()
 {
-	float1x3 f1x3_ceil = ceil(g_f1x3);
-	return f1x3_ceil;
+	return ceil(g_f1x3);
 }
 
 float1x4 test_ceil_Float1x4()
 {
-	float1x4 f1x4_ceil = ceil(g_f1x4);
-	return f1x4_ceil;
+	return ceil(g_f1x4);
 }
 
 float2x1 test_ceil_Float2x1()
 {
-	float2x1 f2x1_ceil = ceil(g_f2x1);
-	return f2x1_ceil;
+	return ceil(g_f2x1);
 }
 
 float2x2 test_ceil_Float2x2()
 {
-	float2x2 f2x2_ceil = ceil(g_f2x2);
-	return f2x2_ceil;
+	return ceil(g_f2x2);
 }
 
 float2x3 test_ceil_Float2x3()
 {
-	float2x3 f2x3_ceil = ceil(g_f2x3);
-	return f2x3_ceil;
+	return ceil(g_f2x3);
 }
 
 float2x4 test_ceil_Float2x4()
 {
-	float2x4 f2x4_ceil = ceil(g_f2x4);
-	return f2x4_ceil;
+	return ceil(g_f2x4);
 }
 
 float3x1 test_ceil_Float3x1()
 {
-	float3x1 f3x1_ceil = ceil(g_f3x1);
-	return f3x1_ceil;
+	return ceil(g_f3x1);
 }
 
 float3x2 test_ceil_Float3x2()
 {
-	float3x2 f3x2_ceil = ceil(g_f3x2);
-	return f3x2_ceil;
+	return ceil(g_f3x2);
 }
 
 float3x3 test_ceil_Float3x3()
 {
-	float3x3 f3x3_ceil = ceil(g_f3x3);
-	return f3x3_ceil;
+	return ceil(g_f3x3);
 }
 
 float3x4 test_ceil_Float3x4()
 {
-	float3x4 f3x4_ceil = ceil(g_f3x4);
-	return f3x4_ceil;
+	return ceil(g_f3x4);
 }
 
 float4x1 test_ceil_Float4x1()
 {
-	float4x1 f4x1_ceil = ceil(g_f4x1);
-	return f4x1_ceil;
+	return ceil(g_f4x1);
 }
 
 float4x2 test_ceil_Float4x2()
 {
-	float4x2 f4x2_ceil = ceil(g_f4x2);
-	return f4x2_ceil;
+	return ceil(g_f4x2);
 }
 
 float4x3 test_ceil_Float4x3()
 {
-	float4x3 f4x3_ceil = ceil(g_f4x3);
-	return f4x3_ceil;
+	return ceil(g_f4x3);
 }
 
 float4x4 test_ceil_Float4x4()
 {
-	float4x4 f4x4_ceil = ceil(g_f4x4);
-	return f4x4_ceil;
+	return ceil(g_f4x4);
 }
 
 float test_cos_Float()
 {
-	float f_cos = cos(g_f);
-	return f_cos;
+	return cos(g_f);
 }
 
 float1 test_cos_Float1()
 {
-	float1 f1_cos = cos(g_f1);
-	return f1_cos;
+	return cos(g_f1);
 }
 
 float2 test_cos_Float2()
 {
-	float2 f2_cos = cos(g_f2);
-	return f2_cos;
+	return cos(g_f2);
 }
 
 float3 test_cos_Float3()
 {
-	float3 f3_cos = cos(g_f3);
-	return f3_cos;
+	return cos(g_f3);
 }
 
 float4 test_cos_Float4()
 {
-	float4 f4_cos = cos(g_f4);
-	return f4_cos;
+	return cos(g_f4);
 }
 
 float1x1 test_cos_Float1x1()
 {
-	float1x1 f1x1_cos = cos(g_f1x1);
-	return f1x1_cos;
+	return cos(g_f1x1);
 }
 
 float1x2 test_cos_Float1x2()
 {
-	float1x2 f1x2_cos = cos(g_f1x2);
-	return f1x2_cos;
+	return cos(g_f1x2);
 }
 
 float1x3 test_cos_Float1x3()
 {
-	float1x3 f1x3_cos = cos(g_f1x3);
-	return f1x3_cos;
+	return cos(g_f1x3);
 }
 
 float1x4 test_cos_Float1x4()
 {
-	float1x4 f1x4_cos = cos(g_f1x4);
-	return f1x4_cos;
+	return cos(g_f1x4);
 }
 
 float2x1 test_cos_Float2x1()
 {
-	float2x1 f2x1_cos = cos(g_f2x1);
-	return f2x1_cos;
+	return cos(g_f2x1);
 }
 
 float2x2 test_cos_Float2x2()
 {
-	float2x2 f2x2_cos = cos(g_f2x2);
-	return f2x2_cos;
+	return cos(g_f2x2);
 }
 
 float2x3 test_cos_Float2x3()
 {
-	float2x3 f2x3_cos = cos(g_f2x3);
-	return f2x3_cos;
+	return cos(g_f2x3);
 }
 
 float2x4 test_cos_Float2x4()
 {
-	float2x4 f2x4_cos = cos(g_f2x4);
-	return f2x4_cos;
+	return cos(g_f2x4);
 }
 
 float3x1 test_cos_Float3x1()
 {
-	float3x1 f3x1_cos = cos(g_f3x1);
-	return f3x1_cos;
+	return cos(g_f3x1);
 }
 
 float3x2 test_cos_Float3x2()
 {
-	float3x2 f3x2_cos = cos(g_f3x2);
-	return f3x2_cos;
+	return cos(g_f3x2);
 }
 
 float3x3 test_cos_Float3x3()
 {
-	float3x3 f3x3_cos = cos(g_f3x3);
-	return f3x3_cos;
+	return cos(g_f3x3);
 }
 
 float3x4 test_cos_Float3x4()
 {
-	float3x4 f3x4_cos = cos(g_f3x4);
-	return f3x4_cos;
+	return cos(g_f3x4);
 }
 
 float4x1 test_cos_Float4x1()
 {
-	float4x1 f4x1_cos = cos(g_f4x1);
-	return f4x1_cos;
+	return cos(g_f4x1);
 }
 
 float4x2 test_cos_Float4x2()
 {
-	float4x2 f4x2_cos = cos(g_f4x2);
-	return f4x2_cos;
+	return cos(g_f4x2);
 }
 
 float4x3 test_cos_Float4x3()
 {
-	float4x3 f4x3_cos = cos(g_f4x3);
-	return f4x3_cos;
+	return cos(g_f4x3);
 }
 
 float4x4 test_cos_Float4x4()
 {
-	float4x4 f4x4_cos = cos(g_f4x4);
-	return f4x4_cos;
+	return cos(g_f4x4);
 }
 
 float test_cosh_Float()
 {
-	float f_cosh = cosh(g_f);
-	return f_cosh;
+	return cosh(g_f);
 }
 
 float1 test_cosh_Float1()
 {
-	float1 f1_cosh = cosh(g_f1);
-	return f1_cosh;
+	return cosh(g_f1);
 }
 
 float2 test_cosh_Float2()
 {
-	float2 f2_cosh = cosh(g_f2);
-	return f2_cosh;
+	return cosh(g_f2);
 }
 
 float3 test_cosh_Float3()
 {
-	float3 f3_cosh = cosh(g_f3);
-	return f3_cosh;
+	return cosh(g_f3);
 }
 
 float4 test_cosh_Float4()
 {
-	float4 f4_cosh = cosh(g_f4);
-	return f4_cosh;
+	return cosh(g_f4);
 }
 
 float1x1 test_cosh_Float1x1()
 {
-	float1x1 f1x1_cosh = cosh(g_f1x1);
-	return f1x1_cosh;
+	return cosh(g_f1x1);
 }
 
 float1x2 test_cosh_Float1x2()
 {
-	float1x2 f1x2_cosh = cosh(g_f1x2);
-	return f1x2_cosh;
+	return cosh(g_f1x2);
 }
 
 float1x3 test_cosh_Float1x3()
 {
-	float1x3 f1x3_cosh = cosh(g_f1x3);
-	return f1x3_cosh;
+	return cosh(g_f1x3);
 }
 
 float1x4 test_cosh_Float1x4()
 {
-	float1x4 f1x4_cosh = cosh(g_f1x4);
-	return f1x4_cosh;
+	return cosh(g_f1x4);
 }
 
 float2x1 test_cosh_Float2x1()
 {
-	float2x1 f2x1_cosh = cosh(g_f2x1);
-	return f2x1_cosh;
+	return cosh(g_f2x1);
 }
 
 float2x2 test_cosh_Float2x2()
 {
-	float2x2 f2x2_cosh = cosh(g_f2x2);
-	return f2x2_cosh;
+	return cosh(g_f2x2);
 }
 
 float2x3 test_cosh_Float2x3()
 {
-	float2x3 f2x3_cosh = cosh(g_f2x3);
-	return f2x3_cosh;
+	return cosh(g_f2x3);
 }
 
 float2x4 test_cosh_Float2x4()
 {
-	float2x4 f2x4_cosh = cosh(g_f2x4);
-	return f2x4_cosh;
+	return cosh(g_f2x4);
 }
 
 float3x1 test_cosh_Float3x1()
 {
-	float3x1 f3x1_cosh = cosh(g_f3x1);
-	return f3x1_cosh;
+	return cosh(g_f3x1);
 }
 
 float3x2 test_cosh_Float3x2()
 {
-	float3x2 f3x2_cosh = cosh(g_f3x2);
-	return f3x2_cosh;
+	return cosh(g_f3x2);
 }
 
 float3x3 test_cosh_Float3x3()
 {
-	float3x3 f3x3_cosh = cosh(g_f3x3);
-	return f3x3_cosh;
+	return cosh(g_f3x3);
 }
 
 float3x4 test_cosh_Float3x4()
 {
-	float3x4 f3x4_cosh = cosh(g_f3x4);
-	return f3x4_cosh;
+	return cosh(g_f3x4);
 }
 
 float4x1 test_cosh_Float4x1()
 {
-	float4x1 f4x1_cosh = cosh(g_f4x1);
-	return f4x1_cosh;
+	return cosh(g_f4x1);
 }
 
 float4x2 test_cosh_Float4x2()
 {
-	float4x2 f4x2_cosh = cosh(g_f4x2);
-	return f4x2_cosh;
+	return cosh(g_f4x2);
 }
 
 float4x3 test_cosh_Float4x3()
 {
-	float4x3 f4x3_cosh = cosh(g_f4x3);
-	return f4x3_cosh;
+	return cosh(g_f4x3);
 }
 
 float4x4 test_cosh_Float4x4()
 {
-	float4x4 f4x4_cosh = cosh(g_f4x4);
-	return f4x4_cosh;
+	return cosh(g_f4x4);
 }
 
 float test_ddx_Float()
 {
-	float f_ddx = ddx(g_f);
-	return f_ddx;
+	return ddx(g_f);
 }
 
 float1 test_ddx_Float1()
 {
-	float1 f1_ddx = ddx(g_f1);
-	return f1_ddx;
+	return ddx(g_f1);
 }
 
 float2 test_ddx_Float2()
 {
-	float2 f2_ddx = ddx(g_f2);
-	return f2_ddx;
+	return ddx(g_f2);
 }
 
 float3 test_ddx_Float3()
 {
-	float3 f3_ddx = ddx(g_f3);
-	return f3_ddx;
+	return ddx(g_f3);
 }
 
 float4 test_ddx_Float4()
 {
-	float4 f4_ddx = ddx(g_f4);
-	return f4_ddx;
+	return ddx(g_f4);
 }
 
 float1x1 test_ddx_Float1x1()
 {
-	float1x1 f1x1_ddx = ddx(g_f1x1);
-	return f1x1_ddx;
+	return ddx(g_f1x1);
 }
 
 float1x2 test_ddx_Float1x2()
 {
-	float1x2 f1x2_ddx = ddx(g_f1x2);
-	return f1x2_ddx;
+	return ddx(g_f1x2);
 }
 
 float1x3 test_ddx_Float1x3()
 {
-	float1x3 f1x3_ddx = ddx(g_f1x3);
-	return f1x3_ddx;
+	return ddx(g_f1x3);
 }
 
 float1x4 test_ddx_Float1x4()
 {
-	float1x4 f1x4_ddx = ddx(g_f1x4);
-	return f1x4_ddx;
+	return ddx(g_f1x4);
 }
 
 float2x1 test_ddx_Float2x1()
 {
-	float2x1 f2x1_ddx = ddx(g_f2x1);
-	return f2x1_ddx;
+	return ddx(g_f2x1);
 }
 
 float2x2 test_ddx_Float2x2()
 {
-	float2x2 f2x2_ddx = ddx(g_f2x2);
-	return f2x2_ddx;
+	return ddx(g_f2x2);
 }
 
 float2x3 test_ddx_Float2x3()
 {
-	float2x3 f2x3_ddx = ddx(g_f2x3);
-	return f2x3_ddx;
+	return ddx(g_f2x3);
 }
 
 float2x4 test_ddx_Float2x4()
 {
-	float2x4 f2x4_ddx = ddx(g_f2x4);
-	return f2x4_ddx;
+	return ddx(g_f2x4);
 }
 
 float3x1 test_ddx_Float3x1()
 {
-	float3x1 f3x1_ddx = ddx(g_f3x1);
-	return f3x1_ddx;
+	return ddx(g_f3x1);
 }
 
 float3x2 test_ddx_Float3x2()
 {
-	float3x2 f3x2_ddx = ddx(g_f3x2);
-	return f3x2_ddx;
+	return ddx(g_f3x2);
 }
 
 float3x3 test_ddx_Float3x3()
 {
-	float3x3 f3x3_ddx = ddx(g_f3x3);
-	return f3x3_ddx;
+	return ddx(g_f3x3);
 }
 
 float3x4 test_ddx_Float3x4()
 {
-	float3x4 f3x4_ddx = ddx(g_f3x4);
-	return f3x4_ddx;
+	return ddx(g_f3x4);
 }
 
 float4x1 test_ddx_Float4x1()
 {
-	float4x1 f4x1_ddx = ddx(g_f4x1);
-	return f4x1_ddx;
+	return ddx(g_f4x1);
 }
 
 float4x2 test_ddx_Float4x2()
 {
-	float4x2 f4x2_ddx = ddx(g_f4x2);
-	return f4x2_ddx;
+	return ddx(g_f4x2);
 }
 
 float4x3 test_ddx_Float4x3()
 {
-	float4x3 f4x3_ddx = ddx(g_f4x3);
-	return f4x3_ddx;
+	return ddx(g_f4x3);
 }
 
 float4x4 test_ddx_Float4x4()
 {
-	float4x4 f4x4_ddx = ddx(g_f4x4);
-	return f4x4_ddx;
+	return ddx(g_f4x4);
 }
 
 float test_ddx_coarse_Float()
 {
-	float f_ddx_coarse = ddx_coarse(g_f);
-	return f_ddx_coarse;
+	return ddx_coarse(g_f);
 }
 
 float1 test_ddx_coarse_Float1()
 {
-	float1 f1_ddx_coarse = ddx_coarse(g_f1);
-	return f1_ddx_coarse;
+	return ddx_coarse(g_f1);
 }
 
 float2 test_ddx_coarse_Float2()
 {
-	float2 f2_ddx_coarse = ddx_coarse(g_f2);
-	return f2_ddx_coarse;
+	return ddx_coarse(g_f2);
 }
 
 float3 test_ddx_coarse_Float3()
 {
-	float3 f3_ddx_coarse = ddx_coarse(g_f3);
-	return f3_ddx_coarse;
+	return ddx_coarse(g_f3);
 }
 
 float4 test_ddx_coarse_Float4()
 {
-	float4 f4_ddx_coarse = ddx_coarse(g_f4);
-	return f4_ddx_coarse;
+	return ddx_coarse(g_f4);
 }
 
 float1x1 test_ddx_coarse_Float1x1()
 {
-	float1x1 f1x1_ddx_coarse = ddx_coarse(g_f1x1);
-	return f1x1_ddx_coarse;
+	return ddx_coarse(g_f1x1);
 }
 
 float1x2 test_ddx_coarse_Float1x2()
 {
-	float1x2 f1x2_ddx_coarse = ddx_coarse(g_f1x2);
-	return f1x2_ddx_coarse;
+	return ddx_coarse(g_f1x2);
 }
 
 float1x3 test_ddx_coarse_Float1x3()
 {
-	float1x3 f1x3_ddx_coarse = ddx_coarse(g_f1x3);
-	return f1x3_ddx_coarse;
+	return ddx_coarse(g_f1x3);
 }
 
 float1x4 test_ddx_coarse_Float1x4()
 {
-	float1x4 f1x4_ddx_coarse = ddx_coarse(g_f1x4);
-	return f1x4_ddx_coarse;
+	return ddx_coarse(g_f1x4);
 }
 
 float2x1 test_ddx_coarse_Float2x1()
 {
-	float2x1 f2x1_ddx_coarse = ddx_coarse(g_f2x1);
-	return f2x1_ddx_coarse;
+	return ddx_coarse(g_f2x1);
 }
 
 float2x2 test_ddx_coarse_Float2x2()
 {
-	float2x2 f2x2_ddx_coarse = ddx_coarse(g_f2x2);
-	return f2x2_ddx_coarse;
+	return ddx_coarse(g_f2x2);
 }
 
 float2x3 test_ddx_coarse_Float2x3()
 {
-	float2x3 f2x3_ddx_coarse = ddx_coarse(g_f2x3);
-	return f2x3_ddx_coarse;
+	return ddx_coarse(g_f2x3);
 }
 
 float2x4 test_ddx_coarse_Float2x4()
 {
-	float2x4 f2x4_ddx_coarse = ddx_coarse(g_f2x4);
-	return f2x4_ddx_coarse;
+	return ddx_coarse(g_f2x4);
 }
 
 float3x1 test_ddx_coarse_Float3x1()
 {
-	float3x1 f3x1_ddx_coarse = ddx_coarse(g_f3x1);
-	return f3x1_ddx_coarse;
+	return ddx_coarse(g_f3x1);
 }
 
 float3x2 test_ddx_coarse_Float3x2()
 {
-	float3x2 f3x2_ddx_coarse = ddx_coarse(g_f3x2);
-	return f3x2_ddx_coarse;
+	return ddx_coarse(g_f3x2);
 }
 
 float3x3 test_ddx_coarse_Float3x3()
 {
-	float3x3 f3x3_ddx_coarse = ddx_coarse(g_f3x3);
-	return f3x3_ddx_coarse;
+	return ddx_coarse(g_f3x3);
 }
 
 float3x4 test_ddx_coarse_Float3x4()
 {
-	float3x4 f3x4_ddx_coarse = ddx_coarse(g_f3x4);
-	return f3x4_ddx_coarse;
+	return ddx_coarse(g_f3x4);
 }
 
 float4x1 test_ddx_coarse_Float4x1()
 {
-	float4x1 f4x1_ddx_coarse = ddx_coarse(g_f4x1);
-	return f4x1_ddx_coarse;
+	return ddx_coarse(g_f4x1);
 }
 
 float4x2 test_ddx_coarse_Float4x2()
 {
-	float4x2 f4x2_ddx_coarse = ddx_coarse(g_f4x2);
-	return f4x2_ddx_coarse;
+	return ddx_coarse(g_f4x2);
 }
 
 float4x3 test_ddx_coarse_Float4x3()
 {
-	float4x3 f4x3_ddx_coarse = ddx_coarse(g_f4x3);
-	return f4x3_ddx_coarse;
+	return ddx_coarse(g_f4x3);
 }
 
 float4x4 test_ddx_coarse_Float4x4()
 {
-	float4x4 f4x4_ddx_coarse = ddx_coarse(g_f4x4);
-	return f4x4_ddx_coarse;
+	return ddx_coarse(g_f4x4);
 }
 
 float test_ddx_fine_Float()
 {
-	float f_ddx_fine = ddx_fine(g_f);
-	return f_ddx_fine;
+	return ddx_fine(g_f);
 }
 
 float1 test_ddx_fine_Float1()
 {
-	float1 f1_ddx_fine = ddx_fine(g_f1);
-	return f1_ddx_fine;
+	return ddx_fine(g_f1);
 }
 
 float2 test_ddx_fine_Float2()
 {
-	float2 f2_ddx_fine = ddx_fine(g_f2);
-	return f2_ddx_fine;
+	return ddx_fine(g_f2);
 }
 
 float3 test_ddx_fine_Float3()
 {
-	float3 f3_ddx_fine = ddx_fine(g_f3);
-	return f3_ddx_fine;
+	return ddx_fine(g_f3);
 }
 
 float4 test_ddx_fine_Float4()
 {
-	float4 f4_ddx_fine = ddx_fine(g_f4);
-	return f4_ddx_fine;
+	return ddx_fine(g_f4);
 }
 
 float1x1 test_ddx_fine_Float1x1()
 {
-	float1x1 f1x1_ddx_fine = ddx_fine(g_f1x1);
-	return f1x1_ddx_fine;
+	return ddx_fine(g_f1x1);
 }
 
 float1x2 test_ddx_fine_Float1x2()
 {
-	float1x2 f1x2_ddx_fine = ddx_fine(g_f1x2);
-	return f1x2_ddx_fine;
+	return ddx_fine(g_f1x2);
 }
 
 float1x3 test_ddx_fine_Float1x3()
 {
-	float1x3 f1x3_ddx_fine = ddx_fine(g_f1x3);
-	return f1x3_ddx_fine;
+	return ddx_fine(g_f1x3);
 }
 
 float1x4 test_ddx_fine_Float1x4()
 {
-	float1x4 f1x4_ddx_fine = ddx_fine(g_f1x4);
-	return f1x4_ddx_fine;
+	return ddx_fine(g_f1x4);
 }
 
 float2x1 test_ddx_fine_Float2x1()
 {
-	float2x1 f2x1_ddx_fine = ddx_fine(g_f2x1);
-	return f2x1_ddx_fine;
+	return ddx_fine(g_f2x1);
 }
 
 float2x2 test_ddx_fine_Float2x2()
 {
-	float2x2 f2x2_ddx_fine = ddx_fine(g_f2x2);
-	return f2x2_ddx_fine;
+	return ddx_fine(g_f2x2);
 }
 
 float2x3 test_ddx_fine_Float2x3()
 {
-	float2x3 f2x3_ddx_fine = ddx_fine(g_f2x3);
-	return f2x3_ddx_fine;
+	return ddx_fine(g_f2x3);
 }
 
 float2x4 test_ddx_fine_Float2x4()
 {
-	float2x4 f2x4_ddx_fine = ddx_fine(g_f2x4);
-	return f2x4_ddx_fine;
+	return ddx_fine(g_f2x4);
 }
 
 float3x1 test_ddx_fine_Float3x1()
 {
-	float3x1 f3x1_ddx_fine = ddx_fine(g_f3x1);
-	return f3x1_ddx_fine;
+	return ddx_fine(g_f3x1);
 }
 
 float3x2 test_ddx_fine_Float3x2()
 {
-	float3x2 f3x2_ddx_fine = ddx_fine(g_f3x2);
-	return f3x2_ddx_fine;
+	return ddx_fine(g_f3x2);
 }
 
 float3x3 test_ddx_fine_Float3x3()
 {
-	float3x3 f3x3_ddx_fine = ddx_fine(g_f3x3);
-	return f3x3_ddx_fine;
+	return ddx_fine(g_f3x3);
 }
 
 float3x4 test_ddx_fine_Float3x4()
 {
-	float3x4 f3x4_ddx_fine = ddx_fine(g_f3x4);
-	return f3x4_ddx_fine;
+	return ddx_fine(g_f3x4);
 }
 
 float4x1 test_ddx_fine_Float4x1()
 {
-	float4x1 f4x1_ddx_fine = ddx_fine(g_f4x1);
-	return f4x1_ddx_fine;
+	return ddx_fine(g_f4x1);
 }
 
 float4x2 test_ddx_fine_Float4x2()
 {
-	float4x2 f4x2_ddx_fine = ddx_fine(g_f4x2);
-	return f4x2_ddx_fine;
+	return ddx_fine(g_f4x2);
 }
 
 float4x3 test_ddx_fine_Float4x3()
 {
-	float4x3 f4x3_ddx_fine = ddx_fine(g_f4x3);
-	return f4x3_ddx_fine;
+	return ddx_fine(g_f4x3);
 }
 
 float4x4 test_ddx_fine_Float4x4()
 {
-	float4x4 f4x4_ddx_fine = ddx_fine(g_f4x4);
-	return f4x4_ddx_fine;
+	return ddx_fine(g_f4x4);
 }
 
 float test_ddy_Float()
 {
-	float f_ddy = ddy(g_f);
-	return f_ddy;
+	return ddy(g_f);
 }
 
 float1 test_ddy_Float1()
 {
-	float1 f1_ddy = ddy(g_f1);
-	return f1_ddy;
+	return ddy(g_f1);
 }
 
 float2 test_ddy_Float2()
 {
-	float2 f2_ddy = ddy(g_f2);
-	return f2_ddy;
+	return ddy(g_f2);
 }
 
 float3 test_ddy_Float3()
 {
-	float3 f3_ddy = ddy(g_f3);
-	return f3_ddy;
+	return ddy(g_f3);
 }
 
 float4 test_ddy_Float4()
 {
-	float4 f4_ddy = ddy(g_f4);
-	return f4_ddy;
+	return ddy(g_f4);
 }
 
 float1x1 test_ddy_Float1x1()
 {
-	float1x1 f1x1_ddy = ddy(g_f1x1);
-	return f1x1_ddy;
+	return ddy(g_f1x1);
 }
 
 float1x2 test_ddy_Float1x2()
 {
-	float1x2 f1x2_ddy = ddy(g_f1x2);
-	return f1x2_ddy;
+	return ddy(g_f1x2);
 }
 
 float1x3 test_ddy_Float1x3()
 {
-	float1x3 f1x3_ddy = ddy(g_f1x3);
-	return f1x3_ddy;
+	return ddy(g_f1x3);
 }
 
 float1x4 test_ddy_Float1x4()
 {
-	float1x4 f1x4_ddy = ddy(g_f1x4);
-	return f1x4_ddy;
+	return ddy(g_f1x4);
 }
 
 float2x1 test_ddy_Float2x1()
 {
-	float2x1 f2x1_ddy = ddy(g_f2x1);
-	return f2x1_ddy;
+	return ddy(g_f2x1);
 }
 
 float2x2 test_ddy_Float2x2()
 {
-	float2x2 f2x2_ddy = ddy(g_f2x2);
-	return f2x2_ddy;
+	return ddy(g_f2x2);
 }
 
 float2x3 test_ddy_Float2x3()
 {
-	float2x3 f2x3_ddy = ddy(g_f2x3);
-	return f2x3_ddy;
+	return ddy(g_f2x3);
 }
 
 float2x4 test_ddy_Float2x4()
 {
-	float2x4 f2x4_ddy = ddy(g_f2x4);
-	return f2x4_ddy;
+	return ddy(g_f2x4);
 }
 
 float3x1 test_ddy_Float3x1()
 {
-	float3x1 f3x1_ddy = ddy(g_f3x1);
-	return f3x1_ddy;
+	return ddy(g_f3x1);
 }
 
 float3x2 test_ddy_Float3x2()
 {
-	float3x2 f3x2_ddy = ddy(g_f3x2);
-	return f3x2_ddy;
+	return ddy(g_f3x2);
 }
 
 float3x3 test_ddy_Float3x3()
 {
-	float3x3 f3x3_ddy = ddy(g_f3x3);
-	return f3x3_ddy;
+	return ddy(g_f3x3);
 }
 
 float3x4 test_ddy_Float3x4()
 {
-	float3x4 f3x4_ddy = ddy(g_f3x4);
-	return f3x4_ddy;
+	return ddy(g_f3x4);
 }
 
 float4x1 test_ddy_Float4x1()
 {
-	float4x1 f4x1_ddy = ddy(g_f4x1);
-	return f4x1_ddy;
+	return ddy(g_f4x1);
 }
 
 float4x2 test_ddy_Float4x2()
 {
-	float4x2 f4x2_ddy = ddy(g_f4x2);
-	return f4x2_ddy;
+	return ddy(g_f4x2);
 }
 
 float4x3 test_ddy_Float4x3()
 {
-	float4x3 f4x3_ddy = ddy(g_f4x3);
-	return f4x3_ddy;
+	return ddy(g_f4x3);
 }
 
 float4x4 test_ddy_Float4x4()
 {
-	float4x4 f4x4_ddy = ddy(g_f4x4);
-	return f4x4_ddy;
+	return ddy(g_f4x4);
 }
 
 float test_ddy_coarse_Float()
 {
-	float f_ddy_coarse = ddy_coarse(g_f);
-	return f_ddy_coarse;
+	return ddy_coarse(g_f);
 }
 
 float1 test_ddy_coarse_Float1()
 {
-	float1 f1_ddy_coarse = ddy_coarse(g_f1);
-	return f1_ddy_coarse;
+	return ddy_coarse(g_f1);
 }
 
 float2 test_ddy_coarse_Float2()
 {
-	float2 f2_ddy_coarse = ddy_coarse(g_f2);
-	return f2_ddy_coarse;
+	return ddy_coarse(g_f2);
 }
 
 float3 test_ddy_coarse_Float3()
 {
-	float3 f3_ddy_coarse = ddy_coarse(g_f3);
-	return f3_ddy_coarse;
+	return ddy_coarse(g_f3);
 }
 
 float4 test_ddy_coarse_Float4()
 {
-	float4 f4_ddy_coarse = ddy_coarse(g_f4);
-	return f4_ddy_coarse;
+	return ddy_coarse(g_f4);
 }
 
 float1x1 test_ddy_coarse_Float1x1()
 {
-	float1x1 f1x1_ddy_coarse = ddy_coarse(g_f1x1);
-	return f1x1_ddy_coarse;
+	return ddy_coarse(g_f1x1);
 }
 
 float1x2 test_ddy_coarse_Float1x2()
 {
-	float1x2 f1x2_ddy_coarse = ddy_coarse(g_f1x2);
-	return f1x2_ddy_coarse;
+	return ddy_coarse(g_f1x2);
 }
 
 float1x3 test_ddy_coarse_Float1x3()
 {
-	float1x3 f1x3_ddy_coarse = ddy_coarse(g_f1x3);
-	return f1x3_ddy_coarse;
+	return ddy_coarse(g_f1x3);
 }
 
 float1x4 test_ddy_coarse_Float1x4()
 {
-	float1x4 f1x4_ddy_coarse = ddy_coarse(g_f1x4);
-	return f1x4_ddy_coarse;
+	return ddy_coarse(g_f1x4);
 }
 
 float2x1 test_ddy_coarse_Float2x1()
 {
-	float2x1 f2x1_ddy_coarse = ddy_coarse(g_f2x1);
-	return f2x1_ddy_coarse;
+	return ddy_coarse(g_f2x1);
 }
 
 float2x2 test_ddy_coarse_Float2x2()
 {
-	float2x2 f2x2_ddy_coarse = ddy_coarse(g_f2x2);
-	return f2x2_ddy_coarse;
+	return ddy_coarse(g_f2x2);
 }
 
 float2x3 test_ddy_coarse_Float2x3()
 {
-	float2x3 f2x3_ddy_coarse = ddy_coarse(g_f2x3);
-	return f2x3_ddy_coarse;
+	return ddy_coarse(g_f2x3);
 }
 
 float2x4 test_ddy_coarse_Float2x4()
 {
-	float2x4 f2x4_ddy_coarse = ddy_coarse(g_f2x4);
-	return f2x4_ddy_coarse;
+	return ddy_coarse(g_f2x4);
 }
 
 float3x1 test_ddy_coarse_Float3x1()
 {
-	float3x1 f3x1_ddy_coarse = ddy_coarse(g_f3x1);
-	return f3x1_ddy_coarse;
+	return ddy_coarse(g_f3x1);
 }
 
 float3x2 test_ddy_coarse_Float3x2()
 {
-	float3x2 f3x2_ddy_coarse = ddy_coarse(g_f3x2);
-	return f3x2_ddy_coarse;
+	return ddy_coarse(g_f3x2);
 }
 
 float3x3 test_ddy_coarse_Float3x3()
 {
-	float3x3 f3x3_ddy_coarse = ddy_coarse(g_f3x3);
-	return f3x3_ddy_coarse;
+	return ddy_coarse(g_f3x3);
 }
 
 float3x4 test_ddy_coarse_Float3x4()
 {
-	float3x4 f3x4_ddy_coarse = ddy_coarse(g_f3x4);
-	return f3x4_ddy_coarse;
+	return ddy_coarse(g_f3x4);
 }
 
 float4x1 test_ddy_coarse_Float4x1()
 {
-	float4x1 f4x1_ddy_coarse = ddy_coarse(g_f4x1);
-	return f4x1_ddy_coarse;
+	return ddy_coarse(g_f4x1);
 }
 
 float4x2 test_ddy_coarse_Float4x2()
 {
-	float4x2 f4x2_ddy_coarse = ddy_coarse(g_f4x2);
-	return f4x2_ddy_coarse;
+	return ddy_coarse(g_f4x2);
 }
 
 float4x3 test_ddy_coarse_Float4x3()
 {
-	float4x3 f4x3_ddy_coarse = ddy_coarse(g_f4x3);
-	return f4x3_ddy_coarse;
+	return ddy_coarse(g_f4x3);
 }
 
 float4x4 test_ddy_coarse_Float4x4()
 {
-	float4x4 f4x4_ddy_coarse = ddy_coarse(g_f4x4);
-	return f4x4_ddy_coarse;
+	return ddy_coarse(g_f4x4);
 }
 
 float test_ddy_fine_Float()
 {
-	float f_ddy_fine = ddy_fine(g_f);
-	return f_ddy_fine;
+	return ddy_fine(g_f);
 }
 
 float1 test_ddy_fine_Float1()
 {
-	float1 f1_ddy_fine = ddy_fine(g_f1);
-	return f1_ddy_fine;
+	return ddy_fine(g_f1);
 }
 
 float2 test_ddy_fine_Float2()
 {
-	float2 f2_ddy_fine = ddy_fine(g_f2);
-	return f2_ddy_fine;
+	return ddy_fine(g_f2);
 }
 
 float3 test_ddy_fine_Float3()
 {
-	float3 f3_ddy_fine = ddy_fine(g_f3);
-	return f3_ddy_fine;
+	return ddy_fine(g_f3);
 }
 
 float4 test_ddy_fine_Float4()
 {
-	float4 f4_ddy_fine = ddy_fine(g_f4);
-	return f4_ddy_fine;
+	return ddy_fine(g_f4);
 }
 
 float1x1 test_ddy_fine_Float1x1()
 {
-	float1x1 f1x1_ddy_fine = ddy_fine(g_f1x1);
-	return f1x1_ddy_fine;
+	return ddy_fine(g_f1x1);
 }
 
 float1x2 test_ddy_fine_Float1x2()
 {
-	float1x2 f1x2_ddy_fine = ddy_fine(g_f1x2);
-	return f1x2_ddy_fine;
+	return ddy_fine(g_f1x2);
 }
 
 float1x3 test_ddy_fine_Float1x3()
 {
-	float1x3 f1x3_ddy_fine = ddy_fine(g_f1x3);
-	return f1x3_ddy_fine;
+	return ddy_fine(g_f1x3);
 }
 
 float1x4 test_ddy_fine_Float1x4()
 {
-	float1x4 f1x4_ddy_fine = ddy_fine(g_f1x4);
-	return f1x4_ddy_fine;
+	return ddy_fine(g_f1x4);
 }
 
 float2x1 test_ddy_fine_Float2x1()
 {
-	float2x1 f2x1_ddy_fine = ddy_fine(g_f2x1);
-	return f2x1_ddy_fine;
+	return ddy_fine(g_f2x1);
 }
 
 float2x2 test_ddy_fine_Float2x2()
 {
-	float2x2 f2x2_ddy_fine = ddy_fine(g_f2x2);
-	return f2x2_ddy_fine;
+	return ddy_fine(g_f2x2);
 }
 
 float2x3 test_ddy_fine_Float2x3()
 {
-	float2x3 f2x3_ddy_fine = ddy_fine(g_f2x3);
-	return f2x3_ddy_fine;
+	return ddy_fine(g_f2x3);
 }
 
 float2x4 test_ddy_fine_Float2x4()
 {
-	float2x4 f2x4_ddy_fine = ddy_fine(g_f2x4);
-	return f2x4_ddy_fine;
+	return ddy_fine(g_f2x4);
 }
 
 float3x1 test_ddy_fine_Float3x1()
 {
-	float3x1 f3x1_ddy_fine = ddy_fine(g_f3x1);
-	return f3x1_ddy_fine;
+	return ddy_fine(g_f3x1);
 }
 
 float3x2 test_ddy_fine_Float3x2()
 {
-	float3x2 f3x2_ddy_fine = ddy_fine(g_f3x2);
-	return f3x2_ddy_fine;
+	return ddy_fine(g_f3x2);
 }
 
 float3x3 test_ddy_fine_Float3x3()
 {
-	float3x3 f3x3_ddy_fine = ddy_fine(g_f3x3);
-	return f3x3_ddy_fine;
+	return ddy_fine(g_f3x3);
 }
 
 float3x4 test_ddy_fine_Float3x4()
 {
-	float3x4 f3x4_ddy_fine = ddy_fine(g_f3x4);
-	return f3x4_ddy_fine;
+	return ddy_fine(g_f3x4);
 }
 
 float4x1 test_ddy_fine_Float4x1()
 {
-	float4x1 f4x1_ddy_fine = ddy_fine(g_f4x1);
-	return f4x1_ddy_fine;
+	return ddy_fine(g_f4x1);
 }
 
 float4x2 test_ddy_fine_Float4x2()
 {
-	float4x2 f4x2_ddy_fine = ddy_fine(g_f4x2);
-	return f4x2_ddy_fine;
+	return ddy_fine(g_f4x2);
 }
 
 float4x3 test_ddy_fine_Float4x3()
 {
-	float4x3 f4x3_ddy_fine = ddy_fine(g_f4x3);
-	return f4x3_ddy_fine;
+	return ddy_fine(g_f4x3);
 }
 
 float4x4 test_ddy_fine_Float4x4()
 {
-	float4x4 f4x4_ddy_fine = ddy_fine(g_f4x4);
-	return f4x4_ddy_fine;
+	return ddy_fine(g_f4x4);
 }
 
 float test_degrees_Float()
 {
-	float f_degrees = degrees(g_f);
-	return f_degrees;
+	return degrees(g_f);
 }
 
 float1 test_degrees_Float1()
 {
-	float1 f1_degrees = degrees(g_f1);
-	return f1_degrees;
+	return degrees(g_f1);
 }
 
 float2 test_degrees_Float2()
 {
-	float2 f2_degrees = degrees(g_f2);
-	return f2_degrees;
+	return degrees(g_f2);
 }
 
 float3 test_degrees_Float3()
 {
-	float3 f3_degrees = degrees(g_f3);
-	return f3_degrees;
+	return degrees(g_f3);
 }
 
 float4 test_degrees_Float4()
 {
-	float4 f4_degrees = degrees(g_f4);
-	return f4_degrees;
+	return degrees(g_f4);
 }
 
 float1x1 test_degrees_Float1x1()
 {
-	float1x1 f1x1_degrees = degrees(g_f1x1);
-	return f1x1_degrees;
+	return degrees(g_f1x1);
 }
 
 float1x2 test_degrees_Float1x2()
 {
-	float1x2 f1x2_degrees = degrees(g_f1x2);
-	return f1x2_degrees;
+	return degrees(g_f1x2);
 }
 
 float1x3 test_degrees_Float1x3()
 {
-	float1x3 f1x3_degrees = degrees(g_f1x3);
-	return f1x3_degrees;
+	return degrees(g_f1x3);
 }
 
 float1x4 test_degrees_Float1x4()
 {
-	float1x4 f1x4_degrees = degrees(g_f1x4);
-	return f1x4_degrees;
+	return degrees(g_f1x4);
 }
 
 float2x1 test_degrees_Float2x1()
 {
-	float2x1 f2x1_degrees = degrees(g_f2x1);
-	return f2x1_degrees;
+	return degrees(g_f2x1);
 }
 
 float2x2 test_degrees_Float2x2()
 {
-	float2x2 f2x2_degrees = degrees(g_f2x2);
-	return f2x2_degrees;
+	return degrees(g_f2x2);
 }
 
 float2x3 test_degrees_Float2x3()
 {
-	float2x3 f2x3_degrees = degrees(g_f2x3);
-	return f2x3_degrees;
+	return degrees(g_f2x3);
 }
 
 float2x4 test_degrees_Float2x4()
 {
-	float2x4 f2x4_degrees = degrees(g_f2x4);
-	return f2x4_degrees;
+	return degrees(g_f2x4);
 }
 
 float3x1 test_degrees_Float3x1()
 {
-	float3x1 f3x1_degrees = degrees(g_f3x1);
-	return f3x1_degrees;
+	return degrees(g_f3x1);
 }
 
 float3x2 test_degrees_Float3x2()
 {
-	float3x2 f3x2_degrees = degrees(g_f3x2);
-	return f3x2_degrees;
+	return degrees(g_f3x2);
 }
 
 float3x3 test_degrees_Float3x3()
 {
-	float3x3 f3x3_degrees = degrees(g_f3x3);
-	return f3x3_degrees;
+	return degrees(g_f3x3);
 }
 
 float3x4 test_degrees_Float3x4()
 {
-	float3x4 f3x4_degrees = degrees(g_f3x4);
-	return f3x4_degrees;
+	return degrees(g_f3x4);
 }
 
 float4x1 test_degrees_Float4x1()
 {
-	float4x1 f4x1_degrees = degrees(g_f4x1);
-	return f4x1_degrees;
+	return degrees(g_f4x1);
 }
 
 float4x2 test_degrees_Float4x2()
 {
-	float4x2 f4x2_degrees = degrees(g_f4x2);
-	return f4x2_degrees;
+	return degrees(g_f4x2);
 }
 
 float4x3 test_degrees_Float4x3()
 {
-	float4x3 f4x3_degrees = degrees(g_f4x3);
-	return f4x3_degrees;
+	return degrees(g_f4x3);
 }
 
 float4x4 test_degrees_Float4x4()
 {
-	float4x4 f4x4_degrees = degrees(g_f4x4);
-	return f4x4_degrees;
+	return degrees(g_f4x4);
 }
 
 float test_exp_Float()
 {
-	float f_exp = exp(g_f);
-	return f_exp;
+	return exp(g_f);
 }
 
 float1 test_exp_Float1()
 {
-	float1 f1_exp = exp(g_f1);
-	return f1_exp;
+	return exp(g_f1);
 }
 
 float2 test_exp_Float2()
 {
-	float2 f2_exp = exp(g_f2);
-	return f2_exp;
+	return exp(g_f2);
 }
 
 float3 test_exp_Float3()
 {
-	float3 f3_exp = exp(g_f3);
-	return f3_exp;
+	return exp(g_f3);
 }
 
 float4 test_exp_Float4()
 {
-	float4 f4_exp = exp(g_f4);
-	return f4_exp;
+	return exp(g_f4);
 }
 
 float1x1 test_exp_Float1x1()
 {
-	float1x1 f1x1_exp = exp(g_f1x1);
-	return f1x1_exp;
+	return exp(g_f1x1);
 }
 
 float1x2 test_exp_Float1x2()
 {
-	float1x2 f1x2_exp = exp(g_f1x2);
-	return f1x2_exp;
+	return exp(g_f1x2);
 }
 
 float1x3 test_exp_Float1x3()
 {
-	float1x3 f1x3_exp = exp(g_f1x3);
-	return f1x3_exp;
+	return exp(g_f1x3);
 }
 
 float1x4 test_exp_Float1x4()
 {
-	float1x4 f1x4_exp = exp(g_f1x4);
-	return f1x4_exp;
+	return exp(g_f1x4);
 }
 
 float2x1 test_exp_Float2x1()
 {
-	float2x1 f2x1_exp = exp(g_f2x1);
-	return f2x1_exp;
+	return exp(g_f2x1);
 }
 
 float2x2 test_exp_Float2x2()
 {
-	float2x2 f2x2_exp = exp(g_f2x2);
-	return f2x2_exp;
+	return exp(g_f2x2);
 }
 
 float2x3 test_exp_Float2x3()
 {
-	float2x3 f2x3_exp = exp(g_f2x3);
-	return f2x3_exp;
+	return exp(g_f2x3);
 }
 
 float2x4 test_exp_Float2x4()
 {
-	float2x4 f2x4_exp = exp(g_f2x4);
-	return f2x4_exp;
+	return exp(g_f2x4);
 }
 
 float3x1 test_exp_Float3x1()
 {
-	float3x1 f3x1_exp = exp(g_f3x1);
-	return f3x1_exp;
+	return exp(g_f3x1);
 }
 
 float3x2 test_exp_Float3x2()
 {
-	float3x2 f3x2_exp = exp(g_f3x2);
-	return f3x2_exp;
+	return exp(g_f3x2);
 }
 
 float3x3 test_exp_Float3x3()
 {
-	float3x3 f3x3_exp = exp(g_f3x3);
-	return f3x3_exp;
+	return exp(g_f3x3);
 }
 
 float3x4 test_exp_Float3x4()
 {
-	float3x4 f3x4_exp = exp(g_f3x4);
-	return f3x4_exp;
+	return exp(g_f3x4);
 }
 
 float4x1 test_exp_Float4x1()
 {
-	float4x1 f4x1_exp = exp(g_f4x1);
-	return f4x1_exp;
+	return exp(g_f4x1);
 }
 
 float4x2 test_exp_Float4x2()
 {
-	float4x2 f4x2_exp = exp(g_f4x2);
-	return f4x2_exp;
+	return exp(g_f4x2);
 }
 
 float4x3 test_exp_Float4x3()
 {
-	float4x3 f4x3_exp = exp(g_f4x3);
-	return f4x3_exp;
+	return exp(g_f4x3);
 }
 
 float4x4 test_exp_Float4x4()
 {
-	float4x4 f4x4_exp = exp(g_f4x4);
-	return f4x4_exp;
+	return exp(g_f4x4);
 }
 
 float test_exp2_Float()
 {
-	float f_exp2 = exp2(g_f);
-	return f_exp2;
+	return exp2(g_f);
 }
 
 float1 test_exp2_Float1()
 {
-	float1 f1_exp2 = exp2(g_f1);
-	return f1_exp2;
+	return exp2(g_f1);
 }
 
 float2 test_exp2_Float2()
 {
-	float2 f2_exp2 = exp2(g_f2);
-	return f2_exp2;
+	return exp2(g_f2);
 }
 
 float3 test_exp2_Float3()
 {
-	float3 f3_exp2 = exp2(g_f3);
-	return f3_exp2;
+	return exp2(g_f3);
 }
 
 float4 test_exp2_Float4()
 {
-	float4 f4_exp2 = exp2(g_f4);
-	return f4_exp2;
+	return exp2(g_f4);
 }
 
 float1x1 test_exp2_Float1x1()
 {
-	float1x1 f1x1_exp2 = exp2(g_f1x1);
-	return f1x1_exp2;
+	return exp2(g_f1x1);
 }
 
 float1x2 test_exp2_Float1x2()
 {
-	float1x2 f1x2_exp2 = exp2(g_f1x2);
-	return f1x2_exp2;
+	return exp2(g_f1x2);
 }
 
 float1x3 test_exp2_Float1x3()
 {
-	float1x3 f1x3_exp2 = exp2(g_f1x3);
-	return f1x3_exp2;
+	return exp2(g_f1x3);
 }
 
 float1x4 test_exp2_Float1x4()
 {
-	float1x4 f1x4_exp2 = exp2(g_f1x4);
-	return f1x4_exp2;
+	return exp2(g_f1x4);
 }
 
 float2x1 test_exp2_Float2x1()
 {
-	float2x1 f2x1_exp2 = exp2(g_f2x1);
-	return f2x1_exp2;
+	return exp2(g_f2x1);
 }
 
 float2x2 test_exp2_Float2x2()
 {
-	float2x2 f2x2_exp2 = exp2(g_f2x2);
-	return f2x2_exp2;
+	return exp2(g_f2x2);
 }
 
 float2x3 test_exp2_Float2x3()
 {
-	float2x3 f2x3_exp2 = exp2(g_f2x3);
-	return f2x3_exp2;
+	return exp2(g_f2x3);
 }
 
 float2x4 test_exp2_Float2x4()
 {
-	float2x4 f2x4_exp2 = exp2(g_f2x4);
-	return f2x4_exp2;
+	return exp2(g_f2x4);
 }
 
 float3x1 test_exp2_Float3x1()
 {
-	float3x1 f3x1_exp2 = exp2(g_f3x1);
-	return f3x1_exp2;
+	return exp2(g_f3x1);
 }
 
 float3x2 test_exp2_Float3x2()
 {
-	float3x2 f3x2_exp2 = exp2(g_f3x2);
-	return f3x2_exp2;
+	return exp2(g_f3x2);
 }
 
 float3x3 test_exp2_Float3x3()
 {
-	float3x3 f3x3_exp2 = exp2(g_f3x3);
-	return f3x3_exp2;
+	return exp2(g_f3x3);
 }
 
 float3x4 test_exp2_Float3x4()
 {
-	float3x4 f3x4_exp2 = exp2(g_f3x4);
-	return f3x4_exp2;
+	return exp2(g_f3x4);
 }
 
 float4x1 test_exp2_Float4x1()
 {
-	float4x1 f4x1_exp2 = exp2(g_f4x1);
-	return f4x1_exp2;
+	return exp2(g_f4x1);
 }
 
 float4x2 test_exp2_Float4x2()
 {
-	float4x2 f4x2_exp2 = exp2(g_f4x2);
-	return f4x2_exp2;
+	return exp2(g_f4x2);
 }
 
 float4x3 test_exp2_Float4x3()
 {
-	float4x3 f4x3_exp2 = exp2(g_f4x3);
-	return f4x3_exp2;
+	return exp2(g_f4x3);
 }
 
 float4x4 test_exp2_Float4x4()
 {
-	float4x4 f4x4_exp2 = exp2(g_f4x4);
-	return f4x4_exp2;
+	return exp2(g_f4x4);
 }
 
 float test_floor_Float()
 {
-	float f_floor = floor(g_f);
-	return f_floor;
+	return floor(g_f);
 }
 
 float1 test_floor_Float1()
 {
-	float1 f1_floor = floor(g_f1);
-	return f1_floor;
+	return floor(g_f1);
 }
 
 float2 test_floor_Float2()
 {
-	float2 f2_floor = floor(g_f2);
-	return f2_floor;
+	return floor(g_f2);
 }
 
 float3 test_floor_Float3()
 {
-	float3 f3_floor = floor(g_f3);
-	return f3_floor;
+	return floor(g_f3);
 }
 
 float4 test_floor_Float4()
 {
-	float4 f4_floor = floor(g_f4);
-	return f4_floor;
+	return floor(g_f4);
 }
 
 float1x1 test_floor_Float1x1()
 {
-	float1x1 f1x1_floor = floor(g_f1x1);
-	return f1x1_floor;
+	return floor(g_f1x1);
 }
 
 float1x2 test_floor_Float1x2()
 {
-	float1x2 f1x2_floor = floor(g_f1x2);
-	return f1x2_floor;
+	return floor(g_f1x2);
 }
 
 float1x3 test_floor_Float1x3()
 {
-	float1x3 f1x3_floor = floor(g_f1x3);
-	return f1x3_floor;
+	return floor(g_f1x3);
 }
 
 float1x4 test_floor_Float1x4()
 {
-	float1x4 f1x4_floor = floor(g_f1x4);
-	return f1x4_floor;
+	return floor(g_f1x4);
 }
 
 float2x1 test_floor_Float2x1()
 {
-	float2x1 f2x1_floor = floor(g_f2x1);
-	return f2x1_floor;
+	return floor(g_f2x1);
 }
 
 float2x2 test_floor_Float2x2()
 {
-	float2x2 f2x2_floor = floor(g_f2x2);
-	return f2x2_floor;
+	return floor(g_f2x2);
 }
 
 float2x3 test_floor_Float2x3()
 {
-	float2x3 f2x3_floor = floor(g_f2x3);
-	return f2x3_floor;
+	return floor(g_f2x3);
 }
 
 float2x4 test_floor_Float2x4()
 {
-	float2x4 f2x4_floor = floor(g_f2x4);
-	return f2x4_floor;
+	return floor(g_f2x4);
 }
 
 float3x1 test_floor_Float3x1()
 {
-	float3x1 f3x1_floor = floor(g_f3x1);
-	return f3x1_floor;
+	return floor(g_f3x1);
 }
 
 float3x2 test_floor_Float3x2()
 {
-	float3x2 f3x2_floor = floor(g_f3x2);
-	return f3x2_floor;
+	return floor(g_f3x2);
 }
 
 float3x3 test_floor_Float3x3()
 {
-	float3x3 f3x3_floor = floor(g_f3x3);
-	return f3x3_floor;
+	return floor(g_f3x3);
 }
 
 float3x4 test_floor_Float3x4()
 {
-	float3x4 f3x4_floor = floor(g_f3x4);
-	return f3x4_floor;
+	return floor(g_f3x4);
 }
 
 float4x1 test_floor_Float4x1()
 {
-	float4x1 f4x1_floor = floor(g_f4x1);
-	return f4x1_floor;
+	return floor(g_f4x1);
 }
 
 float4x2 test_floor_Float4x2()
 {
-	float4x2 f4x2_floor = floor(g_f4x2);
-	return f4x2_floor;
+	return floor(g_f4x2);
 }
 
 float4x3 test_floor_Float4x3()
 {
-	float4x3 f4x3_floor = floor(g_f4x3);
-	return f4x3_floor;
+	return floor(g_f4x3);
 }
 
 float4x4 test_floor_Float4x4()
 {
-	float4x4 f4x4_floor = floor(g_f4x4);
-	return f4x4_floor;
+	return floor(g_f4x4);
+}
+
+float test_fmod_Float(float b)
+{
+	return fmod(g_f, b);
+}
+
+float1 test_fmod_Float1(float1 b)
+{
+	return fmod(g_f1, b);
+}
+
+float2 test_fmod_Float2(float2 b)
+{
+	return fmod(g_f2, b);
+}
+
+float3 test_fmod_Float3(float3 b)
+{
+	return fmod(g_f3, b);
+}
+
+float4 test_fmod_Float4(float4 b)
+{
+	return fmod(g_f4, b);
+}
+
+float1x1 test_fmod_Float1x1(float1x1 b)
+{
+	return fmod(g_f1x1, b);
+}
+
+float1x2 test_fmod_Float1x2(float1x2 b)
+{
+	return fmod(g_f1x2, b);
+}
+
+float1x3 test_fmod_Float1x3(float1x3 b)
+{
+	return fmod(g_f1x3, b);
+}
+
+float1x4 test_fmod_Float1x4(float1x4 b)
+{
+	return fmod(g_f1x4, b);
+}
+
+float2x1 test_fmod_Float2x1(float2x1 b)
+{
+	return fmod(g_f2x1, b);
+}
+
+float2x2 test_fmod_Float2x2(float2x2 b)
+{
+	return fmod(g_f2x2, b);
+}
+
+float2x3 test_fmod_Float2x3(float2x3 b)
+{
+	return fmod(g_f2x3, b);
+}
+
+float2x4 test_fmod_Float2x4(float2x4 b)
+{
+	return fmod(g_f2x4, b);
+}
+
+float3x1 test_fmod_Float3x1(float3x1 b)
+{
+	return fmod(g_f3x1, b);
+}
+
+float3x2 test_fmod_Float3x2(float3x2 b)
+{
+	return fmod(g_f3x2, b);
+}
+
+float3x3 test_fmod_Float3x3(float3x3 b)
+{
+	return fmod(g_f3x3, b);
+}
+
+float3x4 test_fmod_Float3x4(float3x4 b)
+{
+	return fmod(g_f3x4, b);
+}
+
+float4x1 test_fmod_Float4x1(float4x1 b)
+{
+	return fmod(g_f4x1, b);
+}
+
+float4x2 test_fmod_Float4x2(float4x2 b)
+{
+	return fmod(g_f4x2, b);
+}
+
+float4x3 test_fmod_Float4x3(float4x3 b)
+{
+	return fmod(g_f4x3, b);
+}
+
+float4x4 test_fmod_Float4x4(float4x4 b)
+{
+	return fmod(g_f4x4, b);
 }
 
 float test_frac_Float()
 {
-	float f_frac = frac(g_f);
-	return f_frac;
+	return frac(g_f);
 }
 
 float1 test_frac_Float1()
 {
-	float1 f1_frac = frac(g_f1);
-	return f1_frac;
+	return frac(g_f1);
 }
 
 float2 test_frac_Float2()
 {
-	float2 f2_frac = frac(g_f2);
-	return f2_frac;
+	return frac(g_f2);
 }
 
 float3 test_frac_Float3()
 {
-	float3 f3_frac = frac(g_f3);
-	return f3_frac;
+	return frac(g_f3);
 }
 
 float4 test_frac_Float4()
 {
-	float4 f4_frac = frac(g_f4);
-	return f4_frac;
+	return frac(g_f4);
 }
 
 float1x1 test_frac_Float1x1()
 {
-	float1x1 f1x1_frac = frac(g_f1x1);
-	return f1x1_frac;
+	return frac(g_f1x1);
 }
 
 float1x2 test_frac_Float1x2()
 {
-	float1x2 f1x2_frac = frac(g_f1x2);
-	return f1x2_frac;
+	return frac(g_f1x2);
 }
 
 float1x3 test_frac_Float1x3()
 {
-	float1x3 f1x3_frac = frac(g_f1x3);
-	return f1x3_frac;
+	return frac(g_f1x3);
 }
 
 float1x4 test_frac_Float1x4()
 {
-	float1x4 f1x4_frac = frac(g_f1x4);
-	return f1x4_frac;
+	return frac(g_f1x4);
 }
 
 float2x1 test_frac_Float2x1()
 {
-	float2x1 f2x1_frac = frac(g_f2x1);
-	return f2x1_frac;
+	return frac(g_f2x1);
 }
 
 float2x2 test_frac_Float2x2()
 {
-	float2x2 f2x2_frac = frac(g_f2x2);
-	return f2x2_frac;
+	return frac(g_f2x2);
 }
 
 float2x3 test_frac_Float2x3()
 {
-	float2x3 f2x3_frac = frac(g_f2x3);
-	return f2x3_frac;
+	return frac(g_f2x3);
 }
 
 float2x4 test_frac_Float2x4()
 {
-	float2x4 f2x4_frac = frac(g_f2x4);
-	return f2x4_frac;
+	return frac(g_f2x4);
 }
 
 float3x1 test_frac_Float3x1()
 {
-	float3x1 f3x1_frac = frac(g_f3x1);
-	return f3x1_frac;
+	return frac(g_f3x1);
 }
 
 float3x2 test_frac_Float3x2()
 {
-	float3x2 f3x2_frac = frac(g_f3x2);
-	return f3x2_frac;
+	return frac(g_f3x2);
 }
 
 float3x3 test_frac_Float3x3()
 {
-	float3x3 f3x3_frac = frac(g_f3x3);
-	return f3x3_frac;
+	return frac(g_f3x3);
 }
 
 float3x4 test_frac_Float3x4()
 {
-	float3x4 f3x4_frac = frac(g_f3x4);
-	return f3x4_frac;
+	return frac(g_f3x4);
 }
 
 float4x1 test_frac_Float4x1()
 {
-	float4x1 f4x1_frac = frac(g_f4x1);
-	return f4x1_frac;
+	return frac(g_f4x1);
 }
 
 float4x2 test_frac_Float4x2()
 {
-	float4x2 f4x2_frac = frac(g_f4x2);
-	return f4x2_frac;
+	return frac(g_f4x2);
 }
 
 float4x3 test_frac_Float4x3()
 {
-	float4x3 f4x3_frac = frac(g_f4x3);
-	return f4x3_frac;
+	return frac(g_f4x3);
 }
 
 float4x4 test_frac_Float4x4()
 {
-	float4x4 f4x4_frac = frac(g_f4x4);
-	return f4x4_frac;
+	return frac(g_f4x4);
 }
 
 float test_fwidth_Float()
 {
-	float f_fwidth = fwidth(g_f);
-	return f_fwidth;
+	return fwidth(g_f);
 }
 
 float1 test_fwidth_Float1()
 {
-	float1 f1_fwidth = fwidth(g_f1);
-	return f1_fwidth;
+	return fwidth(g_f1);
 }
 
 float2 test_fwidth_Float2()
 {
-	float2 f2_fwidth = fwidth(g_f2);
-	return f2_fwidth;
+	return fwidth(g_f2);
 }
 
 float3 test_fwidth_Float3()
 {
-	float3 f3_fwidth = fwidth(g_f3);
-	return f3_fwidth;
+	return fwidth(g_f3);
 }
 
 float4 test_fwidth_Float4()
 {
-	float4 f4_fwidth = fwidth(g_f4);
-	return f4_fwidth;
+	return fwidth(g_f4);
 }
 
 float1x1 test_fwidth_Float1x1()
 {
-	float1x1 f1x1_fwidth = fwidth(g_f1x1);
-	return f1x1_fwidth;
+	return fwidth(g_f1x1);
 }
 
 float1x2 test_fwidth_Float1x2()
 {
-	float1x2 f1x2_fwidth = fwidth(g_f1x2);
-	return f1x2_fwidth;
+	return fwidth(g_f1x2);
 }
 
 float1x3 test_fwidth_Float1x3()
 {
-	float1x3 f1x3_fwidth = fwidth(g_f1x3);
-	return f1x3_fwidth;
+	return fwidth(g_f1x3);
 }
 
 float1x4 test_fwidth_Float1x4()
 {
-	float1x4 f1x4_fwidth = fwidth(g_f1x4);
-	return f1x4_fwidth;
+	return fwidth(g_f1x4);
 }
 
 float2x1 test_fwidth_Float2x1()
 {
-	float2x1 f2x1_fwidth = fwidth(g_f2x1);
-	return f2x1_fwidth;
+	return fwidth(g_f2x1);
 }
 
 float2x2 test_fwidth_Float2x2()
 {
-	float2x2 f2x2_fwidth = fwidth(g_f2x2);
-	return f2x2_fwidth;
+	return fwidth(g_f2x2);
 }
 
 float2x3 test_fwidth_Float2x3()
 {
-	float2x3 f2x3_fwidth = fwidth(g_f2x3);
-	return f2x3_fwidth;
+	return fwidth(g_f2x3);
 }
 
 float2x4 test_fwidth_Float2x4()
 {
-	float2x4 f2x4_fwidth = fwidth(g_f2x4);
-	return f2x4_fwidth;
+	return fwidth(g_f2x4);
 }
 
 float3x1 test_fwidth_Float3x1()
 {
-	float3x1 f3x1_fwidth = fwidth(g_f3x1);
-	return f3x1_fwidth;
+	return fwidth(g_f3x1);
 }
 
 float3x2 test_fwidth_Float3x2()
 {
-	float3x2 f3x2_fwidth = fwidth(g_f3x2);
-	return f3x2_fwidth;
+	return fwidth(g_f3x2);
 }
 
 float3x3 test_fwidth_Float3x3()
 {
-	float3x3 f3x3_fwidth = fwidth(g_f3x3);
-	return f3x3_fwidth;
+	return fwidth(g_f3x3);
 }
 
 float3x4 test_fwidth_Float3x4()
 {
-	float3x4 f3x4_fwidth = fwidth(g_f3x4);
-	return f3x4_fwidth;
+	return fwidth(g_f3x4);
 }
 
 float4x1 test_fwidth_Float4x1()
 {
-	float4x1 f4x1_fwidth = fwidth(g_f4x1);
-	return f4x1_fwidth;
+	return fwidth(g_f4x1);
 }
 
 float4x2 test_fwidth_Float4x2()
 {
-	float4x2 f4x2_fwidth = fwidth(g_f4x2);
-	return f4x2_fwidth;
+	return fwidth(g_f4x2);
 }
 
 float4x3 test_fwidth_Float4x3()
 {
-	float4x3 f4x3_fwidth = fwidth(g_f4x3);
-	return f4x3_fwidth;
+	return fwidth(g_f4x3);
 }
 
 float4x4 test_fwidth_Float4x4()
 {
-	float4x4 f4x4_fwidth = fwidth(g_f4x4);
-	return f4x4_fwidth;
+	return fwidth(g_f4x4);
+}
+
+float test_ldexp_Float(float exp)
+{
+	return ldexp(g_f, exp);
+}
+
+float1 test_ldexp_Float1(float1 exp)
+{
+	return ldexp(g_f1, exp);
+}
+
+float2 test_ldexp_Float2(float2 exp)
+{
+	return ldexp(g_f2, exp);
+}
+
+float3 test_ldexp_Float3(float3 exp)
+{
+	return ldexp(g_f3, exp);
+}
+
+float4 test_ldexp_Float4(float4 exp)
+{
+	return ldexp(g_f4, exp);
+}
+
+float1x1 test_ldexp_Float1x1(float1x1 exp)
+{
+	return ldexp(g_f1x1, exp);
+}
+
+float1x2 test_ldexp_Float1x2(float1x2 exp)
+{
+	return ldexp(g_f1x2, exp);
+}
+
+float1x3 test_ldexp_Float1x3(float1x3 exp)
+{
+	return ldexp(g_f1x3, exp);
+}
+
+float1x4 test_ldexp_Float1x4(float1x4 exp)
+{
+	return ldexp(g_f1x4, exp);
+}
+
+float2x1 test_ldexp_Float2x1(float2x1 exp)
+{
+	return ldexp(g_f2x1, exp);
+}
+
+float2x2 test_ldexp_Float2x2(float2x2 exp)
+{
+	return ldexp(g_f2x2, exp);
+}
+
+float2x3 test_ldexp_Float2x3(float2x3 exp)
+{
+	return ldexp(g_f2x3, exp);
+}
+
+float2x4 test_ldexp_Float2x4(float2x4 exp)
+{
+	return ldexp(g_f2x4, exp);
+}
+
+float3x1 test_ldexp_Float3x1(float3x1 exp)
+{
+	return ldexp(g_f3x1, exp);
+}
+
+float3x2 test_ldexp_Float3x2(float3x2 exp)
+{
+	return ldexp(g_f3x2, exp);
+}
+
+float3x3 test_ldexp_Float3x3(float3x3 exp)
+{
+	return ldexp(g_f3x3, exp);
+}
+
+float3x4 test_ldexp_Float3x4(float3x4 exp)
+{
+	return ldexp(g_f3x4, exp);
+}
+
+float4x1 test_ldexp_Float4x1(float4x1 exp)
+{
+	return ldexp(g_f4x1, exp);
+}
+
+float4x2 test_ldexp_Float4x2(float4x2 exp)
+{
+	return ldexp(g_f4x2, exp);
+}
+
+float4x3 test_ldexp_Float4x3(float4x3 exp)
+{
+	return ldexp(g_f4x3, exp);
+}
+
+float4x4 test_ldexp_Float4x4(float4x4 exp)
+{
+	return ldexp(g_f4x4, exp);
+}
+
+float test_lerp_Float(float a, float b)
+{
+	return lerp(a, b, g_f);
+}
+
+float1 test_lerp_Float1(float1 a, float1 b)
+{
+	return lerp(a, b, g_f1);
+}
+
+float2 test_lerp_Float2(float2 a, float2 b)
+{
+	return lerp(a, b, g_f2);
+}
+
+float3 test_lerp_Float3(float3 a, float3 b)
+{
+	return lerp(a, b, g_f3);
+}
+
+float4 test_lerp_Float4(float4 a, float4 b)
+{
+	return lerp(a, b, g_f4);
+}
+
+float1x1 test_lerp_Float1x1(float1x1 a, float1x1 b)
+{
+	return lerp(a, b, g_f1x1);
+}
+
+float1x2 test_lerp_Float1x2(float1x2 a, float1x2 b)
+{
+	return lerp(a, b, g_f1x2);
+}
+
+float1x3 test_lerp_Float1x3(float1x3 a, float1x3 b)
+{
+	return lerp(a, b, g_f1x3);
+}
+
+float1x4 test_lerp_Float1x4(float1x4 a, float1x4 b)
+{
+	return lerp(a, b, g_f1x4);
+}
+
+float2x1 test_lerp_Float2x1(float2x1 a, float2x1 b)
+{
+	return lerp(a, b, g_f2x1);
+}
+
+float2x2 test_lerp_Float2x2(float2x2 a, float2x2 b)
+{
+	return lerp(a, b, g_f2x2);
+}
+
+float2x3 test_lerp_Float2x3(float2x3 a, float2x3 b)
+{
+	return lerp(a, b, g_f2x3);
+}
+
+float2x4 test_lerp_Float2x4(float2x4 a, float2x4 b)
+{
+	return lerp(a, b, g_f2x4);
+}
+
+float3x1 test_lerp_Float3x1(float3x1 a, float3x1 b)
+{
+	return lerp(a, b, g_f3x1);
+}
+
+float3x2 test_lerp_Float3x2(float3x2 a, float3x2 b)
+{
+	return lerp(a, b, g_f3x2);
+}
+
+float3x3 test_lerp_Float3x3(float3x3 a, float3x3 b)
+{
+	return lerp(a, b, g_f3x3);
+}
+
+float3x4 test_lerp_Float3x4(float3x4 a, float3x4 b)
+{
+	return lerp(a, b, g_f3x4);
+}
+
+float4x1 test_lerp_Float4x1(float4x1 a, float4x1 b)
+{
+	return lerp(a, b, g_f4x1);
+}
+
+float4x2 test_lerp_Float4x2(float4x2 a, float4x2 b)
+{
+	return lerp(a, b, g_f4x2);
+}
+
+float4x3 test_lerp_Float4x3(float4x3 a, float4x3 b)
+{
+	return lerp(a, b, g_f4x3);
+}
+
+float4x4 test_lerp_Float4x4(float4x4 a, float4x4 b)
+{
+	return lerp(a, b, g_f4x4);
 }
 
 float test_log_Float()
 {
-	float f_log = log(g_f);
-	return f_log;
+	return log(g_f);
 }
 
 float1 test_log_Float1()
 {
-	float1 f1_log = log(g_f1);
-	return f1_log;
+	return log(g_f1);
 }
 
 float2 test_log_Float2()
 {
-	float2 f2_log = log(g_f2);
-	return f2_log;
+	return log(g_f2);
 }
 
 float3 test_log_Float3()
 {
-	float3 f3_log = log(g_f3);
-	return f3_log;
+	return log(g_f3);
 }
 
 float4 test_log_Float4()
 {
-	float4 f4_log = log(g_f4);
-	return f4_log;
+	return log(g_f4);
 }
 
 float1x1 test_log_Float1x1()
 {
-	float1x1 f1x1_log = log(g_f1x1);
-	return f1x1_log;
+	return log(g_f1x1);
 }
 
 float1x2 test_log_Float1x2()
 {
-	float1x2 f1x2_log = log(g_f1x2);
-	return f1x2_log;
+	return log(g_f1x2);
 }
 
 float1x3 test_log_Float1x3()
 {
-	float1x3 f1x3_log = log(g_f1x3);
-	return f1x3_log;
+	return log(g_f1x3);
 }
 
 float1x4 test_log_Float1x4()
 {
-	float1x4 f1x4_log = log(g_f1x4);
-	return f1x4_log;
+	return log(g_f1x4);
 }
 
 float2x1 test_log_Float2x1()
 {
-	float2x1 f2x1_log = log(g_f2x1);
-	return f2x1_log;
+	return log(g_f2x1);
 }
 
 float2x2 test_log_Float2x2()
 {
-	float2x2 f2x2_log = log(g_f2x2);
-	return f2x2_log;
+	return log(g_f2x2);
 }
 
 float2x3 test_log_Float2x3()
 {
-	float2x3 f2x3_log = log(g_f2x3);
-	return f2x3_log;
+	return log(g_f2x3);
 }
 
 float2x4 test_log_Float2x4()
 {
-	float2x4 f2x4_log = log(g_f2x4);
-	return f2x4_log;
+	return log(g_f2x4);
 }
 
 float3x1 test_log_Float3x1()
 {
-	float3x1 f3x1_log = log(g_f3x1);
-	return f3x1_log;
+	return log(g_f3x1);
 }
 
 float3x2 test_log_Float3x2()
 {
-	float3x2 f3x2_log = log(g_f3x2);
-	return f3x2_log;
+	return log(g_f3x2);
 }
 
 float3x3 test_log_Float3x3()
 {
-	float3x3 f3x3_log = log(g_f3x3);
-	return f3x3_log;
+	return log(g_f3x3);
 }
 
 float3x4 test_log_Float3x4()
 {
-	float3x4 f3x4_log = log(g_f3x4);
-	return f3x4_log;
+	return log(g_f3x4);
 }
 
 float4x1 test_log_Float4x1()
 {
-	float4x1 f4x1_log = log(g_f4x1);
-	return f4x1_log;
+	return log(g_f4x1);
 }
 
 float4x2 test_log_Float4x2()
 {
-	float4x2 f4x2_log = log(g_f4x2);
-	return f4x2_log;
+	return log(g_f4x2);
 }
 
 float4x3 test_log_Float4x3()
 {
-	float4x3 f4x3_log = log(g_f4x3);
-	return f4x3_log;
+	return log(g_f4x3);
 }
 
 float4x4 test_log_Float4x4()
 {
-	float4x4 f4x4_log = log(g_f4x4);
-	return f4x4_log;
+	return log(g_f4x4);
 }
 
 float test_log10_Float()
 {
-	float f_log10 = log10(g_f);
-	return f_log10;
+	return log10(g_f);
 }
 
 float1 test_log10_Float1()
 {
-	float1 f1_log10 = log10(g_f1);
-	return f1_log10;
+	return log10(g_f1);
 }
 
 float2 test_log10_Float2()
 {
-	float2 f2_log10 = log10(g_f2);
-	return f2_log10;
+	return log10(g_f2);
 }
 
 float3 test_log10_Float3()
 {
-	float3 f3_log10 = log10(g_f3);
-	return f3_log10;
+	return log10(g_f3);
 }
 
 float4 test_log10_Float4()
 {
-	float4 f4_log10 = log10(g_f4);
-	return f4_log10;
+	return log10(g_f4);
 }
 
 float1x1 test_log10_Float1x1()
 {
-	float1x1 f1x1_log10 = log10(g_f1x1);
-	return f1x1_log10;
+	return log10(g_f1x1);
 }
 
 float1x2 test_log10_Float1x2()
 {
-	float1x2 f1x2_log10 = log10(g_f1x2);
-	return f1x2_log10;
+	return log10(g_f1x2);
 }
 
 float1x3 test_log10_Float1x3()
 {
-	float1x3 f1x3_log10 = log10(g_f1x3);
-	return f1x3_log10;
+	return log10(g_f1x3);
 }
 
 float1x4 test_log10_Float1x4()
 {
-	float1x4 f1x4_log10 = log10(g_f1x4);
-	return f1x4_log10;
+	return log10(g_f1x4);
 }
 
 float2x1 test_log10_Float2x1()
 {
-	float2x1 f2x1_log10 = log10(g_f2x1);
-	return f2x1_log10;
+	return log10(g_f2x1);
 }
 
 float2x2 test_log10_Float2x2()
 {
-	float2x2 f2x2_log10 = log10(g_f2x2);
-	return f2x2_log10;
+	return log10(g_f2x2);
 }
 
 float2x3 test_log10_Float2x3()
 {
-	float2x3 f2x3_log10 = log10(g_f2x3);
-	return f2x3_log10;
+	return log10(g_f2x3);
 }
 
 float2x4 test_log10_Float2x4()
 {
-	float2x4 f2x4_log10 = log10(g_f2x4);
-	return f2x4_log10;
+	return log10(g_f2x4);
 }
 
 float3x1 test_log10_Float3x1()
 {
-	float3x1 f3x1_log10 = log10(g_f3x1);
-	return f3x1_log10;
+	return log10(g_f3x1);
 }
 
 float3x2 test_log10_Float3x2()
 {
-	float3x2 f3x2_log10 = log10(g_f3x2);
-	return f3x2_log10;
+	return log10(g_f3x2);
 }
 
 float3x3 test_log10_Float3x3()
 {
-	float3x3 f3x3_log10 = log10(g_f3x3);
-	return f3x3_log10;
+	return log10(g_f3x3);
 }
 
 float3x4 test_log10_Float3x4()
 {
-	float3x4 f3x4_log10 = log10(g_f3x4);
-	return f3x4_log10;
+	return log10(g_f3x4);
 }
 
 float4x1 test_log10_Float4x1()
 {
-	float4x1 f4x1_log10 = log10(g_f4x1);
-	return f4x1_log10;
+	return log10(g_f4x1);
 }
 
 float4x2 test_log10_Float4x2()
 {
-	float4x2 f4x2_log10 = log10(g_f4x2);
-	return f4x2_log10;
+	return log10(g_f4x2);
 }
 
 float4x3 test_log10_Float4x3()
 {
-	float4x3 f4x3_log10 = log10(g_f4x3);
-	return f4x3_log10;
+	return log10(g_f4x3);
 }
 
 float4x4 test_log10_Float4x4()
 {
-	float4x4 f4x4_log10 = log10(g_f4x4);
-	return f4x4_log10;
+	return log10(g_f4x4);
 }
 
 float test_log2_Float()
 {
-	float f_log2 = log2(g_f);
-	return f_log2;
+	return log2(g_f);
 }
 
 float1 test_log2_Float1()
 {
-	float1 f1_log2 = log2(g_f1);
-	return f1_log2;
+	return log2(g_f1);
 }
 
 float2 test_log2_Float2()
 {
-	float2 f2_log2 = log2(g_f2);
-	return f2_log2;
+	return log2(g_f2);
 }
 
 float3 test_log2_Float3()
 {
-	float3 f3_log2 = log2(g_f3);
-	return f3_log2;
+	return log2(g_f3);
 }
 
 float4 test_log2_Float4()
 {
-	float4 f4_log2 = log2(g_f4);
-	return f4_log2;
+	return log2(g_f4);
 }
 
 float1x1 test_log2_Float1x1()
 {
-	float1x1 f1x1_log2 = log2(g_f1x1);
-	return f1x1_log2;
+	return log2(g_f1x1);
 }
 
 float1x2 test_log2_Float1x2()
 {
-	float1x2 f1x2_log2 = log2(g_f1x2);
-	return f1x2_log2;
+	return log2(g_f1x2);
 }
 
 float1x3 test_log2_Float1x3()
 {
-	float1x3 f1x3_log2 = log2(g_f1x3);
-	return f1x3_log2;
+	return log2(g_f1x3);
 }
 
 float1x4 test_log2_Float1x4()
 {
-	float1x4 f1x4_log2 = log2(g_f1x4);
-	return f1x4_log2;
+	return log2(g_f1x4);
 }
 
 float2x1 test_log2_Float2x1()
 {
-	float2x1 f2x1_log2 = log2(g_f2x1);
-	return f2x1_log2;
+	return log2(g_f2x1);
 }
 
 float2x2 test_log2_Float2x2()
 {
-	float2x2 f2x2_log2 = log2(g_f2x2);
-	return f2x2_log2;
+	return log2(g_f2x2);
 }
 
 float2x3 test_log2_Float2x3()
 {
-	float2x3 f2x3_log2 = log2(g_f2x3);
-	return f2x3_log2;
+	return log2(g_f2x3);
 }
 
 float2x4 test_log2_Float2x4()
 {
-	float2x4 f2x4_log2 = log2(g_f2x4);
-	return f2x4_log2;
+	return log2(g_f2x4);
 }
 
 float3x1 test_log2_Float3x1()
 {
-	float3x1 f3x1_log2 = log2(g_f3x1);
-	return f3x1_log2;
+	return log2(g_f3x1);
 }
 
 float3x2 test_log2_Float3x2()
 {
-	float3x2 f3x2_log2 = log2(g_f3x2);
-	return f3x2_log2;
+	return log2(g_f3x2);
 }
 
 float3x3 test_log2_Float3x3()
 {
-	float3x3 f3x3_log2 = log2(g_f3x3);
-	return f3x3_log2;
+	return log2(g_f3x3);
 }
 
 float3x4 test_log2_Float3x4()
 {
-	float3x4 f3x4_log2 = log2(g_f3x4);
-	return f3x4_log2;
+	return log2(g_f3x4);
 }
 
 float4x1 test_log2_Float4x1()
 {
-	float4x1 f4x1_log2 = log2(g_f4x1);
-	return f4x1_log2;
+	return log2(g_f4x1);
 }
 
 float4x2 test_log2_Float4x2()
 {
-	float4x2 f4x2_log2 = log2(g_f4x2);
-	return f4x2_log2;
+	return log2(g_f4x2);
 }
 
 float4x3 test_log2_Float4x3()
 {
-	float4x3 f4x3_log2 = log2(g_f4x3);
-	return f4x3_log2;
+	return log2(g_f4x3);
 }
 
 float4x4 test_log2_Float4x4()
 {
-	float4x4 f4x4_log2 = log2(g_f4x4);
-	return f4x4_log2;
+	return log2(g_f4x4);
+}
+
+float test_modf_Float(float ip)
+{
+	return modf(g_f, ip);
+}
+
+float1 test_modf_Float1(float1 ip)
+{
+	return modf(g_f1, ip);
+}
+
+float2 test_modf_Float2(float2 ip)
+{
+	return modf(g_f2, ip);
+}
+
+float3 test_modf_Float3(float3 ip)
+{
+	return modf(g_f3, ip);
+}
+
+float4 test_modf_Float4(float4 ip)
+{
+	return modf(g_f4, ip);
+}
+
+float1x1 test_modf_Float1x1(float1x1 ip)
+{
+	return modf(g_f1x1, ip);
+}
+
+float1x2 test_modf_Float1x2(float1x2 ip)
+{
+	return modf(g_f1x2, ip);
+}
+
+float1x3 test_modf_Float1x3(float1x3 ip)
+{
+	return modf(g_f1x3, ip);
+}
+
+float1x4 test_modf_Float1x4(float1x4 ip)
+{
+	return modf(g_f1x4, ip);
+}
+
+float2x1 test_modf_Float2x1(float2x1 ip)
+{
+	return modf(g_f2x1, ip);
+}
+
+float2x2 test_modf_Float2x2(float2x2 ip)
+{
+	return modf(g_f2x2, ip);
+}
+
+float2x3 test_modf_Float2x3(float2x3 ip)
+{
+	return modf(g_f2x3, ip);
+}
+
+float2x4 test_modf_Float2x4(float2x4 ip)
+{
+	return modf(g_f2x4, ip);
+}
+
+float3x1 test_modf_Float3x1(float3x1 ip)
+{
+	return modf(g_f3x1, ip);
+}
+
+float3x2 test_modf_Float3x2(float3x2 ip)
+{
+	return modf(g_f3x2, ip);
+}
+
+float3x3 test_modf_Float3x3(float3x3 ip)
+{
+	return modf(g_f3x3, ip);
+}
+
+float3x4 test_modf_Float3x4(float3x4 ip)
+{
+	return modf(g_f3x4, ip);
+}
+
+float4x1 test_modf_Float4x1(float4x1 ip)
+{
+	return modf(g_f4x1, ip);
+}
+
+float4x2 test_modf_Float4x2(float4x2 ip)
+{
+	return modf(g_f4x2, ip);
+}
+
+float4x3 test_modf_Float4x3(float4x3 ip)
+{
+	return modf(g_f4x3, ip);
+}
+
+float4x4 test_modf_Float4x4(float4x4 ip)
+{
+	return modf(g_f4x4, ip);
+}
+
+float test_pow_Float(float y)
+{
+	return pow(g_f, y);
+}
+
+float1 test_pow_Float1(float1 y)
+{
+	return pow(g_f1, y);
+}
+
+float2 test_pow_Float2(float2 y)
+{
+	return pow(g_f2, y);
+}
+
+float3 test_pow_Float3(float3 y)
+{
+	return pow(g_f3, y);
+}
+
+float4 test_pow_Float4(float4 y)
+{
+	return pow(g_f4, y);
+}
+
+float1x1 test_pow_Float1x1(float1x1 y)
+{
+	return pow(g_f1x1, y);
+}
+
+float1x2 test_pow_Float1x2(float1x2 y)
+{
+	return pow(g_f1x2, y);
+}
+
+float1x3 test_pow_Float1x3(float1x3 y)
+{
+	return pow(g_f1x3, y);
+}
+
+float1x4 test_pow_Float1x4(float1x4 y)
+{
+	return pow(g_f1x4, y);
+}
+
+float2x1 test_pow_Float2x1(float2x1 y)
+{
+	return pow(g_f2x1, y);
+}
+
+float2x2 test_pow_Float2x2(float2x2 y)
+{
+	return pow(g_f2x2, y);
+}
+
+float2x3 test_pow_Float2x3(float2x3 y)
+{
+	return pow(g_f2x3, y);
+}
+
+float2x4 test_pow_Float2x4(float2x4 y)
+{
+	return pow(g_f2x4, y);
+}
+
+float3x1 test_pow_Float3x1(float3x1 y)
+{
+	return pow(g_f3x1, y);
+}
+
+float3x2 test_pow_Float3x2(float3x2 y)
+{
+	return pow(g_f3x2, y);
+}
+
+float3x3 test_pow_Float3x3(float3x3 y)
+{
+	return pow(g_f3x3, y);
+}
+
+float3x4 test_pow_Float3x4(float3x4 y)
+{
+	return pow(g_f3x4, y);
+}
+
+float4x1 test_pow_Float4x1(float4x1 y)
+{
+	return pow(g_f4x1, y);
+}
+
+float4x2 test_pow_Float4x2(float4x2 y)
+{
+	return pow(g_f4x2, y);
+}
+
+float4x3 test_pow_Float4x3(float4x3 y)
+{
+	return pow(g_f4x3, y);
+}
+
+float4x4 test_pow_Float4x4(float4x4 y)
+{
+	return pow(g_f4x4, y);
 }
 
 float test_radians_Float()
 {
-	float f_radians = radians(g_f);
-	return f_radians;
+	return radians(g_f);
 }
 
 float1 test_radians_Float1()
 {
-	float1 f1_radians = radians(g_f1);
-	return f1_radians;
+	return radians(g_f1);
 }
 
 float2 test_radians_Float2()
 {
-	float2 f2_radians = radians(g_f2);
-	return f2_radians;
+	return radians(g_f2);
 }
 
 float3 test_radians_Float3()
 {
-	float3 f3_radians = radians(g_f3);
-	return f3_radians;
+	return radians(g_f3);
 }
 
 float4 test_radians_Float4()
 {
-	float4 f4_radians = radians(g_f4);
-	return f4_radians;
+	return radians(g_f4);
 }
 
 float1x1 test_radians_Float1x1()
 {
-	float1x1 f1x1_radians = radians(g_f1x1);
-	return f1x1_radians;
+	return radians(g_f1x1);
 }
 
 float1x2 test_radians_Float1x2()
 {
-	float1x2 f1x2_radians = radians(g_f1x2);
-	return f1x2_radians;
+	return radians(g_f1x2);
 }
 
 float1x3 test_radians_Float1x3()
 {
-	float1x3 f1x3_radians = radians(g_f1x3);
-	return f1x3_radians;
+	return radians(g_f1x3);
 }
 
 float1x4 test_radians_Float1x4()
 {
-	float1x4 f1x4_radians = radians(g_f1x4);
-	return f1x4_radians;
+	return radians(g_f1x4);
 }
 
 float2x1 test_radians_Float2x1()
 {
-	float2x1 f2x1_radians = radians(g_f2x1);
-	return f2x1_radians;
+	return radians(g_f2x1);
 }
 
 float2x2 test_radians_Float2x2()
 {
-	float2x2 f2x2_radians = radians(g_f2x2);
-	return f2x2_radians;
+	return radians(g_f2x2);
 }
 
 float2x3 test_radians_Float2x3()
 {
-	float2x3 f2x3_radians = radians(g_f2x3);
-	return f2x3_radians;
+	return radians(g_f2x3);
 }
 
 float2x4 test_radians_Float2x4()
 {
-	float2x4 f2x4_radians = radians(g_f2x4);
-	return f2x4_radians;
+	return radians(g_f2x4);
 }
 
 float3x1 test_radians_Float3x1()
 {
-	float3x1 f3x1_radians = radians(g_f3x1);
-	return f3x1_radians;
+	return radians(g_f3x1);
 }
 
 float3x2 test_radians_Float3x2()
 {
-	float3x2 f3x2_radians = radians(g_f3x2);
-	return f3x2_radians;
+	return radians(g_f3x2);
 }
 
 float3x3 test_radians_Float3x3()
 {
-	float3x3 f3x3_radians = radians(g_f3x3);
-	return f3x3_radians;
+	return radians(g_f3x3);
 }
 
 float3x4 test_radians_Float3x4()
 {
-	float3x4 f3x4_radians = radians(g_f3x4);
-	return f3x4_radians;
+	return radians(g_f3x4);
 }
 
 float4x1 test_radians_Float4x1()
 {
-	float4x1 f4x1_radians = radians(g_f4x1);
-	return f4x1_radians;
+	return radians(g_f4x1);
 }
 
 float4x2 test_radians_Float4x2()
 {
-	float4x2 f4x2_radians = radians(g_f4x2);
-	return f4x2_radians;
+	return radians(g_f4x2);
 }
 
 float4x3 test_radians_Float4x3()
 {
-	float4x3 f4x3_radians = radians(g_f4x3);
-	return f4x3_radians;
+	return radians(g_f4x3);
 }
 
 float4x4 test_radians_Float4x4()
 {
-	float4x4 f4x4_radians = radians(g_f4x4);
-	return f4x4_radians;
+	return radians(g_f4x4);
 }
 
 float test_rcp_Float()
 {
-	float f_rcp = rcp(g_f);
-	return f_rcp;
+	return rcp(g_f);
 }
 
 float1 test_rcp_Float1()
 {
-	float1 f1_rcp = rcp(g_f1);
-	return f1_rcp;
+	return rcp(g_f1);
 }
 
 float2 test_rcp_Float2()
 {
-	float2 f2_rcp = rcp(g_f2);
-	return f2_rcp;
+	return rcp(g_f2);
 }
 
 float3 test_rcp_Float3()
 {
-	float3 f3_rcp = rcp(g_f3);
-	return f3_rcp;
+	return rcp(g_f3);
 }
 
 float4 test_rcp_Float4()
 {
-	float4 f4_rcp = rcp(g_f4);
-	return f4_rcp;
+	return rcp(g_f4);
 }
 
 float1x1 test_rcp_Float1x1()
 {
-	float1x1 f1x1_rcp = rcp(g_f1x1);
-	return f1x1_rcp;
+	return rcp(g_f1x1);
 }
 
 float1x2 test_rcp_Float1x2()
 {
-	float1x2 f1x2_rcp = rcp(g_f1x2);
-	return f1x2_rcp;
+	return rcp(g_f1x2);
 }
 
 float1x3 test_rcp_Float1x3()
 {
-	float1x3 f1x3_rcp = rcp(g_f1x3);
-	return f1x3_rcp;
+	return rcp(g_f1x3);
 }
 
 float1x4 test_rcp_Float1x4()
 {
-	float1x4 f1x4_rcp = rcp(g_f1x4);
-	return f1x4_rcp;
+	return rcp(g_f1x4);
 }
 
 float2x1 test_rcp_Float2x1()
 {
-	float2x1 f2x1_rcp = rcp(g_f2x1);
-	return f2x1_rcp;
+	return rcp(g_f2x1);
 }
 
 float2x2 test_rcp_Float2x2()
 {
-	float2x2 f2x2_rcp = rcp(g_f2x2);
-	return f2x2_rcp;
+	return rcp(g_f2x2);
 }
 
 float2x3 test_rcp_Float2x3()
 {
-	float2x3 f2x3_rcp = rcp(g_f2x3);
-	return f2x3_rcp;
+	return rcp(g_f2x3);
 }
 
 float2x4 test_rcp_Float2x4()
 {
-	float2x4 f2x4_rcp = rcp(g_f2x4);
-	return f2x4_rcp;
+	return rcp(g_f2x4);
 }
 
 float3x1 test_rcp_Float3x1()
 {
-	float3x1 f3x1_rcp = rcp(g_f3x1);
-	return f3x1_rcp;
+	return rcp(g_f3x1);
 }
 
 float3x2 test_rcp_Float3x2()
 {
-	float3x2 f3x2_rcp = rcp(g_f3x2);
-	return f3x2_rcp;
+	return rcp(g_f3x2);
 }
 
 float3x3 test_rcp_Float3x3()
 {
-	float3x3 f3x3_rcp = rcp(g_f3x3);
-	return f3x3_rcp;
+	return rcp(g_f3x3);
 }
 
 float3x4 test_rcp_Float3x4()
 {
-	float3x4 f3x4_rcp = rcp(g_f3x4);
-	return f3x4_rcp;
+	return rcp(g_f3x4);
 }
 
 float4x1 test_rcp_Float4x1()
 {
-	float4x1 f4x1_rcp = rcp(g_f4x1);
-	return f4x1_rcp;
+	return rcp(g_f4x1);
 }
 
 float4x2 test_rcp_Float4x2()
 {
-	float4x2 f4x2_rcp = rcp(g_f4x2);
-	return f4x2_rcp;
+	return rcp(g_f4x2);
 }
 
 float4x3 test_rcp_Float4x3()
 {
-	float4x3 f4x3_rcp = rcp(g_f4x3);
-	return f4x3_rcp;
+	return rcp(g_f4x3);
 }
 
 float4x4 test_rcp_Float4x4()
 {
-	float4x4 f4x4_rcp = rcp(g_f4x4);
-	return f4x4_rcp;
+	return rcp(g_f4x4);
 }
 
 float test_round_Float()
 {
-	float f_round = round(g_f);
-	return f_round;
+	return round(g_f);
 }
 
 float1 test_round_Float1()
 {
-	float1 f1_round = round(g_f1);
-	return f1_round;
+	return round(g_f1);
 }
 
 float2 test_round_Float2()
 {
-	float2 f2_round = round(g_f2);
-	return f2_round;
+	return round(g_f2);
 }
 
 float3 test_round_Float3()
 {
-	float3 f3_round = round(g_f3);
-	return f3_round;
+	return round(g_f3);
 }
 
 float4 test_round_Float4()
 {
-	float4 f4_round = round(g_f4);
-	return f4_round;
+	return round(g_f4);
 }
 
 float1x1 test_round_Float1x1()
 {
-	float1x1 f1x1_round = round(g_f1x1);
-	return f1x1_round;
+	return round(g_f1x1);
 }
 
 float1x2 test_round_Float1x2()
 {
-	float1x2 f1x2_round = round(g_f1x2);
-	return f1x2_round;
+	return round(g_f1x2);
 }
 
 float1x3 test_round_Float1x3()
 {
-	float1x3 f1x3_round = round(g_f1x3);
-	return f1x3_round;
+	return round(g_f1x3);
 }
 
 float1x4 test_round_Float1x4()
 {
-	float1x4 f1x4_round = round(g_f1x4);
-	return f1x4_round;
+	return round(g_f1x4);
 }
 
 float2x1 test_round_Float2x1()
 {
-	float2x1 f2x1_round = round(g_f2x1);
-	return f2x1_round;
+	return round(g_f2x1);
 }
 
 float2x2 test_round_Float2x2()
 {
-	float2x2 f2x2_round = round(g_f2x2);
-	return f2x2_round;
+	return round(g_f2x2);
 }
 
 float2x3 test_round_Float2x3()
 {
-	float2x3 f2x3_round = round(g_f2x3);
-	return f2x3_round;
+	return round(g_f2x3);
 }
 
 float2x4 test_round_Float2x4()
 {
-	float2x4 f2x4_round = round(g_f2x4);
-	return f2x4_round;
+	return round(g_f2x4);
 }
 
 float3x1 test_round_Float3x1()
 {
-	float3x1 f3x1_round = round(g_f3x1);
-	return f3x1_round;
+	return round(g_f3x1);
 }
 
 float3x2 test_round_Float3x2()
 {
-	float3x2 f3x2_round = round(g_f3x2);
-	return f3x2_round;
+	return round(g_f3x2);
 }
 
 float3x3 test_round_Float3x3()
 {
-	float3x3 f3x3_round = round(g_f3x3);
-	return f3x3_round;
+	return round(g_f3x3);
 }
 
 float3x4 test_round_Float3x4()
 {
-	float3x4 f3x4_round = round(g_f3x4);
-	return f3x4_round;
+	return round(g_f3x4);
 }
 
 float4x1 test_round_Float4x1()
 {
-	float4x1 f4x1_round = round(g_f4x1);
-	return f4x1_round;
+	return round(g_f4x1);
 }
 
 float4x2 test_round_Float4x2()
 {
-	float4x2 f4x2_round = round(g_f4x2);
-	return f4x2_round;
+	return round(g_f4x2);
 }
 
 float4x3 test_round_Float4x3()
 {
-	float4x3 f4x3_round = round(g_f4x3);
-	return f4x3_round;
+	return round(g_f4x3);
 }
 
 float4x4 test_round_Float4x4()
 {
-	float4x4 f4x4_round = round(g_f4x4);
-	return f4x4_round;
+	return round(g_f4x4);
 }
 
 float test_rsqrt_Float()
 {
-	float f_rsqrt = rsqrt(g_f);
-	return f_rsqrt;
+	return rsqrt(g_f);
 }
 
 float1 test_rsqrt_Float1()
 {
-	float1 f1_rsqrt = rsqrt(g_f1);
-	return f1_rsqrt;
+	return rsqrt(g_f1);
 }
 
 float2 test_rsqrt_Float2()
 {
-	float2 f2_rsqrt = rsqrt(g_f2);
-	return f2_rsqrt;
+	return rsqrt(g_f2);
 }
 
 float3 test_rsqrt_Float3()
 {
-	float3 f3_rsqrt = rsqrt(g_f3);
-	return f3_rsqrt;
+	return rsqrt(g_f3);
 }
 
 float4 test_rsqrt_Float4()
 {
-	float4 f4_rsqrt = rsqrt(g_f4);
-	return f4_rsqrt;
+	return rsqrt(g_f4);
 }
 
 float1x1 test_rsqrt_Float1x1()
 {
-	float1x1 f1x1_rsqrt = rsqrt(g_f1x1);
-	return f1x1_rsqrt;
+	return rsqrt(g_f1x1);
 }
 
 float1x2 test_rsqrt_Float1x2()
 {
-	float1x2 f1x2_rsqrt = rsqrt(g_f1x2);
-	return f1x2_rsqrt;
+	return rsqrt(g_f1x2);
 }
 
 float1x3 test_rsqrt_Float1x3()
 {
-	float1x3 f1x3_rsqrt = rsqrt(g_f1x3);
-	return f1x3_rsqrt;
+	return rsqrt(g_f1x3);
 }
 
 float1x4 test_rsqrt_Float1x4()
 {
-	float1x4 f1x4_rsqrt = rsqrt(g_f1x4);
-	return f1x4_rsqrt;
+	return rsqrt(g_f1x4);
 }
 
 float2x1 test_rsqrt_Float2x1()
 {
-	float2x1 f2x1_rsqrt = rsqrt(g_f2x1);
-	return f2x1_rsqrt;
+	return rsqrt(g_f2x1);
 }
 
 float2x2 test_rsqrt_Float2x2()
 {
-	float2x2 f2x2_rsqrt = rsqrt(g_f2x2);
-	return f2x2_rsqrt;
+	return rsqrt(g_f2x2);
 }
 
 float2x3 test_rsqrt_Float2x3()
 {
-	float2x3 f2x3_rsqrt = rsqrt(g_f2x3);
-	return f2x3_rsqrt;
+	return rsqrt(g_f2x3);
 }
 
 float2x4 test_rsqrt_Float2x4()
 {
-	float2x4 f2x4_rsqrt = rsqrt(g_f2x4);
-	return f2x4_rsqrt;
+	return rsqrt(g_f2x4);
 }
 
 float3x1 test_rsqrt_Float3x1()
 {
-	float3x1 f3x1_rsqrt = rsqrt(g_f3x1);
-	return f3x1_rsqrt;
+	return rsqrt(g_f3x1);
 }
 
 float3x2 test_rsqrt_Float3x2()
 {
-	float3x2 f3x2_rsqrt = rsqrt(g_f3x2);
-	return f3x2_rsqrt;
+	return rsqrt(g_f3x2);
 }
 
 float3x3 test_rsqrt_Float3x3()
 {
-	float3x3 f3x3_rsqrt = rsqrt(g_f3x3);
-	return f3x3_rsqrt;
+	return rsqrt(g_f3x3);
 }
 
 float3x4 test_rsqrt_Float3x4()
 {
-	float3x4 f3x4_rsqrt = rsqrt(g_f3x4);
-	return f3x4_rsqrt;
+	return rsqrt(g_f3x4);
 }
 
 float4x1 test_rsqrt_Float4x1()
 {
-	float4x1 f4x1_rsqrt = rsqrt(g_f4x1);
-	return f4x1_rsqrt;
+	return rsqrt(g_f4x1);
 }
 
 float4x2 test_rsqrt_Float4x2()
 {
-	float4x2 f4x2_rsqrt = rsqrt(g_f4x2);
-	return f4x2_rsqrt;
+	return rsqrt(g_f4x2);
 }
 
 float4x3 test_rsqrt_Float4x3()
 {
-	float4x3 f4x3_rsqrt = rsqrt(g_f4x3);
-	return f4x3_rsqrt;
+	return rsqrt(g_f4x3);
 }
 
 float4x4 test_rsqrt_Float4x4()
 {
-	float4x4 f4x4_rsqrt = rsqrt(g_f4x4);
-	return f4x4_rsqrt;
+	return rsqrt(g_f4x4);
 }
 
 float test_saturate_Float()
 {
-	float f_saturate = saturate(g_f);
-	return f_saturate;
+	return saturate(g_f);
 }
 
 float1 test_saturate_Float1()
 {
-	float1 f1_saturate = saturate(g_f1);
-	return f1_saturate;
+	return saturate(g_f1);
 }
 
 float2 test_saturate_Float2()
 {
-	float2 f2_saturate = saturate(g_f2);
-	return f2_saturate;
+	return saturate(g_f2);
 }
 
 float3 test_saturate_Float3()
 {
-	float3 f3_saturate = saturate(g_f3);
-	return f3_saturate;
+	return saturate(g_f3);
 }
 
 float4 test_saturate_Float4()
 {
-	float4 f4_saturate = saturate(g_f4);
-	return f4_saturate;
+	return saturate(g_f4);
 }
 
 float1x1 test_saturate_Float1x1()
 {
-	float1x1 f1x1_saturate = saturate(g_f1x1);
-	return f1x1_saturate;
+	return saturate(g_f1x1);
 }
 
 float1x2 test_saturate_Float1x2()
 {
-	float1x2 f1x2_saturate = saturate(g_f1x2);
-	return f1x2_saturate;
+	return saturate(g_f1x2);
 }
 
 float1x3 test_saturate_Float1x3()
 {
-	float1x3 f1x3_saturate = saturate(g_f1x3);
-	return f1x3_saturate;
+	return saturate(g_f1x3);
 }
 
 float1x4 test_saturate_Float1x4()
 {
-	float1x4 f1x4_saturate = saturate(g_f1x4);
-	return f1x4_saturate;
+	return saturate(g_f1x4);
 }
 
 float2x1 test_saturate_Float2x1()
 {
-	float2x1 f2x1_saturate = saturate(g_f2x1);
-	return f2x1_saturate;
+	return saturate(g_f2x1);
 }
 
 float2x2 test_saturate_Float2x2()
 {
-	float2x2 f2x2_saturate = saturate(g_f2x2);
-	return f2x2_saturate;
+	return saturate(g_f2x2);
 }
 
 float2x3 test_saturate_Float2x3()
 {
-	float2x3 f2x3_saturate = saturate(g_f2x3);
-	return f2x3_saturate;
+	return saturate(g_f2x3);
 }
 
 float2x4 test_saturate_Float2x4()
 {
-	float2x4 f2x4_saturate = saturate(g_f2x4);
-	return f2x4_saturate;
+	return saturate(g_f2x4);
 }
 
 float3x1 test_saturate_Float3x1()
 {
-	float3x1 f3x1_saturate = saturate(g_f3x1);
-	return f3x1_saturate;
+	return saturate(g_f3x1);
 }
 
 float3x2 test_saturate_Float3x2()
 {
-	float3x2 f3x2_saturate = saturate(g_f3x2);
-	return f3x2_saturate;
+	return saturate(g_f3x2);
 }
 
 float3x3 test_saturate_Float3x3()
 {
-	float3x3 f3x3_saturate = saturate(g_f3x3);
-	return f3x3_saturate;
+	return saturate(g_f3x3);
 }
 
 float3x4 test_saturate_Float3x4()
 {
-	float3x4 f3x4_saturate = saturate(g_f3x4);
-	return f3x4_saturate;
+	return saturate(g_f3x4);
 }
 
 float4x1 test_saturate_Float4x1()
 {
-	float4x1 f4x1_saturate = saturate(g_f4x1);
-	return f4x1_saturate;
+	return saturate(g_f4x1);
 }
 
 float4x2 test_saturate_Float4x2()
 {
-	float4x2 f4x2_saturate = saturate(g_f4x2);
-	return f4x2_saturate;
+	return saturate(g_f4x2);
 }
 
 float4x3 test_saturate_Float4x3()
 {
-	float4x3 f4x3_saturate = saturate(g_f4x3);
-	return f4x3_saturate;
+	return saturate(g_f4x3);
 }
 
 float4x4 test_saturate_Float4x4()
 {
-	float4x4 f4x4_saturate = saturate(g_f4x4);
-	return f4x4_saturate;
+	return saturate(g_f4x4);
 }
 
 float test_sin_Float()
 {
-	float f_sin = sin(g_f);
-	return f_sin;
+	return sin(g_f);
 }
 
 float1 test_sin_Float1()
 {
-	float1 f1_sin = sin(g_f1);
-	return f1_sin;
+	return sin(g_f1);
 }
 
 float2 test_sin_Float2()
 {
-	float2 f2_sin = sin(g_f2);
-	return f2_sin;
+	return sin(g_f2);
 }
 
 float3 test_sin_Float3()
 {
-	float3 f3_sin = sin(g_f3);
-	return f3_sin;
+	return sin(g_f3);
 }
 
 float4 test_sin_Float4()
 {
-	float4 f4_sin = sin(g_f4);
-	return f4_sin;
+	return sin(g_f4);
 }
 
 float1x1 test_sin_Float1x1()
 {
-	float1x1 f1x1_sin = sin(g_f1x1);
-	return f1x1_sin;
+	return sin(g_f1x1);
 }
 
 float1x2 test_sin_Float1x2()
 {
-	float1x2 f1x2_sin = sin(g_f1x2);
-	return f1x2_sin;
+	return sin(g_f1x2);
 }
 
 float1x3 test_sin_Float1x3()
 {
-	float1x3 f1x3_sin = sin(g_f1x3);
-	return f1x3_sin;
+	return sin(g_f1x3);
 }
 
 float1x4 test_sin_Float1x4()
 {
-	float1x4 f1x4_sin = sin(g_f1x4);
-	return f1x4_sin;
+	return sin(g_f1x4);
 }
 
 float2x1 test_sin_Float2x1()
 {
-	float2x1 f2x1_sin = sin(g_f2x1);
-	return f2x1_sin;
+	return sin(g_f2x1);
 }
 
 float2x2 test_sin_Float2x2()
 {
-	float2x2 f2x2_sin = sin(g_f2x2);
-	return f2x2_sin;
+	return sin(g_f2x2);
 }
 
 float2x3 test_sin_Float2x3()
 {
-	float2x3 f2x3_sin = sin(g_f2x3);
-	return f2x3_sin;
+	return sin(g_f2x3);
 }
 
 float2x4 test_sin_Float2x4()
 {
-	float2x4 f2x4_sin = sin(g_f2x4);
-	return f2x4_sin;
+	return sin(g_f2x4);
 }
 
 float3x1 test_sin_Float3x1()
 {
-	float3x1 f3x1_sin = sin(g_f3x1);
-	return f3x1_sin;
+	return sin(g_f3x1);
 }
 
 float3x2 test_sin_Float3x2()
 {
-	float3x2 f3x2_sin = sin(g_f3x2);
-	return f3x2_sin;
+	return sin(g_f3x2);
 }
 
 float3x3 test_sin_Float3x3()
 {
-	float3x3 f3x3_sin = sin(g_f3x3);
-	return f3x3_sin;
+	return sin(g_f3x3);
 }
 
 float3x4 test_sin_Float3x4()
 {
-	float3x4 f3x4_sin = sin(g_f3x4);
-	return f3x4_sin;
+	return sin(g_f3x4);
 }
 
 float4x1 test_sin_Float4x1()
 {
-	float4x1 f4x1_sin = sin(g_f4x1);
-	return f4x1_sin;
+	return sin(g_f4x1);
 }
 
 float4x2 test_sin_Float4x2()
 {
-	float4x2 f4x2_sin = sin(g_f4x2);
-	return f4x2_sin;
+	return sin(g_f4x2);
 }
 
 float4x3 test_sin_Float4x3()
 {
-	float4x3 f4x3_sin = sin(g_f4x3);
-	return f4x3_sin;
+	return sin(g_f4x3);
 }
 
 float4x4 test_sin_Float4x4()
 {
-	float4x4 f4x4_sin = sin(g_f4x4);
-	return f4x4_sin;
+	return sin(g_f4x4);
 }
 
 float test_sinh_Float()
 {
-	float f_sinh = sinh(g_f);
-	return f_sinh;
+	return sinh(g_f);
 }
 
 float1 test_sinh_Float1()
 {
-	float1 f1_sinh = sinh(g_f1);
-	return f1_sinh;
+	return sinh(g_f1);
 }
 
 float2 test_sinh_Float2()
 {
-	float2 f2_sinh = sinh(g_f2);
-	return f2_sinh;
+	return sinh(g_f2);
 }
 
 float3 test_sinh_Float3()
 {
-	float3 f3_sinh = sinh(g_f3);
-	return f3_sinh;
+	return sinh(g_f3);
 }
 
 float4 test_sinh_Float4()
 {
-	float4 f4_sinh = sinh(g_f4);
-	return f4_sinh;
+	return sinh(g_f4);
 }
 
 float1x1 test_sinh_Float1x1()
 {
-	float1x1 f1x1_sinh = sinh(g_f1x1);
-	return f1x1_sinh;
+	return sinh(g_f1x1);
 }
 
 float1x2 test_sinh_Float1x2()
 {
-	float1x2 f1x2_sinh = sinh(g_f1x2);
-	return f1x2_sinh;
+	return sinh(g_f1x2);
 }
 
 float1x3 test_sinh_Float1x3()
 {
-	float1x3 f1x3_sinh = sinh(g_f1x3);
-	return f1x3_sinh;
+	return sinh(g_f1x3);
 }
 
 float1x4 test_sinh_Float1x4()
 {
-	float1x4 f1x4_sinh = sinh(g_f1x4);
-	return f1x4_sinh;
+	return sinh(g_f1x4);
 }
 
 float2x1 test_sinh_Float2x1()
 {
-	float2x1 f2x1_sinh = sinh(g_f2x1);
-	return f2x1_sinh;
+	return sinh(g_f2x1);
 }
 
 float2x2 test_sinh_Float2x2()
 {
-	float2x2 f2x2_sinh = sinh(g_f2x2);
-	return f2x2_sinh;
+	return sinh(g_f2x2);
 }
 
 float2x3 test_sinh_Float2x3()
 {
-	float2x3 f2x3_sinh = sinh(g_f2x3);
-	return f2x3_sinh;
+	return sinh(g_f2x3);
 }
 
 float2x4 test_sinh_Float2x4()
 {
-	float2x4 f2x4_sinh = sinh(g_f2x4);
-	return f2x4_sinh;
+	return sinh(g_f2x4);
 }
 
 float3x1 test_sinh_Float3x1()
 {
-	float3x1 f3x1_sinh = sinh(g_f3x1);
-	return f3x1_sinh;
+	return sinh(g_f3x1);
 }
 
 float3x2 test_sinh_Float3x2()
 {
-	float3x2 f3x2_sinh = sinh(g_f3x2);
-	return f3x2_sinh;
+	return sinh(g_f3x2);
 }
 
 float3x3 test_sinh_Float3x3()
 {
-	float3x3 f3x3_sinh = sinh(g_f3x3);
-	return f3x3_sinh;
+	return sinh(g_f3x3);
 }
 
 float3x4 test_sinh_Float3x4()
 {
-	float3x4 f3x4_sinh = sinh(g_f3x4);
-	return f3x4_sinh;
+	return sinh(g_f3x4);
 }
 
 float4x1 test_sinh_Float4x1()
 {
-	float4x1 f4x1_sinh = sinh(g_f4x1);
-	return f4x1_sinh;
+	return sinh(g_f4x1);
 }
 
 float4x2 test_sinh_Float4x2()
 {
-	float4x2 f4x2_sinh = sinh(g_f4x2);
-	return f4x2_sinh;
+	return sinh(g_f4x2);
 }
 
 float4x3 test_sinh_Float4x3()
 {
-	float4x3 f4x3_sinh = sinh(g_f4x3);
-	return f4x3_sinh;
+	return sinh(g_f4x3);
 }
 
 float4x4 test_sinh_Float4x4()
 {
-	float4x4 f4x4_sinh = sinh(g_f4x4);
-	return f4x4_sinh;
+	return sinh(g_f4x4);
+}
+
+float test_smoothstep_Float(float a, float b)
+{
+	return smoothstep(a, b, g_f);
+}
+
+float1 test_smoothstep_Float1(float1 a, float1 b)
+{
+	return smoothstep(a, b, g_f1);
+}
+
+float2 test_smoothstep_Float2(float2 a, float2 b)
+{
+	return smoothstep(a, b, g_f2);
+}
+
+float3 test_smoothstep_Float3(float3 a, float3 b)
+{
+	return smoothstep(a, b, g_f3);
+}
+
+float4 test_smoothstep_Float4(float4 a, float4 b)
+{
+	return smoothstep(a, b, g_f4);
+}
+
+float1x1 test_smoothstep_Float1x1(float1x1 a, float1x1 b)
+{
+	return smoothstep(a, b, g_f1x1);
+}
+
+float1x2 test_smoothstep_Float1x2(float1x2 a, float1x2 b)
+{
+	return smoothstep(a, b, g_f1x2);
+}
+
+float1x3 test_smoothstep_Float1x3(float1x3 a, float1x3 b)
+{
+	return smoothstep(a, b, g_f1x3);
+}
+
+float1x4 test_smoothstep_Float1x4(float1x4 a, float1x4 b)
+{
+	return smoothstep(a, b, g_f1x4);
+}
+
+float2x1 test_smoothstep_Float2x1(float2x1 a, float2x1 b)
+{
+	return smoothstep(a, b, g_f2x1);
+}
+
+float2x2 test_smoothstep_Float2x2(float2x2 a, float2x2 b)
+{
+	return smoothstep(a, b, g_f2x2);
+}
+
+float2x3 test_smoothstep_Float2x3(float2x3 a, float2x3 b)
+{
+	return smoothstep(a, b, g_f2x3);
+}
+
+float2x4 test_smoothstep_Float2x4(float2x4 a, float2x4 b)
+{
+	return smoothstep(a, b, g_f2x4);
+}
+
+float3x1 test_smoothstep_Float3x1(float3x1 a, float3x1 b)
+{
+	return smoothstep(a, b, g_f3x1);
+}
+
+float3x2 test_smoothstep_Float3x2(float3x2 a, float3x2 b)
+{
+	return smoothstep(a, b, g_f3x2);
+}
+
+float3x3 test_smoothstep_Float3x3(float3x3 a, float3x3 b)
+{
+	return smoothstep(a, b, g_f3x3);
+}
+
+float3x4 test_smoothstep_Float3x4(float3x4 a, float3x4 b)
+{
+	return smoothstep(a, b, g_f3x4);
+}
+
+float4x1 test_smoothstep_Float4x1(float4x1 a, float4x1 b)
+{
+	return smoothstep(a, b, g_f4x1);
+}
+
+float4x2 test_smoothstep_Float4x2(float4x2 a, float4x2 b)
+{
+	return smoothstep(a, b, g_f4x2);
+}
+
+float4x3 test_smoothstep_Float4x3(float4x3 a, float4x3 b)
+{
+	return smoothstep(a, b, g_f4x3);
+}
+
+float4x4 test_smoothstep_Float4x4(float4x4 a, float4x4 b)
+{
+	return smoothstep(a, b, g_f4x4);
 }
 
 float test_sqrt_Float()
 {
-	float f_sqrt = sqrt(g_f);
-	return f_sqrt;
+	return sqrt(g_f);
 }
 
 float1 test_sqrt_Float1()
 {
-	float1 f1_sqrt = sqrt(g_f1);
-	return f1_sqrt;
+	return sqrt(g_f1);
 }
 
 float2 test_sqrt_Float2()
 {
-	float2 f2_sqrt = sqrt(g_f2);
-	return f2_sqrt;
+	return sqrt(g_f2);
 }
 
 float3 test_sqrt_Float3()
 {
-	float3 f3_sqrt = sqrt(g_f3);
-	return f3_sqrt;
+	return sqrt(g_f3);
 }
 
 float4 test_sqrt_Float4()
 {
-	float4 f4_sqrt = sqrt(g_f4);
-	return f4_sqrt;
+	return sqrt(g_f4);
 }
 
 float1x1 test_sqrt_Float1x1()
 {
-	float1x1 f1x1_sqrt = sqrt(g_f1x1);
-	return f1x1_sqrt;
+	return sqrt(g_f1x1);
 }
 
 float1x2 test_sqrt_Float1x2()
 {
-	float1x2 f1x2_sqrt = sqrt(g_f1x2);
-	return f1x2_sqrt;
+	return sqrt(g_f1x2);
 }
 
 float1x3 test_sqrt_Float1x3()
 {
-	float1x3 f1x3_sqrt = sqrt(g_f1x3);
-	return f1x3_sqrt;
+	return sqrt(g_f1x3);
 }
 
 float1x4 test_sqrt_Float1x4()
 {
-	float1x4 f1x4_sqrt = sqrt(g_f1x4);
-	return f1x4_sqrt;
+	return sqrt(g_f1x4);
 }
 
 float2x1 test_sqrt_Float2x1()
 {
-	float2x1 f2x1_sqrt = sqrt(g_f2x1);
-	return f2x1_sqrt;
+	return sqrt(g_f2x1);
 }
 
 float2x2 test_sqrt_Float2x2()
 {
-	float2x2 f2x2_sqrt = sqrt(g_f2x2);
-	return f2x2_sqrt;
+	return sqrt(g_f2x2);
 }
 
 float2x3 test_sqrt_Float2x3()
 {
-	float2x3 f2x3_sqrt = sqrt(g_f2x3);
-	return f2x3_sqrt;
+	return sqrt(g_f2x3);
 }
 
 float2x4 test_sqrt_Float2x4()
 {
-	float2x4 f2x4_sqrt = sqrt(g_f2x4);
-	return f2x4_sqrt;
+	return sqrt(g_f2x4);
 }
 
 float3x1 test_sqrt_Float3x1()
 {
-	float3x1 f3x1_sqrt = sqrt(g_f3x1);
-	return f3x1_sqrt;
+	return sqrt(g_f3x1);
 }
 
 float3x2 test_sqrt_Float3x2()
 {
-	float3x2 f3x2_sqrt = sqrt(g_f3x2);
-	return f3x2_sqrt;
+	return sqrt(g_f3x2);
 }
 
 float3x3 test_sqrt_Float3x3()
 {
-	float3x3 f3x3_sqrt = sqrt(g_f3x3);
-	return f3x3_sqrt;
+	return sqrt(g_f3x3);
 }
 
 float3x4 test_sqrt_Float3x4()
 {
-	float3x4 f3x4_sqrt = sqrt(g_f3x4);
-	return f3x4_sqrt;
+	return sqrt(g_f3x4);
 }
 
 float4x1 test_sqrt_Float4x1()
 {
-	float4x1 f4x1_sqrt = sqrt(g_f4x1);
-	return f4x1_sqrt;
+	return sqrt(g_f4x1);
 }
 
 float4x2 test_sqrt_Float4x2()
 {
-	float4x2 f4x2_sqrt = sqrt(g_f4x2);
-	return f4x2_sqrt;
+	return sqrt(g_f4x2);
 }
 
 float4x3 test_sqrt_Float4x3()
 {
-	float4x3 f4x3_sqrt = sqrt(g_f4x3);
-	return f4x3_sqrt;
+	return sqrt(g_f4x3);
 }
 
 float4x4 test_sqrt_Float4x4()
 {
-	float4x4 f4x4_sqrt = sqrt(g_f4x4);
-	return f4x4_sqrt;
+	return sqrt(g_f4x4);
+}
+
+float test_step_Float(float x)
+{
+	return step(g_f, x);
+}
+
+float1 test_step_Float1(float1 x)
+{
+	return step(g_f1, x);
+}
+
+float2 test_step_Float2(float2 x)
+{
+	return step(g_f2, x);
+}
+
+float3 test_step_Float3(float3 x)
+{
+	return step(g_f3, x);
+}
+
+float4 test_step_Float4(float4 x)
+{
+	return step(g_f4, x);
+}
+
+float1x1 test_step_Float1x1(float1x1 x)
+{
+	return step(g_f1x1, x);
+}
+
+float1x2 test_step_Float1x2(float1x2 x)
+{
+	return step(g_f1x2, x);
+}
+
+float1x3 test_step_Float1x3(float1x3 x)
+{
+	return step(g_f1x3, x);
+}
+
+float1x4 test_step_Float1x4(float1x4 x)
+{
+	return step(g_f1x4, x);
+}
+
+float2x1 test_step_Float2x1(float2x1 x)
+{
+	return step(g_f2x1, x);
+}
+
+float2x2 test_step_Float2x2(float2x2 x)
+{
+	return step(g_f2x2, x);
+}
+
+float2x3 test_step_Float2x3(float2x3 x)
+{
+	return step(g_f2x3, x);
+}
+
+float2x4 test_step_Float2x4(float2x4 x)
+{
+	return step(g_f2x4, x);
+}
+
+float3x1 test_step_Float3x1(float3x1 x)
+{
+	return step(g_f3x1, x);
+}
+
+float3x2 test_step_Float3x2(float3x2 x)
+{
+	return step(g_f3x2, x);
+}
+
+float3x3 test_step_Float3x3(float3x3 x)
+{
+	return step(g_f3x3, x);
+}
+
+float3x4 test_step_Float3x4(float3x4 x)
+{
+	return step(g_f3x4, x);
+}
+
+float4x1 test_step_Float4x1(float4x1 x)
+{
+	return step(g_f4x1, x);
+}
+
+float4x2 test_step_Float4x2(float4x2 x)
+{
+	return step(g_f4x2, x);
+}
+
+float4x3 test_step_Float4x3(float4x3 x)
+{
+	return step(g_f4x3, x);
+}
+
+float4x4 test_step_Float4x4(float4x4 x)
+{
+	return step(g_f4x4, x);
 }
 
 float test_tan_Float()
 {
-	float f_tan = tan(g_f);
-	return f_tan;
+	return tan(g_f);
 }
 
 float1 test_tan_Float1()
 {
-	float1 f1_tan = tan(g_f1);
-	return f1_tan;
+	return tan(g_f1);
 }
 
 float2 test_tan_Float2()
 {
-	float2 f2_tan = tan(g_f2);
-	return f2_tan;
+	return tan(g_f2);
 }
 
 float3 test_tan_Float3()
 {
-	float3 f3_tan = tan(g_f3);
-	return f3_tan;
+	return tan(g_f3);
 }
 
 float4 test_tan_Float4()
 {
-	float4 f4_tan = tan(g_f4);
-	return f4_tan;
+	return tan(g_f4);
 }
 
 float1x1 test_tan_Float1x1()
 {
-	float1x1 f1x1_tan = tan(g_f1x1);
-	return f1x1_tan;
+	return tan(g_f1x1);
 }
 
 float1x2 test_tan_Float1x2()
 {
-	float1x2 f1x2_tan = tan(g_f1x2);
-	return f1x2_tan;
+	return tan(g_f1x2);
 }
 
 float1x3 test_tan_Float1x3()
 {
-	float1x3 f1x3_tan = tan(g_f1x3);
-	return f1x3_tan;
+	return tan(g_f1x3);
 }
 
 float1x4 test_tan_Float1x4()
 {
-	float1x4 f1x4_tan = tan(g_f1x4);
-	return f1x4_tan;
+	return tan(g_f1x4);
 }
 
 float2x1 test_tan_Float2x1()
 {
-	float2x1 f2x1_tan = tan(g_f2x1);
-	return f2x1_tan;
+	return tan(g_f2x1);
 }
 
 float2x2 test_tan_Float2x2()
 {
-	float2x2 f2x2_tan = tan(g_f2x2);
-	return f2x2_tan;
+	return tan(g_f2x2);
 }
 
 float2x3 test_tan_Float2x3()
 {
-	float2x3 f2x3_tan = tan(g_f2x3);
-	return f2x3_tan;
+	return tan(g_f2x3);
 }
 
 float2x4 test_tan_Float2x4()
 {
-	float2x4 f2x4_tan = tan(g_f2x4);
-	return f2x4_tan;
+	return tan(g_f2x4);
 }
 
 float3x1 test_tan_Float3x1()
 {
-	float3x1 f3x1_tan = tan(g_f3x1);
-	return f3x1_tan;
+	return tan(g_f3x1);
 }
 
 float3x2 test_tan_Float3x2()
 {
-	float3x2 f3x2_tan = tan(g_f3x2);
-	return f3x2_tan;
+	return tan(g_f3x2);
 }
 
 float3x3 test_tan_Float3x3()
 {
-	float3x3 f3x3_tan = tan(g_f3x3);
-	return f3x3_tan;
+	return tan(g_f3x3);
 }
 
 float3x4 test_tan_Float3x4()
 {
-	float3x4 f3x4_tan = tan(g_f3x4);
-	return f3x4_tan;
+	return tan(g_f3x4);
 }
 
 float4x1 test_tan_Float4x1()
 {
-	float4x1 f4x1_tan = tan(g_f4x1);
-	return f4x1_tan;
+	return tan(g_f4x1);
 }
 
 float4x2 test_tan_Float4x2()
 {
-	float4x2 f4x2_tan = tan(g_f4x2);
-	return f4x2_tan;
+	return tan(g_f4x2);
 }
 
 float4x3 test_tan_Float4x3()
 {
-	float4x3 f4x3_tan = tan(g_f4x3);
-	return f4x3_tan;
+	return tan(g_f4x3);
 }
 
 float4x4 test_tan_Float4x4()
 {
-	float4x4 f4x4_tan = tan(g_f4x4);
-	return f4x4_tan;
+	return tan(g_f4x4);
 }
 
 float test_tanh_Float()
 {
-	float f_tanh = tanh(g_f);
-	return f_tanh;
+	return tanh(g_f);
 }
 
 float1 test_tanh_Float1()
 {
-	float1 f1_tanh = tanh(g_f1);
-	return f1_tanh;
+	return tanh(g_f1);
 }
 
 float2 test_tanh_Float2()
 {
-	float2 f2_tanh = tanh(g_f2);
-	return f2_tanh;
+	return tanh(g_f2);
 }
 
 float3 test_tanh_Float3()
 {
-	float3 f3_tanh = tanh(g_f3);
-	return f3_tanh;
+	return tanh(g_f3);
 }
 
 float4 test_tanh_Float4()
 {
-	float4 f4_tanh = tanh(g_f4);
-	return f4_tanh;
+	return tanh(g_f4);
 }
 
 float1x1 test_tanh_Float1x1()
 {
-	float1x1 f1x1_tanh = tanh(g_f1x1);
-	return f1x1_tanh;
+	return tanh(g_f1x1);
 }
 
 float1x2 test_tanh_Float1x2()
 {
-	float1x2 f1x2_tanh = tanh(g_f1x2);
-	return f1x2_tanh;
+	return tanh(g_f1x2);
 }
 
 float1x3 test_tanh_Float1x3()
 {
-	float1x3 f1x3_tanh = tanh(g_f1x3);
-	return f1x3_tanh;
+	return tanh(g_f1x3);
 }
 
 float1x4 test_tanh_Float1x4()
 {
-	float1x4 f1x4_tanh = tanh(g_f1x4);
-	return f1x4_tanh;
+	return tanh(g_f1x4);
 }
 
 float2x1 test_tanh_Float2x1()
 {
-	float2x1 f2x1_tanh = tanh(g_f2x1);
-	return f2x1_tanh;
+	return tanh(g_f2x1);
 }
 
 float2x2 test_tanh_Float2x2()
 {
-	float2x2 f2x2_tanh = tanh(g_f2x2);
-	return f2x2_tanh;
+	return tanh(g_f2x2);
 }
 
 float2x3 test_tanh_Float2x3()
 {
-	float2x3 f2x3_tanh = tanh(g_f2x3);
-	return f2x3_tanh;
+	return tanh(g_f2x3);
 }
 
 float2x4 test_tanh_Float2x4()
 {
-	float2x4 f2x4_tanh = tanh(g_f2x4);
-	return f2x4_tanh;
+	return tanh(g_f2x4);
 }
 
 float3x1 test_tanh_Float3x1()
 {
-	float3x1 f3x1_tanh = tanh(g_f3x1);
-	return f3x1_tanh;
+	return tanh(g_f3x1);
 }
 
 float3x2 test_tanh_Float3x2()
 {
-	float3x2 f3x2_tanh = tanh(g_f3x2);
-	return f3x2_tanh;
+	return tanh(g_f3x2);
 }
 
 float3x3 test_tanh_Float3x3()
 {
-	float3x3 f3x3_tanh = tanh(g_f3x3);
-	return f3x3_tanh;
+	return tanh(g_f3x3);
 }
 
 float3x4 test_tanh_Float3x4()
 {
-	float3x4 f3x4_tanh = tanh(g_f3x4);
-	return f3x4_tanh;
+	return tanh(g_f3x4);
 }
 
 float4x1 test_tanh_Float4x1()
 {
-	float4x1 f4x1_tanh = tanh(g_f4x1);
-	return f4x1_tanh;
+	return tanh(g_f4x1);
 }
 
 float4x2 test_tanh_Float4x2()
 {
-	float4x2 f4x2_tanh = tanh(g_f4x2);
-	return f4x2_tanh;
+	return tanh(g_f4x2);
 }
 
 float4x3 test_tanh_Float4x3()
 {
-	float4x3 f4x3_tanh = tanh(g_f4x3);
-	return f4x3_tanh;
+	return tanh(g_f4x3);
 }
 
 float4x4 test_tanh_Float4x4()
 {
-	float4x4 f4x4_tanh = tanh(g_f4x4);
-	return f4x4_tanh;
+	return tanh(g_f4x4);
 }
 
 float test_trunc_Float()
 {
-	float f_trunc = trunc(g_f);
-	return f_trunc;
+	return trunc(g_f);
 }
 
 float1 test_trunc_Float1()
 {
-	float1 f1_trunc = trunc(g_f1);
-	return f1_trunc;
+	return trunc(g_f1);
 }
 
 float2 test_trunc_Float2()
 {
-	float2 f2_trunc = trunc(g_f2);
-	return f2_trunc;
+	return trunc(g_f2);
 }
 
 float3 test_trunc_Float3()
 {
-	float3 f3_trunc = trunc(g_f3);
-	return f3_trunc;
+	return trunc(g_f3);
 }
 
 float4 test_trunc_Float4()
 {
-	float4 f4_trunc = trunc(g_f4);
-	return f4_trunc;
+	return trunc(g_f4);
 }
 
 float1x1 test_trunc_Float1x1()
 {
-	float1x1 f1x1_trunc = trunc(g_f1x1);
-	return f1x1_trunc;
+	return trunc(g_f1x1);
 }
 
 float1x2 test_trunc_Float1x2()
 {
-	float1x2 f1x2_trunc = trunc(g_f1x2);
-	return f1x2_trunc;
+	return trunc(g_f1x2);
 }
 
 float1x3 test_trunc_Float1x3()
 {
-	float1x3 f1x3_trunc = trunc(g_f1x3);
-	return f1x3_trunc;
+	return trunc(g_f1x3);
 }
 
 float1x4 test_trunc_Float1x4()
 {
-	float1x4 f1x4_trunc = trunc(g_f1x4);
-	return f1x4_trunc;
+	return trunc(g_f1x4);
 }
 
 float2x1 test_trunc_Float2x1()
 {
-	float2x1 f2x1_trunc = trunc(g_f2x1);
-	return f2x1_trunc;
+	return trunc(g_f2x1);
 }
 
 float2x2 test_trunc_Float2x2()
 {
-	float2x2 f2x2_trunc = trunc(g_f2x2);
-	return f2x2_trunc;
+	return trunc(g_f2x2);
 }
 
 float2x3 test_trunc_Float2x3()
 {
-	float2x3 f2x3_trunc = trunc(g_f2x3);
-	return f2x3_trunc;
+	return trunc(g_f2x3);
 }
 
 float2x4 test_trunc_Float2x4()
 {
-	float2x4 f2x4_trunc = trunc(g_f2x4);
-	return f2x4_trunc;
+	return trunc(g_f2x4);
 }
 
 float3x1 test_trunc_Float3x1()
 {
-	float3x1 f3x1_trunc = trunc(g_f3x1);
-	return f3x1_trunc;
+	return trunc(g_f3x1);
 }
 
 float3x2 test_trunc_Float3x2()
 {
-	float3x2 f3x2_trunc = trunc(g_f3x2);
-	return f3x2_trunc;
+	return trunc(g_f3x2);
 }
 
 float3x3 test_trunc_Float3x3()
 {
-	float3x3 f3x3_trunc = trunc(g_f3x3);
-	return f3x3_trunc;
+	return trunc(g_f3x3);
 }
 
 float3x4 test_trunc_Float3x4()
 {
-	float3x4 f3x4_trunc = trunc(g_f3x4);
-	return f3x4_trunc;
+	return trunc(g_f3x4);
 }
 
 float4x1 test_trunc_Float4x1()
 {
-	float4x1 f4x1_trunc = trunc(g_f4x1);
-	return f4x1_trunc;
+	return trunc(g_f4x1);
 }
 
 float4x2 test_trunc_Float4x2()
 {
-	float4x2 f4x2_trunc = trunc(g_f4x2);
-	return f4x2_trunc;
+	return trunc(g_f4x2);
 }
 
 float4x3 test_trunc_Float4x3()
 {
-	float4x3 f4x3_trunc = trunc(g_f4x3);
-	return f4x3_trunc;
+	return trunc(g_f4x3);
 }
 
 float4x4 test_trunc_Float4x4()
 {
-	float4x4 f4x4_trunc = trunc(g_f4x4);
-	return f4x4_trunc;
+	return trunc(g_f4x4);
 }
 
