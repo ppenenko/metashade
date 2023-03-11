@@ -1213,6 +1213,69 @@ def test(sh):
 	with sh.function("test_frac_Float4x4", sh.Float4x4)():
 		sh.return_( sh.g_f4x4.frac() )
 
+	with sh.function("test_frexp_Float", sh.Float)(exp = sh.Float):
+		sh.return_( sh.g_f.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float1", sh.Float1)(exp = sh.Float1):
+		sh.return_( sh.g_f1.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float2", sh.Float2)(exp = sh.Float2):
+		sh.return_( sh.g_f2.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float3", sh.Float3)(exp = sh.Float3):
+		sh.return_( sh.g_f3.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float4", sh.Float4)(exp = sh.Float4):
+		sh.return_( sh.g_f4.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float1x1", sh.Float1x1)(exp = sh.Float1x1):
+		sh.return_( sh.g_f1x1.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float1x2", sh.Float1x2)(exp = sh.Float1x2):
+		sh.return_( sh.g_f1x2.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float1x3", sh.Float1x3)(exp = sh.Float1x3):
+		sh.return_( sh.g_f1x3.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float1x4", sh.Float1x4)(exp = sh.Float1x4):
+		sh.return_( sh.g_f1x4.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float2x1", sh.Float2x1)(exp = sh.Float2x1):
+		sh.return_( sh.g_f2x1.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float2x2", sh.Float2x2)(exp = sh.Float2x2):
+		sh.return_( sh.g_f2x2.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float2x3", sh.Float2x3)(exp = sh.Float2x3):
+		sh.return_( sh.g_f2x3.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float2x4", sh.Float2x4)(exp = sh.Float2x4):
+		sh.return_( sh.g_f2x4.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float3x1", sh.Float3x1)(exp = sh.Float3x1):
+		sh.return_( sh.g_f3x1.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float3x2", sh.Float3x2)(exp = sh.Float3x2):
+		sh.return_( sh.g_f3x2.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float3x3", sh.Float3x3)(exp = sh.Float3x3):
+		sh.return_( sh.g_f3x3.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float3x4", sh.Float3x4)(exp = sh.Float3x4):
+		sh.return_( sh.g_f3x4.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float4x1", sh.Float4x1)(exp = sh.Float4x1):
+		sh.return_( sh.g_f4x1.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float4x2", sh.Float4x2)(exp = sh.Float4x2):
+		sh.return_( sh.g_f4x2.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float4x3", sh.Float4x3)(exp = sh.Float4x3):
+		sh.return_( sh.g_f4x3.frexp(exp = sh.exp) )
+
+	with sh.function("test_frexp_Float4x4", sh.Float4x4)(exp = sh.Float4x4):
+		sh.return_( sh.g_f4x4.frexp(exp = sh.exp) )
+
 	with sh.function("test_fwidth_Float", sh.Float)():
 		sh.return_( sh.g_f.fwidth() )
 

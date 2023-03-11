@@ -17,11 +17,13 @@ import metashade.rtsl.data_types as rtsl
 import metashade.clike.struct as struct
 
 import numbers
-from . import _auto_float_intrinsics, _auto_numeric_intrinsics
+from . import \
+    _auto_float_intrinsics, _auto_numeric_intrinsics, _intrinsics_base
 
 class _AnyLayoutMixin(
     _auto_float_intrinsics.AnyLayoutMixin,
-    _auto_numeric_intrinsics.AnyLayoutMixin
+    _auto_numeric_intrinsics.AnyLayoutMixin,
+    _intrinsics_base.Mixin
 ):
     def _checkDdxDdy(self, name):
         if not self._sh.__class__._is_pixel_shader:
@@ -36,8 +38,7 @@ class _AnyLayoutMixin(
         return super().ddy()
 
     def clip(self):
-        self._sh._emit_indent()
-        self._sh._emit( f'clip({self});\n' )
+        self._emit_void_intrinsic( f'clip({self})' )
 
 class _MulMixin:
     def mul(self, rhs, result_type):

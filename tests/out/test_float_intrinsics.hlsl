@@ -2018,6 +2018,111 @@ float4x4 test_frac_Float4x4()
 	return frac(g_f4x4);
 }
 
+float test_frexp_Float(float exp)
+{
+	return frexp(g_f, exp);
+}
+
+float1 test_frexp_Float1(float1 exp)
+{
+	return frexp(g_f1, exp);
+}
+
+float2 test_frexp_Float2(float2 exp)
+{
+	return frexp(g_f2, exp);
+}
+
+float3 test_frexp_Float3(float3 exp)
+{
+	return frexp(g_f3, exp);
+}
+
+float4 test_frexp_Float4(float4 exp)
+{
+	return frexp(g_f4, exp);
+}
+
+float1x1 test_frexp_Float1x1(float1x1 exp)
+{
+	return frexp(g_f1x1, exp);
+}
+
+float1x2 test_frexp_Float1x2(float1x2 exp)
+{
+	return frexp(g_f1x2, exp);
+}
+
+float1x3 test_frexp_Float1x3(float1x3 exp)
+{
+	return frexp(g_f1x3, exp);
+}
+
+float1x4 test_frexp_Float1x4(float1x4 exp)
+{
+	return frexp(g_f1x4, exp);
+}
+
+float2x1 test_frexp_Float2x1(float2x1 exp)
+{
+	return frexp(g_f2x1, exp);
+}
+
+float2x2 test_frexp_Float2x2(float2x2 exp)
+{
+	return frexp(g_f2x2, exp);
+}
+
+float2x3 test_frexp_Float2x3(float2x3 exp)
+{
+	return frexp(g_f2x3, exp);
+}
+
+float2x4 test_frexp_Float2x4(float2x4 exp)
+{
+	return frexp(g_f2x4, exp);
+}
+
+float3x1 test_frexp_Float3x1(float3x1 exp)
+{
+	return frexp(g_f3x1, exp);
+}
+
+float3x2 test_frexp_Float3x2(float3x2 exp)
+{
+	return frexp(g_f3x2, exp);
+}
+
+float3x3 test_frexp_Float3x3(float3x3 exp)
+{
+	return frexp(g_f3x3, exp);
+}
+
+float3x4 test_frexp_Float3x4(float3x4 exp)
+{
+	return frexp(g_f3x4, exp);
+}
+
+float4x1 test_frexp_Float4x1(float4x1 exp)
+{
+	return frexp(g_f4x1, exp);
+}
+
+float4x2 test_frexp_Float4x2(float4x2 exp)
+{
+	return frexp(g_f4x2, exp);
+}
+
+float4x3 test_frexp_Float4x3(float4x3 exp)
+{
+	return frexp(g_f4x3, exp);
+}
+
+float4x4 test_frexp_Float4x4(float4x4 exp)
+{
+	return frexp(g_f4x4, exp);
+}
+
 float test_fwidth_Float()
 {
 	return fwidth(g_f);
