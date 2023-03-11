@@ -18,33 +18,6 @@
 from . import _intrinsics_base
 
 class AnyLayoutMixin(_intrinsics_base.Mixin):
-	def AcceptHitAndEndSearch(self):
-		self._emit_void_intrinsic( f'AcceptHitAndEndSearch({self})' )
-
-	def AllMemoryBarrier(self):
-		self._emit_void_intrinsic( f'AllMemoryBarrier({self})' )
-
-	def AllMemoryBarrierWithGroupSync(self):
-		self._emit_void_intrinsic( f'AllMemoryBarrierWithGroupSync({self})' )
-
-	def DeviceMemoryBarrier(self):
-		self._emit_void_intrinsic( f'DeviceMemoryBarrier({self})' )
-
-	def DeviceMemoryBarrierWithGroupSync(self):
-		self._emit_void_intrinsic( f'DeviceMemoryBarrierWithGroupSync({self})' )
-
-	def GroupMemoryBarrier(self):
-		self._emit_void_intrinsic( f'GroupMemoryBarrier({self})' )
-
-	def GroupMemoryBarrierWithGroupSync(self):
-		self._emit_void_intrinsic( f'GroupMemoryBarrierWithGroupSync({self})' )
-
-	def IgnoreHit(self):
-		self._emit_void_intrinsic( f'IgnoreHit({self})' )
-
-	def abort(self):
-		self._emit_void_intrinsic( f'abort({self})' )
-
 	def acos(self):
 		return self.__class__( f'acos({self})' )
 
@@ -158,9 +131,6 @@ class AnyLayoutMixin(_intrinsics_base.Mixin):
 
 	def smoothstep(self, a, b):
 		return self.__class__( f'smoothstep({a}, {b}, {self})' )
-
-	def source_mark(self):
-		self._emit_void_intrinsic( f'source_mark({self})' )
 
 	def sqrt(self):
 		return self.__class__( f'sqrt({self})' )

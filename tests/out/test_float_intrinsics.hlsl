@@ -548,6 +548,111 @@ float4x4 test_ceil_Float4x4()
 	return ceil(g_f4x4);
 }
 
+void test_clip_Float()
+{
+	clip(g_f);
+}
+
+void test_clip_Float1()
+{
+	clip(g_f1);
+}
+
+void test_clip_Float2()
+{
+	clip(g_f2);
+}
+
+void test_clip_Float3()
+{
+	clip(g_f3);
+}
+
+void test_clip_Float4()
+{
+	clip(g_f4);
+}
+
+void test_clip_Float1x1()
+{
+	clip(g_f1x1);
+}
+
+void test_clip_Float1x2()
+{
+	clip(g_f1x2);
+}
+
+void test_clip_Float1x3()
+{
+	clip(g_f1x3);
+}
+
+void test_clip_Float1x4()
+{
+	clip(g_f1x4);
+}
+
+void test_clip_Float2x1()
+{
+	clip(g_f2x1);
+}
+
+void test_clip_Float2x2()
+{
+	clip(g_f2x2);
+}
+
+void test_clip_Float2x3()
+{
+	clip(g_f2x3);
+}
+
+void test_clip_Float2x4()
+{
+	clip(g_f2x4);
+}
+
+void test_clip_Float3x1()
+{
+	clip(g_f3x1);
+}
+
+void test_clip_Float3x2()
+{
+	clip(g_f3x2);
+}
+
+void test_clip_Float3x3()
+{
+	clip(g_f3x3);
+}
+
+void test_clip_Float3x4()
+{
+	clip(g_f3x4);
+}
+
+void test_clip_Float4x1()
+{
+	clip(g_f4x1);
+}
+
+void test_clip_Float4x2()
+{
+	clip(g_f4x2);
+}
+
+void test_clip_Float4x3()
+{
+	clip(g_f4x3);
+}
+
+void test_clip_Float4x4()
+{
+	clip(g_f4x4);
+}
+
 float test_cos_Float()
 {
 	return cos(g_f);
@@ -3593,6 +3698,111 @@ float4x4 test_sin_Float4x4()
 	return sin(g_f4x4);
 }
 
+void test_sincos_Float(float s, float c)
+{
+	sincos(g_f, s, c);
+}
+
+void test_sincos_Float1(float1 s, float1 c)
+{
+	sincos(g_f1, s, c);
+}
+
+void test_sincos_Float2(float2 s, float2 c)
+{
+	sincos(g_f2, s, c);
+}
+
+void test_sincos_Float3(float3 s, float3 c)
+{
+	sincos(g_f3, s, c);
+}
+
+void test_sincos_Float4(float4 s, float4 c)
+{
+	sincos(g_f4, s, c);
+}
+
+void test_sincos_Float1x1(float1x1 s, float1x1 c)
+{
+	sincos(g_f1x1, s, c);
+}
+
+void test_sincos_Float1x2(float1x2 s, float1x2 c)
+{
+	sincos(g_f1x2, s, c);
+}
+
+void test_sincos_Float1x3(float1x3 s, float1x3 c)
+{
+	sincos(g_f1x3, s, c);
+}
+
+void test_sincos_Float1x4(float1x4 s, float1x4 c)
+{
+	sincos(g_f1x4, s, c);
+}
+
+void test_sincos_Float2x1(float2x1 s, float2x1 c)
+{
+	sincos(g_f2x1, s, c);
+}
+
+void test_sincos_Float2x2(float2x2 s, float2x2 c)
+{
+	sincos(g_f2x2, s, c);
+}
+
+void test_sincos_Float2x3(float2x3 s, float2x3 c)
+{
+	sincos(g_f2x3, s, c);
+}
+
+void test_sincos_Float2x4(float2x4 s, float2x4 c)
+{
+	sincos(g_f2x4, s, c);
+}
+
+void test_sincos_Float3x1(float3x1 s, float3x1 c)
+{
+	sincos(g_f3x1, s, c);
+}
+
+void test_sincos_Float3x2(float3x2 s, float3x2 c)
+{
+	sincos(g_f3x2, s, c);
+}
+
+void test_sincos_Float3x3(float3x3 s, float3x3 c)
+{
+	sincos(g_f3x3, s, c);
+}
+
+void test_sincos_Float3x4(float3x4 s, float3x4 c)
+{
+	sincos(g_f3x4, s, c);
+}
+
+void test_sincos_Float4x1(float4x1 s, float4x1 c)
+{
+	sincos(g_f4x1, s, c);
+}
+
+void test_sincos_Float4x2(float4x2 s, float4x2 c)
+{
+	sincos(g_f4x2, s, c);
+}
+
+void test_sincos_Float4x3(float4x3 s, float4x3 c)
+{
+	sincos(g_f4x3, s, c);
+}
+
+void test_sincos_Float4x4(float4x4 s, float4x4 c)
+{
+	sincos(g_f4x4, s, c);
+}
+
 float test_sinh_Float()
 {
 	return sinh(g_f);
@@ -4326,10 +4536,5 @@ float4x3 test_trunc_Float4x3()
 float4x4 test_trunc_Float4x4()
 {
 	return trunc(g_f4x4);
-}
-
-void test_clip_Float()
-{
-	clip(g_f);
 }
 

@@ -331,6 +331,69 @@ def test(sh):
 	with sh.function("test_ceil_Float4x4", sh.Float4x4)():
 		sh.return_( sh.g_f4x4.ceil() )
 
+	with sh.function("test_clip_Float", None)():
+		sh.g_f.clip()
+
+	with sh.function("test_clip_Float1", None)():
+		sh.g_f1.clip()
+
+	with sh.function("test_clip_Float2", None)():
+		sh.g_f2.clip()
+
+	with sh.function("test_clip_Float3", None)():
+		sh.g_f3.clip()
+
+	with sh.function("test_clip_Float4", None)():
+		sh.g_f4.clip()
+
+	with sh.function("test_clip_Float1x1", None)():
+		sh.g_f1x1.clip()
+
+	with sh.function("test_clip_Float1x2", None)():
+		sh.g_f1x2.clip()
+
+	with sh.function("test_clip_Float1x3", None)():
+		sh.g_f1x3.clip()
+
+	with sh.function("test_clip_Float1x4", None)():
+		sh.g_f1x4.clip()
+
+	with sh.function("test_clip_Float2x1", None)():
+		sh.g_f2x1.clip()
+
+	with sh.function("test_clip_Float2x2", None)():
+		sh.g_f2x2.clip()
+
+	with sh.function("test_clip_Float2x3", None)():
+		sh.g_f2x3.clip()
+
+	with sh.function("test_clip_Float2x4", None)():
+		sh.g_f2x4.clip()
+
+	with sh.function("test_clip_Float3x1", None)():
+		sh.g_f3x1.clip()
+
+	with sh.function("test_clip_Float3x2", None)():
+		sh.g_f3x2.clip()
+
+	with sh.function("test_clip_Float3x3", None)():
+		sh.g_f3x3.clip()
+
+	with sh.function("test_clip_Float3x4", None)():
+		sh.g_f3x4.clip()
+
+	with sh.function("test_clip_Float4x1", None)():
+		sh.g_f4x1.clip()
+
+	with sh.function("test_clip_Float4x2", None)():
+		sh.g_f4x2.clip()
+
+	with sh.function("test_clip_Float4x3", None)():
+		sh.g_f4x3.clip()
+
+	with sh.function("test_clip_Float4x4", None)():
+		sh.g_f4x4.clip()
+
 	with sh.function("test_cos_Float", sh.Float)():
 		sh.return_( sh.g_f.cos() )
 
@@ -2157,6 +2220,69 @@ def test(sh):
 
 	with sh.function("test_sin_Float4x4", sh.Float4x4)():
 		sh.return_( sh.g_f4x4.sin() )
+
+	with sh.function("test_sincos_Float", None)(s = sh.Float, c = sh.Float):
+		sh.g_f.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float1", None)(s = sh.Float1, c = sh.Float1):
+		sh.g_f1.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float2", None)(s = sh.Float2, c = sh.Float2):
+		sh.g_f2.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float3", None)(s = sh.Float3, c = sh.Float3):
+		sh.g_f3.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float4", None)(s = sh.Float4, c = sh.Float4):
+		sh.g_f4.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float1x1", None)(s = sh.Float1x1, c = sh.Float1x1):
+		sh.g_f1x1.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float1x2", None)(s = sh.Float1x2, c = sh.Float1x2):
+		sh.g_f1x2.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float1x3", None)(s = sh.Float1x3, c = sh.Float1x3):
+		sh.g_f1x3.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float1x4", None)(s = sh.Float1x4, c = sh.Float1x4):
+		sh.g_f1x4.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float2x1", None)(s = sh.Float2x1, c = sh.Float2x1):
+		sh.g_f2x1.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float2x2", None)(s = sh.Float2x2, c = sh.Float2x2):
+		sh.g_f2x2.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float2x3", None)(s = sh.Float2x3, c = sh.Float2x3):
+		sh.g_f2x3.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float2x4", None)(s = sh.Float2x4, c = sh.Float2x4):
+		sh.g_f2x4.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float3x1", None)(s = sh.Float3x1, c = sh.Float3x1):
+		sh.g_f3x1.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float3x2", None)(s = sh.Float3x2, c = sh.Float3x2):
+		sh.g_f3x2.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float3x3", None)(s = sh.Float3x3, c = sh.Float3x3):
+		sh.g_f3x3.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float3x4", None)(s = sh.Float3x4, c = sh.Float3x4):
+		sh.g_f3x4.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float4x1", None)(s = sh.Float4x1, c = sh.Float4x1):
+		sh.g_f4x1.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float4x2", None)(s = sh.Float4x2, c = sh.Float4x2):
+		sh.g_f4x2.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float4x3", None)(s = sh.Float4x3, c = sh.Float4x3):
+		sh.g_f4x3.sincos(s = sh.s, c = sh.c)
+
+	with sh.function("test_sincos_Float4x4", None)(s = sh.Float4x4, c = sh.Float4x4):
+		sh.g_f4x4.sincos(s = sh.s, c = sh.c)
 
 	with sh.function("test_sinh_Float", sh.Float)():
 		sh.return_( sh.g_f.sinh() )

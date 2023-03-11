@@ -16,7 +16,7 @@ import _base, _auto_float_intrinsics, _auto_numeric_intrinsics
 from metashade.hlsl.sm6 import ps_6_0
 
 class TestIntrinsics(_base.Base):
-    def _test(self, hlsl_file_name, auto_package, manual_test = None):
+    def _test(self, hlsl_file_name, auto_package):
         hlsl_path = self._get_hlsl_path(hlsl_file_name)
         with self._open_file(hlsl_path) as ps_file:
             sh = ps_6_0.Generator(ps_file)
@@ -37,17 +37,11 @@ class TestIntrinsics(_base.Base):
                         )
 
             auto_package.test(sh)
-            if manual_test:
-                manual_test(sh)
 
         self._compile(hlsl_path, as_lib = True)
 
     def test_float_intrinsics(self):
-        def _manual_test(sh):
-            with sh.function("test_clip_Float")():
-                sh.g_f.clip()
-
-        self._test('test_float_intrinsics', _auto_float_intrinsics, _manual_test)
+        self._test('test_float_intrinsics', _auto_float_intrinsics)
 
     def test_numeric_intrinsics(self):
         self._test('test_numeric_intrinsics', _auto_numeric_intrinsics)
