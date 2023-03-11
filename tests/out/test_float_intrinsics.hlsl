@@ -4223,3 +4223,8 @@ float4x4 test_trunc_Float4x4()
 	return trunc(g_f4x4);
 }
 
+void test_clip_Float()
+{
+	clip(g_f);
+}
+

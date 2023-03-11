@@ -35,6 +35,10 @@ class _AnyLayoutMixin(
         self._checkDdxDdy('ddy')
         return super().ddy()
 
+    def clip(self):
+        self._sh._emit_indent()
+        self._sh._emit( f'clip({self});\n' )
+
 class _MulMixin:
     def mul(self, rhs, result_type):
         self._check_mul(rhs)
