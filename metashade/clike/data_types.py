@@ -104,6 +104,9 @@ class ArithmeticType(BaseType):
 
     def __div__(self, rhs):
         return self._rhs_binary_operator(rhs, '/')
+    
+    def __truediv__ (self, rhs):
+        return self._rhs_binary_operator(rhs, '/')
 
 class Float(ArithmeticType):
     _target_name = 'float'
