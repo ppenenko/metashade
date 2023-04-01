@@ -87,6 +87,10 @@ class _RawVector(clike.ArithmeticType):
             return concrete_cls(', '.join(map(str, value)))
         else:
             return None
+        
+    @classmethod
+    def _get_binary_operator_result_type(cls):
+        return cls
 
     def _rhs_binary_operator(self, rhs, op : str):
         if self.__class__ != rhs.__class__:
@@ -94,7 +98,8 @@ class _RawVector(clike.ArithmeticType):
 
         self._check_dims(rhs)
 
-        return self.__class__(
+        return_type = self.__class__._get_binary_operator_result_type()
+        return return_type(
             self.__class__._format_binary_operator(
                 self, rhs, op
             )
@@ -219,6 +224,14 @@ class _Point(_RawVector):
     def _get_related_type_name(cls, dim : int):
         _check_float_type(cls._element_type)
         return f'Point{dim}f'
+    
+    @classmethod
+    def _get_binary_operator_result_type(cls):
+        vector_type = getattr(
+            sys.modules[cls.__module__],
+            _get_vector_type_name(cls._element_type, cls._dim)
+        )
+        return vector_type
 
 class Point2(_Point):
     _dim = 2
