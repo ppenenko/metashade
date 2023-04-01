@@ -57,8 +57,14 @@ class _RawVector(rtsl._RawVector, _MulMixin, _AnyLayoutMixin):
                 if element_ref is not None else _
         )
 
+    # TODO: auto-generate a mixin for the following methods:
+    # https://github.com/ppenenko/metashade/issues/9
+
     def normalize(self):
         return self.__class__( f'normalize({self})' )
+
+    def length(self):
+        return self.__class__._element_type( f'length({self})' )
 
 class Float1(_RawVector, rtsl.Float1):
     _target_name = 'float1'
