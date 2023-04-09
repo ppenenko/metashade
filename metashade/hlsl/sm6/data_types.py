@@ -165,6 +165,20 @@ class Matrix3x3f(_MatrixF, Float3x3):
         else:
             return self.mul(vector, result_type = vector.__class__)
 
+class Matrix4x3f(_MatrixF, Float4x3):
+    def xform(self, vector):
+        if vector._dim != 3:
+            raise RuntimeError(
+                'Only 3-element inputs are supported by Matrix4x3f'
+            )
+        return_type = vector.__class__
+        vector = vector.as_vector4()
+        if self.__class__._row_major:
+            return vector.mul(self, result_type = return_type)
+        else:
+            return self.mul(vector, result_type = return_type)
+
+
 class Matrix4x4f(_MatrixF, Float4x4):
     def xform(self, vector):
         vector = vector.as_vector4()
