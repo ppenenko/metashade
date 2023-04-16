@@ -103,8 +103,6 @@ class Float4(_RawVector, rtsl.Float4):
             super().__init__(expression)
 
 class _RawMatrixF(_MulMixin, _AnyLayoutMixin, rtsl._RawMatrix):
-    # This is the HLSL default but should ideally be configurable
-    _row_major = False
     _element_type = Float
 
     @classmethod
@@ -154,16 +152,19 @@ class _MatrixF(rtsl._Matrix, _RawMatrixF):
     @classmethod
     def _get_row_type_name(cls):
         return f'Vector{cls._dims[1]}f'
+    
+    def _xform(self, vector, result_type):
+        if self._sh._matrix_post_multiplication:
+            return self.mul(vector, result_type = result_type)
+        else:
+            return vector.mul(self, result_type = result_type)
 
 class Matrix3x3f(_MatrixF, Float3x3):
     def __init__(self, expression : str = None, rows = None):
         _MatrixF.__init__(self, expression = expression, rows = rows)
 
     def xform(self, vector):
-        if self.__class__._row_major:
-            return vector.mul(self, result_type = vector.__class__)
-        else:
-            return self.mul(vector, result_type = vector.__class__)
+        return self._xform(vector, vector.__class__)
 
 class Matrix4x3f(_MatrixF, Float4x3):
     def xform(self, vector):
@@ -171,21 +172,11 @@ class Matrix4x3f(_MatrixF, Float4x3):
             raise RuntimeError(
                 'Only 3-element inputs are supported by Matrix4x3f'
             )
-        return_type = vector.__class__
-        vector = vector.as_vector4()
-        if self.__class__._row_major:
-            return vector.mul(self, result_type = return_type)
-        else:
-            return self.mul(vector, result_type = return_type)
-
+        return self._xform(vector.as_vector4(), vector.__class__)
 
 class Matrix4x4f(_MatrixF, Float4x4):
     def xform(self, vector):
-        vector = vector.as_vector4()
-        if self.__class__._row_major:
-            return vector.mul(self, result_type = Vector4f)
-        else:
-            return self.mul(vector, result_type = Vector4f)
+        return self._xform(vector.as_vector4(), Vector4f)
 
 class Vector4f(rtsl.Vector4, Float4):
     pass

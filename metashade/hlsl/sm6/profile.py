@@ -52,8 +52,10 @@ class Generator(rtsl.Generator):
             if register in self:
                 raise RuntimeError(self._category + ' register already in use')
 
-    def __init__(self, file_):
+    def __init__(self, file_, matrix_post_multiplication = False):
         super(Generator, self).__init__(file_)
+        self._matrix_post_multiplication = matrix_post_multiplication
+
         self._uniforms_by_semantic = dict()
 
         self._used_uniform_buffer_registers = \
