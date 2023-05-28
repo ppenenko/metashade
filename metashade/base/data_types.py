@@ -23,16 +23,23 @@ class BaseType:
         can only be assigned by the generator later by calling _bind()
         The value can be optionally initialized.
         """
+        self._sh = None
         self._name = None
         self._expression = expression
-        
+
+    def _set_generator(self, sh):
+        if self._sh is None:
+            self._sh = sh
+        elif self._sh != sh:
+            raise RuntimeError("Generator can't be reset")
+
     def _bind(self, sh, name, allow_init):
         if not allow_init and self._expression is not None:
             raise RuntimeError('Initializers are not supported.')
-        
+
         self._name = name
-        self._sh = sh
-        
+        self._set_generator(sh)
+
     def __str__(self) -> str:
         if self._name is not None:
             return self._name
