@@ -21,7 +21,9 @@ class TestSwizzling(_base.Base):
         with self._open_file(hlsl_path) as ps_file:
             sh = ps_6_0.Generator(ps_file)
 
-            with sh.function('rgba_swizzle', sh.Float)(rgb = sh.RgbF, rgba = sh.RgbaF):
+            with sh.function('rgba_swizzle', sh.Float)(
+                rgb = sh.RgbF, rgba = sh.RgbaF
+            ):
                 sh.r = sh.rgb.r
                 sh.g = sh.rgba.g
                 sh.return_(sh.r + sh.g)
