@@ -112,9 +112,11 @@ class _RawMatrixF(_MulMixin, _AnyLayoutMixin, rtsl._RawMatrix):
     def _get_row_type_name(cls):
         return f'Float{cls._dims[1]}'
 
-    def __init__(self, expression : str = None, rows = None):
-        if rows is not None:
-            if expression is not None:
+    def __init__(self, _ = None, rows = None):
+        if rows is None:
+            rtsl._RawMatrix.__init__(self, _ = _)
+        else:
+            if _ is not None:
                 raise RuntimeError(
                     'Conflicting constructor arguments'
                 )
@@ -132,13 +134,11 @@ class _RawMatrixF(_MulMixin, _AnyLayoutMixin, rtsl._RawMatrix):
             
             rtsl._RawMatrix.__init__(
                 self,
-                expression = '{dtype}({rows})'.format(
+                _ = '{dtype}({rows})'.format(
                     dtype = self.__class__._target_name,
                     rows = ', '.join(map(str, rows))
                 )
             )
-        else:
-            rtsl._RawMatrix.__init__(self, expression = expression)
 
 # Generate all concrete matrix types to avoid copy-and-paste
 for rows in range(1, 5):
@@ -163,8 +163,8 @@ class _MatrixF(rtsl._Matrix, _RawMatrixF):
             return rhs.mul(self, result_type = result_type)
 
 class Matrix3x3f(_MatrixF, Float3x3):
-    def __init__(self, expression : str = None, rows = None):
-        _MatrixF.__init__(self, expression = expression, rows = rows)
+    def __init__(self, _ = None, rows = None):
+        _MatrixF.__init__(self, _ = _, rows = rows)
 
     def xform(self, rhs):
         return self._xform(rhs, rhs.__class__)

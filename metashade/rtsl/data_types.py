@@ -112,7 +112,9 @@ class _RawVector(clike.ArithmeticType):
                     for element in value
             )
         ):
-            return concrete_cls(', '.join(map(str, value)))
+            dtype = concrete_cls._target_name
+            elements = ', '.join(map(str, value))
+            return concrete_cls(f'{dtype}({elements})')
         else:
             return None
         
