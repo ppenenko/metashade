@@ -30,11 +30,16 @@ class TestVectorInit(_base.Base):
                 sh.f2 = sh.Float2(sh.Float(2))
                 sh.f2 = sh.Float2(0)
                 sh.f2 = sh.Float2((0, 1))
+                sh.f2 = (3, 4)
+                sh.f2 = [5, 6]
+                sh.f2 = [sh.f, 7]
+                sh.f2 = (8, sh.Float(9))
 
                 sh.f3 = sh.Float3(sh.f)
                 sh.f3 = sh.Float3(0)
                 sh.f3 = sh.Float3(sh.Float(2))
                 sh.f3 = sh.Float3((0, 1, 2))
+                sh.f3 = [sh.f, sh.Float(3), 4.1]
 
                 #sh.rgb = sh.RgbF(sh.f)
                 #sh.rgb = sh.RgbF(sh.Float(2))
