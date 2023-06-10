@@ -21,9 +21,7 @@ class TestVectorInit(_base.Base):
         with self._open_file(hlsl_path) as ps_file:
             sh = ps_6_0.Generator(ps_file)
 
-            with sh.function('vector_init', sh.Float)(
-                rgb = sh.RgbF, rgba = sh.RgbaF
-            ):
+            with sh.function('vector_init', sh.Float)():
                 sh.f = sh.Float(1)
 
                 sh.f2 = sh.Float2(sh.f)
@@ -41,9 +39,11 @@ class TestVectorInit(_base.Base):
                 sh.f3 = sh.Float3((0, 1, 2))
                 sh.f3 = [sh.f, sh.Float(3), 4.1]
 
-                #sh.rgb = sh.RgbF(sh.f)
-                #sh.rgb = sh.RgbF(sh.Float(2))
-                #sh.rgb = sh.RgbF(0)
+                sh.rgb = sh.RgbF(sh.f)
+                sh.rgb = sh.RgbF(sh.Float(2))
+                sh.rgb = sh.RgbF(0)
+                sh.rgb = sh.RgbF((0, 1, 0.5))
+                sh.rgb = [0.1, sh.f, sh.Float(3)]
 
                 sh.return_(sh.f)
 
