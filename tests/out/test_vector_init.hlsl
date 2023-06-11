@@ -19,6 +19,12 @@ float vector_init()
 	rgb = 0.xxx;
 	rgb = float3(0, 1, 0.5);
 	rgb = float3(0.1, f, 3);
+	float4 rgba = f.xxxx;
+	rgba = 2.xxxx;
+	rgba = 0.xxxx;
+	rgba = float4(0, 1, 0.5, 1.0);
+	rgba = float4(0.1, f, 3, 1.0);
+	rgba = float4(rgb, 0.0);
 	return f;
 }
 

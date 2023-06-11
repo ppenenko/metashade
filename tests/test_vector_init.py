@@ -45,6 +45,13 @@ class TestVectorInit(_base.Base):
                 sh.rgb = sh.RgbF((0, 1, 0.5))
                 sh.rgb = [0.1, sh.f, sh.Float(3)]
 
+                sh.rgba = sh.RgbaF(sh.f)
+                sh.rgba = sh.RgbaF(sh.Float(2))
+                sh.rgba = sh.RgbaF(0)
+                sh.rgba = sh.RgbaF((0, 1, 0.5, 1.0))
+                sh.rgba = [0.1, sh.f, sh.Float(3), 1.0]
+                sh.rgba = sh.RgbaF(rgb = sh.rgb, a = 0.0)
+
                 sh.return_(sh.f)
 
         self._compile(hlsl_path, as_lib = True)
