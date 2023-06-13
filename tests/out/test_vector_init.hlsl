@@ -14,6 +14,16 @@ float vector_init()
 	f3 = 2.xxx;
 	f3 = float3(0, 1, 2);
 	f3 = float3(f, 3, 4.1);
+	float3 p3 = f.xxx;
+	p3 = 2.xxx;
+	p3 = 0.xxx;
+	p3 = float3(0, 1, 0.5);
+	p3 = float3(0.1, f, 3);
+	float4 v4 = f.xxxx;
+	v4 = 2.xxxx;
+	v4 = 0.xxxx;
+	v4 = float4(0, 1, 0.5, 1.0);
+	v4 = float4(0.1, f, 3, 1.0);
 	float3 rgb = f.xxx;
 	rgb = 2.xxx;
 	rgb = 0.xxx;

@@ -39,6 +39,18 @@ class TestVectorInit(_base.Base):
                 sh.f3 = sh.Float3((0, 1, 2))
                 sh.f3 = [sh.f, sh.Float(3), 4.1]
 
+                sh.p3 = sh.Point3f(sh.f)
+                sh.p3 = sh.Point3f(sh.Float(2))
+                sh.p3 = sh.Point3f(0)
+                sh.p3 = sh.Point3f((0, 1, 0.5))
+                sh.p3 = [0.1, sh.f, sh.Float(3)]
+
+                sh.v4 = sh.Vector4f(sh.f)
+                sh.v4 = sh.Vector4f(sh.Float(2))
+                sh.v4 = sh.Vector4f(0)
+                sh.v4 = sh.Vector4f((0, 1, 0.5, 1.0))
+                sh.v4 = [0.1, sh.f, sh.Float(3), 1.0]
+
                 sh.rgb = sh.RgbF(sh.f)
                 sh.rgb = sh.RgbF(sh.Float(2))
                 sh.rgb = sh.RgbF(0)
