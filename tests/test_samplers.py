@@ -30,6 +30,11 @@ class TestSamplers(_base.Base):
                 sampler_name = 'colorSampler1', sampler_register = 0,
                 texel_type = sh.RgbaF
             )
+            sh.combined_sampler_2d(
+                texture_name = 'shadowMap', texture_register = 2,
+                sampler_name = 'shadowSampler', sampler_register = 2,
+                cmp = True
+            )
 
             with sh.vs_output('VsOut') as VsOut:
                 VsOut.texCoord('uv0', sh.Point2f)
@@ -39,7 +44,8 @@ class TestSamplers(_base.Base):
 
             with sh.main(self._entry_point_name, sh.PsOut)(psIn = sh.VsOut):
                 sh.psOut = sh.PsOut()
-                sh.psOut.color = sh.colorSampler1(sh.psIn.uv0)
+                sh.psOut.color = sh.colorSampler1(sh.psIn.uv0) * \
+                    sh.shadowSampler(sh.psIn.uv0, sh.Float(0.5))
                 sh.return_(sh.psOut)
 
         self._compile(hlsl_path, as_lib = False)
