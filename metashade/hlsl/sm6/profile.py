@@ -68,6 +68,7 @@ class Generator(rtsl.Generator):
 
     def uniform_buffer(self, register : int, name : str = None):
         self._used_uniform_buffer_registers.check_candidate(register)
+        self._used_uniform_buffer_registers.add(register)
         return UniformBuffer(self, register = register, name = name)
 
     # TODO: registers, packoffset
@@ -106,7 +107,7 @@ class Generator(rtsl.Generator):
         texel_type = None,
         cmp = False
     ):
-        self._check_public_name(texture_name)
+        self._check_public_name(texture_name)   # covered in `uniform`
         self._check_public_name(sampler_name)
 
         if not self._check_global_scope():
