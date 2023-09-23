@@ -1,12 +1,9 @@
 Texture2D g_tColor0 : register(t0);
 SamplerState g_sColor0 : register(s1);
-
 Texture2D g_tColor1 : register(t1);
 SamplerState g_sColor1 : register(s0);
-
 Texture2D g_tShadow : register(t2);
 SamplerComparisonState g_sShadow : register(s2);
-
 struct VsOut
 {
 	float2 uv0 : TEXCOORD;
