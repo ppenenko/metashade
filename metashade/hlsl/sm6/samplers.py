@@ -40,7 +40,7 @@ class Sampler(clike_dtypes.BaseType):
 class SamplerCmp(Sampler):
     _target_name = 'SamplerComparisonState'
 
-class CombinedSampler(clike_dtypes.BaseType):
+class CombinedSampler:
     def __init__(self, texture, sampler):
         self._texture = texture
         self._sampler = sampler
