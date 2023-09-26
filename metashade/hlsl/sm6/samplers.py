@@ -15,10 +15,10 @@
 from . import data_types
 import metashade.clike.data_types as clike_dtypes
 
-class Texture2d(clike_dtypes.BaseType):
-    _tex_coord_type = data_types.Float2
-    _target_name = 'Texture2D'
+# See https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/d3d11-graphics-reference-sm5-objects
+# for HLSL 5+ texture object types
 
+class _TextureBase(clike_dtypes.BaseType):
     @classmethod
     def _format_uniform_register(cls, register_idx : int) -> str:
         return f't{register_idx}'
@@ -26,6 +26,22 @@ class Texture2d(clike_dtypes.BaseType):
     def __init__(self, texel_type = None):
         super().__init__()
         self._texel_type = texel_type
+
+class Texture1d(_TextureBase):
+    _tex_coord_type = data_types.Float2
+    _target_name = 'Texture1D'
+
+class Texture2d(_TextureBase):
+    _tex_coord_type = data_types.Float2
+    _target_name = 'Texture2D'
+
+class Texture3d(_TextureBase):
+    _tex_coord_type = data_types.Float3
+    _target_name = 'Texture3D'
+
+class TextureCube(_TextureBase):
+    _tex_coord_type = data_types.Float3
+    _target_name = 'TextureCube'
 
 class Sampler(clike_dtypes.BaseType):
     _target_name = 'SamplerState'
