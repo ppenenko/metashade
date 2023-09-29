@@ -30,6 +30,10 @@ class TestSamplers(_base.Base):
             sh.uniform('g_tShadow', sh.Texture2d, register = 2)
             sh.uniform('g_sShadow', sh.SamplerCmp, register = 2)
 
+            sh.uniform('g_t1d', sh.Texture1d, register = 3)
+            sh.uniform('g_t3d', sh.Texture3d, register = 4)
+            sh.uniform('g_tCube', sh.TextureCube, register = 5)
+
             with sh.vs_output('VsOut') as VsOut:
                 VsOut.texCoord('uv0', sh.Point2f)
 
@@ -54,8 +58,15 @@ class TestSamplers(_base.Base):
                     cmp_value = sh.Float(0.1),
                     lod = 0
                 )
-                sh.psOut.color = \
+
+                sh.f1dSample = sh.g_sColor1(sh.g_t1d)(sh.psIn.uv0.x)
+                sh.f3dSample = sh.g_sColor1(sh.g_t3d)(sh.Float3(0.5))
+                sh.f3CubeSample = sh.g_sColor1(sh.g_tCube)(sh.Float3(0.5))
+
+                sh.psOut.color = (
                     sh.rgbaSample0 * sh.rgbaSample1 * sh.rgbaSample2 * sh.fShadowSample0 * sh.fShadowSample1
+                    * sh.f1dSample * sh.f3dSample * sh.f3CubeSample
+                )
                 sh.return_(sh.psOut)
 
         self._compile(hlsl_path, as_lib = False)

@@ -28,7 +28,7 @@ class _TextureBase(clike_dtypes.BaseType):
         self._texel_type = texel_type
 
 class Texture1d(_TextureBase):
-    _tex_coord_type = data_types.Float2
+    _tex_coord_type = data_types.Float
     _target_name = 'Texture1D'
 
 class Texture2d(_TextureBase):
