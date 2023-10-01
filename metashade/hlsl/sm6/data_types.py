@@ -68,6 +68,9 @@ class _RawVector(rtsl._RawVector, _MulMixin, _AnyLayoutMixin):
             self.__class__._element_type,
             f'length({self})'
         )
+    
+    def reflect(self, rhs):
+        return self.__class__( f'reflect({self}, {rhs})' )
 
 class Float1(_RawVector, rtsl.Float1):
     _target_name = 'float1'
