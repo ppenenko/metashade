@@ -14,7 +14,6 @@
 
 import metashade.base.data_types as base
 import metashade.rtsl.data_types as rtsl
-import metashade.clike.struct as struct
 
 import numbers
 from . import _auto_float_intrinsics, _auto_numeric_intrinsics
