@@ -16,8 +16,13 @@ import pytest, _base
 from metashade.hlsl.sm6 import ps_6_0
 
 class TestArithmetic(_base.Base):
-    def test_arithmetic(self):
-        hlsl_path = self._get_hlsl_path('test_arithmetic')
+    def _test_arithmetic(
+            self,
+            hlsl_file_name : str,
+            scalar_type : str,
+            vector2_type : str
+    ):
+        hlsl_path = self._get_hlsl_path(hlsl_file_name)
         with self._open_file(hlsl_path) as ps_file:
             sh = ps_6_0.Generator(ps_file)
             
@@ -25,10 +30,10 @@ class TestArithmetic(_base.Base):
                 PsOut.SV_Target('color', sh.Float4)
 
             with sh.function('test_arithmetic', sh.Float2)():
-                sh.fD = sh.Float(-1)
+                sh.fD = getattr(sh, scalar_type)(-1)
 
-                sh.f2A = sh.Float2(0)
-                sh.f2B = sh.Float2(1)
+                sh.f2A = getattr(sh, vector2_type)(0)
+                sh.f2B = getattr(sh, vector2_type)((1, 2))
                 
                 sh.f2C = sh.f2A + sh.f2B
                 sh.f2C += sh.f2B
@@ -50,3 +55,11 @@ class TestArithmetic(_base.Base):
                 sh.return_(sh.f2C)
 
         self._compile(hlsl_path, as_lib = True)
+
+    def test_arithmetic_float(self):
+        self._test_arithmetic(
+            hlsl_file_name = 'test_arithmetic',
+            scalar_type = 'Float',
+            vector2_type = 'Float2'
+        )
+
