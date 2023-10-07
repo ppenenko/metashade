@@ -40,11 +40,7 @@ class _MulMixin:
         return self._sh._instantiate_dtype(result_type, f'mul({self}, {rhs})')
 
 class Float(rtsl.Float, _AnyLayoutMixin):
-    def __init__(self, _ = None):
-        super().__init__(
-            _ if isinstance(_, str)
-            else self.__class__._get_value_ref(_)
-        )
+    pass
 
 class _RawVector(rtsl._RawVector, _MulMixin, _AnyLayoutMixin):
     _element_type = Float
