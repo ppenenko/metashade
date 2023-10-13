@@ -19,8 +19,6 @@ import metashade.clike.data_types as clike_dtypes
 # for HLSL 5+ texture object types
 
 class _TextureBase(clike_dtypes.BaseType):
-    _supports_offset = True
-
     @classmethod
     def _format_uniform_register(cls, register_idx : int) -> str:
         return f't{register_idx}'
@@ -31,20 +29,22 @@ class _TextureBase(clike_dtypes.BaseType):
 
 class Texture1d(_TextureBase):
     _tex_coord_type = data_types.Float
+    _tex_coord_offset_type = data_types.Int
     _target_name = 'Texture1D'
 
 class Texture2d(_TextureBase):
     _tex_coord_type = data_types.Float2
+    _tex_coord_offset_type = data_types.Int2
     _target_name = 'Texture2D'
 
 class Texture3d(_TextureBase):
     _tex_coord_type = data_types.Float3
+    _tex_coord_offset_type = data_types.Int3
     _target_name = 'Texture3D'
 
 class TextureCube(_TextureBase):
     _tex_coord_type = data_types.Float3
     _target_name = 'TextureCube'
-    _supports_offset = False
 
 class Sampler(clike_dtypes.BaseType):
     _target_name = 'SamplerState'
@@ -83,11 +83,19 @@ class CombinedSampler:
         
         args = [self._sampler._name, str(tex_coord)]
         if offset is not None:
-            if not self._texture.__class__._supports_offset:
+            try:
+                offset_type = self._texture.__class__._tex_coord_offset_type
+            except AttributeError:
                 raise RuntimeError(
                     f"{self._texture.__class__} doesn't support texture "
                     "coordinate offsets"
                 )
+
+            if not isinstance(offset, offset_type):
+                raise RuntimeError(
+                    f'Expected texture offset coordinate type {offset_type}'
+                )
+
             args.append(str(offset))
 
         def _format(method_name : str) -> str:
