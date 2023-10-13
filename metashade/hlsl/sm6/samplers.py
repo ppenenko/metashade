@@ -82,21 +82,24 @@ class CombinedSampler:
             )
         
         args = [self._sampler._name, str(tex_coord)]
-        if offset is not None:
-            try:
-                offset_type = self._texture.__class__._tex_coord_offset_type
-            except AttributeError:
-                raise RuntimeError(
-                    f"{self._texture.__class__} doesn't support texture "
-                    "coordinate offsets"
-                )
 
-            if not isinstance(offset, offset_type):
-                raise RuntimeError(
-                    f'Expected texture offset coordinate type {offset_type}'
-                )
+        def _handle_offset():
+            if offset is not None:
+                try:
+                    offset_type = \
+                        self._texture.__class__._tex_coord_offset_type
+                except AttributeError:
+                    raise RuntimeError(
+                        f"{self._texture.__class__} doesn't support texture "
+                        "coordinate offsets"
+                    )
 
-            args.append(str(offset))
+                if not isinstance(offset, offset_type):
+                    raise RuntimeError(
+                        'Expected texture offset coordinate type '
+                        + {offset_type}
+                    )
+                args.append(str(offset))
 
         def _format(method_name : str) -> str:
             return (
@@ -118,7 +121,8 @@ class CombinedSampler:
                     "Missing sampler comparison value"
                 )
             args.append(str(cmp_value))
-            
+            _handle_offset()
+
             if lod is not None:
                 if lod == 0:
                     expression = _format('SampleCmpLevelZero')
@@ -135,6 +139,8 @@ class CombinedSampler:
                 raise RuntimeError(
                     "Comparison value passed to a non-comparison sampler"
                 )
+            _handle_offset()
+
             texel_type = self._texture._texel_type
             if texel_type is None:
                 texel_type = self._sampler._sh.Float4
