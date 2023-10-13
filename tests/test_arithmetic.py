@@ -25,11 +25,10 @@ class TestArithmetic(_base.Base):
         hlsl_path = self._get_hlsl_path(hlsl_file_name)
         with self._open_file(hlsl_path) as ps_file:
             sh = ps_6_0.Generator(ps_file)
-            
-            with sh.ps_output('PsOut') as PsOut:
-                PsOut.SV_Target('color', sh.Float4)
 
-            with sh.function('test_arithmetic', sh.Float2)():
+            with sh.function(
+                'test_arithmetic', getattr(sh, vector2_type)
+            )():
                 sh.fD = getattr(sh, scalar_type)(-1)
 
                 sh.f2A = getattr(sh, vector2_type)(0)
@@ -58,8 +57,17 @@ class TestArithmetic(_base.Base):
 
     def test_arithmetic_float(self):
         self._test_arithmetic(
-            hlsl_file_name = 'test_arithmetic',
+            hlsl_file_name = 'test_arithmetic_float',
             scalar_type = 'Float',
             vector2_type = 'Float2'
         )
+
+    def test_arithmetic_int(self):
+        self._test_arithmetic(
+            hlsl_file_name = 'test_arithmetic_int',
+            scalar_type = 'Int',
+            vector2_type = 'Int2'
+        )
+
+
 
