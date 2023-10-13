@@ -19,6 +19,8 @@ import metashade.clike.data_types as clike_dtypes
 # for HLSL 5+ texture object types
 
 class _TextureBase(clike_dtypes.BaseType):
+    _supports_offset = True
+
     @classmethod
     def _format_uniform_register(cls, register_idx : int) -> str:
         return f't{register_idx}'
@@ -42,6 +44,7 @@ class Texture3d(_TextureBase):
 class TextureCube(_TextureBase):
     _tex_coord_type = data_types.Float3
     _target_name = 'TextureCube'
+    _supports_offset = False
 
 class Sampler(clike_dtypes.BaseType):
     _target_name = 'SamplerState'
@@ -61,7 +64,14 @@ class CombinedSampler:
         self._texture = texture
         self._sampler = sampler
 
-    def __call__(self, tex_coord, lod = None, lod_bias = None, cmp_value = None):
+    def __call__(
+        self,
+        tex_coord,
+        offset = None,
+        lod = None,
+        lod_bias = None,
+        cmp_value = None
+    ):
         if self._texture is None:
             raise RuntimeError("Sampler hasn't been combined with any texture")
     
@@ -71,6 +81,21 @@ class CombinedSampler:
                 f'Expected texture coordinate type {tex_coord_type}'
             )
         
+        args = [self._sampler._name, str(tex_coord)]
+        if offset is not None:
+            if not self._texture.__class__._supports_offset:
+                raise RuntimeError(
+                    f"{self._texture.__class__} doesn't support texture "
+                    "coordinate offsets"
+                )
+            args.append(str(offset))
+
+        def _format(method_name : str) -> str:
+            return (
+                f'{self._texture._name}.{method_name}('
+                + ', '.join(args) + ')'
+            )
+
         if isinstance(self._sampler, SamplerCmp):   #TODO: refactor
             if lod_bias is not None:
                 raise RuntimeError(
@@ -84,12 +109,8 @@ class CombinedSampler:
                 raise RuntimeError(
                     "Missing sampler comparison value"
                 )
+            args.append(str(cmp_value))
             
-            def _format(method_name : str) -> str:
-                return (
-                    f'{self._texture._name}.{method_name}'
-                    + f'({self._sampler._name}, {tex_coord}, {cmp_value}).r'
-                )
             if lod is not None:
                 if lod == 0:
                     expression = _format('SampleCmpLevelZero')
@@ -100,7 +121,7 @@ class CombinedSampler:
                     )
             else:
                 expression = _format('SampleCmp')
-            return self._sampler._sh.Float(expression)
+            return self._sampler._sh.Float(expression + '.r')
         else:
             if cmp_value is not None:
                 raise RuntimeError(
@@ -115,14 +136,11 @@ class CombinedSampler:
                     raise RuntimeError(
                         "Explicit LOD and LOD bias are mutually exclusive"
                     )
-                return texel_type(
-                    _ = f'{self._texture._name}.SampleLevel({self._sampler._name}, {tex_coord}, {lod})'
-                )
+                args.append(str(lod))
+                return texel_type(_format('SampleLevel'))
             elif lod_bias is not None:
-                return texel_type(
-                    _ = f'{self._texture._name}.SampleBias({self._sampler._name}, {tex_coord}, {lod_bias})'
-                )
+                args.append(str(lod_bias))
+                return texel_type(_format('SampleBias'))
             else:
-                return texel_type(
-                    _ = f'{self._texture._name}.Sample({self._sampler._name}, {tex_coord})'
-                )
+                return texel_type(_format('Sample'))
+
