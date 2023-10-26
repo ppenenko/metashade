@@ -164,6 +164,9 @@ class _RawVector(clike.ArithmeticType):
             f'dot({self}, {rhs})'
         )
 
+    def __matmul__(self, rhs):
+        return self.dot(rhs)
+
 class RawVector1(_RawVector):
     _dim = 1
 
