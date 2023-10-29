@@ -142,3 +142,6 @@ class Generator:
         self._emit_indent()
         value._define(self, name)
         self._emit(';\n')
+
+    def __floordiv__(self, comment):
+        self._single_line_comment(comment)
