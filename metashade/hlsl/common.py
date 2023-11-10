@@ -13,7 +13,8 @@
 # limitations under the License.
 
 import pathlib, shutil, subprocess
-import metashade.util as util
+from typing import NamedTuple
+from metashade.util import perf
 
 def identify_dxc():
     print(f'Found DXC executable: {shutil.which("dxc")}')
@@ -25,6 +26,10 @@ def identify_dxc():
     dxc_result = subprocess.run( args, capture_output = True )
     print( dxc_result.stdout.decode() )
 
+class CompilationResult(NamedTuple):
+    returncode : int
+    out_path : pathlib.Path
+
 def compile(
     src_path : str,
     entry_point_name : str,
@@ -32,7 +37,7 @@ def compile(
     include_paths = None,
     to_spirv : bool = False,
     output_to_file : bool = False
-) -> int:
+) -> CompilationResult:
     args = [
         'dxc',
         '-T', profile,
@@ -47,7 +52,7 @@ def compile(
         for path in include_paths:
             args += ['-I', path]
 
-    message = 'Compiling'
+    message = 'DXC compiling'
     if output_to_file:
         out_path = pathlib.Path(src_path).with_suffix(
             '.spv' if to_spirv else '.cso'
@@ -55,11 +60,15 @@ def compile(
         args += ['-Fo', out_path]
         message += f' {out_path}'
 
-    with util.TimedScope(message):
+    with perf.TimedScope(message):
         dxc_result = subprocess.run( args, capture_output = True )
 
     if dxc_result.returncode != 0:
         print( f'DXC compilation failed with code {dxc_result.returncode}, '
             f'stderr:\n{dxc_result.stderr.decode()}'
         )
-    return dxc_result.returncode
+    
+    return CompilationResult(
+        returncode = dxc_result.returncode,
+        out_path = out_path if output_to_file else None
+    )
