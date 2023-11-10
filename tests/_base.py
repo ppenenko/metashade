@@ -41,7 +41,7 @@ class Base:
         # definition is found elsewhere in the compilation unit, e.g. in an
         # included header.
         assert 0 == compile(
-            path = hlsl_path,
+            src_path = hlsl_path,
             entry_point_name = self._entry_point_name,
             profile = 'lib_6_5' if as_lib else 'ps_6_0',
             include_paths = [
