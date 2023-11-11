@@ -46,7 +46,10 @@ def compile(
     ]
 
     if to_spirv:
-        args.append('-spirv')
+        args += [
+            '-spirv',
+            '-O0' #preserves functions from HLSL in GLSL
+        ]
 
     if include_paths:
         for path in include_paths:
