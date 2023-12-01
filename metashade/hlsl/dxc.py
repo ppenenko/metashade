@@ -16,7 +16,7 @@ import pathlib, shutil, subprocess
 from typing import NamedTuple
 from metashade.util import perf
 
-def identify_dxc():
+def identify():
     print(f'Found DXC executable: {shutil.which("dxc")}')
     
     args = [
