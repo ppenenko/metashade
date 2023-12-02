@@ -38,8 +38,7 @@
                 "--out-dir", "${workspaceFolder}/../metashade-out",
                 "--skip-codegen",
                 "--compile",
-                "--to-glsl",
-                "--serial"
+                "--to-glsl"
             ]
         },
         {
