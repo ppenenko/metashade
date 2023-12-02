@@ -31,4 +31,6 @@ def spirv_to_glsl(
     ]
 
     with perf.TimedScope(f'SPIRV-Cross generating {glsl_path}'):
-        result = subprocess.run( args, capture_output = True )
+        result = subprocess.run( args )
+
+    result.check_returncode()
