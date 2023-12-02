@@ -17,45 +17,41 @@ from typing import NamedTuple
 from metashade.util import perf
 
 def identify():
-    print(f'Found DXC executable: {shutil.which("dxc")}')
+    print(f'Found glslc executable: {shutil.which("glslc")}')
     
-    args = [ 'dxc', '--version' ]
-    dxc_result = subprocess.run( args, capture_output = True )
-    print( dxc_result.stdout.decode() )
+    args = [
+        'glslc',
+        '--version'
+    ]
+    result = subprocess.run( args, capture_output = True )
+    print( result.stdout.decode() )
 
 def compile(
     src_path : str,
-    profile : str,
-    entry_point_name : str = None,  # can be None for libraries
+    entry_point_name : str,
+    target_env : str,
+    shader_stage : str,
     output_path : str = None,
-    include_paths = None,
-    to_spirv : bool = False
+    include_paths = None
 ):
     args = [
-        'dxc',
-        '-T', profile,
+        'glslc',
+        '--target-env', target_env,
+        '-fshader-stage', shader_stage,
+        '-fentry-point', entry_point_name,
         src_path
     ]
-
-    if entry_point_name is not None:
-        args += [ '-E', entry_point_name ]
-
-    if to_spirv:
-        args += [
-            '-spirv',
-            '-O0' #preserves functions from HLSL in GLSL
-        ]
 
     if include_paths:
         for path in include_paths:
             args += ['-I', path]
 
-    message = 'DXC compiling'
+    message = 'glslc compiling'
     if output_path is not None:
-        args += ['-Fo', output_path]
+        args += ['-o', output_path]
         message += f' {output_path}'
 
     with perf.TimedScope(message):
-        result = subprocess.run( args )
+        result = subprocess.run( args, capture_output = True )
 
     result.check_returncode()

@@ -12,23 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import pathlib, shutil, subprocess
-from metashade.util import perf
+import pathlib, pytest, sys
+from subprocess import CalledProcessError
+from metashade.hlsl import dxc
 
-_exe_name = 'spirv-cross'
-
-def identify():
-    print(f'Found SPIRV-Cross executable: {shutil.which(_exe_name)}')
-
-def spirv_to_glsl(
-    spirv_path : str,
-    glsl_path : str
-):
-    args = [
-        _exe_name,
-        '--output', glsl_path,
-        spirv_path
-    ]
-
-    with perf.TimedScope(f'SPIRV-Cross generating {glsl_path}'):
-        result = subprocess.run( args, capture_output = True )
+class TestDxc:
+    def test_dxc_failure(self):
+        parent_dir = pathlib.Path(sys.modules[self.__module__].__file__).parent
+        with pytest.raises(CalledProcessError):
+            dxc.compile(
+                src_path = parent_dir / 'fail.hlsl',
+                profile = 'lib_6_5',
+            )
