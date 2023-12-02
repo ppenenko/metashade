@@ -36,9 +36,9 @@ def compile(
 ):
     args = [
         'glslc',
-        '--target-env', target_env,
-        '-fshader-stage', shader_stage,
-        '-fentry-point', entry_point_name,
+        f'--target-env={target_env}',
+        f'-fshader-stage={shader_stage}',
+        f'-fentry-point={entry_point_name}',
         src_path
     ]
 
@@ -52,6 +52,6 @@ def compile(
         message += f' {output_path}'
 
     with perf.TimedScope(message):
-        result = subprocess.run( args, capture_output = True )
+        result = subprocess.run( args )
 
     result.check_returncode()
