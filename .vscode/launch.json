@@ -28,7 +28,7 @@
             ]
         },
         {
-            "name": "glTF generate and cross-compile to GLSL",
+            "name": "glTF cross-compile to GLSL",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/gltfdemo/generate.py",
