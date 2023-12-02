@@ -22,13 +22,17 @@ def identify():
 
 def spirv_to_glsl(
     spirv_path : str,
-    glsl_path : str
+    glsl_path : str,
+    for_vulkan : bool = True
 ):
     args = [
         _exe_name,
         '--output', glsl_path,
         spirv_path
     ]
+
+    if for_vulkan:
+        args.append('--vulkan-semantics')
 
     with perf.TimedScope(f'SPIRV-Cross generating {glsl_path}'):
         result = subprocess.run( args )
