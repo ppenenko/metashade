@@ -27,6 +27,9 @@ class _TextureBase(clike_dtypes.BaseType):
         super().__init__()
         self._texel_type = texel_type
 
+    def __matmul__(self, sampler):
+        return sampler.combine(self)
+
 class Texture1d(_TextureBase):
     _tex_coord_type = data_types.Float
     _tex_coord_offset_type = data_types.Int
@@ -52,9 +55,12 @@ class Sampler(clike_dtypes.BaseType):
     @classmethod
     def _format_uniform_register(cls, register_idx : int) -> str:
         return f's{register_idx}'
-
-    def __call__(self, texture):
+    
+    def combine(self, texture):
         return CombinedSampler(texture = texture, sampler = self)
+    
+    def __matmul__(self, texture):
+        return self.combine(texture)
     
 class SamplerCmp(Sampler):
     _target_name = 'SamplerComparisonState'
