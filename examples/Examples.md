@@ -1,13 +1,14 @@
+### Create a float variable with the value of pi
 
 ```Python
-    sh // 'Create a float variable with the value of pi'
     sh.x = sh.Float(math.pi)
 ```
 
 ```HLSL
-    // Create a float variable with the value of pi
     float x = 3.141592653589793;
 ```
+
+### Swizzling and write masking
 
 ```Python
     sh.rgba = sh.RgbaF(rgb = (0, 1, 0), a = 0)
@@ -27,22 +28,31 @@
 	rgb.r = 1;
 ```
 
+### Dot product
+
 ```Python
-    sh // 'Dot product'
     sh.NdotL = sh.N @ sh.L
 ```
 
 ```HLSL
-    // Dot product
     float NdotL = dot(N, L);
 ```
 
+### Intrinsics
+
 ```Python
-    sh // 'Some intrinsics'
     sh.N = sh.N.normalize()
 ```
 
 ```HLSL
-    // Some intrinsics
     N = normalize(N);
+```
+
+### Comments
+
+```Python
+    sh // 'This is a comment'
+```
+```HLSL
+	// This is a comment
 ```
