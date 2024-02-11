@@ -15,13 +15,12 @@ with open('misc.hlsl', 'w') as hlsl_file:
         sh // 'Create a float variable with the value of pi'
         sh.x = sh.Float(math.pi)
 
+        sh // 'Swizzling and write masking'
         sh.rgba = sh.RgbaF(rgb = (0, 1, 0), a = 0)
 
-        sh // 'Swizzling'
-        sh.rgb = sh.rgba.rgb    # The result's type is deduced, a-la `auto` in modern C++, to `RgbF`
-
-        sh // '...and write masking'
-        sh.rgb.r = 1
+        sh // "The variable type is deduced below, a-la `auto` in C++"
+        sh.color = sh.rgba.rgb
+        sh.color.r = 1
 
         sh // 'Dot product'
         sh.NdotL = sh.N @ sh.L

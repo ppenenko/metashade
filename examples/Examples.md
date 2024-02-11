@@ -13,19 +13,16 @@
 ```Python
     sh.rgba = sh.RgbaF(rgb = (0, 1, 0), a = 0)
 
-    sh // 'Swizzling'
-    sh.rgb = sh.rgba.rgb    # The result's type is deduced, a-la `auto` in modern C++, to `RgbF`
-
-    sh // '...and write masking'
-    sh.rgb.r = 1
+    sh // "The variable type is deduced below, a-la `auto` in C++"
+    sh.color = sh.rgba.rgb
+    sh.color.r = 1
 ```
 
 ```HLSL
     float4 rgba = float4(float3(0, 1, 0), 0);
-	// Swizzling
-	float3 rgb = rgba.rgb;
-	// ...and write masking
-	rgb.r = 1;
+	// The variable type is deduced below, a-la `auto` in C++
+	float3 color = rgba.rgb;
+	color.r = 1;
 ```
 
 ### Dot product
