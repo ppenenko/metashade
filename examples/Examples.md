@@ -20,9 +20,9 @@
 
 ```HLSL
     float4 rgba = float4(float3(0, 1, 0), 0);
-	// The variable type is deduced below, a-la `auto` in C++
-	float3 color = rgba.rgb;
-	color.r = 1;
+    // The variable type is deduced below, a-la `auto` in C++
+    float3 color = rgba.rgb;
+    color.r = 1;
 ```
 
 ### Dot product
@@ -51,5 +51,5 @@
     sh // 'This is a comment'
 ```
 ```HLSL
-	// This is a comment
+    // This is a comment
 ```
