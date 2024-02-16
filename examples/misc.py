@@ -7,11 +7,7 @@ from metashade.hlsl.sm6 import ps_6_0 as hlsl_ps
 with open('misc.hlsl', 'w') as hlsl_file:
     sh = hlsl_ps.Generator(hlsl_file)
 
-    with sh.function('foo')():
-        # Just some stubs
-        sh.N = sh.Vector3f(0)
-        sh.L = sh.Vector3f(0)
-
+    with sh.function('foo', sh.Float)(N = sh.Vector3f, L = sh.Vector3f):
         sh // 'Create a float variable with the value of pi'
         sh.x = sh.Float(math.pi)
 
@@ -22,11 +18,13 @@ with open('misc.hlsl', 'w') as hlsl_file:
         sh.color = sh.rgba.rgb
         sh.color.r = 1
 
+        sh // 'Some intrinsics'
+        sh.N = sh.N.normalize()
+
         sh // 'Dot product'
         sh.NdotL = sh.N @ sh.L
 
-        sh // 'Some intrinsics'
-        sh.N = sh.N.normalize()
+        sh.return_(sh.NdotL)
 
         # TODO:
         # texture-sampler combination and sampling
