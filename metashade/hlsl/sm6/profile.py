@@ -14,7 +14,6 @@
 
 from metashade.base.data_types import BaseType
 import metashade.rtsl.profile as rtsl
-import metashade.clike.struct as struct
 from . import data_types
 from . import samplers
 
