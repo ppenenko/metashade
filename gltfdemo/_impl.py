@@ -323,11 +323,14 @@ def generate_ps(ps_file, material, primitive):
 
     sh // "https://google.github.io/filament/Filament.md.html#materialsystem/specularbrdf/normaldistributionfunction(speculard)"
     sh // ""
-    with sh.function('D_Ggx', sh.Float)(
-        NdotH = sh.Float, fAlphaRoughness = sh.Float
+    with sh.function('D_Ggx', sh.Float)(                # The function name and return type
+        NdotH = sh.Float, fAlphaRoughness = sh.Float    # The function parameters
     ):
+        # Initializing some locals
         sh.fASqr = sh.fAlphaRoughness * sh.fAlphaRoughness
         sh.fF = (sh.NdotH * sh.fASqr - sh.NdotH) * sh.NdotH + sh.Float(1.0)
+        
+        # Generating the return statement in the target language
         sh.return_(
             (sh.fASqr / (sh.Float(math.pi) * sh.fF * sh.fF )).saturate()
         )
