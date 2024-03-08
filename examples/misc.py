@@ -7,9 +7,14 @@ from metashade.hlsl.sm6 import ps_6_0 as hlsl_ps
 with open('misc.hlsl', 'w') as hlsl_file:
     sh = hlsl_ps.Generator(hlsl_file)
 
+    sh.uniform('g_tColor', sh.Texture2d, register = 0)
+    sh.uniform('g_sColor', sh.Sampler, register = 0)
+
     with sh.function('foo', sh.Float)(
         N = sh.Vector3f, L = sh.Vector3f
     ):
+        sh.uv = sh.Vector2f((0.5, 0.5))
+
         sh // 'Create a float variable with the value of pi'
         sh.x = sh.Float(math.pi)
 
@@ -28,6 +33,13 @@ with open('misc.hlsl', 'w') as hlsl_file:
         sh // 'Dot product == Python 3 matmul'
         sh // '(a.k.a. "walrus") operator'
         sh.NdotL = sh.N @ sh.L
+
+        # The walrus operator is also used to
+        # combine textures and samplers
+        combined_sampler = sh.g_tColor @ sh.g_sColor
+
+        sh // 'Sample the texture'
+        sh.rgbaSample = combined_sampler(sh.uv)
 
         sh.xyz = sh.rgba.xyz    # Exception: `RgbaF` has no attribute `xyz`
 
