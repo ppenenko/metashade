@@ -13,19 +13,20 @@
 # limitations under the License.
 
 import io, os, pathlib, sys
+from pathlib import Path
 from metashade.hlsl import dxc
 
 class Base:
     @classmethod
     def setup_class(cls):
-        parent_dir = pathlib.Path(sys.modules[cls.__module__].__file__).parent
-        cls._out_dir = os.path.join(parent_dir, 'out')
+        cls._parent_dir = Path(sys.modules[cls.__module__].__file__).parent
+        cls._out_dir = cls._parent_dir / 'out'
         os.makedirs(cls._out_dir, exist_ok = True)
 
     _entry_point_name = 'psMain'
 
     def _get_hlsl_path(self, file_name : str) -> str:
-        return ( os.path.join(self._out_dir, f'{file_name}.hlsl')
+        return ( self._out_dir / f'{file_name}.hlsl'
             if file_name is not None else None
         )
 
@@ -44,7 +45,5 @@ class Base:
             src_path = hlsl_path,
             entry_point_name = self._entry_point_name,
             profile = 'lib_6_5' if as_lib else 'ps_6_0',
-            include_paths = [
-                pathlib.Path(sys.modules[self.__module__].__file__).parent
-            ]
+            include_paths = [ self._parent_dir ]
         )
