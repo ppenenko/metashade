@@ -6,7 +6,10 @@ Only HLSL is supported so far but the intent is definitely to support multiple t
 
 To see Metashade in action, check out the [glTF demo](gltfdemo).
 
+Please see the [presentation on Google Slides](https://docs.google.com/presentation/d/e/2PACX-1vQtYIwXIkMnVC6TzWTKPAtZIA6_xeUCQc8Mvyziu0qy7HDUduz_onsJ5TabxTuuVQ/pub?start=false&loop=false&delayms=3000) for a detailed discussion of the motivation for Metashade and its design.
+
 ## Rationale
+
 * Programming at a more abstract level than the target language:
     * Metaprogramming - think C++ templates but with greater flexibility.
     Like any other Python code, Mestashade code is polymorphic at generation time.
