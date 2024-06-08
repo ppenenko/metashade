@@ -29,7 +29,7 @@ class TestSwizzling(_base.Base):
                 sh.rgba.rb = sh.rgba.rg
                 sh.return_(sh.r + sh.g)
 
-        self._compile(hlsl_path, as_lib = True)
+        self._check_source(hlsl_path, as_lib = True)
 
     def test_xyzw_swizzling(self):
         hlsl_path = self._get_hlsl_path('test_xyzw_swizzling')
@@ -52,4 +52,4 @@ class TestSwizzling(_base.Base):
                 sh.f4.xy = sh.yz
                 sh.return_(sh.x)
 
-        self._compile(hlsl_path, as_lib = True)
+        self._check_source(hlsl_path, as_lib = True)

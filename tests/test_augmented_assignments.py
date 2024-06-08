@@ -25,4 +25,4 @@ class TestAugmentedAssignments(_base.Base):
                 sh.a += sh.b
                 sh.return_(sh.a)
 
-        self._compile(hlsl_path, as_lib = True)
+        self._check_source(hlsl_path, as_lib = True)

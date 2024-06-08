@@ -32,4 +32,4 @@ class TestComment(_base.Base):
                 sh.fC = sh.fA + sh.fB
                 sh.return_(sh.fC)
 
-        self._compile(hlsl_path, as_lib = True)
+        self._check_source(hlsl_path, as_lib = True)
