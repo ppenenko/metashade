@@ -69,4 +69,4 @@ class TestSamplers(_base.Base):
                 )
                 sh.return_(sh.psOut)
 
-        self._compile(hlsl_path, as_lib = False)
+        self._check_source(hlsl_path, as_lib = False)

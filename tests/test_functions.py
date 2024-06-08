@@ -53,7 +53,7 @@ class TestFunctions(_base.Base):
             sh = ps_6_0.Generator(ps_file)
             self._generate_add_func(sh)
             self._correct_ps_main(sh)
-        self._compile(hlsl_path)
+        self._check_source(hlsl_path)
 
     def test_kwarg_reorder(self):
         hlsl_path = self._get_hlsl_path('test_kwarg_reorder')
@@ -69,7 +69,7 @@ class TestFunctions(_base.Base):
                 sh.result = sh.PsOut()
                 sh.result.color = sh.func(c = sh.g_f3C, a = sh.g_f4A)
                 sh.return_(sh.result)
-        self._compile(hlsl_path, as_lib = True)
+        self._check_source(hlsl_path, as_lib = True)
 
     def test_function_decl_call(self):
         hlsl_path = self._get_hlsl_path('test_function_decl_call')
@@ -77,7 +77,7 @@ class TestFunctions(_base.Base):
             sh = ps_6_0.Generator(ps_file)
             self._generate_add_func(sh, decl_only = True)
             self._correct_ps_main(sh)
-        self._compile(hlsl_path, as_lib = True)
+        self._check_source(hlsl_path, as_lib = True)
 
     def test_included_function_call(self):
         hlsl_path = self._get_hlsl_path('test_included_function_call')
@@ -86,7 +86,7 @@ class TestFunctions(_base.Base):
             sh.include('include/add.hlsl')
             self._generate_add_func(sh, decl_only = True)
             self._correct_ps_main(sh)
-        self._compile(hlsl_path)
+        self._check_source(hlsl_path)
 
     def test_missing_arg(self):
         with self._open_file() as ps_file:
@@ -121,7 +121,7 @@ class TestFunctions(_base.Base):
             sh.function('voidFuncB', type(None))(a = sh.Float4, b = sh.Float4).declare()
             sh.function('voidFuncC', None)(a = sh.Float4, b = sh.Float4).declare()
 
-        self._compile(hlsl_path, as_lib = True)
+        self._check_source(hlsl_path, as_lib = True)
 
     def test_void_func_def(self):
         hlsl_path = self._get_hlsl_path('test_void_func_def')
@@ -132,7 +132,7 @@ class TestFunctions(_base.Base):
                 sh.c = sh.a + sh.b
                 sh.return_()
 
-        self._compile(hlsl_path, as_lib = True)
+        self._check_source(hlsl_path, as_lib = True)
 
     def test_func_no_args(self):
         hlsl_path = self._get_hlsl_path('test_func_no_args')
@@ -154,4 +154,4 @@ class TestFunctions(_base.Base):
                 sh.result.color = sh.getA2() + sh.getA3()
                 sh.return_(sh.result)
             
-        self._compile(hlsl_path)
+        self._check_source(hlsl_path)

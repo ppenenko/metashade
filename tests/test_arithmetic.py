@@ -53,7 +53,7 @@ class TestArithmetic(_base.Base):
                 sh.f2C /= sh.fD
                 sh.return_(sh.f2C)
 
-        self._compile(hlsl_path, as_lib = True)
+        self._check_source(hlsl_path, as_lib = True)
 
     def test_arithmetic_float(self):
         self._test_arithmetic(

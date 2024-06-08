@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import io, os, pathlib, sys
+import filecmp, io, os, sys
 from pathlib import Path
 from metashade.hlsl import dxc
 
@@ -20,22 +20,33 @@ class Base:
     @classmethod
     def setup_class(cls):
         cls._parent_dir = Path(sys.modules[cls.__module__].__file__).parent
-        cls._out_dir = cls._parent_dir / 'out'
+        cls._ref_dir = cls._parent_dir / 'ref'
+        out_dir_env_var = os.getenv('METASHADE_PYTEST_OUT_DIR', None)
+        cls._out_dir = (
+            Path(out_dir_env_var).resolve() if out_dir_env_var is not None
+            else cls._ref_dir
+        )
         os.makedirs(cls._out_dir, exist_ok = True)
 
     _entry_point_name = 'psMain'
 
-    def _get_hlsl_path(self, file_name : str) -> str:
-        return ( self._out_dir / f'{file_name}.hlsl'
+    @classmethod
+    def _get_hlsl_path(cls, file_name : str) -> str:
+        return ( cls._out_dir / f'{file_name}.hlsl'
             if file_name is not None else None
         )
 
-    def _open_file(self, hlsl_path : str = None):
+    @staticmethod
+    def _open_file(hlsl_path : str = None):
         return ( open(hlsl_path, 'w')
             if hlsl_path is not None else io.StringIO()
         )
 
-    def _compile(self, hlsl_path, as_lib : bool = False):
+    @classmethod
+    def _check_source(cls, hlsl_path, as_lib : bool = False):
+        if cls._out_dir != cls._ref_dir:
+            assert filecmp.cmp(hlsl_path, cls._ref_dir / hlsl_path.name)
+
         # LIB profiles support DXIL linking and therefore allow function
         # declarations without definitions.
         # Pure declarations may also be useful in other profiles if the
@@ -43,7 +54,7 @@ class Base:
         # included header.
         dxc.compile(
             src_path = hlsl_path,
-            entry_point_name = self._entry_point_name,
+            entry_point_name = cls._entry_point_name,
             profile = 'lib_6_5' if as_lib else 'ps_6_0',
-            include_paths = [ self._parent_dir ]
+            include_paths = [ cls._parent_dir ]
         )
