@@ -79,7 +79,7 @@ class BaseType(base.BaseType):
             raise ArithmeticError('Type mismatch')
 
         self._sh._emit_indent()
-        self._sh._emit( f'{self} = {value_ref};\n' )
+        self._sh._emit( f'{self}={value_ref};\n' )
 
     def __setattr__(self, name, value):
         if name == '_':
