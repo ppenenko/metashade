@@ -46,3 +46,7 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Print the directory tree (after pytest)
+      run: |
+        pwd
+        tree /F
