@@ -42,6 +42,7 @@ jobs:
     - name: Add DXC to PATH
       run: |
         Add-Content $env:GITHUB_PATH $env:GITHUB_WORKSPACE\.dxc\bin\x64
+        Add-Content $env:GITHUB_ENV METASHADE_PYTEST_OUT_DIR=$env:GITHUB_WORKSPACE/tests/out
     - name: Test with pytest
       run: |
         pytest
