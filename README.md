@@ -25,6 +25,35 @@ For a detailed discussion of the motivation for Metashade and its design, please
     full shaders with a defined entry point.
 * Easy integration with content pipeline and build system scripts written in Python, and the vast Python ecosystem in general.
 
+## What does it look like?
+
+The following Metashade Python code
+
+```Python
+with sh.function('D_Ggx', sh.Float)(                # <-- The function name and return type
+    NdotH = sh.Float, fAlphaRoughness = sh.Float    # <-- The function parameters
+):
+    # Initializing some locals
+    sh.fASqr = sh.fAlphaRoughness * sh.fAlphaRoughness
+    sh.fF = (sh.NdotH * sh.fASqr - sh.NdotH) * sh.NdotH + sh.Float(1.0)
+
+    # Generating the return statement in the target language
+    sh.return_(
+        (sh.fASqr / (sh.Float(math.pi) * sh.fF * sh.fF )).saturate()
+    )
+```
+
+generates the following HLSL output:
+
+```C
+float D_Ggx(float NdotH, float fAlphaRoughness)
+{
+    float fASqr = (fAlphaRoughness * fAlphaRoughness);
+    float fF = ((((NdotH * fASqr) - NdotH) * NdotH) + 1.0);
+    return saturate((fASqr / ((3.141592653589793 * fF) * fF)));
+}
+```
+
 ## How does it work?
 Unlike some other Python DSLs, Metashade doesn't rely on introspection to translate the Python AST to the target language.
 It uses more straight-forward mechanisms in hopes of making the DSL appear less magical to the user and enabling integration with other Python code.
