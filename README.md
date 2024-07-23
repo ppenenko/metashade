@@ -72,7 +72,7 @@ This offers the following benefits:
 * Easy-to-use metaprogramming. Imperative metaprogramming is possible (C++ templates are a pure-functional language).
 * The whole stack is debuggable by the application programmer.
 * Codegen can interact with the outside world (file system or user input). E.g. the [glTF demo](https://github.com/ppenenko/metashade-glTFSample) loads glTF assets and generates shaders based on their contents.
-* Codegen can integrate with arbitrary Python code. E.g. the [glTF demo](https://github.com/ppenenko/metashade-glTFSample) the third-party [pygltflib](https://pypi.org/project/pygltflib/) to parse glTF assets.
+* Codegen can integrate with arbitrary Python code. E.g. the [glTF demo](https://github.com/ppenenko/metashade-glTFSample) uses the third-party [pygltflib](https://pypi.org/project/pygltflib/) to parse glTF assets.
 * It's easy to build abstractions on top of basic codegen.
 
 ### Creating a generator
