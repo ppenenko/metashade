@@ -60,7 +60,7 @@ Popular Pythonic GPU DSLs like [Nvidia Warp](https://github.com/NVIDIA/warp),
 [Taichi](https://github.com/taichi-dev/taichi),
 [Numba](https://github.com/numba/numba)
 and [OpenAI’s Triton](https://github.com/openai/triton)
-rely on Python's introspection to capture the Python AST and transpile to the target language.
+rely on Python's introspection to capture the Python AST and transpile it to the target language.
 This approach can only support a subset of Python syntax that maps onto the target language.
 
 In contrast, Metashade generates target code dynamically, during the execution of Python code,
