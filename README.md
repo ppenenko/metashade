@@ -55,8 +55,25 @@ float D_Ggx(float NdotH, float fAlphaRoughness)
 ```
 
 ## How does it work?
-Unlike some other Python DSLs, Metashade doesn't rely on introspection to translate the Python AST to the target language.
-It uses more straight-forward mechanisms in hopes of making the DSL appear less magical to the user and enabling integration with other Python code.
+
+Popular Pythonic GPU DSLs like [Nvidia Warp](https://github.com/NVIDIA/warp),
+[Taichi](https://github.com/taichi-dev/taichi),
+[Numba](https://github.com/numba/numba)
+and [OpenAI’s Triton](https://github.com/openai/triton)
+rely on Python's introspection to capture the Python AST and transpile to the target language.
+This approach can only support a subset of Python syntax that maps onto the target language.
+
+In contrast, Metashade generates target code dynamically, during the execution of Python code,
+modeling the state of the shader being generated in objects called generators.
+This requires some idiosyncratic Python syntax but in return we get the full power of Python at generation time.
+Python's run time becomes the shader's design time, and it becomes a metaprogramming language, replacing mechanisms like the C Preprocessor, generics and templates.
+
+This offers the following benefits:
+* Easy-to-use metaprogramming. Imperative metaprogramming is possible (C++ templates are a pure-functional language).
+* The whole stack is debuggable by the application programmer.
+* Codegen can interact with the outside world (file system or user input). E.g. the [glTF demo](https://github.com/ppenenko/metashade-glTFSample) loads glTF assets and generates shaders based on their contents.
+* Codegen can integrate with arbitrary Python code. E.g. the [glTF demo](https://github.com/ppenenko/metashade-glTFSample) the third-party [pygltflib](https://pypi.org/project/pygltflib/) to parse glTF assets.
+* It's easy to build abstractions on top of basic codegen.
 
 ### Creating a generator
 
@@ -73,60 +90,6 @@ with open("ps.hlsl", 'w') as ps_file:
 Note that, by convention, the generator object is always named `sh` (for "shader").
 This helps Metashade code be polymorphic with regard to different target profiles.
 E.g. code with the same logic can be generated for an HLSL pixel shader and a GLSL compute shader.
-
-### Function definitions
-
-Metashade function definition syntax looks like this:
-
-```Python
-with sh.function('add', sh.Float4)(a = sh.Float4, b = sh.Float4):
-    sh.return_(sh.a + sh.b)
-```
-
-Here, the first pair of parentheses defines the function name and the return type,
-while the second pair contains parameter declarations with their types.
-All data types here can be determined dynamically at generation time and become static in the generated code.
-
-The above Python code generates the following HLSL:
-
-```HLSL
-float4 add(float4 a, float4 b)
-{
-	return (a + b);
-}
-```
-
-### Entry points
-
-Shader entry points are really just a special case of functions in Metashade, for example:
-
-```Python
-with sh.ps_output('PsOut') as PsOut:
-    PsOut.SV_Target('color', sh.RgbaF)
-
-with sh.main('mainPS', sh.PsOut)():
-    sh.psOut = sh.PsOut()
-    sh.psOut.color.rgb = sh.RgbF(1)
-    sh.psOut.color.a = 1
-    sh.return_(sh.psOut)
-```
-
-Which generates in HLSL:
-
-```HLSL
-struct PsOut
-{
-	float4 color : SV_TARGET;
-};
-
-PsOut mainPS()
-{
-	PsOut psOut;
-	psOut.color.rgb = 1.0.xxx;
-	psOut.color.a = 1.0;
-	return psOut;
-}
-```
 
 ### Generating C-like scopes and local variables
 
@@ -150,3 +113,54 @@ The `__getattr__()`/`__setattr__()` is also used for other features, such as acc
 
 Further, Python expressions model expressions in the target language with help of operator overloading. Basically, `a + b` generates the respective operation in the target language instead of performing the addition in Python.
 
+## More examples
+
+The following Python code
+
+```Python
+sh.rgba = sh.RgbaF(rgb = (0, 1, 0), a = 0)
+
+sh // 'Swizzling - the destination type is deduced'
+sh // "a-la `auto` in C++"
+sh.color = sh.rgba.rgb
+
+sh // 'Write masking'
+sh.color.r = 1
+
+sh // 'Intrinsics example'
+sh.N = sh.N.normalize()
+
+sh // 'Dot product == Python 3 matmul'
+sh // '(a.k.a. "walrus") operator'
+sh.NdotL = sh.N @ sh.L
+
+# The walrus operator is also used to
+# combine textures and samplers
+combined_sampler = sh.g_tColor @ sh.g_sColor
+
+sh // 'Sample the texture'
+sh.rgbaSample = combined_sampler(sh.uv)
+```
+
+generates the following HLSL:
+
+```HLSL
+float4 rgba = float4(float3(0, 1, 0), 0);
+
+// Swizzling - the destination type is deduced
+// a-la `auto` in C++
+float3 color = rgba.rgb;
+
+// Write masking
+color.r = 1;
+
+// Intrinsics example
+N = normalize(N);
+
+// Dot product == Python 3 matmul
+// (a.k.a. "walrus") operator
+float NdotL = dot(N, L);
+
+// Sample the texture
+float4 rgbaSample = g_tColor.Sample(g_sColor, uv);
+```
