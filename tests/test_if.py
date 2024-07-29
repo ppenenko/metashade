@@ -21,6 +21,7 @@ class TestIf(_base.Base):
             sh.uniform('g_f4A', sh.Float4)
             sh.uniform('g_f4B', sh.Float4)
             sh.uniform('g_f4C', sh.Float4)
+            sh.uniform('g_f4D', sh.Float4)
 
     def test_if(self):
         hlsl_path = self._get_hlsl_path('test_if')
@@ -44,5 +45,28 @@ class TestIf(_base.Base):
         
         self._check_source(hlsl_path)
 
+    def test_nested_if(self):
+        hlsl_path = self._get_hlsl_path('test_nested_if')
 
+        with self._open_file(hlsl_path) as ps_file:
+            sh = ps_6_0.Generator(ps_file)
+            self._generate_test_uniforms(sh)
 
+            with sh.ps_output('PsOut') as PsOut:
+                PsOut.SV_Target('color', sh.Float4)
+
+            with sh.main(self._entry_point_name, sh.PsOut)():
+                sh.result = sh.PsOut()
+
+                with sh.if_(sh.g_f4A.x):
+                    sh.result.color = sh.g_f4B
+                    sh.return_(sh.result)
+
+                    with sh.if_(sh.g_f4A.y):
+                        sh.result.color = sh.g_f4D
+                        sh.return_(sh.result)
+
+                sh.result.color = sh.g_f4C
+                sh.return_(sh.result)
+        
+        self._check_source(hlsl_path)
