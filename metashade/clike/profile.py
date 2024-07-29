@@ -26,6 +26,9 @@ class Generator(base.Generator):
     def include(self, file_path : str):
         self._emit(f'#include "{file_path}"\n')
 
+    def if_(self, condition):
+        return context.If(self, condition)
+    
     def _single_line_comment(self, comment):
         self._emit_indent()
         self._emit(f'// {comment}\n')

@@ -136,3 +136,26 @@ class Function:
         
         arg_str = ', '.join(arg_list)
         return self._def._return_type(f'{self._def._name}({arg_str})')
+    
+class If:
+    def __init__(self, sh, condition):
+        self._sh = sh
+        self._condition = condition
+
+    def __enter__(self):
+        self._sh._emit_indent()
+        self._sh._emit(f'if ({self._condition})\n')
+        self._sh._emit_indent()
+        self._sh._emit('{\n')
+        self._sh._push_indent()
+        
+        # TODO: seems to be a common pattern - generalize?
+        body = base.Scope()
+        self._sh._push_context(body)
+        return body
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self._sh._pop_context()
+        self._sh._pop_indent()
+        self._sh._emit_indent()
+        self._sh._emit('}\n\n')

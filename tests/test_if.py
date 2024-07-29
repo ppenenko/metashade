@@ -20,7 +20,7 @@ class TestIf(_base.Base):
         with sh.uniform_buffer(register = 0, name = 'cb'):
             sh.uniform('g_f4A', sh.Float4)
             sh.uniform('g_f4B', sh.Float4)
-            sh.uniform('g_f3C', sh.Float3)
+            sh.uniform('g_f4C', sh.Float4)
 
     def test_if(self):
         hlsl_path = self._get_hlsl_path('test_if')
@@ -36,10 +36,10 @@ class TestIf(_base.Base):
                 sh.result = sh.PsOut()
 
                 with sh.if_(sh.g_f4A.x):
-                    sh.result.color = sh.f4B
+                    sh.result.color = sh.g_f4B
                     sh.return_(sh.result)
 
-                sh.result.color = sh.f4C
+                sh.result.color = sh.g_f4C
                 sh.return_(sh.result)
         
         self._check_source(hlsl_path)
