@@ -3,6 +3,7 @@ cbuffer cb : register(b0)
 	float4 g_f4A;
 	float4 g_f4B;
 	float4 g_f4C;
+	float4 g_f4D;
 };
 
 struct PsOut
@@ -19,7 +20,5 @@ PsOut psMain()
 		return result;
 	}
 
-	result.color = g_f4C;
-	return result;
 }
 
