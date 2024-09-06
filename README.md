@@ -7,7 +7,7 @@ Only HLSL is supported so far but the intent is definitely to support multiple t
 To see Metashade in action, check out the glTF demo at https://github.com/ppenenko/metashade-glTFSample or the [tests](tests) which are run by CI:
 [![GitHub Actions CI](https://github.com/ppenenko/metashade/actions/workflows/python-package.yml/badge.svg)](https://github.com/ppenenko/metashade/actions/workflows/python-package.yml)
 
-For a detailed discussion of the motivation for Metashade and its design, please see the [presentation on Google Slides](https://docs.google.com/presentation/d/e/2PACX-1vQtYIwXIkMnVC6TzWTKPAtZIA6_xeUCQc8Mvyziu0qy7HDUduz_onsJ5TabxTuuVQ/pub?start=false&loop=false&delayms=3000).
+For a detailed discussion of the motivation for Metashade and its design, please see the [presentation on Google Slides](https://docs.google.com/presentation/d/e/2PACX-1vQtYIwXIkMnVC6TzWTKPAtZIA6_xeUCQc8Mvyziu0qy7HDUduz_onsJ5TabxTuuVQ/pub?start=false&loop=false&delayms=3000) or [watch this presentation](https://youtu.be/yC8VMLXYs5U?si=d_n3ngHr1IZIQ8ZH) from Academy Software Foundation Open Source Days 2024.
 
 ## Rationale
 
