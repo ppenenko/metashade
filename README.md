@@ -111,12 +111,12 @@ Variables in C-like shading languages, in contrast, are typed statically and are
 
 The following Python mechanisms are used in Metashade to emulate the C-like semantics at Python code's run time.
 
-### `with` statements
+#### `with` statements
 
 Metashade uses Python's `with` statements to emulate C-like scopes.
 For example, in a [function definition](#what-does-it-look-like), the `sh.function` object starts a new scope by modifying the internal state of generator `sh` when its special `__enter__` and `__exit__` methods are called.
 
-### `__getattr__` and `__setattr__`
+#### `__getattr__` and `__setattr__`
 
 To model the semantics of target variables, Metashade exposes them syntactically as member variables on the generator object (hence the idiosyncratic `sh.x` syntax).
 This is implemented with the special `__getattr__` and `__setattr__` functions, which overload member accesses.
@@ -126,7 +126,7 @@ We can also easily check in `__setattr__()` if the user is trying to reinitializ
 
 The `__getattr__()`/`__setattr__()` mechanism is also used for other features, such as accessing struct members and vector elements.
 
-### Operator overloading
+#### Operator overloading
 
 Just like in C++, Python's operators can be overloaded with arbitrary logic.
 Metashade uses this feature to model expressions in the target language - something along the lines of
