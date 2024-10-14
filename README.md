@@ -141,7 +141,7 @@ E.g. `sh.RgbF` can’t be added to `sh.Point3f` even though they're both backed 
 
 For added syntactic sugar, the `__floordiv__` operator is overloaded to generate comments in the target language (see below).
 
-## More examples
+## Some examples
 
 The following Python code
 
@@ -192,3 +192,43 @@ float NdotL = dot(N, L);
 // Sample the texture
 float4 rgbaSample = g_tColor.Sample(g_sColor, uv);
 ```
+
+### Conditional statements
+
+Metashade models `if` and `else` statements of the target C-like languages with Python's `with` statements, for example:
+
+```Python
+    with sh.if_(sh.g_f4A.x):
+        sh.result.color = sh.g_f4B
+    with sh.else_():
+        sh.result.color = sh.g_f4D
+    sh.return_(sh.result)
+```
+
+generates the following HLSL:
+
+```HLSL
+    if (g_f4A.x)
+    {
+        result.color = g_f4B;
+    }
+    else
+    {
+        result.color = g_f4D;
+    }
+    return result;
+```
+
+Please note that the native Python `if` and `else` can be used in Metashade to implement design-time logic, similar to `#ifdef` or `if constexpr()` in C++.
+This is another example of how Metashade explicitly separates design-time and run-time code.
+
+For example, the following code is generated conditionally if the input geometry has vertex tangents:
+
+```Python
+    if hasattr(sh.vsIn, 'Tobj'):
+        sh.vsOut.Tw = sh.g_WorldXf.xform(sh.vsIn.Tobj.xyz).xyz.normalize()
+        sh.vsOut.Bw = sh.vsOut.Nw.cross(sh.vsOut.Tw) * sh.vsIn.Tobj.w
+```
+
+
+
