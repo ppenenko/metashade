@@ -35,6 +35,13 @@ jobs:
         tag: v1.8.2407
         fileName: dxc_2024_07_31.zip
         out-file-path: '.dxc'
+    - uses: robinraju/release-downloader@v1.10
+      with:
+        repository: KhronosGroup/glslang
+        extract: true
+        tag: main-tot
+        fileName: glslang-master-windows-Release.zip
+        out-file-path: '.glslang'
     - name: Print the directory tree
       run: |
         pwd
