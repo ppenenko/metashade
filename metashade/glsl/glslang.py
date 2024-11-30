@@ -34,8 +34,8 @@ def compile(
 ):
     args = [
         'glslang',
-        "--target-env", target_env,
-        "-S", shader_stage,
+        '--target-env', target_env,
+        '-S', shader_stage,
         src_path
     ]
 
@@ -43,7 +43,7 @@ def compile(
         for path in include_paths:
             args += ['-I', path]
 
-    message = 'glslang compiling'
+    message = 'glslang compiling to '
     if output_path is not None:
         args += ['-o', output_path]
         message += f' {output_path}'
