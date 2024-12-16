@@ -16,7 +16,7 @@ import pytest
 import _base
 from metashade.hlsl.sm6 import ps_6_0
 
-class TestUniforms(_base.Base):
+class TestUniforms(_base.TestBase):
     def test_cb_register_clash(self):
         with self._open_file() as ps_file:
             sh = ps_6_0.Generator(ps_file)

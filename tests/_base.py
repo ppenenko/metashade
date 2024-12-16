@@ -16,7 +16,12 @@ import filecmp, io, os, sys
 from pathlib import Path
 from metashade.hlsl.util import dxc
 
-class Base:
+class TestContext:
+    @classmethod
+    def _check_source(cls, hlsl_path, as_lib : bool = False):
+        pass
+
+class TestBase:
     @classmethod
     def setup_class(cls):
         cls._parent_dir = Path(sys.modules[cls.__module__].__file__).parent

@@ -15,7 +15,7 @@
 import pytest, _base
 from metashade.hlsl.sm6 import ps_6_0
 
-class TestArithmetic(_base.Base):
+class TestArithmetic(_base.TestBase):
     def _test_arithmetic(
             self,
             hlsl_file_name : str,

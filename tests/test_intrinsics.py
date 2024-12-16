@@ -15,7 +15,7 @@
 import _base, _auto_float_intrinsics, _auto_numeric_intrinsics
 from metashade.hlsl.sm6 import ps_6_0
 
-class TestIntrinsics(_base.Base):
+class TestIntrinsics(_base.TestBase):
     def _test(self, hlsl_file_name, auto_package):
         hlsl_path = self._get_hlsl_path(hlsl_file_name)
         with self._open_file(hlsl_path) as ps_file:

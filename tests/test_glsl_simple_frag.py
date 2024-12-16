@@ -17,7 +17,7 @@ import _base
 from metashade.glsl import frag
 from metashade.glsl.util import glslang
 
-class TestGlslSimpleFrag(_base.Base):
+class TestGlslSimpleFrag(_base.TestBase):
     def test_glsl_simple_frag(self):
         glsl_path = self._get_glsl_path('test_glsl_simple_frag')
 

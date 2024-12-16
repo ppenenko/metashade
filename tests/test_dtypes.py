@@ -15,7 +15,7 @@
 import _base
 from metashade.hlsl.sm6 import ps_6_0
 
-class TestDTypes(_base.Base):
+class TestDTypes(_base.TestBase):
     def test_init_from_literal(self):
         hlsl_path = self._get_hlsl_path('test_init_from_literal')
         with self._open_file(hlsl_path) as ps_file:

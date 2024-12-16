@@ -15,7 +15,7 @@
 import _base
 from metashade.hlsl.sm6 import ps_6_0
 
-class TestIf(_base.Base):
+class TestIf(_base.TestBase):
     def _generate_test_uniforms(self, sh):
         with sh.uniform_buffer(register = 0, name = 'cb'):
             sh.uniform('g_f4A', sh.Float4)
@@ -59,7 +59,7 @@ class TestIf(_base.Base):
                 sh.result = sh.PsOut()
 
                 with sh.if_(sh.g_f4A.x):
-                    sh.result.color = sh.g_f4B                    
+                    sh.result.color = sh.g_f4B
 
                     with sh.if_(sh.g_f4A.y):
                         sh.result.color = sh.g_f4D

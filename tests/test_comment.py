@@ -15,7 +15,7 @@
 import pytest, _base
 from metashade.hlsl.sm6 import ps_6_0
 
-class TestComment(_base.Base):
+class TestComment(_base.TestBase):
     def test_comment(self):
         hlsl_path = self._get_hlsl_path('test_comment')
         with self._open_file(hlsl_path) as ps_file:
