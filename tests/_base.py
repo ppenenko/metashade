@@ -16,7 +16,24 @@ import filecmp, io, os, sys
 from pathlib import Path
 from metashade.hlsl.util import dxc
 
-class TestContext:
+class _TestContext(abc.ABC):
+    @classmethod
+    def _check_source(cls, hlsl_path, as_lib : bool = False):
+        pass
+
+    def _create_generator(self, hlsl_path : str, as_lib : bool = False):
+        return self._generator_cls(hlsl_path, as_lib)
+
+    def __enter__(self):
+        return self
+    
+    def __exit__(self, exc_type, exc_value, traceback):
+        if exc_type is not None:
+            return False
+        self._check_source(self._hlsl_path, self._as_lib)
+        return True
+
+class HlslTestContext(_TestContext):
     @classmethod
     def _check_source(cls, hlsl_path, as_lib : bool = False):
         pass
