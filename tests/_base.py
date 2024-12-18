@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import abc
 import filecmp, io, os, sys
 from pathlib import Path
 from metashade.hlsl.util import dxc
@@ -23,6 +24,10 @@ class _TestContext(abc.ABC):
 
     def _create_generator(self, hlsl_path : str, as_lib : bool = False):
         return self._generator_cls(hlsl_path, as_lib)
+    
+    @abc.abstractmethod
+    def _compile(self, hlsl_path : str, as_lib : bool = False):
+        pass
 
     def __enter__(self):
         return self
@@ -34,9 +39,24 @@ class _TestContext(abc.ABC):
         return True
 
 class HlslTestContext(_TestContext):
+    _file_extension = 'hlsl'
+    
     @classmethod
     def _check_source(cls, hlsl_path, as_lib : bool = False):
         pass
+
+    def _compile(self, hlsl_path : str, as_lib : bool = False):
+        # LIB profiles support DXIL linking and therefore allow function
+        # declarations without definitions.
+        # Pure declarations may also be useful in other profiles if the
+        # definition is found elsewhere in the compilation unit, e.g. in an
+        # included header.
+        dxc.compile(
+            src_path = hlsl_path,
+            entry_point_name = cls._entry_point_name,
+            profile = 'lib_6_5' if as_lib else 'ps_6_0',
+            include_paths = [ cls._parent_dir ]
+        )
 
 class TestBase:
     @classmethod
@@ -76,15 +96,3 @@ class TestBase:
     def _check_source(cls, hlsl_path, as_lib : bool = False):
         if cls._out_dir != cls._ref_dir:
             assert filecmp.cmp(hlsl_path, cls._ref_dir / hlsl_path.name)
-
-        # LIB profiles support DXIL linking and therefore allow function
-        # declarations without definitions.
-        # Pure declarations may also be useful in other profiles if the
-        # definition is found elsewhere in the compilation unit, e.g. in an
-        # included header.
-        dxc.compile(
-            src_path = hlsl_path,
-            entry_point_name = cls._entry_point_name,
-            profile = 'lib_6_5' if as_lib else 'ps_6_0',
-            include_paths = [ cls._parent_dir ]
-        )
