@@ -20,14 +20,14 @@ class RefDiffer:
     def __init__(self, ref_dir : Path, out_dir_env_var : str):
         self._ref_dir = ref_dir
         out_dir_env_var = os.getenv(out_dir_env_var, None)
-        self._out_dir = (
+        self.out_dir = (
             Path(out_dir_env_var).resolve() if out_dir_env_var is not None
             else self._ref_dir
         )
-        os.makedirs(self._out_dir, exist_ok = True)
+        os.makedirs(self.out_dir, exist_ok = True)
 
     def __call__(self, path : Path):
-        if self._out_dir != self._ref_dir:
+        if self.out_dir != self._ref_dir:
             assert filecmp.cmp(path, self._ref_dir / path.name)
 
 class Base:
@@ -44,7 +44,7 @@ class Base:
 
     @classmethod
     def _get_out_path(cls, file_name : str, file_extension : str) -> str:
-        return ( cls._ref_differ._out_dir / f'{file_name}.{file_extension}'
+        return ( cls._ref_differ.out_dir / f'{file_name}.{file_extension}'
             if file_name is not None else None
         )
 
