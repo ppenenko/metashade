@@ -22,16 +22,27 @@ class Base:
     def setup_class(cls):
         cls._parent_dir = Path(sys.modules[cls.__module__].__file__).parent
 
-        cls._ref_differ = RefDiffer(
-            ref_dir = cls._parent_dir / 'ref',
-            out_dir_env_var = 'METASHADE_PYTEST_OUT_DIR'
-        )
+        out_dir = os.getenv('METASHADE_PYTEST_OUT_DIR', None)
+        ref_dir = cls._parent_dir / 'ref'
+
+        if out_dir is None:
+            # Don't compare against references explicitly in the script.
+            # Instead, overwrite the references with the generated files.
+            # This is useful for diffing or updating the references manually with
+            # git.
+            cls._out_dir = ref_dir
+            cls._ref_differ = None
+        else:
+            cls._out_dir = Path(out_dir).resolve()
+            cls._ref_differ = RefDiffer(ref_dir)
+
+        os.makedirs(cls._out_dir, exist_ok = True)
 
     _entry_point_name = 'psMain'
 
     @classmethod
     def _get_out_path(cls, file_name : str, file_extension : str) -> str:
-        return ( cls._ref_differ.out_dir / f'{file_name}.{file_extension}'
+        return ( cls._out_dir / f'{file_name}.{file_extension}'
             if file_name is not None else None
         )
 
@@ -51,7 +62,8 @@ class Base:
 
     @classmethod
     def _check_source(cls, hlsl_path, as_lib : bool = False):
-        cls._ref_differ(hlsl_path)
+        if cls._ref_differ is not None:
+            cls._ref_differ(hlsl_path)
 
         # LIB profiles support DXIL linking and therefore allow function
         # declarations without definitions.
