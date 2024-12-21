@@ -16,6 +16,7 @@ import abc
 import filecmp, io, os, sys
 from pathlib import Path
 from metashade.hlsl.util import dxc
+from metashade.util.tests import RefDiffer
 
 class _TestContext(abc.ABC):
     @classmethod
@@ -62,12 +63,21 @@ class TestBase:
     @classmethod
     def setup_class(cls):
         cls._parent_dir = Path(sys.modules[cls.__module__].__file__).parent
-        cls._ref_dir = cls._parent_dir / 'ref'
-        out_dir_env_var = os.getenv('METASHADE_PYTEST_OUT_DIR', None)
-        cls._out_dir = (
-            Path(out_dir_env_var).resolve() if out_dir_env_var is not None
-            else cls._ref_dir
-        )
+
+        out_dir = os.getenv('METASHADE_PYTEST_OUT_DIR', None)
+        ref_dir = cls._parent_dir / 'ref'
+
+        if out_dir is None:
+            # Don't compare against references explicitly in the script.
+            # Instead, overwrite the references with the generated files.
+            # This is useful for diffing or updating the references manually with
+            # git.
+            cls._out_dir = ref_dir
+            cls._ref_differ = None
+        else:
+            cls._out_dir = Path(out_dir).resolve()
+            cls._ref_differ = RefDiffer(ref_dir)
+
         os.makedirs(cls._out_dir, exist_ok = True)
 
     _entry_point_name = 'psMain'
@@ -94,5 +104,17 @@ class TestBase:
 
     @classmethod
     def _check_source(cls, hlsl_path, as_lib : bool = False):
-        if cls._out_dir != cls._ref_dir:
-            assert filecmp.cmp(hlsl_path, cls._ref_dir / hlsl_path.name)
+        if cls._ref_differ is not None:
+            cls._ref_differ(hlsl_path)
+
+        # LIB profiles support DXIL linking and therefore allow function
+        # declarations without definitions.
+        # Pure declarations may also be useful in other profiles if the
+        # definition is found elsewhere in the compilation unit, e.g. in an
+        # included header.
+        dxc.compile(
+            src_path = hlsl_path,
+            entry_point_name = cls._entry_point_name,
+            profile = 'lib_6_5' if as_lib else 'ps_6_0',
+            include_paths = [ cls._parent_dir ]
+        )
