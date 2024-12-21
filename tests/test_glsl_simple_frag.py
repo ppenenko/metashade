@@ -15,7 +15,6 @@
 import os
 import _base
 from metashade.glsl import frag
-from metashade.glsl.util import glslang
 
 class TestGlslSimpleFrag(_base.TestBase):
     def test_glsl_simple_frag(self):
@@ -29,10 +28,4 @@ class TestGlslSimpleFrag(_base.TestBase):
             with sh.entry_point('main')():
                 sh.f4OutColor = sh.Float4((1.0, 0.0, 0.0, 1.0))
 
-        glslang.compile(
-            src_path = glsl_path,
-            target_env = 'vulkan1.1',
-            shader_stage = 'frag',
-            output_path = os.devnull
-        )
 

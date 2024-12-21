@@ -13,21 +13,24 @@
 # limitations under the License.
 
 import abc
-import filecmp, io, os, sys
+import io, os, sys
 from pathlib import Path
 from metashade.hlsl.util import dxc
+from metashade.glsl.util import glslang
 from metashade.util.tests import RefDiffer
 
 class _TestContext(abc.ABC):
-    @classmethod
     def _check_source(cls, hlsl_path, as_lib : bool = False):
-        pass
+        if cls._ref_differ is not None:
+            cls._ref_differ(hlsl_path)
+
+        cls._compile(hlsl_path, as_lib)
 
     def _create_generator(self, hlsl_path : str, as_lib : bool = False):
         return self._generator_cls(hlsl_path, as_lib)
     
     @abc.abstractmethod
-    def _compile(self, hlsl_path : str, as_lib : bool = False):
+    def _compile(self, src_path : str, as_lib : bool = False):
         pass
 
     def __enter__(self):
@@ -38,25 +41,38 @@ class _TestContext(abc.ABC):
             return False
         self._check_source(self._hlsl_path, self._as_lib)
         return True
+    
+    @classmethod
+    def open_file(cls, base_path : str = None):
+        return ( open(f'{base_path}.{cls._file_extension}', 'w')
+            if base_path is not None else io.StringIO()
+        )
 
 class HlslTestContext(_TestContext):
     _file_extension = 'hlsl'
-    
-    @classmethod
-    def _check_source(cls, hlsl_path, as_lib : bool = False):
-        pass
 
-    def _compile(self, hlsl_path : str, as_lib : bool = False):
+    def _compile(self, src_path : str, as_lib : bool = False):
         # LIB profiles support DXIL linking and therefore allow function
         # declarations without definitions.
         # Pure declarations may also be useful in other profiles if the
         # definition is found elsewhere in the compilation unit, e.g. in an
         # included header.
         dxc.compile(
-            src_path = hlsl_path,
+            src_path = src_path,
             entry_point_name = cls._entry_point_name,
             profile = 'lib_6_5' if as_lib else 'ps_6_0',
             include_paths = [ cls._parent_dir ]
+        )
+
+class GlslTestContext(_TestContext):
+    _file_extension = 'glsl'
+
+    def _compile(self, src_path : str, as_lib : bool = False):
+        glslang.compile(
+            src_path = src_path,
+            target_env = 'vulkan1.1',
+            shader_stage = 'frag',
+            output_path = os.devnull
         )
 
 class TestBase:
@@ -86,35 +102,4 @@ class TestBase:
     def _get_out_path(cls, file_name : str, file_extension : str) -> str:
         return ( cls._out_dir / f'{file_name}.{file_extension}'
             if file_name is not None else None
-        )
-
-    @classmethod
-    def _get_hlsl_path(cls, file_name : str) -> str:
-        return cls._get_out_path(file_name, 'hlsl')
-    
-    @classmethod
-    def _get_glsl_path(cls, file_name : str) -> str:
-        return cls._get_out_path(file_name, 'glsl')
-
-    @staticmethod
-    def _open_file(hlsl_path : str = None):
-        return ( open(hlsl_path, 'w')
-            if hlsl_path is not None else io.StringIO()
-        )
-
-    @classmethod
-    def _check_source(cls, hlsl_path, as_lib : bool = False):
-        if cls._ref_differ is not None:
-            cls._ref_differ(hlsl_path)
-
-        # LIB profiles support DXIL linking and therefore allow function
-        # declarations without definitions.
-        # Pure declarations may also be useful in other profiles if the
-        # definition is found elsewhere in the compilation unit, e.g. in an
-        # included header.
-        dxc.compile(
-            src_path = hlsl_path,
-            entry_point_name = cls._entry_point_name,
-            profile = 'lib_6_5' if as_lib else 'ps_6_0',
-            include_paths = [ cls._parent_dir ]
         )
