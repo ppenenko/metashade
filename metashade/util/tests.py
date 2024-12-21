@@ -16,7 +16,7 @@ import filecmp, os
 from pathlib import Path
 
 class RefDiffer:
-    def __init__(self, ref_dir : Path, out_dir_env_var : str):
+    def __init__(self, ref_dir : Path):
         self._ref_dir = ref_dir
 
     def __call__(self, path : Path):
