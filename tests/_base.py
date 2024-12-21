@@ -70,12 +70,13 @@ class _TestContext(abc.ABC):
             return False
         self._check_source()
         return True
-    
-    @classmethod
+
     def open_file(self):
         return ( open(self._src_path, 'w')
             if self._src_path is not None else io.StringIO()
         )
+    
+_TestContext.setup_class()
 
 class HlslTestContext(_TestContext):
     _file_extension = 'hlsl'
