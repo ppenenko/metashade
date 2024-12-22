@@ -18,14 +18,13 @@ from metashade.glsl import frag
 
 class TestGlslSimpleFrag(_base.TestBase):
     def test_glsl_simple_frag(self):
-        glsl_path = self._get_glsl_path('test_glsl_simple_frag')
+        with _base.GlslTestContext(
+            'test_glsl_simple_frag'
+        ) as ctx:
+            with ctx.open_file() as fs_file:
+                sh = frag.Generator(fs_file, '450')
 
-        with self._open_file(glsl_path) as fs_file:
-            sh = frag.Generator(fs_file, '450')
+                sh.f4OutColor = sh.out(sh.Float4, location=0)
 
-            sh.f4OutColor = sh.out(sh.Float4, location=0)
-
-            with sh.entry_point('main')():
-                sh.f4OutColor = sh.Float4((1.0, 0.0, 0.0, 1.0))
-
-
+                with sh.entry_point('main')():
+                    sh.f4OutColor = sh.Float4((1.0, 0.0, 0.0, 1.0))

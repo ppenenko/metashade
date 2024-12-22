@@ -24,74 +24,71 @@ class TestIf(_base.TestBase):
             sh.uniform('g_f4D', sh.Float4)
 
     def test_if(self):
-        hlsl_path = self._get_hlsl_path('test_if')
+        with _base.HlslTestContext(
+            'test_if'
+        ) as ctx:
+            with ctx.open_file() as ps_file:
+                sh = ps_6_0.Generator(ps_file)
+                self._generate_test_uniforms(sh)
 
-        with self._open_file(hlsl_path) as ps_file:
-            sh = ps_6_0.Generator(ps_file)
-            self._generate_test_uniforms(sh)
+                with sh.ps_output('PsOut') as PsOut:
+                    PsOut.SV_Target('color', sh.Float4)
 
-            with sh.ps_output('PsOut') as PsOut:
-                PsOut.SV_Target('color', sh.Float4)
+                with sh.entry_point(ctx._entry_point_name, sh.PsOut)():
+                    sh.result = sh.PsOut()
 
-            with sh.entry_point(self._entry_point_name, sh.PsOut)():
-                sh.result = sh.PsOut()
-
-                with sh.if_(sh.g_f4A.x):
-                    sh.result.color = sh.g_f4B
-                    sh.return_(sh.result)
-
-                sh.result.color = sh.g_f4C
-                sh.return_(sh.result)
-        
-        self._check_source(hlsl_path)
-
-    def test_nested_if(self):
-        hlsl_path = self._get_hlsl_path('test_nested_if')
-
-        with self._open_file(hlsl_path) as ps_file:
-            sh = ps_6_0.Generator(ps_file)
-            self._generate_test_uniforms(sh)
-
-            with sh.ps_output('PsOut') as PsOut:
-                PsOut.SV_Target('color', sh.Float4)
-
-            with sh.entry_point(self._entry_point_name, sh.PsOut)():
-                sh.result = sh.PsOut()
-
-                with sh.if_(sh.g_f4A.x):
-                    sh.result.color = sh.g_f4B
-
-                    with sh.if_(sh.g_f4A.y):
-                        sh.result.color = sh.g_f4D
+                    with sh.if_(sh.g_f4A.x):
+                        sh.result.color = sh.g_f4B
                         sh.return_(sh.result)
 
+                    sh.result.color = sh.g_f4C
                     sh.return_(sh.result)
 
-                sh.result.color = sh.g_f4C
-                sh.return_(sh.result)
-        
-        self._check_source(hlsl_path)
+    def test_nested_if(self):
+        with _base.HlslTestContext(
+            'test_nested_if'
+        ) as ctx:
+            with ctx.open_file() as ps_file:
+                sh = ps_6_0.Generator(ps_file)
+                self._generate_test_uniforms(sh)
+
+                with sh.ps_output('PsOut') as PsOut:
+                    PsOut.SV_Target('color', sh.Float4)
+
+                with sh.entry_point(ctx._entry_point_name, sh.PsOut)():
+                    sh.result = sh.PsOut()
+
+                    with sh.if_(sh.g_f4A.x):
+                        sh.result.color = sh.g_f4B
+
+                        with sh.if_(sh.g_f4A.y):
+                            sh.result.color = sh.g_f4D
+                            sh.return_(sh.result)
+
+                        sh.return_(sh.result)
+
+                    sh.result.color = sh.g_f4C
+                    sh.return_(sh.result)
 
     def test_if_else(self):
-        hlsl_path = self._get_hlsl_path('test_if_else')
+        with _base.HlslTestContext(
+            'test_if_else'
+        ) as ctx:
+            with ctx.open_file() as ps_file:
+                sh = ps_6_0.Generator(ps_file)
+                self._generate_test_uniforms(sh)
 
-        with self._open_file(hlsl_path) as ps_file:
-            sh = ps_6_0.Generator(ps_file)
-            self._generate_test_uniforms(sh)
+                with sh.ps_output('PsOut') as PsOut:
+                    PsOut.SV_Target('color', sh.Float4)
 
-            with sh.ps_output('PsOut') as PsOut:
-                PsOut.SV_Target('color', sh.Float4)
+                with sh.entry_point(ctx._entry_point_name, sh.PsOut)():
+                    sh.result = sh.PsOut()
 
-            with sh.entry_point(self._entry_point_name, sh.PsOut)():
-                sh.result = sh.PsOut()
+                    with sh.if_(sh.g_f4A.x):
+                        sh.result.color = sh.g_f4B
+                    with sh.else_():
+                        sh.result.color = sh.g_f4D
+                    sh.return_(sh.result)
 
-                with sh.if_(sh.g_f4A.x):
-                    sh.result.color = sh.g_f4B
-                with sh.else_():
-                    sh.result.color = sh.g_f4D
-                sh.return_(sh.result)
-
-                sh.result.color = sh.g_f4C
-                sh.return_(sh.result)
-        
-        self._check_source(hlsl_path)
+                    sh.result.color = sh.g_f4C
+                    sh.return_(sh.result)
