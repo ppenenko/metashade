@@ -34,15 +34,15 @@ class TestFunctions(_base.TestBase):
             sh.uniform('g_f4B', sh.Float4)
             sh.uniform('g_f3C', sh.Float3)
 
-    def _generate_ps_main(self, sh):
+    def _generate_ps_main(self, sh, ctx : _base._TestContext):
         with sh.ps_output('PsOut') as PsOut:
             PsOut.SV_Target('color', sh.Float4)
 
-        return sh.entry_point(self._entry_point_name, sh.PsOut)()
+        return sh.entry_point(ctx._entry_point_name, sh.PsOut)()
 
-    def _correct_ps_main(self, sh):
+    def _correct_ps_main(self, sh, ctx : _base._TestContext):
         self._generate_test_uniforms(sh)
-        with self._generate_ps_main(sh):
+        with self._generate_ps_main(sh, ctx):
             sh.result = sh.PsOut()
             sh.result.color = sh.add(a = sh.g_f4A, b = sh.g_f4B)
             sh.return_(sh.result)
@@ -54,7 +54,7 @@ class TestFunctions(_base.TestBase):
             with ctx.open_file() as ps_file:
                 sh = ps_6_0.Generator(ps_file)
                 self._generate_add_func(sh)
-                self._correct_ps_main(sh)
+                self._correct_ps_main(sh, ctx)
 
     def test_kwarg_reorder(self):
         with _base.HlslTestContext(
@@ -68,7 +68,7 @@ class TestFunctions(_base.TestBase):
                     a = sh.Float4, c = sh.Float3
                 ).declare()
 
-                with self._generate_ps_main(sh):
+                with self._generate_ps_main(sh, ctx):
                     sh.result = sh.PsOut()
                     sh.result.color = sh.func(c = sh.g_f3C, a = sh.g_f4A)
                     sh.return_(sh.result)
@@ -80,7 +80,7 @@ class TestFunctions(_base.TestBase):
             with ctx.open_file() as ps_file:
                 sh = ps_6_0.Generator(ps_file)
                 self._generate_add_func(sh, decl_only = True)
-                self._correct_ps_main(sh)
+                self._correct_ps_main(sh, ctx)
 
     def test_included_function_call(self):
         with _base.HlslTestContext(
@@ -90,7 +90,7 @@ class TestFunctions(_base.TestBase):
                 sh = ps_6_0.Generator(ps_file)
                 sh.include('include/add.hlsl')
                 self._generate_add_func(sh, decl_only = True)
-                self._correct_ps_main(sh)
+                self._correct_ps_main(sh, ctx)
 
     def test_missing_arg(self):
         with _base.HlslTestContext() as ctx:
@@ -132,8 +132,6 @@ class TestFunctions(_base.TestBase):
                 sh.function('voidFuncB', type(None))(a = sh.Float4, b = sh.Float4).declare()
                 sh.function('voidFuncC', None)(a = sh.Float4, b = sh.Float4).declare()
 
-        self._check_source(hlsl_path, as_lib = True)
-
     def test_void_func_def(self):
         with _base.HlslTestContext(
             'test_void_func_def', as_lib = True
@@ -162,7 +160,7 @@ class TestFunctions(_base.TestBase):
                 with sh.function('getA3', sh.Float4):
                     sh.return_(sh.g_f4A)
 
-                with self._generate_ps_main(sh):
+                with self._generate_ps_main(sh, ctx):
                     sh.result = sh.PsOut()
                     sh.result.color = sh.getA2() + sh.getA3()
                     sh.return_(sh.result)
