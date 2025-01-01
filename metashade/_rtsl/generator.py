@@ -12,7 +12,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from abc import ABC, abstractmethod
 import metashade._clike.generator as clike
+
+class UniqueKeyChecker(ABC):
+    def __init__(self):
+        self._map = dict()
+
+    @staticmethod
+    @abstractmethod
+    def _format_error_message(register, existing_value):
+        pass
+
+    def add(self, key, value):
+        existing_value = self._map.get(key)
+        if existing_value is not None:
+             raise RuntimeError(
+                 self._format_error_message(key, existing_value)
+            )
+        self._map[key] = value
 
 class Generator(clike.Generator):
     entry_point = clike.Generator.function

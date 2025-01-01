@@ -12,10 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from typing import NamedTuple
 from metashade._base.dtypes import BaseType, check_valid_index
 import metashade._rtsl.generator as rtsl
 from . import dtypes
-from .stage_interface import StageIO, StageInput, StageOutput
+from .stage_interface import (
+    UniqueOutputLocationChecker, UniqueInputLocationChecker,
+    StageIO, StageInput, StageOutput
+)
 
 class UniformBuffer:
     def __init__(self, sh, set : int, binding : int, name : str = None):
@@ -36,6 +40,18 @@ class UniformBuffer:
         self._sh._pop_indent()
         self._sh._emit('};\n\n')
 
+class _UniqueBindingChecker(rtsl.UniqueKeyChecker):
+    class SetBindingPair(NamedTuple):
+        set : int
+        binding : int
+
+    @staticmethod
+    def _format_error_message(set_binding : SetBindingPair, existing_value):
+        return (
+            f'Uniform binding {set_binding.binding} in descriptor set '
+            f'{set_binding.set} is already in use by {existing_value}'
+        )
+
 class Generator(rtsl.Generator):
     def __init__(self, file_, glsl_version : str):
         super(Generator, self).__init__(file_)
@@ -46,29 +62,26 @@ class Generator(rtsl.Generator):
         self._register_dtypes(dtypes.__name__)
         self._emit(f'#version {glsl_version}\n')
 
-        self._io_locations_by_cls = {
-            io_cls.__name__ : set() for io_cls in [StageInput, StageOutput]
+        self._unique_location_checkers = {
+            StageInput.__name__: UniqueInputLocationChecker(),
+            StageOutput.__name__: UniqueOutputLocationChecker()
         }
 
-    def _create_stage_io(self, io_cls, dtype, location : int):
-        check_valid_index(location)
-        locations_in_use = self._io_locations_by_cls[io_cls.__name__]
-        if location in locations_in_use:
-            raise RuntimeError(
-                f'Location {location} is already in use'
-            )
-        locations_in_use.add(location)
-        return io_cls(dtype, location)
+        self._unique_binding_checker = _UniqueBindingChecker()
 
     def stage_input(self, dtype, location : int):
-        return self._create_stage_io(StageInput, dtype, location)
+        return StageInput(dtype, location)
 
     def stage_output(self, dtype, location : int):
-        return self._create_stage_io(StageOutput, dtype, location)
+        return StageOutput(dtype, location)
     
     def uniform_buffer(self, set : int, binding : int, name : str = None):
         check_valid_index(set)
         check_valid_index(binding)
+        self._unique_binding_checker.add(
+            _UniqueBindingChecker.SetBindingPair(set, binding),
+            name
+        )
         return UniformBuffer(self, set = set, binding = binding, name = name)
     
     def uniform(
@@ -102,8 +115,9 @@ class Generator(rtsl.Generator):
                     'Stage inputs and outputs '
                     'can only be defined at global scope'
                 )
-
-            # Define the stage output
-            value._define(self, name)
+            location_checker = self._unique_location_checkers[
+                value.__class__.__name__
+            ]
+            value._define(self, name, location_checker)
         else:
             super().__setattr__(name, value)
