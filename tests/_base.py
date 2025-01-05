@@ -48,13 +48,19 @@ class _TestContext(abc.ABC):
                 return frame.function
         raise RuntimeError('No test function found in the stack')
 
-    def __init__(self, no_file : bool = False, as_lib : bool = False):
+    def __init__(
+        self,
+        no_file : bool = False,
+        as_lib : bool = False,
+        dummy_entry_point : bool = False
+    ):
         test_name = self._get_test_func_name()
         self._src_path = (
             None if no_file
             else self._out_dir / f'{test_name}.{self._file_extension}'
         )
         self._as_lib = as_lib
+        self._dummy_entry_point = dummy_entry_point
 
     @abc.abstractmethod
     def _create_generator(self):
@@ -77,12 +83,17 @@ class _TestContext(abc.ABC):
             open(self._src_path, 'w') if self._src_path is not None
             else io.StringIO()
         )
-        return self._create_generator()
+        self._sh = self._create_generator()
+        return self._sh
 
     def __exit__(self, exc_type, exc_value, traceback):
-        self._file.close()
         if exc_type is not None:
+            self._file.close()
             return False
+        if self._dummy_entry_point:
+            with self._sh.entry_point(self._entry_point_name)():
+                pass
+        self._file.close()
         self._check_source()
         return True
     
@@ -90,7 +101,7 @@ _TestContext.setup_class()
 
 class HlslTestContext(_TestContext):
     _file_extension = 'hlsl'
-    _entry_point_name = 'psMain'
+    _entry_point_name = 'main'
 
     def _create_generator(self):
         return ps_6_0.Generator(self._file)
