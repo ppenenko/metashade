@@ -23,9 +23,10 @@ class Int(rtsl.Int):
 class _RawVector(rtsl._RawVector):
     def __init__(self, _ = None):
         element_ref = self.__class__._element_type._get_value_ref(_)
+
         super().__init__(
-            '.'.join((str(element_ref), 'x' * self.__class__._dim))
-                if element_ref is not None else _
+            f'{self.__class__._target_name}({element_ref})'
+            if element_ref is not None else _
         )
 
 class _RawVectorF(_RawVector):
@@ -80,17 +81,14 @@ class Float4(_RawVectorF, rtsl.RawVector4):
             )
             super().__init__(expression)
 
-class Int1(_RawVectorI, rtsl.RawVector1):
-    _target_name = 'int1'
-
 class Int2(_RawVectorI, rtsl.RawVector2):
-    _target_name = 'int2'
+    _target_name = 'ivec2'
 
 class Int3(_RawVectorI, rtsl.RawVector3):
-    _target_name = 'int3'
+    _target_name = 'ivec3'
 
 class Int4(_RawVectorI, rtsl.RawVector4):
-    _target_name = 'int4'
+    _target_name = 'ivec4'
 
 # TODO: share the below implementations with HLSL?
 class Vector4f(rtsl.Vector4, Float4):

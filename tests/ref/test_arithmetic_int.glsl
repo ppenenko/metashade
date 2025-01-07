@@ -1,10 +1,10 @@
 #version 450
-vec2 test_arithmetic()
+ivec2 test_arithmetic()
 {
-	float fD = -1;
-	vec2 f2A = vec2(0);
-	vec2 f2B = vec2(1, 2);
-	vec2 f2C = (f2A + f2B);
+	int fD = -1;
+	ivec2 f2A = ivec2(0);
+	ivec2 f2B = ivec2(1, 2);
+	ivec2 f2C = (f2A + f2B);
 	f2C = (f2C + f2B);
 	f2C = (f2A - f2B);
 	f2C = (f2C - f2B);
