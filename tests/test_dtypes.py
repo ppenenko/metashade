@@ -15,8 +15,9 @@
 import _base
 
 class TestDTypes(_base.TestBase):
-    def test_init_from_literal(self):
-        with _base.HlslTestContext(as_lib = True) as sh:
+    @_base.ctx_cls_hg
+    def test_init_from_literal(self, ctx_cls):
+        with ctx_cls(dummy_entry_point = True) as sh:
             with sh.function('test', sh.Float)():
                 sh.f4A = sh.Float4(1.0)
                 sh.f4B = sh.Float4(0.0) - sh.f4A

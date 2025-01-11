@@ -15,8 +15,9 @@
 import _base
 
 class TestComment(_base.TestBase):
-    def test_comment(self):
-        with _base.HlslTestContext(as_lib = True) as sh:
+    @_base.ctx_cls_hg
+    def test_comment(self, ctx_cls):
+        with ctx_cls(dummy_entry_point = True) as sh:
             sh // "This is a comment documenting the function"
             sh // ""
             with sh.function(

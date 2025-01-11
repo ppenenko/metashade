@@ -11,3 +11,7 @@ float test()
 	return (((f4B.w + f3B.z) + f2B.y) + fB);
 }
 
+void main()
+{
+}
+

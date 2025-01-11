@@ -1,3 +1,4 @@
+#version 450
 // This is a comment documenting the function
 // 
 float test_comment()
