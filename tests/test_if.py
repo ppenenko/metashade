@@ -16,14 +16,20 @@ import _base
 
 class TestIf(_base.TestBase):
     def _generate_test_uniforms(self, sh):
-        with sh.uniform_buffer(dx_register = 0, name = 'cb'):
+        with sh.uniform_buffer(
+            name = 'cb',
+            dx_register = 0,
+            vk_set = 0,
+            vk_binding = 0
+        ):
             sh.uniform('g_f4A', sh.Float4)
             sh.uniform('g_f4B', sh.Float4)
             sh.uniform('g_f4C', sh.Float4)
             sh.uniform('g_f4D', sh.Float4)
 
-    def test_if(self):
-        ctx = _base.HlslTestContext()
+    @_base.ctx_cls_hg
+    def test_if(self, ctx_cls):
+        ctx = ctx_cls()
         with ctx as sh:
             self._generate_test_uniforms(sh)
 
