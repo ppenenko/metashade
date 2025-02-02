@@ -159,7 +159,7 @@ class TestUniforms(_base.TestBase):
                     sh.uniform('g_f4Color2', sh.Float4)
 
     @_base.ctx_cls_hg
-    def test_glsl_cb_string_set(self, ctx_cls):
+    def test_cb_vk_string_set(self, ctx_cls):
         with ctx_cls(no_file = True) as sh:
             with pytest.raises(
                 RuntimeError,
@@ -173,36 +173,48 @@ class TestUniforms(_base.TestBase):
                 ):
                     sh.uniform('g_f0', sh.Float4)
 
-    def test_glsl_cb_string_binding(self):
-        with _base.GlslTestContext(no_file = True) as sh:
+    @_base.ctx_cls_hg
+    def test_cb_vk_string_binding(self, ctx_cls):
+        with ctx_cls(no_file = True) as sh:
             with pytest.raises(
                 RuntimeError,
                 match = 'blahblah is not a valid index'
             ):
                 with sh.uniform_buffer(
-                    vk_set = 0, vk_binding = 'blahblah', name = 'cb0'
+                    name = 'cb0',
+                    dx_register = 0,
+                    vk_set = 0,
+                    vk_binding = 'blahblah'
                 ):
                     sh.uniform('g_f0', sh.Float4)
 
-    def test_glsl_cb_negative_set(self):
-        with _base.GlslTestContext(no_file = True) as sh:
+    @_base.ctx_cls_hg
+    def test_cb_vk_negative_set(self, ctx_cls):
+        with ctx_cls(no_file = True) as sh:
             with pytest.raises(
                 RuntimeError,
                 match = '-1 is not a valid index'
             ):
                 with sh.uniform_buffer(
-                    vk_set = -1, vk_binding = 0, name = 'cb0'
+                    name = 'cb0',
+                    dx_register = 0,
+                    vk_set = -1,
+                    vk_binding = 0
                 ):
                     sh.uniform('g_f0', sh.Float4)
 
-    def test_glsl_cb_negative_binding(self):
-        with _base.GlslTestContext(no_file = True) as sh:
+    @_base.ctx_cls_hg
+    def test_cb_vk_negative_binding(self, ctx_cls):
+        with ctx_cls(no_file = True) as sh:
             with pytest.raises(
                 RuntimeError,
                 match = '-2 is not a valid index'
             ):
                 with sh.uniform_buffer(
-                    vk_set = 0, vk_binding = -2, name = 'cb0'
+                    name = 'cb0',
+                    dx_register = 0,
+                    vk_set = 0,
+                    vk_binding = -2
                 ):
                     sh.uniform('g_f0', sh.Float4)
 
