@@ -20,11 +20,7 @@ from .stage_interface import (
     StageIO, StageInput, StageOutput
 )
 
-from metashade._rtsl.vk import (
-    UniqueOutputLocationChecker,
-    UniqueInputLocationChecker,
-    UniqueBindingChecker
-)
+import metashade._rtsl.vk as vk
 
 class UniformBuffer:
     def __init__(self, sh, set : int, binding : int, name : str = None):
@@ -45,9 +41,10 @@ class UniformBuffer:
         self._sh._pop_indent()
         self._sh._emit('};\n\n')
 
-class Generator(rtsl.Generator):
+class Generator(rtsl.Generator, vk.GeneratorMixin):
     def __init__(self, file_, glsl_version : str):
-        super(Generator, self).__init__(file_)
+        super().__init__(file_)
+        vk.GeneratorMixin.__init__(self)
         self._glsl_version = glsl_version
 
         # Register the data types
@@ -56,11 +53,9 @@ class Generator(rtsl.Generator):
         self._emit(f'#version {glsl_version}\n')
 
         self._unique_location_checkers = {
-            StageInput.__name__: UniqueInputLocationChecker(),
-            StageOutput.__name__: UniqueOutputLocationChecker()
+            StageInput.__name__: vk.UniqueInputLocationChecker(),
+            StageOutput.__name__: vk.UniqueOutputLocationChecker()
         }
-
-        self._unique_binding_checker = UniqueBindingChecker()
 
     def stage_input(self, dtype, location : int):
         return StageInput(dtype, location)
@@ -75,11 +70,10 @@ class Generator(rtsl.Generator):
         vk_binding : int,
         dx_register: int = None
     ):
-        check_valid_index(vk_set)
-        check_valid_index(vk_binding)
-        self._unique_binding_checker.add(
-            UniqueBindingChecker.SetBindingPair(vk_set, vk_binding),
-            name
+        self.vk_check_set_and_binding(
+            name = name,
+            vk_set = vk_set,
+            vk_binding = vk_binding
         )
         return UniformBuffer(
             self, set = vk_set, binding = vk_binding, name = name

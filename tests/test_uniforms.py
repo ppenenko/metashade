@@ -158,14 +158,18 @@ class TestUniforms(_base.TestBase):
                 ):
                     sh.uniform('g_f4Color2', sh.Float4)
 
-    def test_glsl_cb_string_set(self):
-        with _base.GlslTestContext(no_file = True) as sh:
+    @_base.ctx_cls_hg
+    def test_glsl_cb_string_set(self, ctx_cls):
+        with ctx_cls(no_file = True) as sh:
             with pytest.raises(
                 RuntimeError,
                 match = 'blahblah is not a valid index'
             ):
                 with sh.uniform_buffer(
-                    vk_set = 'blahblah', vk_binding = 0, name = 'cb0'
+                    name = 'cb0',
+                    dx_register = 0,
+                    vk_set = 'blahblah',
+                    vk_binding = 0
                 ):
                     sh.uniform('g_f0', sh.Float4)
 
