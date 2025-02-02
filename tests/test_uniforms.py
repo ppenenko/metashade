@@ -40,7 +40,7 @@ class TestUniforms(_base.TestBase):
                 with sh.uniform_buffer(dx_register = 'blahblah', name = 'cb0'):
                     sh.uniform('g_f0', sh.Float4)
 
-    def test_cb_negative_register(self):
+    def test_hlsl_cb_negative_register(self):
         with _base.HlslTestContext(no_file = True) as sh:
             with pytest.raises(
                 RuntimeError,
@@ -55,7 +55,7 @@ class TestUniforms(_base.TestBase):
                 sh.uniform('g_f4Color', sh.Float4)
 
             sh.out_f4Color = sh.stage_output(sh.Float4, location = 0)
-            
+
             with sh.entry_point('main')():
                 sh.out_f4Color = sh.g_f4Color
 
@@ -126,12 +126,23 @@ class TestUniforms(_base.TestBase):
             ):
                 sh.uniform('g_f4Color3', sh.Float4)
 
-    def test_glsl_cb_set_binding_clash(self):
-        with _base.GlslTestContext(no_file = True) as sh:
-            with sh.uniform_buffer(name = 'cb0', vk_set = 0, vk_binding = 0):
+    @_base.ctx_cls_hg
+    def test_cb_vk_set_binding_clash(self, ctx_cls):
+        with ctx_cls(no_file = True) as sh:
+            with sh.uniform_buffer(
+                name = 'cb0',
+                dx_register = 0,
+                vk_set = 0,
+                vk_binding = 0
+            ):
                 sh.uniform('g_f4Color0', sh.Float4)
 
-            with sh.uniform_buffer(name = 'cb1', vk_set = 0, vk_binding = 1):
+            with sh.uniform_buffer(
+                name = 'cb1',
+                dx_register = 1,
+                vk_set = 0,
+                vk_binding = 1
+            ):
                 sh.uniform('g_f4Color1', sh.Float4)
 
             with pytest.raises(
@@ -140,7 +151,10 @@ class TestUniforms(_base.TestBase):
                         'is already in use by cb0'
             ):
                 with sh.uniform_buffer(
-                    name = 'cb2', vk_set = 0, vk_binding = 0
+                    name = 'cb2',
+                    dx_register = 2,
+                    vk_set = 0,
+                    vk_binding = 0
                 ):
                     sh.uniform('g_f4Color2', sh.Float4)
 

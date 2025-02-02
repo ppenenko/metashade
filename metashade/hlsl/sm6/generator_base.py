@@ -17,6 +17,8 @@ import metashade._rtsl.generator as rtsl
 from . import dtypes
 from . import samplers
 
+import metashade._rtsl.vk as vk
+
 class UniformBuffer:
     def __init__(
         self,
@@ -76,6 +78,8 @@ class Generator(rtsl.Generator):
         self._register_dtypes(dtypes.__name__)
         self._register_dtypes(samplers.__name__)
 
+        self._vk_unique_binding_checker = vk.UniqueBindingChecker()
+
     def uniform_buffer(self,
         name : str,
         dx_register: int,
@@ -84,6 +88,13 @@ class Generator(rtsl.Generator):
     ):
         check_valid_index(dx_register)
         self._uniforms_by_register.add(f'b{dx_register}', name)
+
+        if vk_binding is not None:
+            self._vk_unique_binding_checker.add(
+                vk.UniqueBindingChecker.SetBindingPair(vk_set, vk_binding),
+                name
+            )
+
         return UniformBuffer(
             self,
             dx_register = dx_register,
