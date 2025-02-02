@@ -19,6 +19,7 @@ Vulkan-related functionality common between HLSL and GLSL backends.
 
 from typing import NamedTuple
 from .generator import UniqueKeyChecker
+from metashade._base.dtypes import check_valid_index
 
 class UniqueInputLocationChecker(UniqueKeyChecker):
     @staticmethod
@@ -46,4 +47,18 @@ class UniqueBindingChecker(UniqueKeyChecker):
         return (
             f'Vulkan uniform binding {set_binding.binding} in descriptor set '
             f'{set_binding.set} is already in use by {existing_value}'
+        )
+
+class GeneratorMixin:
+    def __init__(self):
+        self._unique_binding_checker = UniqueBindingChecker()
+
+    def vk_check_set_and_binding(
+        self, name : str, vk_set : int, vk_binding : int
+    ):
+        check_valid_index(vk_set)
+        check_valid_index(vk_binding)
+        self._unique_binding_checker.add(
+            UniqueBindingChecker.SetBindingPair(vk_set, vk_binding),
+            name
         )

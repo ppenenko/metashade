@@ -66,19 +66,18 @@ class _UniqueRegisterChecker(rtsl.UniqueKeyChecker):
             f'Uniform register {register} is already in use by {existing_value}'
         )
 
-class Generator(rtsl.Generator):
+class Generator(rtsl.Generator, vk.GeneratorMixin):
     _is_pixel_shader = False
 
     def __init__(self, file_, matrix_post_multiplication = False):
-        super(Generator, self).__init__(file_)
+        super().__init__(file_)
+        vk.GeneratorMixin.__init__(self)
         self._matrix_post_multiplication = matrix_post_multiplication
 
         self._uniforms_by_register = _UniqueRegisterChecker()
 
         self._register_dtypes(dtypes.__name__)
         self._register_dtypes(samplers.__name__)
-
-        self._vk_unique_binding_checker = vk.UniqueBindingChecker()
 
     def uniform_buffer(self,
         name : str,
@@ -90,9 +89,10 @@ class Generator(rtsl.Generator):
         self._uniforms_by_register.add(f'b{dx_register}', name)
 
         if vk_binding is not None:
-            self._vk_unique_binding_checker.add(
-                vk.UniqueBindingChecker.SetBindingPair(vk_set, vk_binding),
-                name
+            self.vk_check_set_and_binding(
+                name = name,
+                vk_set = vk_set,
+                vk_binding = vk_binding
             )
 
         return UniformBuffer(
