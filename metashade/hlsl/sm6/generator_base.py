@@ -14,8 +14,7 @@
 
 from metashade._base.dtypes import BaseType, check_valid_index
 import metashade._rtsl.generator as rtsl
-from . import dtypes
-from . import samplers
+from . import context, dtypes, samplers
 
 import metashade._rtsl.vk as vk
 
@@ -151,3 +150,6 @@ class Generator(rtsl.Generator, vk.GeneratorMixin):
 
     def ps_output(self, name):
         return stage_interface.PsOutputDef(self, name)
+    
+    def entry_point(self, name, output):
+        return context.EntryPointDecl(self, name, output)
