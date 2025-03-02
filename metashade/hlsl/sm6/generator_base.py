@@ -151,5 +151,5 @@ class Generator(rtsl.Generator, vk.GeneratorMixin):
     def ps_output(self, name):
         return stage_interface.PsOutputDef(self, name)
     
-    def entry_point(self, name, output):
-        return context.EntryPointDecl(self, name, output)
+    def entry_point(self, name, return_type = None):
+        return context.EntryPointDecl(self, name, return_type)
