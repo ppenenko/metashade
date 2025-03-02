@@ -13,6 +13,18 @@
 # limitations under the License.
 
 import metashade._clike.context as clike
+from . import stage_interface
 
 class EntryPointDecl(clike.FunctionDecl):
-    pass
+    def __init__(self, sh, name, return_type):
+        super().__init__(sh, name, return_type)
+        
+        output_cls = (
+            stage_interface.PsOutputDef if sh._is_pixel_shader 
+            else stage_interface.VsOutputDef
+        )
+
+        if not isinstance( self._return_type, output_cls):
+            raise RuntimeError(
+                f"Entry point expected to return an object of type '{output_cls.__name__}'"
+            )
