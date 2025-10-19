@@ -53,25 +53,27 @@ class Generator(base.Generator):
         self._emit_indent()
         self._emit(f'// {comment}\n')
 
-    def _instantiate_func(self, func):
-        name = func.__name__
-
-        return_annotation = func.__annotations__['return']
+    def _instantiate_func(self, py_func):
+        name = py_func.__name__
+        return_annotation = py_func.__annotations__['return']
         
         if return_annotation == 'None':
             return_type = type(None)
         else:
             return_type = getattr(self, return_annotation)
 
-        args = {
+        param_annotations = {
             name : getattr(self, annotation)
-            for name, annotation in func.__annotations__.items()
+            for name, annotation in py_func.__annotations__.items()
             if name != 'return'
         }
-        decl = context.FunctionDecl(self, name, return_type)
-        with decl(**args):
-            args = { name : getattr(self, name) for name in args.keys() }
-            func(sh = self, **args)
+        func_decl = context.FunctionDecl(self, name, return_type)
+        with func_decl._init_params(**param_annotations):
+            # Get parameter instances from the function declaration's scope
+            params = { name : getattr(self, name)
+                       for name in param_annotations.keys() }
+            # Generate the function body by calling the Python function
+            py_func(sh = self, **params)
 
     def instantiate(self, py_obj):
         if isinstance(py_obj, types.FunctionType):

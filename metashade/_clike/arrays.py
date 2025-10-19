@@ -33,8 +33,11 @@ class ArrayBase(BaseType):
         cls, sh, identifier,
         semantic = None,
         register : int = None,
-        initializer = None
+        initializer = None,
+        qualifiers = None
     ):
+        BaseType._emit_qualifiers(sh, qualifiers)
+        
         sh._emit(
             '{element_type} {identifier}{dims}'.format(
                 element_type = cls._element_type._get_target_type_name(),

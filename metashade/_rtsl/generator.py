@@ -14,6 +14,7 @@
 
 from abc import ABC, abstractmethod
 import metashade._clike.generator as clike
+from .qualifiers import Out, InOut
 
 class UniqueKeyChecker(ABC):
     def __init__(self):
@@ -44,3 +45,11 @@ class Generator(clike.Generator, ABC):
         vk_binding : int
     ):
         pass
+
+    def Out(self, base_type):
+        """Create an output parameter type for function signatures"""
+        return Out(base_type)
+    
+    def InOut(self, base_type):
+        """Create an input-output parameter type for function signatures"""
+        return InOut(base_type)

@@ -80,6 +80,7 @@ class TestInstantiate(_base.TestBase):
                 else:
                     sh.out_f4Color = sh.c
 
+
     def test_instantiate_py_func_void_return(self):
         # HLSL-only test since clip is not supported in GLSL yet
         ctx = _base.HlslTestContext()

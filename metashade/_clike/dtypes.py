@@ -31,15 +31,27 @@ class BaseType(base.BaseType):
             sh._emit(f' : register({cls._format_uniform_register(register)})')
 
     @classmethod
+    def _emit_qualifiers(cls, sh, qualifiers):
+        """Helper method to emit parameter qualifiers"""
+        if qualifiers:
+            for qualifier in qualifiers:
+                qualifier_str = qualifier.direction.value
+                if qualifier_str:
+                    sh._emit(f'{qualifier_str} ')
+
+    @classmethod
     def _emit_def(
         cls, sh, identifier,
         semantic = None,
         register : int = None,
-        initializer = None
+        initializer = None,
+        qualifiers = None
     ):
         '''
         https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-variable-syntax
         '''
+        cls._emit_qualifiers(sh, qualifiers)
+        
         sh._emit(
             '{type_name} {identifier}'.format(
                 type_name = cls._get_target_type_name(),
@@ -57,14 +69,16 @@ class BaseType(base.BaseType):
         self, sh, identifier,
         allow_init = True,
         semantic = None,
-        register = None
+        register = None,
+        qualifiers = None
     ):
         self._bind(sh, identifier, allow_init)
         self.__class__._emit_def(
             sh, self._name,
             initializer = self._expression,
             semantic = semantic,
-            register = register
+            register = register,
+            qualifiers = qualifiers
         )
 
     def _assign(self, value):

@@ -13,7 +13,11 @@
 # limitations under the License.
 
 import abc
+import typing
+from typing import NamedTuple
+
 import metashade._base.context as base
+from .._rtsl.qualifiers import ParamQualifiers
 
 class FunctionDecl:
     '''
@@ -22,6 +26,10 @@ class FunctionDecl:
     either call `declare()` to just declare it, without a definition,
     or use it in a `with` statement to implement the function body.
     '''
+    class _ParamDef(NamedTuple):
+        instance: object  # The instantiated Metashade type
+        qualifiers: list  # List of ParamQualifiers
+
     def __init__(self, sh, name, return_type):
         self._sh = sh
         self._name = name
@@ -33,7 +41,7 @@ class FunctionDecl:
 
     def __getattr__(self, name):
         try:
-            return self._parameters[name]
+            return self._parameters[name].instance
         except KeyError as key_error:
             raise AttributeError(f"No parameter named '{name}'") from key_error
 
@@ -43,9 +51,27 @@ class FunctionDecl:
         Instead, this initializes a part of the function signature -
         the declarations of parameters with their names and types.
         '''
-        self._parameters = {
-            name : arg_type() for name, arg_type in kwargs.items()
-        }
+        return self._init_params(**kwargs)
+
+    def _init_params(self, **param_annotations):
+        self._parameters = {}
+        
+        for name, param_type in param_annotations.items():
+            # Check if this is an Annotated type with qualifiers
+            qualifiers = []
+            if typing.get_origin(param_type) is typing.Annotated:
+                # Extract base type and qualifiers from 
+                # Annotated[base_type, qualifier1, qualifier2, ...]
+                typing_args = typing.get_args(param_type)
+                param_type = typing_args[0]
+                qualifiers = [annotation for annotation in typing_args[1:]
+                             if isinstance(annotation, ParamQualifiers)]
+            
+            self._parameters[name] = self._ParamDef(
+                instance=param_type(),
+                qualifiers=qualifiers
+            )
+
         # Return self, so that it can be entered in a with scope
         return self
 
@@ -65,12 +91,18 @@ class FunctionDecl:
         
         # Emit the argument declarations
         first = True
-        for name, arg in self._parameters.items():
+        for name, param_def in self._parameters.items():
             if first:
                 first = False
             else:
                 self._sh._emit(', ')
-            arg._define(self._sh, name, allow_init=False)
+            
+            # Use the refactored _define method that handles qualifiers
+            param_def.instance._define(
+                self._sh, name, 
+                allow_init=False, 
+                qualifiers=param_def.qualifiers
+            )
 
         self._sh._emit(')')
 
@@ -121,15 +153,17 @@ class Function:
     def __call__(self, **kwargs):
         arg_list = []
 
-        for param_name, param in self._def._parameters.items():
+        for param_name, param_def in self._def._parameters.items():
             arg = kwargs.get(param_name)
             if arg is None:
                 raise RuntimeError(
                     f"Argument missing for parameter '{param_name}'"
                 )
-            ref = param.__class__._get_value_ref(arg)
+            ref = param_def.instance.__class__._get_value_ref(arg)
             if ref is None:
-                raise RuntimeError(f"Parameter '{param_name}' type mismatch")
+                raise RuntimeError(
+                    f"Parameter '{param_name}' type mismatch"
+                )
             
             arg_list.append(str(ref))
             kwargs.pop(param_name)
