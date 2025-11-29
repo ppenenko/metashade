@@ -12,22 +12,35 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import filecmp, inspect
+from pathlib import Path
 import abc, io, os, sys
 import pytest
-from pathlib import Path
 
 from metashade.glsl import frag
 from metashade.glsl.util import glslang
 from metashade.hlsl.sm6 import ps_6_0
 from metashade.hlsl.util import dxc
-from metashade.util.tests import RefDiffer, get_test_func_name
+
+class RefDiffer:
+    def __init__(self, ref_dir : Path):
+        self._ref_dir = ref_dir
+
+    def __call__(self, path : Path):
+        assert filecmp.cmp(path, self._ref_dir / path.name)
+
+def get_test_func_name():
+    for frame in inspect.stack():
+        if frame.function.startswith('test_'):
+            return frame.function
+    raise RuntimeError('No test function found in the stack')
 
 class _TestContext(abc.ABC):
     _entry_point_name = 'main'
 
     @classmethod
-    def setup_class(cls):
-        cls._parent_dir = Path(sys.modules[cls.__module__].__file__).parent
+    def setup_class(cls, test_dir: Path):
+        cls._parent_dir = test_dir
 
         out_dir = os.getenv('METASHADE_PYTEST_OUT_DIR', None)
         ref_dir = cls._parent_dir / 'ref'
@@ -93,8 +106,6 @@ class _TestContext(abc.ABC):
         self._file.close()
         self._check_source()
         return True
-    
-_TestContext.setup_class()
 
 class HlslTestContext(_TestContext):
     _file_extension = 'hlsl'
