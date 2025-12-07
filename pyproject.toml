@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "metashade"
+version = "0.5.1"
+description = "An experimental Python-based GPU shading embedded domain-specific language (EDSL)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Pavlo Penenko", email = "pavlo.penenko@gmail.com"}
+]
+keywords = ["shader", "HLSL", "GLSL", "GPU", "graphics", "EDSL"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Code Generators",
+    "Topic :: Multimedia :: Graphics",
+]
+
+[project.urls]
+Homepage = "https://github.com/metashade/metashade"
+Repository = "https://github.com/metashade/metashade"
+Issues = "https://github.com/metashade/metashade/issues"
+Documentation = "https://github.com/metashade/metashade/blob/main/README.md"
+
+[tool.setuptools.packages.find]
+include = ["metashade*"]
+exclude = ["tests*", "examples*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
