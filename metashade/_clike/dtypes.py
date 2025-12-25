@@ -100,16 +100,28 @@ class BaseType(base.BaseType):
         return cls._target_name
 
 class ArithmeticType(BaseType):
+    def __init__(self, _=None):
+        super().__init__(_)
+        self._is_arithmetic_expr = False
+
     @staticmethod
     def _format_binary_operator(lhs : str, rhs : str, op : str) -> str:
-        return f'({lhs} {op} {rhs})'
+        lhs_expr = str(lhs)
+        if getattr(lhs, '_is_arithmetic_expr', False):
+            lhs_expr = f'({lhs_expr})'
+
+        rhs_expr = str(rhs)
+        if getattr(rhs, '_is_arithmetic_expr', False):
+            rhs_expr = f'({rhs_expr})'
+
+        return f'{lhs_expr} {op} {rhs_expr}'
 
     def _rhs_binary_operator(self, rhs, op):
         rhs_ref = self.__class__._get_value_ref(rhs)
         if rhs_ref is None:
             return NotImplemented
 
-        return self._sh._instantiate_dtype(
+        result = self._sh._instantiate_dtype(
             self.__class__,
             self.__class__._format_binary_operator(
                 lhs = self,
@@ -117,6 +129,8 @@ class ArithmeticType(BaseType):
                 op = op
             )
         )
+        result._is_arithmetic_expr = True
+        return result
 
     def __add__(self, rhs):
         return self._rhs_binary_operator(rhs, '+')
@@ -134,7 +148,10 @@ class ArithmeticType(BaseType):
         return self._rhs_binary_operator(rhs, '/')
     
     def __neg__(self):
-        return self._sh._instantiate_dtype(self.__class__, f'-{self}')
+        val_str = str(self)
+        if getattr(self, '_is_arithmetic_expr', False):
+            val_str = f'({val_str})'
+        return self._sh._instantiate_dtype(self.__class__, f'-{val_str}')
 
 class Scalar(ArithmeticType):
     @staticmethod
