@@ -27,6 +27,10 @@ class BaseType:
         self._name = None
         self._expression = _ if (isinstance(_, str) or _ is None) \
             else str(self.__class__._get_value_ref(_))
+
+    @property
+    def _(self):
+        return self
         
     @classmethod
     def _get_dtype(cls):
