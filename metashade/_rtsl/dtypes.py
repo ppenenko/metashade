@@ -63,10 +63,13 @@ class _RawVector(clike.ArithmeticType):
         if not is_valid_swizzle:
             raise AttributeError
         result_dtype = self._get_related_type(dim = len(name))
-        return self._sh._instantiate_dtype(
+        result = self._sh._instantiate_dtype(
             result_dtype,
             '.'.join((str(self), name))
         )
+        if self._is_lvalue:
+            result._is_lvalue = True
+        return result
 
     def _assign_write_mask(self, name, value) -> bool:
         '''Implements assignment with a swizzling mask.'''

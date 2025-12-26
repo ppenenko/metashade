@@ -85,6 +85,9 @@ class BaseType(base.BaseType):
         if value is self:
             return
 
+        if isinstance(value, BaseType) and str(self) == str(value):
+            return
+
         value_ref = self.__class__._get_value_ref(value)
         if value_ref is None:
             raise ArithmeticError('Type mismatch')
@@ -130,7 +133,7 @@ class ArithmeticType(BaseType):
         )
 
     def _inplace_binary_operator(self, rhs, op):
-        if self._name is None:
+        if not self._is_lvalue:
              raise RuntimeError("Can't modify an rvalue")
         self._assign_op(rhs, op)
         return self
