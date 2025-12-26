@@ -104,6 +104,10 @@ class ArithmeticType(BaseType):
         super().__init__(_)
         self._is_arithmetic_expr = False
 
+    def _bind(self, sh, name, allow_init):
+        super()._bind(sh, name, allow_init)
+        self._is_arithmetic_expr = False
+
     @staticmethod
     def _format_binary_operator(lhs : str, rhs : str, op : str) -> str:
         lhs_expr = str(lhs)

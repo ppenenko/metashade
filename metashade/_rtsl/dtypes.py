@@ -48,9 +48,14 @@ class _RawVector(clike.ArithmeticType):
         if not is_valid_swizzle:
             raise AttributeError
         result_dtype = self._get_related_type(dim = len(name))
+
+        obj_str = str(self)
+        if getattr(self, '_is_arithmetic_expr', False):
+            obj_str = f'({obj_str})'
+
         return self._sh._instantiate_dtype(
             result_dtype,
-            '.'.join((str(self), name))
+            '.'.join((obj_str, name))
         )
 
     def _assign_write_mask(self, name, value) -> bool:
@@ -124,15 +129,22 @@ class _RawVector(clike.ArithmeticType):
         self._check_dims(rhs)
 
         return_type = self.__class__._get_binary_operator_result_type()
-        return return_type(
+        result = self._sh._instantiate_dtype(
+            return_type,
             self.__class__._format_binary_operator(
                 self, rhs, op
             )
         )
+        result._is_arithmetic_expr = True
+        return result
 
-    @classmethod
-    def _scalar_op(cls, lhs : str, rhs : str, op : str):
-        return cls(cls._format_binary_operator(lhs, rhs, op))
+    def _instantiate_scalar_op(self, lhs : str, rhs : str, op : str):
+        result = self._sh._instantiate_dtype(
+            self.__class__,
+            self.__class__._format_binary_operator(lhs, rhs, op)
+        )
+        result._is_arithmetic_expr = True
+        return result
     
     def _per_element_or_scalar(self, rhs, op : str):
         per_element_result = self._rhs_binary_operator(rhs, op)
@@ -140,7 +152,7 @@ class _RawVector(clike.ArithmeticType):
             return per_element_result
 
         if rhs.__class__ == self._element_type:
-            return self.__class__._scalar_op(self, rhs, op)
+            return self._instantiate_scalar_op(self, rhs, op)
         else:
             return NotImplemented
 
@@ -150,7 +162,7 @@ class _RawVector(clike.ArithmeticType):
     def __rmul__(self, lhs):
         lhs_ref = self._element_type._get_value_ref(lhs)
         if lhs_ref is not None:
-            return self.__class__._scalar_op(lhs_ref, self, '*')
+            return self._instantiate_scalar_op(lhs_ref, self, '*')
         else:
             return NotImplemented
         

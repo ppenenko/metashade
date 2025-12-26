@@ -8,7 +8,7 @@ float test()
 	float2 f2B = 0.4235.xx * f2A;
 	float fA = 1.0;
 	float fB = 2.0 + fA;
-	return ((f4B.w + f3B.z) + f2B.y) + (fB);
+	return ((f4B.w + f3B.z) + f2B.y) + fB;
 }
 
 void main()

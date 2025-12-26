@@ -9,7 +9,7 @@ float test()
 	vec2 f2B = vec2(0.4235) * f2A;
 	float fA = 1.0;
 	float fB = 2.0 + fA;
-	return ((f4B.w + f3B.z) + f2B.y) + (fB);
+	return ((f4B.w + f3B.z) + f2B.y) + fB;
 }
 
 void main()
