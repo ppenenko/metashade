@@ -34,6 +34,21 @@ class _RawVector(clike.ArithmeticType):
         type_name = cls._get_related_type_name(dim)
         return getattr(sys.modules[cls.__module__], type_name)
 
+    def _assign_op(self, value, op):
+        value_ref = self.__class__._get_value_ref(value)
+
+        if (value_ref is None
+            and op in ('*', '/')
+            and value.__class__ == self._element_type
+        ):
+             value_ref = self._element_type._get_value_ref(value)
+
+        if value_ref is None:
+             raise ArithmeticError('Type mismatch')
+
+        self._sh._emit_indent()
+        self._sh._emit( f'{self} {op}= {value_ref};\n' )
+
     def __getattr__(self, name):
         '''Implements swizzling.'''
         is_valid_swizzle = False
