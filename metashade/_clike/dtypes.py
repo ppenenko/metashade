@@ -14,6 +14,13 @@
 
 import metashade._base.dtypes as base
 import numbers
+from enum import Enum, auto
+
+class ExprType(Enum):
+    """Expression type for determining when parentheses are needed."""
+    NONE = auto()       # Simple term (variable, literal) - no wrapping
+    ARITHMETIC = auto() # Compound expression (a + b) - wrap in binary ops
+    NEGATION = auto()   # Negation result (-a) - wrap only when negating again
 
 class BaseType(base.BaseType):
     @classmethod
@@ -102,20 +109,26 @@ class BaseType(base.BaseType):
 class ArithmeticType(BaseType):
     def __init__(self, _=None):
         super().__init__(_)
-        self._is_arithmetic_expr = False
+        self._expr_type = ExprType.NONE
 
     def _bind(self, sh, name, allow_init):
         super()._bind(sh, name, allow_init)
-        self._is_arithmetic_expr = False
+        self._expr_type = ExprType.NONE
+
+    @staticmethod
+    def _needs_parens_in_binary_op(operand) -> bool:
+        """Check if operand needs parentheses in a binary operation."""
+        expr_type = getattr(operand, '_expr_type', ExprType.NONE)
+        return expr_type == ExprType.ARITHMETIC
 
     @staticmethod
     def _format_binary_operator(lhs : str, rhs : str, op : str) -> str:
         lhs_expr = str(lhs)
-        if getattr(lhs, '_is_arithmetic_expr', False):
+        if ArithmeticType._needs_parens_in_binary_op(lhs):
             lhs_expr = f'({lhs_expr})'
 
         rhs_expr = str(rhs)
-        if getattr(rhs, '_is_arithmetic_expr', False):
+        if ArithmeticType._needs_parens_in_binary_op(rhs):
             rhs_expr = f'({rhs_expr})'
 
         return f'{lhs_expr} {op} {rhs_expr}'
@@ -133,7 +146,7 @@ class ArithmeticType(BaseType):
                 op = op
             )
         )
-        result._is_arithmetic_expr = True
+        result._expr_type = ExprType.ARITHMETIC
         return result
 
     def __add__(self, rhs):
@@ -153,9 +166,13 @@ class ArithmeticType(BaseType):
     
     def __neg__(self):
         val_str = str(self)
-        if getattr(self, '_is_arithmetic_expr', False):
+        expr_type = getattr(self, '_expr_type', ExprType.NONE)
+        # Wrap if arithmetic expression OR if already a negation (avoid --a)
+        if expr_type in (ExprType.ARITHMETIC, ExprType.NEGATION):
             val_str = f'({val_str})'
-        return self._sh._instantiate_dtype(self.__class__, f'-{val_str}')
+        result = self._sh._instantiate_dtype(self.__class__, f'-{val_str}')
+        result._expr_type = ExprType.NEGATION
+        return result
 
 class Scalar(ArithmeticType):
     @staticmethod

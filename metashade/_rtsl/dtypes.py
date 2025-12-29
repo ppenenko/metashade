@@ -14,7 +14,7 @@
 
 import collections, numbers, sys
 import metashade._clike.dtypes as clike
-from metashade._clike.dtypes import Float, Int
+from metashade._clike.dtypes import Float, Int, ExprType
 
 class _RawVector(clike.ArithmeticType):
     _swizzle_str = 'xyzw'
@@ -50,7 +50,8 @@ class _RawVector(clike.ArithmeticType):
         result_dtype = self._get_related_type(dim = len(name))
 
         obj_str = str(self)
-        if getattr(self, '_is_arithmetic_expr', False):
+        expr_type = getattr(self, '_expr_type', ExprType.NONE)
+        if expr_type in (ExprType.ARITHMETIC, ExprType.NEGATION):
             obj_str = f'({obj_str})'
 
         return self._sh._instantiate_dtype(
@@ -135,7 +136,7 @@ class _RawVector(clike.ArithmeticType):
                 self, rhs, op
             )
         )
-        result._is_arithmetic_expr = True
+        result._expr_type = ExprType.ARITHMETIC
         return result
 
     def _instantiate_scalar_op(self, lhs : str, rhs : str, op : str):
@@ -143,7 +144,7 @@ class _RawVector(clike.ArithmeticType):
             self.__class__,
             self.__class__._format_binary_operator(lhs, rhs, op)
         )
-        result._is_arithmetic_expr = True
+        result._expr_type = ExprType.ARITHMETIC
         return result
     
     def _per_element_or_scalar(self, rhs, op : str):

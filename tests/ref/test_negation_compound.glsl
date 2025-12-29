@@ -9,8 +9,8 @@ float test_negation_compound()
 	float neg_sum = -sum_ab;
 	float r3 = neg_sum + a;
 	float r4 = neg_sum * b;
-	float r5 = --a;
-	float r6 = --sum_ab;
+	float r5 = -(-a);
+	float r6 = -(-sum_ab);
 	return r1;
 }
 
