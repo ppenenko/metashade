@@ -30,7 +30,15 @@ _METASHADE_TO_MTLX = {
     'Float3x3': 'matrix33',
     'Float4x4': 'matrix44',
     'Bool': 'boolean',
+    # Closure types
+    'BSDF': 'BSDF',
+    'EDF': 'EDF',
+    'VDF': 'VDF',
 }
+
+# Internal MaterialX types that should be skipped in nodedef generation.
+# These are injected by the MaterialX runtime, not exposed as user inputs.
+_INTERNAL_MTLX_TYPES = frozenset({'ClosureData'})
 
 # Derive the inverse map from the canonical forward map
 _MTLX_TO_METASHADE = {v: k for k, v in _METASHADE_TO_MTLX.items()}
@@ -58,13 +66,32 @@ _UNSUPPORTED_MTLX_TYPES = frozenset({
 })
 
 
+def is_internal_mtlx_type(dtype_factory) -> bool:
+    """Check if a dtype is an internal MaterialX type (e.g., ClosureData).
+    
+    Internal types are injected by the MaterialX runtime and should not
+    appear in nodedef inputs/outputs.
+    """
+    if dtype_factory is None:
+        return False
+    dtype = dtype_factory._get_dtype()
+    return dtype.__name__ in _INTERNAL_MTLX_TYPES
+
+
 def metashade_to_mtlx(dtype_factory):
-    """Map a Metashade dtype factory to a MaterialX type string."""
+    """Map a Metashade dtype factory to a MaterialX type string.
+    
+    Returns None for internal types that should be skipped in nodedef generation.
+    """
     if dtype_factory is None:
         return None
     
     dtype = dtype_factory._get_dtype()
     dtype_name = dtype.__name__
+    
+    # Internal types return None (caller should skip them)
+    if dtype_name in _INTERNAL_MTLX_TYPES:
+        return None
     
     if dtype_name not in _METASHADE_TO_MTLX:
         raise ValueError(

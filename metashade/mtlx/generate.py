@@ -117,6 +117,10 @@ class GeneratorContext:
                 is_output = isinstance(param, Out)
                 param_type = dtypes.metashade_to_mtlx(param.dtype_factory)
                 
+                # Skip internal types (e.g., ClosureData) - not exposed in nodedef
+                if param_type is None:
+                    continue
+                
                 if is_output:
                     output_param = nodedef.addOutput(param_name, param_type)
                     output_param.setDocString(f'Output parameter {param_name}')

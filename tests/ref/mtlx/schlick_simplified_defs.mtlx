@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<materialx version="1.39">
+  <nodedef name="ND_schlick_metal" node="schlick_metal" doc="Simplified Schlick BSDF - calls generalized_schlick_bsdf with MaterialX defaults for weight, color82, exponent, thinfilm, distribution, and scatter_mode.">
+    <input name="color0" type="color3" doc="Input parameter color0" />
+    <input name="color90" type="color3" doc="Input parameter color90" />
+    <input name="roughness" type="vector2" doc="Input parameter roughness" />
+    <input name="normal" type="vector3" doc="Input parameter normal" />
+    <input name="tangent" type="vector3" doc="Input parameter tangent" />
+    <output name="out_" type="BSDF" doc="Output parameter out_" />
+  </nodedef>
+</materialx>

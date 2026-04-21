@@ -26,7 +26,7 @@ graph-based implementations defined in MaterialX XML.
 """
 
 from metashade.mtlx.dtypes import mtlx_to_metashade_dtype, register_mtlx_closure_structs
-from metashade.targets._clike.context import FunctionDecl
+from metashade.targets._clike.context import FunctionDecl, In
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
@@ -35,6 +35,51 @@ if TYPE_CHECKING:
 # Output types that require ClosureData injection (matches
 # HwShaderGenerator::nodeNeedsClosureData in MaterialX C++).
 _CLOSURE_OUTPUT_TYPES = frozenset({'BSDF', 'EDF', 'VDF'})
+
+# Known MaterialX string enum values mapped to their integer equivalents.
+# String enums become integers in shader code generation.
+_STRING_ENUM_VALUES = {
+    'ggx': 0,
+    'R': 0,
+    'T': 1,
+    'RT': 2,
+}
+
+# MaterialX vector/color types that need conversion to tuples
+_MTLX_VECTOR_SIZES = {
+    'vector2': 2, 'color2': 2,
+    'vector3': 3, 'color3': 3,
+    'vector4': 4, 'color4': 4,
+}
+
+
+def _convert_mtlx_value(mtlx_type: str, value):
+    """Convert a MaterialX getValue() result to a Metashade-compatible default.
+    
+    Args:
+        mtlx_type: MaterialX type string (e.g., 'float', 'vector3')
+        value: The value returned by input.getValue()
+        
+    Returns:
+        Python value suitable for Metashade default, or None if not convertible
+    """
+    if value is None:
+        return None
+    
+    # Scalars pass through directly
+    if isinstance(value, (int, float, bool)):
+        return value
+    
+    # String enums map to integers
+    if isinstance(value, str):
+        return _STRING_ENUM_VALUES.get(value)
+    
+    # Vector/color types convert to tuples
+    size = _MTLX_VECTOR_SIZES.get(mtlx_type)
+    if size is not None:
+        return tuple(value[i] for i in range(size))
+    
+    return None
 
 def _node_needs_closure_data(nodedef) -> bool:
     """Check if a nodedef's implementation requires ClosureData injection."""
@@ -91,14 +136,21 @@ def acquire_function(sh, impl):
         param_annotations['closureData'] = sh.ClosureData
     
     for input in nodedef.getInputs():
-        dtype = mtlx_to_metashade_dtype(input.getType(), sh)
+        mtlx_type = input.getType()
+        dtype = mtlx_to_metashade_dtype(mtlx_type, sh)
         if dtype is None:
             raise TypeError(
-                f"Cannot map MaterialX type '{input.getType()}' for input "
+                f"Cannot map MaterialX type '{mtlx_type}' for input "
                 f"'{input.getName()}' in {func_attr}"
             )
         param_name = _sanitize_identifier(input.getName())
-        param_annotations[param_name] = dtype
+        
+        # Extract default value from MaterialX nodedef
+        default = _convert_mtlx_value(mtlx_type, input.getValue())
+        if default is not None:
+            param_annotations[param_name] = In(dtype, default=default)
+        else:
+            param_annotations[param_name] = dtype
     
     for output in nodedef.getOutputs():
         dtype = mtlx_to_metashade_dtype(output.getType(), sh)

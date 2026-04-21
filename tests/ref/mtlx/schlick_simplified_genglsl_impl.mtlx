@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<materialx version="1.39">
+  <implementation name="IM_schlick_metal_genglsl" nodedef="ND_schlick_metal" target="genglsl" file="schlick_simplified_genglsl_impl.glsl" function="schlick_metal" doc="Simplified Schlick BSDF - calls generalized_schlick_bsdf with MaterialX defaults for weight, color82, exponent, thinfilm, distribution, and scatter_mode." />
+</materialx>

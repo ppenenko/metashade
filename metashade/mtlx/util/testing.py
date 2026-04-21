@@ -39,7 +39,12 @@ class GlslTestContext(GlslGeneratorContext):
         
         os.makedirs(cls._out_dir, exist_ok=True)
 
-    def __init__(self, base_name: str = None, impl_only: bool = False):
+    def __init__(
+        self,
+        base_name: str = None,
+        impl_only: bool = False,
+        glsl_only: bool = False
+    ):
         """
         Initialize a GLSL test context.
         
@@ -48,13 +53,24 @@ class GlslTestContext(GlslGeneratorContext):
                        If not provided, uses the test function name.
                        For library-level overrides, use e.g., 'metashade_pbrlib'
             impl_only: If True, skip nodedef generation (for overrides)
+            glsl_only: If True, skip all MaterialX file generation (only GLSL)
         """
         if base_name is None:
             base_name = get_test_func_name()
+        self._glsl_only = glsl_only
         super().__init__(base_name, self._out_dir, impl_only=impl_only)
 
     def __exit__(self, exc_type, exc_value, traceback):
-        # Allow parent to generate files first
+        if self._glsl_only:
+            # Skip MaterialX file generation - only write GLSL
+            self._src_file.close()
+            if exc_type is not None:
+                return False
+            if self._ref_differ is not None:
+                self._ref_differ(self._src_path)
+            return True
+        
+        # Allow parent to generate files
         success = super().__exit__(exc_type, exc_value, traceback)
         
         if success and self._ref_differ is not None:
